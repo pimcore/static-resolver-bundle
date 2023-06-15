@@ -1,0 +1,8 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Pimcore\Bundle\StaticResolverBundle\User\UserResolverInterface:
+        class: Pimcore\Bundle\StaticResolverBundle\User\UserResolver

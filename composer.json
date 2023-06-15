@@ -1,0 +1,28 @@
+{
+  "name": "pimcore/static-resolver-bundle",
+  "license": "GPL-3.0+",
+  "type": "pimcore-bundle",
+  "description": "Pimcore Static Resolver Bundle",
+  "config": {
+    "sort-packages": true,
+    "preferred-install": {
+      "pimcore/pimcore": "source",
+      "*": "dist"
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "Pimcore\\Bundle\\StaticResolverBundle\\": "src/"
+    }
+  },
+  "require": {
+    "pimcore/pimcore": "^11.0"
+  },
+  "extra": {
+    "pimcore": {
+      "bundles": [
+        "Pimcore\\Bundle\\StaticResolverBundle\\PimcoreStaticResolverBundle"
+      ]
+    }
+  }
+}
