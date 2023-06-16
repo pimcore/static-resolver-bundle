@@ -21,6 +21,7 @@ use Pimcore\Model\User;
 
 class UserResolver implements UserResolverInterface
 {
+    // Test
     public function getById(int $id): ?User
     {
         return User::getById($id);
