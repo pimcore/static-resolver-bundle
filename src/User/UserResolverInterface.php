@@ -22,4 +22,6 @@ use Pimcore\Model\User;
 interface UserResolverInterface
 {
     public function getById(int $id): ?User;
+
+    public function getUserRoleById(int $id): ?User\UserRole;
 }

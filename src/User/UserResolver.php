@@ -25,4 +25,9 @@ class UserResolver implements UserResolverInterface
     {
         return User::getById($id);
     }
+
+    public function getUserRoleById(int $id): ?User\UserRole
+    {
+        return User\UserRole::getById($id);
+    }
 }
