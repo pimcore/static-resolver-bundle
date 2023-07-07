@@ -1,0 +1,8 @@
+version: '3.0'
+services:
+    php-static-resolver-bundle:
+        image: pimcore/pimcore:php8.2-debug-v3-dev
+        environment:
+            PHP_IDE_CONFIG: serverName=localhost
+        volumes:
+            - .:/var/cli/

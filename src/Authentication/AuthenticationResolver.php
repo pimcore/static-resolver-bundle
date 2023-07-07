@@ -15,21 +15,16 @@ declare(strict_types=1);
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Pimcore\Bundle\StaticResolverBundle\User;
+namespace Pimcore\Bundle\StaticResolverBundle\Authentication;
 
 use Pimcore\Model\User;
+use Pimcore\Tool\Authentication;
+use Symfony\Component\HttpFoundation\Request;
 
-interface UserResolverInterface
+class AuthenticationResolver implements AuthenticationResolverInterface
 {
-    public function getById(int $id): ?User;
-
-    public function getByName(string $name): ?User;
-
-    public function create(array $values = []) : User;
-
-    public function getUserRoleById(int $id): ?User\UserRole;
-
-    public function getUserRoleByName(string $name): ?User\UserRole;
-
-    public function createUserRole(array $values = []): User\UserRole;
+    public function authenticateSession(Request $request = null): ?User
+    {
+        return Authentication::authenticateSession($request);
+    }
 }

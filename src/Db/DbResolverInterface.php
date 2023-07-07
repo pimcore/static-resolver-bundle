@@ -15,21 +15,17 @@ declare(strict_types=1);
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Pimcore\Bundle\StaticResolverBundle\User;
+namespace Pimcore\Bundle\StaticResolverBundle\Db;
 
-use Pimcore\Model\User;
+use Doctrine\DBAL\Connection;
 
-interface UserResolverInterface
+interface DbResolverInterface
 {
-    public function getById(int $id): ?User;
+    public function getConnection(): Connection;
 
-    public function getByName(string $name): ?User;
+    public function reset(): Connection;
 
-    public function create(array $values = []) : User;
+    public function get(): Connection;
 
-    public function getUserRoleById(int $id): ?User\UserRole;
-
-    public function getUserRoleByName(string $name): ?User\UserRole;
-
-    public function createUserRole(array $values = []): User\UserRole;
+    public function close(): void;
 }
