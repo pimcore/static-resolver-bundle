@@ -25,7 +25,7 @@ interface UserResolverInterface
 
     public function getByName(string $name): ?User;
 
-    public function create(array $values = []) : User;
+    public function create(array $values = []): User;
 
     public function getUserRoleById(int $id): ?User\UserRole;
 
