@@ -16,19 +16,20 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\User;
 
-use Pimcore\Model\User;
+use Pimcore\Bundle\StaticResolverBundle\User\Interfaces\UserInterface;
+use Pimcore\Bundle\StaticResolverBundle\User\Interfaces\UserRoleInterface;
 
 interface UserResolverInterface
 {
-    public function getById(int $id): ?User;
+    public function getById(int $id): ?UserInterface;
 
-    public function getByName(string $name): ?User;
+    public function getByName(string $name): ?UserInterface;
 
-    public function create(array $values = []): User;
+    public function create(array $values = []): UserInterface;
 
-    public function getUserRoleById(int $id): ?User\UserRole;
+    public function getUserRoleById(int $id): ?UserRoleInterface;
 
-    public function getUserRoleByName(string $name): ?User\UserRole;
+    public function getUserRoleByName(string $name): ?UserRoleInterface;
 
-    public function createUserRole(array $values = []): User\UserRole;
+    public function createUserRole(array $values = []): UserRoleInterface;
 }
