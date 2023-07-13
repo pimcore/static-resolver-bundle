@@ -10,3 +10,7 @@ services:
         class: Pimcore\Bundle\StaticResolverBundle\Authentication\AuthenticationResolver
     Pimcore\Bundle\StaticResolverBundle\Db\DbResolverInterface:
         class: Pimcore\Bundle\StaticResolverBundle\Db\DbResolver
+    Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\RemoteObject\RemoteObjectFactoryInterface:
+        class: Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\RemoteObject\RemoteObjectFactory
+        arguments:
+            $proxyPath: '/../Generated/Classes/Cache/'
