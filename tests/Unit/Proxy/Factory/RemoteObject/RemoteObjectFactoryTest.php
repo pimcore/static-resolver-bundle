@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Tests\Unit\Proxy\Factory\RemoteObject;
 
+use Codeception\Attribute\Group;
 use Codeception\Test\Unit;
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\RemoteObject\RemoteObjectFactory;
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\RemoteObject\RemoteObjectFactoryInterface;
@@ -12,6 +13,8 @@ use Pimcore\Bundle\StaticResolverBundle\Tests\Unit\Proxy\TestData\TestUserInterf
 
 class RemoteObjectFactoryTest extends Unit
 {
+    #[Group('proxy')]
+    #[Group('factory')]
     public function testRemoteObjectFactory(): void
     {
         $factory = new RemoteObjectFactory();
@@ -20,6 +23,8 @@ class RemoteObjectFactoryTest extends Unit
         $this->assertInstanceOf(RemoteObjectFactoryInterface::class, $factory);
     }
 
+    #[Group('proxy')]
+    #[Group('factory')]
     public function testCreateObjectProxy(): void
     {
         $factory = new RemoteObjectFactory();
@@ -30,6 +35,8 @@ class RemoteObjectFactoryTest extends Unit
         $this->assertEquals('John', $proxy->getFirstName());
     }
 
+    #[Group('proxy')]
+    #[Group('factory')]
     public function testCreateStrictProxy(): void
     {
         $factory = new RemoteObjectFactory();
@@ -45,6 +52,8 @@ class RemoteObjectFactoryTest extends Unit
         $factory->createStrictProxy(TestUserBInterface::class, new TestUser());
     }
 
+    #[Group('proxy')]
+    #[Group('factory')]
     public function testCreateDecoratorProxy(): void
     {
         $factory = new RemoteObjectFactory();
@@ -55,10 +64,16 @@ class RemoteObjectFactoryTest extends Unit
         $factory = new RemoteObjectFactory();
         $proxy = $factory->createDecoratorProxy(TestUserBInterface::class, new TestUser());
         //Decorator proxy is not strict,
-        //so it must be possible to create a proxy for an interface that is not implemented.
+        //So it must be possible to create a proxy for an interface that is not implemented.
         $this->assertInstanceOf(TestUserBInterface::class, $proxy);
+        //Proxy must call the method of the class.
+        $this->assertEquals('John', $proxy->getFirstName());
+        //Can use the interface to call magic methods
+        $this->assertEquals('getId', $proxy->getId());
     }
 
+    #[Group('proxy')]
+    #[Group('factory')]
     public function testCreateProxyWithOutputCache(): void
     {
         $factory = new RemoteObjectFactory(__DIR__.'/ProxyOutput');
@@ -73,6 +88,8 @@ class RemoteObjectFactoryTest extends Unit
 
     }
 
+    #[Group('proxy')]
+    #[Group('factory')]
     public function testMethodsAvailable(): void
     {
         $factory = new RemoteObjectFactory();
@@ -83,6 +100,8 @@ class RemoteObjectFactoryTest extends Unit
         $this->assertTrue(method_exists($proxy, 'getLastName'));
     }
 
+    #[Group('proxy')]
+    #[Group('factory')]
     public function testMethodsAvailableStrictProxy(): void
     {
         $factory = new RemoteObjectFactory();
@@ -93,6 +112,8 @@ class RemoteObjectFactoryTest extends Unit
         $this->assertFalse(method_exists($proxy, 'getLastName'));
     }
 
+    #[Group('proxy')]
+    #[Group('factory')]
     public function testMethodsAvailableDecoratorProxy(): void
     {
         $factory = new RemoteObjectFactory();

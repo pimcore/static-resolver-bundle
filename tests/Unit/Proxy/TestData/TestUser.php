@@ -15,4 +15,9 @@ class TestUser implements TestUserInterface
     {
        return 'Doe';
     }
+
+    public function __call($name, $arguments)
+    {
+        return $name;
+    }
 }

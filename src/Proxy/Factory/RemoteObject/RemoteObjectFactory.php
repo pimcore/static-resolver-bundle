@@ -23,10 +23,6 @@ class RemoteObjectFactory implements RemoteObjectFactoryInterface
 
     public function createStrictProxy(string $interface, object $remote): RemoteObjectInterface
     {
-        if (!interface_exists($interface)) {
-            throw new InvalidArgumentException(sprintf('Interface %s does not exist', $interface));
-        }
-
         return (new \ProxyManager\Factory\RemoteObjectFactory(
             new StrictObjectAdapter($remote, $interface),
             $this->getConfig()
