@@ -20,6 +20,9 @@ use Pimcore\Model\DataObject\ClassDefinition;
 
 class ClassDefinitionResolver implements ClassDefinitionResolverInterface
 {
+    /**
+     * @throws \Exception
+     */
     public function getById(string $id, bool $force = false): ?ClassDefinition
     {
         return ClassDefinition::getById($id, $force);
