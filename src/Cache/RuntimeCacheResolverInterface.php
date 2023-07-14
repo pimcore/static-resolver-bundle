@@ -18,9 +18,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Cache;
 
 interface RuntimeCacheResolverInterface
 {
-    public function runtimeCacheLoad(string $key): mixed;
+    public function runtimeCacheLoad(string $id): mixed;
 
-    public function runtimeCacheSave(string $key, mixed $data): void;
+    public function runtimeCacheSave(mixed $data, string $id): void;
 
-    public function runtimeCacheIsRegistered(string $key): bool;
+    public function runtimeCacheIsRegistered(string $index): bool;
 }

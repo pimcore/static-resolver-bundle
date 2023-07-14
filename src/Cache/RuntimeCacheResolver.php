@@ -20,18 +20,18 @@ use Pimcore\Cache\RuntimeCache;
 
 class RuntimeCacheResolver implements RuntimeCacheResolverInterface
 {
-    public function runtimeCacheLoad(string $key): mixed
+    public function runtimeCacheLoad(string $id): mixed
     {
-        return RuntimeCache::load($key);
+        return RuntimeCache::load($id);
     }
 
-    public function runtimeCacheSave(string $key, mixed $data): void
+    public function runtimeCacheSave(mixed $data, string $id): void
     {
-        RuntimeCache::save($key, $data);
+        RuntimeCache::save($data, $id);
     }
 
-    public function runtimeCacheIsRegistered(string $key): bool
+    public function runtimeCacheIsRegistered(string $index): bool
     {
-        return RuntimeCache::isRegistered($key);
+        return RuntimeCache::isRegistered($index);
     }
 }
