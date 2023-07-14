@@ -14,16 +14,11 @@ declare(strict_types=1);
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Pimcore\Bundle\StaticResolverBundle\Authentication;
+namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject\Objectbrick;
 
-use Pimcore\Model\User;
-use Pimcore\Tool\Authentication;
-use Symfony\Component\HttpFoundation\Request;
+use Pimcore\Model\DataObject\Objectbrick\Definition;
 
-class AuthenticationResolver implements AuthenticationResolverInterface
+interface DefinitionResolverInterface
 {
-    public function authenticateSession(Request $request = null): ?User
-    {
-        return Authentication::authenticateSession($request);
-    }
+    public function getByKey(string $key): ?Definition;
 }

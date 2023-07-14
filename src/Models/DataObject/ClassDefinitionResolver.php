@@ -14,13 +14,14 @@ declare(strict_types=1);
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Pimcore\Bundle\StaticResolverBundle\Cache;
+namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject;
 
-interface RuntimeCacheResolverInterface
+use Pimcore\Model\DataObject\ClassDefinition;
+
+class ClassDefinitionResolver implements ClassDefinitionResolverInterface
 {
-    public function runtimeCacheLoad(string $id): mixed;
-
-    public function runtimeCacheSave(mixed $data, string $id): void;
-
-    public function runtimeCacheIsRegistered(string $index): bool;
+    public function getById(string $id, bool $force = false): ?ClassDefinition
+    {
+        return ClassDefinition::getById($id, $force);
+    }
 }

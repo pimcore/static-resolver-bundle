@@ -14,12 +14,14 @@ declare(strict_types=1);
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Pimcore\Bundle\StaticResolverBundle\Authentication;
+namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject;
 
-use Pimcore\Model\User;
-use Symfony\Component\HttpFoundation\Request;
+use Pimcore\Model\DataObject\Concrete;
 
-interface AuthenticationResolverInterface
+class ConcreteObjectResolver implements ConcreteObjectResolverInterface
 {
-    public function authenticateSession(Request $request = null): ?User;
+    public function getById(int $id, array $params = []): null|Concrete
+    {
+        return Concrete::getById($id, $params);
+    }
 }

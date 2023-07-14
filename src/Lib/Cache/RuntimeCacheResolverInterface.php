@@ -14,21 +14,13 @@ declare(strict_types=1);
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Pimcore\Bundle\StaticResolverBundle\User;
+namespace Pimcore\Bundle\StaticResolverBundle\Lib\Cache;
 
-use Pimcore\Model\User;
-
-interface UserResolverInterface
+interface RuntimeCacheResolverInterface
 {
-    public function getById(int $id): ?User;
+    public function runtimeCacheLoad(string $id): mixed;
 
-    public function getByName(string $name): ?User;
+    public function runtimeCacheSave(mixed $data, string $id): void;
 
-    public function create(array $values = []): User;
-
-    public function getUserRoleById(int $id): ?User\UserRole;
-
-    public function getUserRoleByName(string $name): ?User\UserRole;
-
-    public function createUserRole(array $values = []): User\UserRole;
+    public function runtimeCacheIsRegistered(string $index): bool;
 }
