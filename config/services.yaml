@@ -8,5 +8,9 @@ services:
         class: Pimcore\Bundle\StaticResolverBundle\User\UserResolver
     Pimcore\Bundle\StaticResolverBundle\Authentication\AuthenticationResolverInterface:
         class: Pimcore\Bundle\StaticResolverBundle\Authentication\AuthenticationResolver
+    Pimcore\Bundle\StaticResolverBundle\Cache\RuntimeCacheResolverInterface:
+        class: Pimcore\Bundle\StaticResolverBundle\Cache\RuntimeCacheResolver
     Pimcore\Bundle\StaticResolverBundle\Db\DbResolverInterface:
         class: Pimcore\Bundle\StaticResolverBundle\Db\DbResolver
+    Pimcore\Bundle\StaticResolverBundle\DataObject\ServiceResolverInterface:
+        class: Pimcore\Bundle\StaticResolverBundle\DataObject\ServiceResolver
