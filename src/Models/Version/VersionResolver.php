@@ -14,30 +14,24 @@ declare(strict_types=1);
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Pimcore\Bundle\StaticResolverBundle\Db;
+namespace Pimcore\Bundle\StaticResolverBundle\Models\Version;
 
-use Doctrine\DBAL\Connection;
-use Pimcore\Db;
+use Pimcore\Model\Version;
 
-class DbResolver implements DbResolverInterface
+class VersionResolver implements VersionResolverInterface
 {
-    public function getConnection(): Connection
+    public function enable(): void
     {
-        return Db::getConnection();
+        Version::enable();
     }
 
-    public function reset(): Connection
+    public function disable(): void
     {
-        return Db::reset();
+        Version::disable();
     }
 
-    public function get(): Connection
+    public function isEnabled(): bool
     {
-        return Db::get();
-    }
-
-    public function close(): void
-    {
-        Db::close();
+        return Version::isEnabled();
     }
 }

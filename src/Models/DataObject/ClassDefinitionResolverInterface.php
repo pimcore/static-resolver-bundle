@@ -14,17 +14,11 @@ declare(strict_types=1);
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Pimcore\Bundle\StaticResolverBundle\Db;
+namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject;
 
-use Doctrine\DBAL\Connection;
+use Pimcore\Model\DataObject\ClassDefinition;
 
-interface DbResolverInterface
+interface ClassDefinitionResolverInterface
 {
-    public function getConnection(): Connection;
-
-    public function reset(): Connection;
-
-    public function get(): Connection;
-
-    public function close(): void;
+    public function getById(string $id, bool $force = false): ?ClassDefinition;
 }

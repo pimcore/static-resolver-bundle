@@ -14,30 +14,22 @@ declare(strict_types=1);
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Pimcore\Bundle\StaticResolverBundle\Db;
+namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject;
 
-use Doctrine\DBAL\Connection;
-use Pimcore\Db;
+use Pimcore\Model\DataObject\Service;
 
-class DbResolver implements DbResolverInterface
+class DataObjectServiceResolver implements DataObjectServiceResolverInterface
 {
-    public function getConnection(): Connection
+    public function useInheritedValues(
+        bool $inheritValues,
+        callable $fn,
+        array $fnArgs = []
+    ): mixed
     {
-        return Db::getConnection();
-    }
-
-    public function reset(): Connection
-    {
-        return Db::reset();
-    }
-
-    public function get(): Connection
-    {
-        return Db::get();
-    }
-
-    public function close(): void
-    {
-        Db::close();
+        return Service::useInheritedValues(
+            $inheritValues,
+            $fn,
+            $fnArgs
+        );
     }
 }

@@ -4,9 +4,21 @@ services:
         autoconfigure: true
         public: false
 
-    Pimcore\Bundle\StaticResolverBundle\User\UserResolverInterface:
-        class: Pimcore\Bundle\StaticResolverBundle\User\UserResolver
-    Pimcore\Bundle\StaticResolverBundle\Authentication\AuthenticationResolverInterface:
-        class: Pimcore\Bundle\StaticResolverBundle\Authentication\AuthenticationResolver
     Pimcore\Bundle\StaticResolverBundle\Db\DbResolverInterface:
         class: Pimcore\Bundle\StaticResolverBundle\Db\DbResolver
+    Pimcore\Bundle\StaticResolverBundle\Lib\Tools\Authentication\AuthenticationResolverInterface:
+        class: Pimcore\Bundle\StaticResolverBundle\Lib\Tools\Authentication\AuthenticationResolver
+    Pimcore\Bundle\StaticResolverBundle\Lib\Cache\RuntimeCacheResolverInterface:
+        class: Pimcore\Bundle\StaticResolverBundle\Lib\Cache\RuntimeCacheResolver
+    Pimcore\Bundle\StaticResolverBundle\Models\DataObject\ConcreteObjectResolverInterface:
+        class: Pimcore\Bundle\StaticResolverBundle\Models\DataObject\ConcreteObjectResolver
+    Pimcore\Bundle\StaticResolverBundle\Models\DataObject\ClassDefinitionResolverInterface:
+        class: Pimcore\Bundle\StaticResolverBundle\Models\DataObject\ClassDefinitionResolver
+    Pimcore\Bundle\StaticResolverBundle\Models\DataObject\DataObjectServiceResolverInterface:
+        class: Pimcore\Bundle\StaticResolverBundle\Models\DataObject\DataObjectServiceResolver
+    Pimcore\Bundle\StaticResolverBundle\Models\DataObject\Objectbrick\DefinitionResolverInterface:
+        class: Pimcore\Bundle\StaticResolverBundle\Models\DataObject\Objectbrick\DefinitionResolver
+    Pimcore\Bundle\StaticResolverBundle\Models\User\UserResolverInterface:
+        class: Pimcore\Bundle\StaticResolverBundle\Models\User\UserResolver
+    Pimcore\Bundle\StaticResolverBundle\Models\Version\VersionResolverInterface:
+        class: Pimcore\Bundle\StaticResolverBundle\Models\Version\VersionResolver

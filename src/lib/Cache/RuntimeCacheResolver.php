@@ -1,5 +1,4 @@
 <?php
-
 declare(strict_types=1);
 
 /**
@@ -15,16 +14,24 @@ declare(strict_types=1);
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Pimcore\Bundle\StaticResolverBundle\Authentication;
+namespace Pimcore\Bundle\StaticResolverBundie\Lib\Cache;
 
-use Pimcore\Model\User;
-use Pimcore\Tool\Authentication;
-use Symfony\Component\HttpFoundation\Request;
+use Pimcore\Cache\RuntimeCache;
 
-class AuthenticationResolver implements AuthenticationResolverInterface
+class RuntimeCacheResolver implements RuntimeCacheResolverInterface
 {
-    public function authenticateSession(Request $request = null): ?User
+    public function load(string $id): mixed
     {
-        return Authentication::authenticateSession($request);
+        return RuntimeCache::load($id);
+    }
+
+    public function save(mixed $data, string $id): void
+    {
+        RuntimeCache::save($data, $id);
+    }
+
+    public function isRegistered(string $index): bool
+    {
+        return RuntimeCache::isRegistered($index);
     }
 }
