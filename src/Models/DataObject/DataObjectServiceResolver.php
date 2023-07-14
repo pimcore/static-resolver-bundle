@@ -24,8 +24,7 @@ class DataObjectServiceResolver implements DataObjectServiceResolverInterface
         bool $inheritValues,
         callable $fn,
         array $fnArgs = []
-    ): mixed
-    {
+    ): mixed {
         return Service::useInheritedValues(
             $inheritValues,
             $fn,
