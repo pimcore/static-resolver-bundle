@@ -17,11 +17,20 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\DataObject;
 
-interface ServiceResolverInterface
+use Pimcore\Model\DataObject\Service;
+
+class DataObjectServiceResolver implements DataObjectServiceResolverInterface
 {
     public function useInheritedValues(
         bool $inheritValues,
         callable $fn,
         array $fnArgs = []
-    ): mixed;
+    ): mixed
+    {
+        return Service::useInheritedValues(
+            $inheritValues,
+            $fn,
+            $fnArgs
+        );
+    }
 }
