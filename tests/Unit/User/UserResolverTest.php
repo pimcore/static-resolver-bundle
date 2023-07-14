@@ -5,7 +5,7 @@ namespace Pimcore\Bundle\StaticResolverBundle\Tests\Unit\User;
 
 use Codeception\Attribute\Group;
 use Codeception\Test\Unit;
-use Pimcore\Bundle\StaticResolverBundle\User\Interfaces\UserInterface;
+use Pimcore\Bundle\StaticResolverBundle\Tests\Unit\Proxy\TestData\TestUser;
 use Pimcore\Bundle\StaticResolverBundle\User\UserResolver;
 
 class UserResolverTest extends Unit
@@ -18,14 +18,14 @@ class UserResolverTest extends Unit
         $resolver->method('getById')->willReturnCallback(
             function ($arg) {
                 if ($arg === 1) {
-                    return $this->createMock(UserInterface::class);
+                    return $this->createMock(TestUser::class);
                 }
                 return null;
             }
         );
 
         $user = $resolver->getById(1);
-        $this->assertInstanceOf(UserInterface::class, $user);
+        $this->assertInstanceOf(TestUser::class, $user);
         $user = $resolver->getById(10);
         $this->assertNull($user);
     }
