@@ -14,16 +14,13 @@ declare(strict_types=1);
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Pimcore\Bundle\StaticResolverBundie\Lib\Tools\Authentication;
+namespace Pimcore\Bundle\StaticResolverBundle\Lib\Cache;
 
-use Pimcore\Model\User;
-use Pimcore\Tool\Authentication;
-use Symfony\Component\HttpFoundation\Request;
-
-class AuthenticationResolver implements AuthenticationResolverInterface
+interface RuntimeCacheResolverInterface
 {
-    public function authenticateSession(Request $request = null): ?User
-    {
-        return Authentication::authenticateSession($request);
-    }
+    public function load(string $id): mixed;
+
+    public function save(mixed $data, string $id): void;
+
+    public function isRegistered(string $index): bool;
 }
