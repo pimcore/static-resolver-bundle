@@ -5,12 +5,17 @@ namespace Pimcore\Bundle\StaticResolverBundle\Tests\Unit\User;
 
 use Codeception\Attribute\Group;
 use Codeception\Test\Unit;
+use PHPUnit\Framework\MockObject\Exception;
+use Pimcore\Bundle\StaticResolverBundle\Proxy\Service\InvalidServiceException;
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Service\ProxyServiceInterface;
 use Pimcore\Bundle\StaticResolverBundle\Tests\Unit\Proxy\TestData\TestUser;
-use Pimcore\Bundle\StaticResolverBundle\User\UserResolver;
 
 class UserResolverTest extends Unit
 {
+    /**
+     * @throws InvalidServiceException
+     * @throws Exception
+     */
     #[Group('user')]
     public function testProxy(): void
     {

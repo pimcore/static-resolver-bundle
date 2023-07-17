@@ -5,7 +5,7 @@ namespace Pimcore\Bundle\StaticResolverBundle\Tests\Unit\Proxy\Adapter;
 
 use Codeception\Attribute\Group;
 use Codeception\Test\Unit;
-use Pimcore\Bundle\StaticResolverBundle\Proxy\Adapter\Remote\ObjectAdapter;
+use InvalidArgumentException;
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Adapter\Remote\ObjectAdapterInterface;
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Adapter\Remote\StrictObjectAdapter;
 use Pimcore\Bundle\StaticResolverBundle\Tests\Unit\Proxy\TestData\TestUser;
@@ -33,7 +33,7 @@ class StrictObjectAdapterTest extends Unit
         $object = new TestUser();
         //Class TestUser does not implement TestUserBInterface and not all methods are implemented.
         //No magic calls are possible.
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         new StrictObjectAdapter($object, TestUserBInterface::class);
     }
 
@@ -46,7 +46,7 @@ class StrictObjectAdapterTest extends Unit
         $object = new TestUser();
         //Class TestUser does not implement TestUserBInterface and not all methods are implemented.
         //No magic calls are possible.
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         new StrictObjectAdapter($object, 'asdasdfasdf');
     }
 
