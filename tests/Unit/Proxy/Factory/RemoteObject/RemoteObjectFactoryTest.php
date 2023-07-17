@@ -5,6 +5,7 @@ namespace Pimcore\Bundle\StaticResolverBundle\Tests\Unit\Proxy\Factory\RemoteObj
 
 use Codeception\Attribute\Group;
 use Codeception\Test\Unit;
+use InvalidArgumentException;
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\RemoteObject\RemoteObjectFactory;
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\RemoteObject\RemoteObjectFactoryInterface;
 use Pimcore\Bundle\StaticResolverBundle\Tests\Unit\Proxy\TestData\TestUser;
@@ -47,7 +48,7 @@ class RemoteObjectFactoryTest extends Unit
         $this->assertEquals('John', $proxy->getFirstName());
 
         $factory = new RemoteObjectFactory();
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         //Strict proxy must throw an exception if the interface is not implemented.
         $factory->createStrictProxy(TestUserBInterface::class, new TestUser());
     }
@@ -129,7 +130,6 @@ class RemoteObjectFactoryTest extends Unit
 
     protected function _before (): void
     {
-        return;
         $files = glob(__DIR__.'/ProxyOutput/*');
         foreach ($files as $file) {
             if (is_file($file)) {
@@ -139,7 +139,6 @@ class RemoteObjectFactoryTest extends Unit
     }
     protected function _after(): void
     {
-        return;
         $files = glob(__DIR__.'/ProxyOutput/*');
         foreach ($files as $file) {
             if (is_file($file)) {
