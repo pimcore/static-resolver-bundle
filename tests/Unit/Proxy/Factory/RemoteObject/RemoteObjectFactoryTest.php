@@ -127,8 +127,7 @@ class RemoteObjectFactoryTest extends Unit
         $this->assertFalse(method_exists($proxy, 'getLastName'));
     }
 
-
-    protected function _before (): void
+    protected function _before(): void
     {
         $files = glob(__DIR__.'/ProxyOutput/*');
         foreach ($files as $file) {
@@ -137,6 +136,7 @@ class RemoteObjectFactoryTest extends Unit
             }
         }
     }
+
     protected function _after(): void
     {
         $files = glob(__DIR__.'/ProxyOutput/*');
