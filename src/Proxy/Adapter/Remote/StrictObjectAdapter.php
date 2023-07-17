@@ -5,7 +5,8 @@ namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Adapter\Remote;
 
 use BadMethodCallException;
 use InvalidArgumentException;
-use ProxyManager\Factory\RemoteObject\AdapterInterface;
+use ReflectionException;
+use ReflectionMethod;
 
 class StrictObjectAdapter implements ObjectAdapterInterface
 {
@@ -32,11 +33,22 @@ class StrictObjectAdapter implements ObjectAdapterInterface
     private function checkInterfaceMethods(): bool
     {
         foreach (get_class_methods($this->interface) as $method) {
-            if (!method_exists($this->remoteClassOrInstance, $method)) {
+            if (!method_exists($this->remoteClassOrInstance, $method) || !$this->methodIsPublic($method)) {
                 return false;
             }
         }
 
         return true;
+    }
+
+    // Check the visibility of the method with reflection if the method is not public, return false.
+    private function methodIsPublic(string $method): bool
+    {
+        try {
+            $reflection = new ReflectionMethod($this->remoteClassOrInstance, $method);
+        } catch (ReflectionException) {
+            return false;
+        }
+        return !(!is_object($reflection) || !$reflection->isPublic());
     }
 }

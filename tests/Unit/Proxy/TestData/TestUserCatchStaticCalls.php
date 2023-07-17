@@ -3,10 +3,10 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Tests\Unit\Proxy\TestData;
 
-class TestUser implements TestUserInterface
+class TestUserCatchStaticCalls implements TestUserInterface
 {
 
-    public static function getObject(): self
+    public static function __callStatic(string $name, array $args): self
     {
         return new self();
     }
