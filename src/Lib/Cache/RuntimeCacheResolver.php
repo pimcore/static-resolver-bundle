@@ -14,7 +14,7 @@ declare(strict_types=1);
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Pimcore\Bundle\StaticResolverBundie\Lib\Cache;
+namespace Pimcore\Bundle\StaticResolverBundle\Lib\Cache;
 
 use Pimcore\Cache\RuntimeCache;
 
