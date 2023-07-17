@@ -129,6 +129,7 @@ class RemoteObjectFactoryTest extends Unit
 
     protected function _before (): void
     {
+        return;
         $files = glob(__DIR__.'/ProxyOutput/*');
         foreach ($files as $file) {
             if (is_file($file)) {
@@ -138,6 +139,7 @@ class RemoteObjectFactoryTest extends Unit
     }
     protected function _after(): void
     {
+        return;
         $files = glob(__DIR__.'/ProxyOutput/*');
         foreach ($files as $file) {
             if (is_file($file)) {

@@ -17,48 +17,37 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\User;
 
-use Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\RemoteObject\RemoteObjectFactoryInterface;
-use Pimcore\Bundle\StaticResolverBundle\Proxy\Traits\GetProxy;
 use Pimcore\Model\User;
 
 class UserResolver implements UserResolverInterface
 {
-
-    use GetProxy;
-
-    public function __construct(
-        protected readonly RemoteObjectFactoryInterface $remoteObjectFactory
-    )
+    public function getById(int $id): ?User
     {
+        return User::getById($id);
     }
 
-    public function getById(int $id, ?string $interface = null): ?object
+    public function getByName(string $name): ?User
     {
-        return $this->getDecoratorProxy($interface, User::getById($id));
+        return User::getByName($name);
     }
 
-    public function getByName(string $name, ?string $interface = null): ?object
+    public function create(array $values = []): User
     {
-        return $this->getDecoratorProxy($interface, User::getByName($name));
+        return User::create($values);
     }
 
-    public function create(array $values = [], ?string $interface = null): object
+    public function getUserRoleById(int $id): ?User\UserRole
     {
-        return $this->getDecoratorProxy($interface, User::create($values));
+        return User\UserRole::getById($id);
     }
 
-    public function getUserRoleById(int $id, ?string $interface = null): ?object
+    public function getUserRoleByName(string $name): ?User\UserRole
     {
-        return $this->getDecoratorProxy($interface, User\UserRole::getById($id));
+        return User\UserRole::getByName($name);
     }
 
-    public function getUserRoleByName(string $name, ?string $interface = null): ?object
+    public function createUserRole(array $values = []): User\UserRole
     {
-        return $this->getDecoratorProxy($interface, User\UserRole::getByName($name));
-    }
-
-    public function createUserRole(array $values = [], ?string $interface = null): object
-    {
-        return $this->getDecoratorProxy($interface, User\UserRole::create($values));
+        return User\UserRole::create($values);
     }
 }

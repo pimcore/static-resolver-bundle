@@ -5,6 +5,7 @@ namespace Pimcore\Bundle\StaticResolverBundle\Tests\Unit\User;
 
 use Codeception\Attribute\Group;
 use Codeception\Test\Unit;
+use Pimcore\Bundle\StaticResolverBundle\Proxy\Service\ProxyServiceInterface;
 use Pimcore\Bundle\StaticResolverBundle\Tests\Unit\Proxy\TestData\TestUser;
 use Pimcore\Bundle\StaticResolverBundle\User\UserResolver;
 
@@ -13,20 +14,19 @@ class UserResolverTest extends Unit
     #[Group('user')]
     public function testProxy(): void
     {
-        //Can mock user resolver and return a user interface instead of a user object.
-        $resolver = $this->createMock(UserResolver::class);
-        $resolver->method('getById')->willReturnCallback(
-            function ($arg) {
-                if ($arg === 1) {
+        $service = $this->createMock(ProxyServiceInterface::class);
+        $service->method('getProxyObject')->willReturnCallback(
+            function ($arg1, $arg2, $arg3 = null) {
+                if ($arg1 === TestUser::class && $arg2 === 'getObject' && $arg3[0] === 1) {
                     return $this->createMock(TestUser::class);
                 }
                 return null;
             }
         );
 
-        $user = $resolver->getById(1);
+        $user = $service->getProxyObject(TestUser::class, 'getObject', [1]);
         $this->assertInstanceOf(TestUser::class, $user);
-        $user = $resolver->getById(10);
+        $user = $service->getProxyObject(TestUser::class, 'getObject', [10]);
         $this->assertNull($user);
     }
 }
