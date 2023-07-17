@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Install PHP
         uses: shivammathur/setup-php@v2
@@ -32,5 +32,5 @@ jobs:
         run: composer install --prefer-dist --no-progress --no-interaction --no-suggest
 
       - name: Run tests
-        run: php vendor/bin/codecept run --coverage --coverage-xml
+        run: php vendor/bin/codecept run
 
