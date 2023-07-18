@@ -1,0 +1,9 @@
+baseProfile: qodana.recommended
+inspections:
+  - inspection: PhpVulnerablePathsInspection
+    enabled: true
+exclude:
+  - name: All
+    paths:
+      - vendor
+      - .php-cs-fixer.dist.php
