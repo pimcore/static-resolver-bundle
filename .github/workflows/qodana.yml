@@ -1,5 +1,7 @@
 name: Qodana
 on:
+  schedule:
+    - cron: '0 01 * * *' # Run once per day
   workflow_dispatch:
   push:
     branches:
