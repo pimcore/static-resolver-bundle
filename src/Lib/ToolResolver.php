@@ -14,9 +14,14 @@ declare(strict_types=1);
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Pimcore\Bundle\StaticResolverBundle\Tool;
+namespace Pimcore\Bundle\StaticResolverBundle\Lib;
 
-interface ToolResolverInterface
+use Pimcore\Tool;
+
+class ToolResolver implements ToolResolverInterface
 {
-    public function getValidLanguages(): array;
+    public function getValidLanguages(): array
+    {
+        return Tool::getValidLanguages();
+    }
 }
