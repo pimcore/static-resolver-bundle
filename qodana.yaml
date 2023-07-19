@@ -18,7 +18,6 @@ exclude:
   - name: PhpUnusedPrivateMethodInspection
   - name: PhpUnusedPrivateFieldInspection
 include:
-  - name: PhpVulnerablePathsInspection
   - name: PhpFullyQualifiedNameUsageInspection
   - name: BadExceptionsProcessingInspection
   - name: ClassOverridesFieldOfSuperClassInspection
