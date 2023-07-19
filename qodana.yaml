@@ -10,3 +10,10 @@ exclude:
       - .github
       - .php-cs-fixer.dist.php
       - .qodana-profile.xml
+      - config
+      - .editorconfig
+      - composer.json
+      - composer.lock
+      - docker-compose.yml
+      - README.md
+      - codeception.dist.yml
