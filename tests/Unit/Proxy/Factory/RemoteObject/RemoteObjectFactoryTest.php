@@ -20,7 +20,7 @@ class RemoteObjectFactoryTest extends Unit
     {
         $factory = new RemoteObjectFactory();
         $this->assertInstanceOf(RemoteObjectFactoryInterface::class, $factory);
-        $factory = new RemoteObjectFactory('/../ProxyOutput/');
+        $factory = new RemoteObjectFactory('Cache/');
         $this->assertInstanceOf(RemoteObjectFactoryInterface::class, $factory);
     }
 
@@ -77,7 +77,7 @@ class RemoteObjectFactoryTest extends Unit
     #[Group('factory')]
     public function testCreateProxyWithOutputCache(): void
     {
-        $factory = new RemoteObjectFactory(__DIR__.'/ProxyOutput');
+        $factory = new RemoteObjectFactory('Cache');
         $proxy = $factory->createObjectProxy(new TestUser());
         $this->assertInstanceOf(TestUserInterface::class, $proxy);
 
@@ -129,7 +129,7 @@ class RemoteObjectFactoryTest extends Unit
 
     protected function _before(): void
     {
-        $files = glob(__DIR__.'/ProxyOutput/*');
+        $files = glob('/var/cli/src/Proxy/Factory/RemoteObject/Cache/*');
         foreach ($files as $file) {
             if (is_file($file)) {
                 unlink($file);
@@ -139,7 +139,7 @@ class RemoteObjectFactoryTest extends Unit
 
     protected function _after(): void
     {
-        $files = glob(__DIR__.'/ProxyOutput/*');
+        $files = glob('/var/cli/src/Proxy/Factory/RemoteObject/Cache/*');
         foreach ($files as $file) {
             if (is_file($file)) {
                 unlink($file);

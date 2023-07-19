@@ -54,12 +54,12 @@ class RemoteObjectFactory implements RemoteObjectFactoryInterface
             return $this->config;
         }
 
-        $fileLocator = new FileLocator($this->proxyPath);
+        $fileLocator = new FileLocator(realpath(__DIR__ . '/' . $this->proxyPath));
         $config = new Configuration();
         $config->setGeneratorStrategy(new FileWriterGeneratorStrategy($fileLocator));
 
         // set the directory to read the generated proxies from
-        $config->setProxiesTargetDir($this->proxyPath);
+        $config->setProxiesTargetDir(realpath(__DIR__ . '/' . $this->proxyPath));
 
         // then register the autoloader
         spl_autoload_register($config->getProxyAutoloader());
