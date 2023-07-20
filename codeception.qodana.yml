@@ -12,6 +12,6 @@ coverage:
 
 paths:
     tests: tests
-    output: .qodana/_output
+    output: .qodana/code-coverage
     data: tests/Support/Data
     support: tests/Support
