@@ -1,5 +1,5 @@
 version: "1.0"
-linter: ghcr.io/shyim/qodana-php:8.1
+linter: jetbrains/qodana-php:2023.2-eap
 profile:
   path: .qodana-profile.xml
 exclude:
