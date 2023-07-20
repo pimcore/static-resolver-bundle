@@ -38,9 +38,6 @@ jobs:
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress --no-interaction --no-suggest
 
-      - name: Run tests
-        run: php ./vendor/bin/codecept run -c ./codeception.qodana.yml --coverage --coverage-xml
-
       - name: 'Qodana Scan'
         uses: JetBrains/qodana-action@v2023.2
         env:
