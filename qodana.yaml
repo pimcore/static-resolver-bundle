@@ -21,3 +21,4 @@ exclude:
 include:
   - name: PhpTaintFunctionInspection
   - name: PhpVulnerablePathsInspection
+  - name: PhpCoverageInspection
