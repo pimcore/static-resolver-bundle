@@ -1,5 +1,5 @@
 version: "1.0"
-linter: ghcr.io/shyim/qodana-php:8.1
+linter: pimcoregithubdeploy/qodana:2023.2-php8.1
 profile:
   path: .qodana-profile.xml
 exclude:
