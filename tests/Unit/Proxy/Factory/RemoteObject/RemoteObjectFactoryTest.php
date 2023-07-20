@@ -20,7 +20,7 @@ class RemoteObjectFactoryTest extends Unit
     {
         $factory = new RemoteObjectFactory();
         $this->assertInstanceOf(RemoteObjectFactoryInterface::class, $factory);
-        $factory = new RemoteObjectFactory('Cache/');
+        $factory = new RemoteObjectFactory();
         $this->assertInstanceOf(RemoteObjectFactoryInterface::class, $factory);
     }
 
@@ -75,9 +75,9 @@ class RemoteObjectFactoryTest extends Unit
 
     #[Group('proxy')]
     #[Group('factory')]
-    public function testCreateProxyWithOutputCache(): void
+    public function testCreateProxyNOOutputCache(): void
     {
-        $factory = new RemoteObjectFactory('Cache');
+        $factory = new RemoteObjectFactory();
         $proxy = $factory->createObjectProxy(new TestUser());
         $this->assertInstanceOf(TestUserInterface::class, $proxy);
 
@@ -126,25 +126,4 @@ class RemoteObjectFactoryTest extends Unit
         //Method not in Interface, must not be available.
         $this->assertFalse(method_exists($proxy, 'getLastName'));
     }
-
-    protected function _before(): void
-    {
-        $files = glob('/var/cli/src/Proxy/Factory/RemoteObject/Cache/*');
-        foreach ($files as $file) {
-            if (is_file($file)) {
-                unlink($file);
-            }
-        }
-    }
-
-    protected function _after(): void
-    {
-        $files = glob('/var/cli/src/Proxy/Factory/RemoteObject/Cache/*');
-        foreach ($files as $file) {
-            if (is_file($file)) {
-                unlink($file);
-            }
-        }
-    }
-
 }
