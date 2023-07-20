@@ -11,5 +11,7 @@ coverage:
         - src/*
 
 paths:
-    tests: .qodana
-    output: qodana/_output
+    tests: tests
+    output: .qodana/_output
+    data: tests/Support/Data
+    support: tests/Support
