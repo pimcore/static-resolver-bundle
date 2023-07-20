@@ -7,6 +7,7 @@ exclude:
     paths:
       - vendor
       - public
+      - tests
       - .github
       - .php-cs-fixer.dist.php
       - .qodana-profile.xml
