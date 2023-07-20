@@ -27,6 +27,7 @@ class PimcoreStaticResolverBundle extends AbstractPimcoreBundle implements Pimco
 
     public function getPath(): string
     {
+        parent::getPath();
         return dirname(__DIR__);
     }
 }

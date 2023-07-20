@@ -12,9 +12,10 @@ class ProxyService implements ProxyServiceInterface
     use GetProxy;
 
     public function __construct(
-        protected readonly RemoteObjectFactoryInterface $remoteObjectFactory
+        RemoteObjectFactoryInterface $remoteObjectFactory
     )
     {
+        $this->remoteObjectFactory = $remoteObjectFactory;
     }
 
 
