@@ -45,3 +45,6 @@ jobs:
         uses: JetBrains/qodana-action@v2023.2
         env:
           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+        with:
+          args: "-i,.qodana/code-coverage"
+          pr-mode: false
