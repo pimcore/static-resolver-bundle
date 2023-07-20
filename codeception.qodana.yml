@@ -1,0 +1,15 @@
+namespace: Pimcore\Bundle\StaticResolverBundle\Tests
+bootstrap: _bootstrap.php
+
+settings:
+    shuffle: true
+    lint: true
+
+coverage:
+    enabled: true
+    include:
+        - src/*
+
+paths:
+    tests: .qodana
+    output: qodana/_output
