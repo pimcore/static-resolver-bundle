@@ -5,7 +5,6 @@ profile:
 plugins:
   - id: com.kalessil.phpStorm.phpInspectionsEA
   - id: fr.adrienbrault.idea.symfony2plugin
-  - id: de.espend.idea.php.annotation
 php:
   version: "8.1"
 exclude:
