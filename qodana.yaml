@@ -1,7 +1,13 @@
 version: "1.0"
-linter: pimcoregithubdeploy/qodana:2023.2.EA
+linter: jetbrains/qodana-php:2023.2
 profile:
   path: .qodana-profile.xml
+plugins:
+  - id: com.kalessil.phpStorm.phpInspectionsEA
+  - id: fr.adrienbrault.idea.symfony2plugin
+  - id: de.espend.idea.php.annotation
+php:
+  version: "8.1"
 exclude:
   - name: All
     paths:
