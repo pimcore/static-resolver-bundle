@@ -1,10 +1,7 @@
 version: "1.0"
-linter: jetbrains/qodana-php:2023.2
+linter: pimcoregithubdeploy/qodana:2023.2.EA
 profile:
   path: .qodana-profile.xml
-plugins:
-  - id: com.kalessil.phpStorm.phpInspectionsEA
-  - id: fr.adrienbrault.idea.symfony2plugin
 php:
   version: "8.1"
 exclude:
@@ -26,4 +23,3 @@ exclude:
 include:
   - name: PhpTaintFunctionInspection
   - name: PhpVulnerablePathsInspection
-  - name: PhpCoverageInspection
