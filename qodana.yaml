@@ -4,6 +4,7 @@ profile:
   path: .qodana-profile.xml
 php:
   version: "8.1"
+failThreshold: 0
 exclude:
   - name: All
     paths:
