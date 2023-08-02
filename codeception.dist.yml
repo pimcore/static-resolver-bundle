@@ -5,6 +5,11 @@ settings:
     shuffle: true
     lint: true
 
+coverage:
+    enabled: true
+    show_uncovered: true
+    include:
+        - src/*
 paths:
     tests: tests
     output: tests/_output

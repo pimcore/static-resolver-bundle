@@ -10,7 +10,7 @@ use ProxyManager\FileLocator\FileLocator;
 use ProxyManager\GeneratorStrategy\FileWriterGeneratorStrategy;
 use ProxyManager\Proxy\RemoteObjectInterface;
 
-class RemoteObjectFactory implements RemoteObjectFactoryInterface
+final class RemoteObjectFactory implements RemoteObjectFactoryInterface
 {
     protected ?Configuration $config = null;
 
@@ -49,7 +49,7 @@ class RemoteObjectFactory implements RemoteObjectFactoryInterface
         if ($this->proxyPath === null) {
             return null;
         }
-
+        // @codeCoverageIgnoreStart
         if ($this->config !== null) {
             return $this->config;
         }
@@ -67,5 +67,6 @@ class RemoteObjectFactory implements RemoteObjectFactoryInterface
         $this->config = $config;
 
         return $this->config;
+        // @codeCoverageIgnoreEnd
     }
 }

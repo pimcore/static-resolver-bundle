@@ -11,6 +11,11 @@ class TestUser implements TestUserInterface
         return new self();
     }
 
+    public static function getNull(): ?self
+    {
+        return null;
+    }
+
     public function getFirstName(): string
     {
        return 'John';

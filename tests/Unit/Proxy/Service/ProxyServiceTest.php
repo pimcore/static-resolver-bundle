@@ -30,6 +30,8 @@ class ProxyServiceTest extends Unit
         $factory->expects(self::once())->method('createObjectProxy');
         $service = new ProxyService($factory);
         $service->getProxyObject(TestUser::class, 'getObject');
+
+        $this::assertNull($service->getProxyObject(TestUser::class, 'getNull'));
     }
 
     /**
@@ -94,6 +96,8 @@ class ProxyServiceTest extends Unit
         $factory->expects(self::never())->method('createDecoratorProxy');
         $service = new ProxyService($factory);
         $service->getDecoratorProxy(TestUser::class, 'getObject');
+
+        $this::assertNull($service->getDecoratorProxy(TestUser::class, 'getNull'));
     }
 
     /**
@@ -126,6 +130,8 @@ class ProxyServiceTest extends Unit
         $factory->expects(self::once())->method('createDecoratorProxy');
         $service = new ProxyService($factory);
         $service->getDecoratorProxy(TestUser::class, 'getObject', TestUserInterface::class);
+
+        $this::assertNull($service->getDecoratorProxy(TestUser::class, 'getNull', TestUserInterface::class));
     }
 
     /**
@@ -192,6 +198,8 @@ class ProxyServiceTest extends Unit
         $factory->expects(self::once())->method('createStrictProxy');
         $service = new ProxyService($factory);
         $service->getStrictProxyObject(TestUser::class, 'getObject', TestUserInterface::class);
+
+        $this::assertNull($service->getStrictProxyObject(TestUser::class, 'getNull', TestUserInterface::class));
     }
 
     /**

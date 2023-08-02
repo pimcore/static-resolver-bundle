@@ -8,7 +8,7 @@ use InvalidArgumentException;
 use ReflectionException;
 use ReflectionMethod;
 
-class StrictObjectAdapter implements ObjectAdapterInterface
+final class StrictObjectAdapter implements ObjectAdapterInterface
 {
 
     public function __construct(private readonly object $remoteClassOrInstance, private readonly string $interface)
@@ -46,8 +46,10 @@ class StrictObjectAdapter implements ObjectAdapterInterface
     {
         try {
             $reflection = new ReflectionMethod($this->remoteClassOrInstance, $method);
+            // @codeCoverageIgnoreStart
         } catch (ReflectionException) {
             return false;
+            // @codeCoverageIgnoreEnd
         }
         return !(!is_object($reflection) || !$reflection->isPublic());
     }
