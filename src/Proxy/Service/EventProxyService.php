@@ -24,33 +24,63 @@ class EventProxyService implements EventProxyServiceInterface
     ): object
     {
         $proxy = $this->smartReferenceFactory->createProxy($instance);
+        $this->addPreInterceptors($preInterceptors, $proxy, $instance);
+        $this->addPostInterceptors($postInterceptors, $proxy, $instance);
+
+        return $proxy;
+    }
+
+    /**
+     * @param array $preInterceptors
+     * @param object $proxy
+     * @param object $instance
+     * @return mixed
+     */
+    private function addPreInterceptors(array $preInterceptors, object $proxy, object $instance): void
+    {
         foreach ($preInterceptors as $method) {
             $proxy->setMethodPrefixInterceptor(
                 $method,
                 function () use ($method, $instance) {
                     $this->eventDispatcher->dispatch(
                         (new GenericEvent($instance, ['method' => $method])),
-                        strtolower(
-                            str_replace('\\', '.', get_class($instance)) . '.' . $method . '.pre'
-                        )
+                        $this->getEventName($instance, $method, 'pre')
                     );
                 }
             );
         }
+    }
+
+    /**
+     * @param array $postInterceptors
+     * @param object $proxy
+     * @param object $instance
+     * @return void
+     */
+    private function addPostInterceptors(array $postInterceptors, object $proxy, object $instance): void
+    {
         foreach ($postInterceptors as $method) {
             $proxy->setMethodSuffixInterceptor(
                 $method,
                 function () use ($method, $instance) {
                     $this->eventDispatcher->dispatch(
                         (new GenericEvent($instance, ['method' => $method])),
-                        strtolower(
-                            str_replace('\\', '.', get_class($instance)) . '.' . $method . '.post'
-                        )
+                        $this->getEventName($instance, $method, 'post')
                     );
                 }
             );
         }
+    }
 
-        return $proxy;
+    /**
+     * @param object $instance
+     * @param mixed $method
+     * @return string
+     */
+    private function getEventName(object $instance, mixed $method, string $prefix): string
+    {
+        return strtolower(
+            str_replace('\\', '.', get_class($instance)) . '.' . $method . '.' . $prefix
+        );
     }
 }

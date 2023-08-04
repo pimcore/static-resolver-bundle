@@ -13,8 +13,10 @@ class SmartReferenceFactory implements SmartReferenceFactoryInterface
         $factory = new AccessInterceptorValueHolderFactory();
         try {
             return $factory->createProxy($instance);
+        // @codeCoverageIgnoreStart
         } catch (Throwable) {
             return $instance;
+        // @codeCoverageIgnoreEnd
         }
     }
 }
