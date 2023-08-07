@@ -34,7 +34,7 @@ class EventProxyService implements EventProxyServiceInterface
      * @param array $preInterceptors
      * @param object $proxy
      * @param object $instance
-     * @return mixed
+     * @return void
      */
     private function addPreInterceptors(array $preInterceptors, object $proxy, object $instance): void
     {
@@ -75,6 +75,7 @@ class EventProxyService implements EventProxyServiceInterface
     /**
      * @param object $instance
      * @param mixed $method
+     * @param string $prefix
      * @return string
      */
     private function getEventName(object $instance, mixed $method, string $prefix): string
