@@ -16,10 +16,10 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle;
 
+use function dirname;
 use Pimcore\Extension\Bundle\AbstractPimcoreBundle;
 use Pimcore\Extension\Bundle\PimcoreBundleAdminClassicInterface;
 use Pimcore\Extension\Bundle\Traits\BundleAdminClassicTrait;
-use function dirname;
 
 class PimcoreStaticResolverBundle extends AbstractPimcoreBundle implements PimcoreBundleAdminClassicInterface
 {
@@ -28,6 +28,7 @@ class PimcoreStaticResolverBundle extends AbstractPimcoreBundle implements Pimco
     public function getPath(): string
     {
         parent::getPath();
+
         return dirname(__DIR__);
     }
 }
