@@ -10,7 +10,9 @@ use Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\SmartReference\SmartRefere
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\SmartReference\SmartReferenceFactoryInterface;
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Service\EventProxyService;
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Service\InvalidServiceException;
+use Pimcore\Bundle\StaticResolverBundle\Tests\Unit\Proxy\TestData\FinalTestUser;
 use Pimcore\Bundle\StaticResolverBundle\Tests\Unit\Proxy\TestData\TestUser;
+use ProxyManager\Exception\InvalidProxiedClassException;
 use ProxyManager\Proxy\AccessInterceptorValueHolderInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\EventDispatcher\GenericEvent;
@@ -166,6 +168,21 @@ class EventProxyServiceTest extends Unit
         $service = new EventProxyService($eventDispatcher, $smartFactory);
         $proxy = $service->getEventDispatcherProxy((new TestUser()),['getFirstName']);
         $proxy->getFirstName();
+    }
+
+    /**
+     * @throws Exception
+     */
+    #[Group('proxy')]
+    #[Group('eventproxy')]
+    #[Group('service')]
+    public function testFailCreateProxyForFinalClass(): void
+    {
+        $eventDispatcher = $this->createMock(EventDispatcherInterface::class);
+        $this->expectException(InvalidProxiedClassException::class);
+        $smartFactory = new SmartReferenceFactory();
+        $service = new EventProxyService($eventDispatcher, $smartFactory);
+        $service->getEventDispatcherProxy((new FinalTestUser()),['getFirstName']);
     }
 }
 

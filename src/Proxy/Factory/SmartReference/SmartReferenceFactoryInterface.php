@@ -5,5 +5,8 @@ namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\SmartReference;
 
 interface SmartReferenceFactoryInterface
 {
+    /*
+     * @throws Throwable
+     */
     public function createProxy(object $instance): object;
 }

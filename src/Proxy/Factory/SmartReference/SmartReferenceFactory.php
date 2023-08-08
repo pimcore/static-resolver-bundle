@@ -10,13 +10,6 @@ class SmartReferenceFactory implements SmartReferenceFactoryInterface
 {
     public function createProxy(object $instance): object
     {
-        $factory = new AccessInterceptorValueHolderFactory();
-        try {
-            return $factory->createProxy($instance);
-        // @codeCoverageIgnoreStart
-        } catch (Throwable) {
-            return $instance;
-        // @codeCoverageIgnoreEnd
-        }
+        return (new AccessInterceptorValueHolderFactory())->createProxy($instance);
     }
 }

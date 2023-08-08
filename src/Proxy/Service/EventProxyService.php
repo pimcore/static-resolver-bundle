@@ -30,12 +30,6 @@ class EventProxyService implements EventProxyServiceInterface
         return $proxy;
     }
 
-    /**
-     * @param array $preInterceptors
-     * @param object $proxy
-     * @param object $instance
-     * @return void
-     */
     private function addPreInterceptors(array $preInterceptors, object $proxy, object $instance): void
     {
         foreach ($preInterceptors as $method) {
@@ -51,12 +45,6 @@ class EventProxyService implements EventProxyServiceInterface
         }
     }
 
-    /**
-     * @param array $postInterceptors
-     * @param object $proxy
-     * @param object $instance
-     * @return void
-     */
     private function addPostInterceptors(array $postInterceptors, object $proxy, object $instance): void
     {
         foreach ($postInterceptors as $method) {
@@ -72,12 +60,6 @@ class EventProxyService implements EventProxyServiceInterface
         }
     }
 
-    /**
-     * @param object $instance
-     * @param mixed $method
-     * @param string $prefix
-     * @return string
-     */
     private function getEventName(object $instance, mixed $method, string $prefix): string
     {
         return strtolower(
