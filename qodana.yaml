@@ -1,0 +1,26 @@
+version: "1.0"
+linter: pimcoregithubdeploy/qodana:2023.2.MP
+profile:
+  path: .qodana-profile.xml
+php:
+  version: "8.1"
+failThreshold: 0
+exclude:
+  - name: All
+    paths:
+      - vendor
+      - public
+      - tests
+      - .github
+      - .php-cs-fixer.dist.php
+      - .qodana-profile.xml
+      - config
+      - .editorconfig
+      - composer.json
+      - composer.lock
+      - docker-compose.yml
+      - README.md
+      - codeception.dist.yml
+include:
+  - name: PhpTaintFunctionInspection
+  - name: PhpVulnerablePathsInspection

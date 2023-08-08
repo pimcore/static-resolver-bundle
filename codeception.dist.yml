@@ -1,0 +1,17 @@
+namespace: Pimcore\Bundle\StaticResolverBundle\Tests
+bootstrap: _bootstrap.php
+
+settings:
+    shuffle: true
+    lint: true
+
+coverage:
+    enabled: true
+    show_uncovered: true
+    include:
+        - src/*
+paths:
+    tests: tests
+    output: tests/_output
+    data: tests/Support/Data
+    support: tests/Support

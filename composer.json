@@ -15,9 +15,25 @@
       "Pimcore\\Bundle\\StaticResolverBundle\\": "src/"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "Pimcore\\Bundle\\StaticResolverBundle\\Tests\\": "tests"
+    }
+  },
   "require": {
     "php": "~8.1.0 || ~8.2.0",
-    "pimcore/pimcore": "^11.0"
+    "pimcore/pimcore": "^11.0",
+    "friendsofphp/proxy-manager-lts": "^1"
+  },
+  "require-dev": {
+    "phpstan/phpstan": "1.10.5",
+    "phpstan/phpstan-symfony": "^1.2.20",
+    "phpunit/phpunit": "^10.2",
+    "codeception/codeception": "^5.0.10",
+    "codeception/module-symfony":"^3.1.1",
+    "codeception/phpunit-wrapper": "^9",
+    "codeception/module-asserts": "^2",
+    "fakerphp/faker": "^1.23"
   },
   "extra": {
     "pimcore": {
