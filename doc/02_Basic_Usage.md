@@ -1,10 +1,9 @@
 # Basic Usage
 
-## Static Resolver
 
-The basic idea is to replace static function calls with resolver services to make the design more robust and better testable.
+The Static Resolver Bundle allows to replace static function calls with resolver services to make the design more robust and testable:
 
-### Old usage with static call
+## Old Usage With a Static Call
 
 ```php
 
@@ -24,7 +23,7 @@ final class SecurityService implements SecurityServiceInterface
 }
 ```
 
-### Resolver service injection
+## Replacement With Resolver Service Injection
 
 ```php
 
