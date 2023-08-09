@@ -1,4 +1,4 @@
-# Basic Usage
+# Resolver Service Usage
 
 
 The Static Resolver Bundle allows to replace static function calls with resolver services to make the design more robust and testable:
