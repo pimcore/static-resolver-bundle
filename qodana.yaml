@@ -10,6 +10,7 @@ exclude:
     paths:
       - vendor
       - public
+      - doc
       - tests
       - .github
       - .php-cs-fixer.dist.php
