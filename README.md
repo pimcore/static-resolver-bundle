@@ -9,3 +9,4 @@ Static Resolver Bundle is designed to encapsulate the usage of static calls with
 
 ## Documentation Overview
 - [Installation](doc/01_Installation.md)
+- [Resolver Service Usage](doc/02_Resolver_Service_Usage.md)
