@@ -16,7 +16,7 @@ composer require pimcore/static-resolver-bundle
 2. Make sure the bundle is enabled in the `config/bundles.php` file. The following lines should be added:
 
 ```php
-use Pimcore\Bundle\DataHubWebhooksBundle\PimcoreStaticResolverBundle;
+use Pimcore\Bundle\StaticResolverBundle\PimcoreStaticResolverBundle;
 // ...
 
 return [
