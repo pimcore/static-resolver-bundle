@@ -24,5 +24,5 @@ interface RuntimeCacheResolverInterface
 
     public function isRegistered(string $index): bool;
 
-    public function clear(array $keepItems): void;
+    public function clear(array $keepItems = []): void;
 }

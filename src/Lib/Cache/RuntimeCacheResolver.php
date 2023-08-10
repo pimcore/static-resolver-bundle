@@ -35,7 +35,7 @@ class RuntimeCacheResolver implements RuntimeCacheResolverInterface
         return RuntimeCache::isRegistered($index);
     }
 
-    public function clear(array $keepItems): void
+    public function clear(array $keepItems = []): void
     {
         RuntimeCache::clear($keepItems);
     }
