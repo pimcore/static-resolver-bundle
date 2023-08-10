@@ -23,4 +23,6 @@ interface RuntimeCacheResolverInterface
     public function save(mixed $data, string $id): void;
 
     public function isRegistered(string $index): bool;
+
+    public function clear(array $keepItems): void;
 }
