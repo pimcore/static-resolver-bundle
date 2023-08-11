@@ -1,12 +1,12 @@
-# Documentation for `ProxyService` Class
+# Proxy Service Usage
 
-## Overview:
+## Overview
 
 The `ProxyService` class offers the capability to generate proxy objects for specified classes and methods. It provides methods to create proxies in various configurations including a strict or decorator mode which restricts the proxy object to only expose methods specified by an interface.
 
-## Methods:
+## Methods
 
-### `getProxyObject`
+### `getProxyObject()`
 
     - Retrieve a proxy object for a given class and method.
     - The proxy will contain all methods of the original class.
@@ -18,10 +18,10 @@ The `ProxyService` class offers the capability to generate proxy objects for spe
 
 - **Returns:** object|null
 
-### `getStrictProxyObject`
+### `getStrictProxyObject()`
 
-    - Retrieve a proxy object that strictly implements a specified interface.\
-    - The proxy will only contain the methods of the specified interface, allowing you to limit access to methods.\ 
+    - Retrieve a proxy object that strictly implements a specified interface.
+    - The proxy will only contain the methods of the specified interface, allowing you to limit access to methods.
     - All methods from the given interface must be callabe in the original class.
 
 - **Parameters:**
@@ -32,7 +32,7 @@ The `ProxyService` class offers the capability to generate proxy objects for spe
 
 - **Returns:** object|null
 
-### `getDecoratorProxy`
+### `getDecoratorProxy()`
 
     - Generate a proxy object that can optionally implement a specified interface.
     - If an interface is provided, the proxy will only contain the methods of that interface.
@@ -47,13 +47,13 @@ The `ProxyService` class offers the capability to generate proxy objects for spe
 
 - **Returns:** object|null
 
-## **Example Extending UserInterface and decorater proxy**
-Suppose you wish to extend the functionality of the User class with a new method, say getAdditionalData.
+## Example Extending UserInterface and Decorator Proxy
+Let's suppose you wish to extend the functionality of the `User` class with a new method `getAdditionalData()`:
 
 ```php
 interface MyExtendedInterface {
-public function getFirstName();
-public function getAdditionalData();
+    public function getFirstName();
+    public function getAdditionalData();
 }
 ```
 
@@ -61,7 +61,7 @@ public function getAdditionalData();
 $proxyService = new ProxyService(new RemoteObjectFactory());
 $decoratorProxy = $proxyService->getDecoratorProxy(User::class, 'getById', MyExtendedInterface::class, ['12']);
 ```
-When using the getDecoratorProxy with the MyExtendedInterface, the User class should look something like:
+When using the `getDecoratorProxy()` method with `MyExtendedInterface`, the `User` class should look like:
 
 ```php
 class User {
@@ -91,13 +91,13 @@ class User {
 }
 ```
 
-## **Example using an Incompatible Interface with strict proxy**
+## Example Using an Incompatible Interface With Strict Proxy
 
-Let's say you mistakenly use an interface that expects a method that isn't in the User class.
+Let's say you mistakenly use an interface that expects a method that isn't in the `User` class:
 
 ```php
 interface IncompatibleInterface {
-public function getNonExistentMethod();
+    public function getNonExistentMethod();
 }
 ```
 ### User Class
@@ -125,7 +125,7 @@ class User{
     }
 }
 ```
-If you attempt to use IncompatibleInterface with the ProxyService, it will result in an error because User class doesn't have getNonExistentMethod.
+If you attempt to use `IncompatibleInterface` with the ProxyService, it will result in an error because the `User` class doesn't have `getNonExistentMethod()`.
 
 ```php
 try {
@@ -136,10 +136,10 @@ try {
     echo "Error: " . $e->getMessage();  // This will output an error message indicating the incompatibility.
 }
 ```
-In this error case, the getStrictProxyObject will throw an InvalidServiceException because of the attempt to proxy a method (getNonExistentMethod) that does not exist in the original User class.
+In this error case, the `getStrictProxyObject()` will throw an `InvalidServiceException` because of the attempt to proxy a method (`getNonExistentMethod()`) that does not exist in the original `User` class.
 
-## **Example Limiting UserInterface**
-The following interface ensures that only the `getFirstName` method can be accessed:
+## Example Limiting UserInterface
+The following interface ensures that only the `getFirstName()` method can be accessed:
 
 ```php
 interface LimitedUserInterface {
@@ -180,8 +180,8 @@ echo $user->getFirstName();  // Outputs: John
 echo $user->getLastName();  // Outputs: Doe
 ```
 
-### Using ProxyService with LimitedUserInterface
-Using the ProxyService with `LimitedUserInterface` to get a decorator proxy object:
+### Using ProxyService With LimitedUserInterface
+You can use the ProxyService with `LimitedUserInterface` to get a decorator proxy object:
 
 ```php
 $proxyService = new ProxyService(new RemoteObjectFactory());
