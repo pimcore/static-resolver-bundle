@@ -21,6 +21,7 @@ use Pimcore\Model\DataObject\AbstractObject;
 use Pimcore\Model\Document;
 use Pimcore\Model\Element\ElementInterface;
 use Pimcore\Model\Element\Service;
+use Pimcore\Model\User;
 
 final class ServiceResolver implements ServiceResolverInterface
 {
@@ -32,5 +33,10 @@ final class ServiceResolver implements ServiceResolverInterface
     public function getElementType(ElementInterface $element): ?string
     {
         return Service::getElementType($element);
+    }
+
+    public function findForbiddenPaths(string $type, User $user): array
+    {
+        return Service::findForbiddenPaths($type, $user);
     }
 }
