@@ -21,6 +21,7 @@ use Pimcore\Model\Asset;
 use Pimcore\Model\DataObject\AbstractObject;
 use Pimcore\Model\Document;
 use Pimcore\Model\Element\ElementInterface;
+use Pimcore\Model\User;
 
 interface ServiceResolverInterface
 {
@@ -31,4 +32,6 @@ interface ServiceResolverInterface
     ): Asset|Document|AbstractObject|null;
 
     public function getElementType(ElementInterface $element): ?string;
+
+    public function findForbiddenPaths(string $type, User $user): array;
 }
