@@ -4,7 +4,9 @@ declare(strict_types=1);
 namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Events;
 
 use InvalidArgumentException;
+use ReflectionException;
 use ReflectionIntersectionType;
+use ReflectionMethod;
 use ReflectionUnionType;
 use Symfony\Component\EventDispatcher\GenericEvent;
 
@@ -19,7 +21,7 @@ class ProxyEvent extends GenericEvent implements ProxyEventInterface
     }
 
     /**
-     * @throws \ReflectionException
+     * @throws ReflectionException
      * @throws InvalidArgumentException
      */
     public function setResponse(mixed $response): void
@@ -35,12 +37,12 @@ class ProxyEvent extends GenericEvent implements ProxyEventInterface
     }
 
     /**
-     * @throws \ReflectionException
+     * @throws ReflectionException
      * @throws InvalidArgumentException
      */
     private function checkReturnType(mixed $response): void
     {
-        $method = (new \ReflectionMethod($this->getSubject(), $this->getArgument('method')));
+        $method = (new ReflectionMethod($this->getSubject(), $this->getArgument('method')));
         if (!$method->hasReturnType()) {
             return;
         }
@@ -62,7 +64,6 @@ class ProxyEvent extends GenericEvent implements ProxyEventInterface
             return;
         }
         $returnTypeArray = $this->addSpecialTypes($returnTypeArray);
-        $test = get_debug_type($response);
         if (in_array(get_debug_type($response), $returnTypeArray, true)) {
             return;
         }
