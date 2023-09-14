@@ -54,6 +54,7 @@ class EventProxyService implements EventProxyServiceInterface
 
                     if ($event->hasResponse()) {
                         $returnEarly = true;
+
                         return $event->getResponse();
                     }
 
@@ -77,6 +78,7 @@ class EventProxyService implements EventProxyServiceInterface
 
                     if ($event->hasResponse()) {
                         $returnEarly = true;
+
                         return $event->getResponse();
                     }
 
