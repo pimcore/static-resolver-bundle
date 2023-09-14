@@ -26,6 +26,11 @@ class TestUser implements TestUserInterface
        return 'Doe';
     }
 
+    public function setLastName(string $name): string
+    {
+       return $name . '_returnValue';
+    }
+
     private function getId(): string
     {
        return '1';

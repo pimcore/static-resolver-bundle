@@ -6,6 +6,7 @@ namespace Pimcore\Bundle\StaticResolverBundle\Tests\Unit\Proxy\Service;
 use Codeception\Attribute\Group;
 use Codeception\Test\Unit;
 use PHPUnit\Framework\MockObject\Exception;
+use Pimcore\Bundle\StaticResolverBundle\Proxy\Events\ProxyEvent;
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\SmartReference\SmartReferenceFactory;
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\SmartReference\SmartReferenceFactoryInterface;
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Service\EventProxyService;
@@ -15,7 +16,6 @@ use Pimcore\Bundle\StaticResolverBundle\Tests\Unit\Proxy\TestData\TestUser;
 use ProxyManager\Exception\InvalidProxiedClassException;
 use ProxyManager\Proxy\AccessInterceptorValueHolderInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use Symfony\Component\EventDispatcher\GenericEvent;
 use function PHPUnit\Framework\isInstanceOf;
 
 class EventProxyServiceTest extends Unit
@@ -128,19 +128,22 @@ class EventProxyServiceTest extends Unit
         $eventDispatcher = $this->createMock(EventDispatcherInterface::class);
         $eventDispatcher->expects(self::once())->method('dispatch')->with(
             $this::logicalAnd(
-                isInstanceOf(GenericEvent::class),
+                isInstanceOf(ProxyEvent::class),
                 $this::callback(
-                    static function (GenericEvent $event) {
-                        return $event->getSubject() instanceof TestUser;
+                    static function (ProxyEvent $event) {
+                        return $event->getSubject() instanceof TestUser &&
+                            $event->getArgument('params')['name'] === 'test' &&
+                            $event->getArgument('method') === 'setLastName' &&
+                        $event->getArgument('returnValue') === 'test_returnValue';
                     }
                 )
             ),
-            'pimcore.bundle.staticresolverbundle.tests.unit.proxy.testdata.testuser.getfirstname.post'
+            'pimcore.bundle.staticresolverbundle.tests.unit.proxy.testdata.testuser.setlastname.post'
         );
         $smartFactory = new SmartReferenceFactory();
         $service = new EventProxyService($eventDispatcher, $smartFactory);
-        $proxy = $service->getEventDispatcherProxy((new TestUser()), [], ['getFirstName']);
-        $proxy->getFirstName();
+        $proxy = $service->getEventDispatcherProxy((new TestUser()), [], ['setLastName']);
+        $proxy->setLastName('test');
     }
 
     /**
@@ -155,19 +158,21 @@ class EventProxyServiceTest extends Unit
         $eventDispatcher = $this->createMock(EventDispatcherInterface::class);
         $eventDispatcher->expects(self::once())->method('dispatch')->with(
             $this::logicalAnd(
-                isInstanceOf(GenericEvent::class),
+                isInstanceOf(ProxyEvent::class),
                 $this::callback(
-                    static function (GenericEvent $event) {
-                        return $event->getSubject() instanceof TestUser;
+                    static function (ProxyEvent $event) {
+                        return $event->getSubject() instanceof TestUser &&
+                            $event->getArgument('method') === 'setLastName' &&
+                            $event->getArgument('params')['name'] === 'test';
                     }
                 )
             ),
-            'pimcore.bundle.staticresolverbundle.tests.unit.proxy.testdata.testuser.getfirstname.pre'
+            'pimcore.bundle.staticresolverbundle.tests.unit.proxy.testdata.testuser.setlastname.pre'
         );
         $smartFactory = new SmartReferenceFactory();
         $service = new EventProxyService($eventDispatcher, $smartFactory);
-        $proxy = $service->getEventDispatcherProxy((new TestUser()),['getFirstName']);
-        $proxy->getFirstName();
+        $proxy = $service->getEventDispatcherProxy((new TestUser()),['setLastName']);
+        $proxy->setLastName('test');
     }
 
     /**

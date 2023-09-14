@@ -16,9 +16,9 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Service;
 
+use Pimcore\Bundle\StaticResolverBundle\Proxy\Events\ProxyEvent;
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\SmartReference\SmartReferenceFactoryInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use Symfony\Component\EventDispatcher\GenericEvent;
 
 class EventProxyService implements EventProxyServiceInterface
 {
@@ -34,37 +34,53 @@ class EventProxyService implements EventProxyServiceInterface
         array $postInterceptors = []
     ): object {
         $proxy = $this->smartReferenceFactory->createProxy($instance);
-        $this->addPreInterceptors($preInterceptors, $proxy, $instance);
-        $this->addPostInterceptors($postInterceptors, $proxy, $instance);
+        $this->addPreInterceptors($preInterceptors, $proxy);
+        $this->addPostInterceptors($postInterceptors, $proxy);
 
         return $proxy;
     }
 
-    private function addPreInterceptors(array $preInterceptors, object $proxy, object $instance): void
+    private function addPreInterceptors(array $preInterceptors, object $proxy): void
     {
         foreach ($preInterceptors as $method) {
             $proxy->setMethodPrefixInterceptor(
                 $method,
-                function () use ($method, $instance) {
-                    $this->eventDispatcher->dispatch(
-                        (new GenericEvent($instance, ['method' => $method])),
-                        $this->getEventName($instance, $method, 'pre')
+                function ($proxy, $instance, $method, $params, & $returnEarly): mixed {
+                    $event = new ProxyEvent(
+                        $instance,
+                        compact('method', 'params', 'returnEarly')
                     );
+                    $this->eventDispatcher->dispatch($event, $this->getEventName($instance, $method, 'pre'));
+
+                    if ($event->hasResponse()) {
+                        $returnEarly = true;
+                        return $event->getResponse();
+                    }
+
+                    return null;
                 }
             );
         }
     }
 
-    private function addPostInterceptors(array $postInterceptors, object $proxy, object $instance): void
+    private function addPostInterceptors(array $postInterceptors, object $proxy): void
     {
         foreach ($postInterceptors as $method) {
             $proxy->setMethodSuffixInterceptor(
                 $method,
-                function () use ($method, $instance) {
-                    $this->eventDispatcher->dispatch(
-                        (new GenericEvent($instance, ['method' => $method])),
-                        $this->getEventName($instance, $method, 'post')
+                function ($proxy, $instance, $method, $params, $returnValue, & $returnEarly): mixed {
+                    $event = new ProxyEvent(
+                        $instance,
+                        compact('method', 'params', 'returnValue', 'returnEarly')
                     );
+                    $this->eventDispatcher->dispatch($event, $this->getEventName($instance, $method, 'post'));
+
+                    if ($event->hasResponse()) {
+                        $returnEarly = true;
+                        return $event->getResponse();
+                    }
+
+                    return null;
                 }
             );
         }
