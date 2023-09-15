@@ -20,6 +20,7 @@ use InvalidArgumentException;
 use ReflectionException;
 use ReflectionIntersectionType;
 use ReflectionMethod;
+use ReflectionNamedType;
 use ReflectionUnionType;
 use Symfony\Component\EventDispatcher\GenericEvent;
 
@@ -62,22 +63,17 @@ class ProxyEvent extends GenericEvent implements ProxyEventInterface
         }
 
         $returnType = $method->getReturnType();
-        $returnTypeArray = [];
+
         if ($response === null && $returnType?->allowsNull()) {
             return;
         }
-        if ($returnType instanceof ReflectionUnionType || $returnType instanceof ReflectionIntersectionType) {
-            foreach ($returnType->getTypes() as $type) {
-                $returnTypeArray[] = $type->getName();
-            }
-        } else {
-            $returnTypeArray = [$returnType->getName()];
-        }
+
+        $returnTypeArray = $this->getTypeArray($returnType);
 
         if (in_array('mixed', $returnTypeArray, true)) {
             return;
         }
-        $returnTypeArray = $this->addSpecialTypes($returnTypeArray);
+
         if (in_array(get_debug_type($response), $returnTypeArray, true)) {
             return;
         }
@@ -106,5 +102,26 @@ class ProxyEvent extends GenericEvent implements ProxyEventInterface
         }
 
         return $returnTypeArray;
+    }
+
+    /**
+     * @param ReflectionIntersectionType|ReflectionNamedType|ReflectionUnionType|null $returnType
+     * @return array
+     */
+    private function getTypeArray(
+        ReflectionIntersectionType|ReflectionNamedType|ReflectionUnionType|null $returnType
+    ): array
+    {
+        $returnTypeArray = [];
+        if ($returnType instanceof ReflectionUnionType || $returnType instanceof ReflectionIntersectionType) {
+            foreach ($returnType->getTypes() as $type) {
+                $returnTypeArray[] = $type->getName();
+            }
+        }
+        if ($returnType instanceof ReflectionNamedType) {
+            $returnTypeArray = [$returnType->getName()];
+        }
+
+        return $this->addSpecialTypes($returnTypeArray);
     }
 }
