@@ -19,4 +19,6 @@ namespace Pimcore\Bundle\StaticResolverBundle\Lib;
 interface ToolResolverInterface
 {
     public function getValidLanguages(): array;
+
+    public function getSupportedLocales(): array;
 }
