@@ -17,11 +17,20 @@ declare(strict_types=1);
 namespace Pimcore\Bundle\StaticResolverBundle\Lib;
 
 use Pimcore\Tool;
+use Exception;
 
 class ToolResolver implements ToolResolverInterface
 {
     public function getValidLanguages(): array
     {
         return Tool::getValidLanguages();
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function getSupportedLocales(): array
+    {
+        return Tool::getSupportedLocales();
     }
 }
