@@ -24,4 +24,9 @@ class ToolResolver implements ToolResolverInterface
     {
         return Tool::getValidLanguages();
     }
+
+    public function getSupportedLocales(): array
+    {
+        return Tool::getSupportedLocales();
+    }
 }
