@@ -16,8 +16,8 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Lib;
 
-use Pimcore\Tool;
 use Exception;
+use Pimcore\Tool;
 
 class ToolResolver implements ToolResolverInterface
 {
