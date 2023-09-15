@@ -106,12 +106,12 @@ class ProxyEvent extends GenericEvent implements ProxyEventInterface
 
     /**
      * @param ReflectionIntersectionType|ReflectionNamedType|ReflectionUnionType|null $returnType
+     *
      * @return array
      */
     private function getTypeArray(
         ReflectionIntersectionType|ReflectionNamedType|ReflectionUnionType|null $returnType
-    ): array
-    {
+    ): array {
         $returnTypeArray = [];
         if ($returnType instanceof ReflectionUnionType || $returnType instanceof ReflectionIntersectionType) {
             foreach ($returnType->getTypes() as $type) {
