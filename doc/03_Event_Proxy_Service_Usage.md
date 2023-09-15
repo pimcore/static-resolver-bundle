@@ -76,8 +76,35 @@ class InterceptorListener
     
     public function onUserSavePost(GenericEvent $event)
     {
-        /** @var User $userInstance */
+        /** @var User $userInstance 
+        * get the original object instance.
+        * */
         $userInstance = $event->getSubject();
+        
+        /** get the called method 
+        * e.g. 'save' 
+        * */
+        $calledMethod = $event->getArgument('method');
+        
+        /**
+        * in a post interceptor you can get the return value of the original method.
+        * E.g use it for caching. 
+        */
+        $returnValue = $event->getArgument('returnValue');
+        
+        /** get the used parameter as associative array 
+        *   E.g. ['id' => 12]
+        * */
+        $paramters = $event->getArgument('params')
+        
+        /**
+        * set the respone that will be returned by the proxy.
+        * if used in a pre in terceptor the proxy will return the response of the pre interceptor.
+        * the original method will not be called. E.g retun cache value.
+        * 
+        * if used in a post interceptor the proxy will return the response of the post interceptor. 
+        */
+        $event->setResponse($userInstance);
         
         // Your custom logic here. For instance:
         // Logging, modifying data after save, etc.
