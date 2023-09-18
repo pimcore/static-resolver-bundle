@@ -89,7 +89,7 @@ class EventProxyService implements EventProxyServiceInterface
                     if ($customEventName) {
                         $this->eventDispatcher->dispatch($event, strtolower($customEventName) . '.post');
                     }
-                    
+
                     if ($event->hasResponse()) {
                         $returnEarly = true;
 

@@ -29,7 +29,7 @@ class ProxyEvent extends GenericEvent implements ProxyEventInterface
     private mixed $response;
 
     private bool $hasResponse = false;
-    
+
     private bool $lockResponse = false;
 
     public function getResponse(): mixed
@@ -49,7 +49,7 @@ class ProxyEvent extends GenericEvent implements ProxyEventInterface
         $this->checkReturnType($response);
         $this->response = $response;
         $this->hasResponse = true;
-        
+
         return true;
     }
 
@@ -57,12 +57,12 @@ class ProxyEvent extends GenericEvent implements ProxyEventInterface
     {
         return $this->hasResponse;
     }
-    
+
     public function lockResponse(): void
     {
         $this->lockResponse = true;
     }
-    
+
     public function isResponseLocked(): bool
     {
         return $this->lockResponse;
