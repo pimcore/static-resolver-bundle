@@ -49,7 +49,6 @@ class ProxyEventTestClass
 
     public function voidReturnType(): void
     {
-        return;
     }
 
     public function mixedReturnType(): mixed
@@ -70,5 +69,15 @@ class ProxyEventTestClass
     public function nullableReturnType(): ?string
     {
         return 'test';
+    }
+
+    public function interfaceReturnType(): TestUserInterface
+    {
+        return new FinalTestUser();
+    }
+
+    public function interfaceChildReturnType(): TestUserInterface
+    {
+        return new FinalTestUserWithChildInterface();
     }
 }

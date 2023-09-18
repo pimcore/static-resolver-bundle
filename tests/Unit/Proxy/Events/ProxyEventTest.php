@@ -3,10 +3,13 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Tests\Unit\Proxy\Events;
 
+use ArrayIterator;
 use Codeception\Attribute\Group;
 use Codeception\Test\Unit;
+use InvalidArgumentException;
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Events\ProxyEvent;
 use Pimcore\Bundle\StaticResolverBundle\Tests\Unit\Proxy\TestData\FinalTestUser;
+use Pimcore\Bundle\StaticResolverBundle\Tests\Unit\Proxy\TestData\FinalTestUserWithChildInterface;
 use Pimcore\Bundle\StaticResolverBundle\Tests\Unit\Proxy\TestData\ProxyEventTestClass;
 
 class ProxyEventTest extends Unit
@@ -32,7 +35,7 @@ class ProxyEventTest extends Unit
     {
         $event = new ProxyEvent(new ProxyEventTestClass(), ['method' => 'stringReturnType']);
         $event->setResponse('test');
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $event->setResponse(1);
     }
 
@@ -43,7 +46,7 @@ class ProxyEventTest extends Unit
     {
         $event = new ProxyEvent(new ProxyEventTestClass(), ['method' => 'intReturnType']);
         $event->setResponse(1);
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $event->setResponse('test');
     }
 
@@ -54,7 +57,7 @@ class ProxyEventTest extends Unit
     {
         $event = new ProxyEvent(new ProxyEventTestClass(), ['method' => 'boolReturnType']);
         $event->setResponse(true);
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $event->setResponse('test');
     }
 
@@ -65,7 +68,7 @@ class ProxyEventTest extends Unit
     {
         $event = new ProxyEvent(new ProxyEventTestClass(), ['method' => 'floatReturnType']);
         $event->setResponse(1.1);
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $event->setResponse('test');
     }
 
@@ -76,7 +79,7 @@ class ProxyEventTest extends Unit
     {
         $event = new ProxyEvent(new ProxyEventTestClass(), ['method' => 'arrayReturnType']);
         $event->setResponse(['test']);
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $event->setResponse('test');
     }
 
@@ -89,7 +92,7 @@ class ProxyEventTest extends Unit
         $event->setResponse(function () {
             return 'test';
         });
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $event->setResponse('test');
     }
 
@@ -100,7 +103,7 @@ class ProxyEventTest extends Unit
     {
         $event = new ProxyEvent(new ProxyEventTestClass(), ['method' => 'iterableReturnType']);
         $event->setResponse(['test']);
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $event->setResponse('test');
     }
 
@@ -111,7 +114,7 @@ class ProxyEventTest extends Unit
     {
         $event = new ProxyEvent(new ProxyEventTestClass(), ['method' => 'objectReturnType']);
         $event->setResponse(new FinalTestUser());
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $event->setResponse('test');
     }
 
@@ -121,7 +124,7 @@ class ProxyEventTest extends Unit
     public function testVoidReturnTypewithNull(): void
     {
         $event = new ProxyEvent(new ProxyEventTestClass(), ['method' => 'voidReturnType']);
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $event->setResponse(null);
     }
 
@@ -131,7 +134,7 @@ class ProxyEventTest extends Unit
     public function testVoidReturnType(): void
     {
         $event = new ProxyEvent(new ProxyEventTestClass(), ['method' => 'voidReturnType']);
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $event->setResponse('test');
     }
 
@@ -153,7 +156,7 @@ class ProxyEventTest extends Unit
         $event = new ProxyEvent(new ProxyEventTestClass(), ['method' => 'unionReturnType']);
         $event->setResponse('test');
         $event->setResponse(1);
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $event->setResponse(true);
     }
 
@@ -182,7 +185,19 @@ class ProxyEventTest extends Unit
         $event = new ProxyEvent(new ProxyEventTestClass(), ['method' => 'nullableReturnType']);
         $event->setResponse(null);
         $event->setResponse('test');
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $event->setResponse(1);
+    }
+
+    #[Group('adapter')]
+    #[Group('proxy')]
+    #[Group('event')]
+    public function testInterfaceReturnType(): void
+    {
+        $event = new ProxyEvent(new ProxyEventTestClass(), ['method' => 'interfaceReturnType']);
+        $event->setResponse(new FinalTestUser());
+        $event->setResponse(new FinalTestUserWithChildInterface());
+        $this->expectException(InvalidArgumentException::class);
+        $event->setResponse(new ArrayIterator());
     }
 }

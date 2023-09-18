@@ -70,13 +70,13 @@ class ProxyEvent extends GenericEvent implements ProxyEventInterface
 
         $returnTypeArray = $this->getTypeArray($returnType);
 
-        if (in_array('mixed', $returnTypeArray, true)) {
+        if ($this->testForInterface($returnTypeArray, $response) ||
+            in_array('mixed', $returnTypeArray, true) ||
+            in_array(get_debug_type($response), $returnTypeArray, true)
+        ) {
             return;
         }
 
-        if (in_array(get_debug_type($response), $returnTypeArray, true)) {
-            return;
-        }
 
         throw new InvalidArgumentException(
             sprintf(
@@ -87,6 +87,17 @@ class ProxyEvent extends GenericEvent implements ProxyEventInterface
                 get_debug_type($response)
             )
         );
+    }
+
+    private function testForInterface(array $returnTypeArray, mixed $response): bool
+    {
+        foreach ($returnTypeArray as $returnType) {
+            if ($response instanceof $returnType) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private function addSpecialTypes(array $returnTypeArray): array
