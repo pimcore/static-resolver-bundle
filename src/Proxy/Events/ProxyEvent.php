@@ -77,7 +77,6 @@ class ProxyEvent extends GenericEvent implements ProxyEventInterface
             return;
         }
 
-
         throw new InvalidArgumentException(
             sprintf(
                 'Return type of method %s::%s is %s, but %s was given',
