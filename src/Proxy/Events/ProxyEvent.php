@@ -29,6 +29,8 @@ class ProxyEvent extends GenericEvent implements ProxyEventInterface
     private mixed $response;
 
     private bool $hasResponse = false;
+    
+    private bool $lockResponse = false;
 
     public function getResponse(): mixed
     {
@@ -39,16 +41,31 @@ class ProxyEvent extends GenericEvent implements ProxyEventInterface
      * @throws ReflectionException
      * @throws InvalidArgumentException
      */
-    public function setResponse(mixed $response): void
+    public function setResponse(mixed $response): bool
     {
+        if ($this->isResponseLocked()) {
+            return false;
+        }
         $this->checkReturnType($response);
         $this->response = $response;
         $this->hasResponse = true;
+        
+        return true;
     }
 
     public function hasResponse(): bool
     {
         return $this->hasResponse;
+    }
+    
+    public function lockResponse(): void
+    {
+        $this->lockResponse = true;
+    }
+    
+    public function isResponseLocked(): bool
+    {
+        return $this->lockResponse;
     }
 
     /**

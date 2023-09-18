@@ -31,26 +31,30 @@ class EventProxyService implements EventProxyServiceInterface
     public function getEventDispatcherProxy(
         object $instance,
         array $preInterceptors = [],
-        array $postInterceptors = []
+        array $postInterceptors = [],
+        ?string $customEventName = null
     ): object {
         $proxy = $this->smartReferenceFactory->createProxy($instance);
-        $this->addPreInterceptors($preInterceptors, $proxy);
-        $this->addPostInterceptors($postInterceptors, $proxy);
+        $this->addPreInterceptors($preInterceptors, $proxy, $customEventName);
+        $this->addPostInterceptors($postInterceptors, $proxy, $customEventName);
 
         return $proxy;
     }
 
-    private function addPreInterceptors(array $preInterceptors, object $proxy): void
+    private function addPreInterceptors(array $preInterceptors, object $proxy, ?string $customEventName): void
     {
         foreach ($preInterceptors as $method) {
             $proxy->setMethodPrefixInterceptor(
                 $method,
-                function ($proxy, $instance, $method, $params, & $returnEarly): mixed {
+                function ($proxy, $instance, $method, $params, & $returnEarly) use ($customEventName): mixed {
                     $event = new ProxyEvent(
                         $instance,
                         compact('method', 'params', 'returnEarly')
                     );
                     $this->eventDispatcher->dispatch($event, $this->getEventName($instance, $method, 'pre'));
+                    if ($customEventName) {
+                        $this->eventDispatcher->dispatch($event, strtolower($customEventName) . '.pre');
+                    }
 
                     if ($event->hasResponse()) {
                         $returnEarly = true;
@@ -64,18 +68,28 @@ class EventProxyService implements EventProxyServiceInterface
         }
     }
 
-    private function addPostInterceptors(array $postInterceptors, object $proxy): void
+    private function addPostInterceptors(array $postInterceptors, object $proxy, ?string $customEventName): void
     {
         foreach ($postInterceptors as $method) {
             $proxy->setMethodSuffixInterceptor(
                 $method,
-                function ($proxy, $instance, $method, $params, $returnValue, & $returnEarly): mixed {
+                function (
+                    $proxy,
+                    $instance,
+                    $method,
+                    $params,
+                    $returnValue,
+                    & $returnEarly
+                ) use ($customEventName): mixed {
                     $event = new ProxyEvent(
                         $instance,
                         compact('method', 'params', 'returnValue', 'returnEarly')
                     );
                     $this->eventDispatcher->dispatch($event, $this->getEventName($instance, $method, 'post'));
-
+                    if ($customEventName) {
+                        $this->eventDispatcher->dispatch($event, strtolower($customEventName) . '.post');
+                    }
+                    
                     if ($event->hasResponse()) {
                         $returnEarly = true;
 

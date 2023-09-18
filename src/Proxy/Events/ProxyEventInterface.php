@@ -27,7 +27,11 @@ interface ProxyEventInterface
      * @throws ReflectionException
      * @throws InvalidArgumentException
      */
-    public function setResponse(mixed $response): void;
+    public function setResponse(mixed $response): bool;
 
     public function hasResponse(): bool;
+
+    public function lockResponse(): void;
+
+    public function isResponseLocked(): bool;
 }

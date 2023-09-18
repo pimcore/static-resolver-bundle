@@ -27,6 +27,7 @@ public function getEventDispatcherProxy(
 - `$instance`: The object instance that needs to be proxied.
 - `$preInterceptors` (optional): An array of method names that should be intercepted before their invocation.
 - `$postInterceptors` (optional): An array of method names that should be intercepted after their invocation.
+- `$customEventName` (optional): A custom event name that will be used in addition to the default one. (`.pre` and `.post` will be added)
 
 **Returns:**
 
@@ -76,35 +77,49 @@ class InterceptorListener
     
     public function onUserSavePost(GenericEvent $event)
     {
-        /** @var User $userInstance 
-        * get the original object instance.
-        * */
+        /** 
+         * @var User $userInstance 
+         * get the original object instance.
+         */
         $userInstance = $event->getSubject();
         
-        /** get the called method 
-        * e.g. 'save' 
-        * */
+        /** 
+         * get the called method 
+         * e.g. 'save' 
+         */
         $calledMethod = $event->getArgument('method');
         
         /**
-        * in a post interceptor you can get the return value of the original method.
-        * E.g use it for caching. 
-        */
+         * in a post interceptor you can get the return value of the original method.
+         * E.g use it for caching. 
+         */
         $returnValue = $event->getArgument('returnValue');
         
-        /** get the used parameter as associative array 
-        *   E.g. ['id' => 12]
-        * */
+        /** 
+         * get the used parameter as associative array 
+         * E.g. ['id' => 12]
+         */
         $paramters = $event->getArgument('params')
         
         /**
-        * set the respone that will be returned by the proxy.
-        * if used in a pre in terceptor the proxy will return the response of the pre interceptor.
-        * the original method will not be called. E.g retun cache value.
-        * 
-        * if used in a post interceptor the proxy will return the response of the post interceptor. 
-        */
+         * set the respone that will be returned by the proxy.
+         * return false if response is locked. 
+         * if used in a pre in terceptor the proxy will return the response of the pre interceptor.
+         * the original method will not be called. E.g retun cache value.
+         * 
+         * if used in a post interceptor the proxy will return the response of the post interceptor. 
+         */
         $event->setResponse($userInstance);
+        
+        /**
+         * disable future setting of the response. 
+         */
+        $event->lockResponse();
+        
+        /**
+         * bool if the response is locked. 
+         */
+        $this->isResponseLocked();
         
         // Your custom logic here. For instance:
         // Logging, modifying data after save, etc.

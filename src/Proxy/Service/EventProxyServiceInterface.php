@@ -21,6 +21,7 @@ interface EventProxyServiceInterface
     public function getEventDispatcherProxy(
         object $instance,
         array $preInterceptors = [],
-        array $postInterceptors = []
+        array $postInterceptors = [],
+        ?string $customEventName = null
     ): object;
 }
