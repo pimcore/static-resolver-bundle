@@ -21,7 +21,7 @@ class ObjectAdapterTest extends Unit
             }
         };
         $adapter = new ObjectAdapter($object);
-        $this->assertInstanceOf(ObjectAdapterInterface::class, $adapter);
-        $this->assertEquals('testCallResult', $adapter->call('test', 'test'));
+        static::assertInstanceOf(ObjectAdapterInterface::class, $adapter);
+        static::assertEquals('testCallResult', $adapter->call('test', 'test'));
     }
 }

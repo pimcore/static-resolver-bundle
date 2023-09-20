@@ -16,7 +16,7 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Service;
 
-use Pimcore\Bundle\StaticResolverBundle\Proxy\Events\ProxyEvent;
+use Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\Events\ProxyEventFactoryInterface;
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\SmartReference\SmartReferenceFactoryInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
@@ -24,7 +24,8 @@ class EventProxyService implements EventProxyServiceInterface
 {
     public function __construct(
         private readonly EventDispatcherInterface $eventDispatcher,
-        private readonly SmartReferenceFactoryInterface $smartReferenceFactory
+        private readonly SmartReferenceFactoryInterface $smartReferenceFactory,
+        private readonly ProxyEventFactoryInterface $proxyEventFactory
     ) {
     }
 
@@ -47,7 +48,7 @@ class EventProxyService implements EventProxyServiceInterface
             $proxy->setMethodPrefixInterceptor(
                 $method,
                 function ($proxy, $instance, $method, $params, & $returnEarly) use ($customEventName): mixed {
-                    $event = new ProxyEvent(
+                    $event = $this->proxyEventFactory->createProxyEvent(
                         $instance,
                         compact('method', 'params', 'returnEarly')
                     );
@@ -81,7 +82,7 @@ class EventProxyService implements EventProxyServiceInterface
                     $returnValue,
                     & $returnEarly
                 ) use ($customEventName): mixed {
-                    $event = new ProxyEvent(
+                    $event = $this->proxyEventFactory->createProxyEvent(
                         $instance,
                         compact('method', 'params', 'returnValue', 'returnEarly')
                     );

@@ -19,9 +19,9 @@ class RemoteObjectFactoryTest extends Unit
     public function testRemoteObjectFactory(): void
     {
         $factory = new RemoteObjectFactory();
-        $this->assertInstanceOf(RemoteObjectFactoryInterface::class, $factory);
+        static::assertInstanceOf(RemoteObjectFactoryInterface::class, $factory);
         $factory = new RemoteObjectFactory();
-        $this->assertInstanceOf(RemoteObjectFactoryInterface::class, $factory);
+        static::assertInstanceOf(RemoteObjectFactoryInterface::class, $factory);
     }
 
     #[Group('proxy')]
@@ -31,9 +31,9 @@ class RemoteObjectFactoryTest extends Unit
         $factory = new RemoteObjectFactory();
         //Proxy is created for a class. Must implement from class interface.
         $proxy = $factory->createObjectProxy(new TestUser());
-        $this->assertInstanceOf(TestUserInterface::class, $proxy);
+        static::assertInstanceOf(TestUserInterface::class, $proxy);
         //Proxy must call the method of the class.
-        $this->assertEquals('John', $proxy->getFirstName());
+        static::assertEquals('John', $proxy->getFirstName());
     }
 
     #[Group('proxy')]
@@ -43,9 +43,9 @@ class RemoteObjectFactoryTest extends Unit
         $factory = new RemoteObjectFactory();
         //Strict proxy must not throw an exception if the interface is implemented.
         $proxy = $factory->createStrictProxy(TestUserInterface::class, new TestUser());
-        $this->assertInstanceOf(TestUserInterface::class, $proxy);
+        static::assertInstanceOf(TestUserInterface::class, $proxy);
         //Proxy must call the method of the class.
-        $this->assertEquals('John', $proxy->getFirstName());
+        static::assertEquals('John', $proxy->getFirstName());
 
         $factory = new RemoteObjectFactory();
         $this->expectException(InvalidArgumentException::class);
@@ -60,17 +60,17 @@ class RemoteObjectFactoryTest extends Unit
         $factory = new RemoteObjectFactory();
         //Decorator proxy must not throw an exception if the interface is implemented.
         $proxy = $factory->createDecoratorProxy(TestUserInterface::class, new TestUser());
-        $this->assertInstanceOf(TestUserInterface::class, $proxy);
+        static::assertInstanceOf(TestUserInterface::class, $proxy);
 
         $factory = new RemoteObjectFactory();
         $proxy = $factory->createDecoratorProxy(TestUserBInterface::class, new TestUser());
         //Decorator proxy is not strict,
         //So it must be possible to create a proxy for an interface that is not implemented.
-        $this->assertInstanceOf(TestUserBInterface::class, $proxy);
+        static::assertInstanceOf(TestUserBInterface::class, $proxy);
         //Proxy must call the method of the class.
-        $this->assertEquals('John', $proxy->getFirstName());
+        static::assertEquals('John', $proxy->getFirstName());
         //Can use the interface to call magic methods
-        $this->assertEquals('getId', $proxy->getId());
+        static::assertEquals('getId', $proxy->getId());
     }
 
     #[Group('proxy')]
@@ -79,13 +79,13 @@ class RemoteObjectFactoryTest extends Unit
     {
         $factory = new RemoteObjectFactory();
         $proxy = $factory->createObjectProxy(new TestUser());
-        $this->assertInstanceOf(TestUserInterface::class, $proxy);
+        static::assertInstanceOf(TestUserInterface::class, $proxy);
 
         $proxy = $factory->createStrictProxy(TestUserInterface::class, new TestUser());
-        $this->assertInstanceOf(TestUserInterface::class, $proxy);
+        static::assertInstanceOf(TestUserInterface::class, $proxy);
 
         $proxy = $factory->createDecoratorProxy(TestUserInterface::class, new TestUser());
-        $this->assertInstanceOf(TestUserInterface::class, $proxy);
+        static::assertInstanceOf(TestUserInterface::class, $proxy);
 
     }
 
@@ -97,8 +97,8 @@ class RemoteObjectFactoryTest extends Unit
         //Proxy contains all public methods of the object. Independent of the interface.
         $proxy = $factory->createObjectProxy(new TestUser());
         //All methods of the object must be available.
-        $this->assertTrue(method_exists($proxy, 'getFirstName'));
-        $this->assertTrue(method_exists($proxy, 'getLastName'));
+        static::assertTrue(method_exists($proxy, 'getFirstName'));
+        static::assertTrue(method_exists($proxy, 'getLastName'));
     }
 
     #[Group('proxy')]
@@ -108,9 +108,9 @@ class RemoteObjectFactoryTest extends Unit
         $factory = new RemoteObjectFactory();
         $proxy = $factory->createStrictProxy(TestUserInterface::class, new TestUser());
         //Method in Interface, must be available.
-        $this->assertTrue(method_exists($proxy, 'getFirstName'));
+        static::assertTrue(method_exists($proxy, 'getFirstName'));
         //Method not in Interface, must not be available. No matter if it is in the class.
-        $this->assertFalse(method_exists($proxy, 'getLastName'));
+        static::assertFalse(method_exists($proxy, 'getLastName'));
     }
 
     #[Group('proxy')]
@@ -120,10 +120,10 @@ class RemoteObjectFactoryTest extends Unit
         $factory = new RemoteObjectFactory();
         $proxy = $factory->createDecoratorProxy(TestUserBInterface::class, new TestUser());
         //Method in Interface, must be available.
-        $this->assertTrue(method_exists($proxy, 'getFirstName'));
+        static::assertTrue(method_exists($proxy, 'getFirstName'));
         //Method in Interface, must be available. No matter if it is in the class or not.
-        $this->assertTrue(method_exists($proxy, 'getId'));
+        static::assertTrue(method_exists($proxy, 'getId'));
         //Method not in Interface, must not be available.
-        $this->assertFalse(method_exists($proxy, 'getLastName'));
+        static::assertFalse(method_exists($proxy, 'getLastName'));
     }
 }

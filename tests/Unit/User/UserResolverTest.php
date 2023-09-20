@@ -30,8 +30,8 @@ class UserResolverTest extends Unit
         );
 
         $user = $service->getProxyObject(TestUser::class, 'getObject', [1]);
-        $this->assertInstanceOf(TestUser::class, $user);
+        static::assertInstanceOf(TestUser::class, $user);
         $user = $service->getProxyObject(TestUser::class, 'getObject', [10]);
-        $this->assertNull($user);
+        static::assertNull($user);
     }
 }

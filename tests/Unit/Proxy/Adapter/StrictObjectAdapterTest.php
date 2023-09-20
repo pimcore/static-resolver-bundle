@@ -22,8 +22,8 @@ class StrictObjectAdapterTest extends Unit
         $object = new TestUser();
         //Class TestUser does implement TestUserInterface
         $adapter = new StrictObjectAdapter($object, TestUserInterface::class);
-        $this->assertInstanceOf(ObjectAdapterInterface::class, $adapter);
-        $this->assertEquals('John', $adapter->call('TestUser', 'getFirstName'));
+        static::assertInstanceOf(ObjectAdapterInterface::class, $adapter);
+        static::assertEquals('John', $adapter->call('TestUser', 'getFirstName'));
     }
 
     #[Group('adapter')]
@@ -57,7 +57,7 @@ class StrictObjectAdapterTest extends Unit
         $object = new TestUser();
         //Class TestUser does not implement TestUserCompatibleInterface but all methods are implemented.
         $adapter = new StrictObjectAdapter($object, TestUserCompatibleInterface::class);
-        $this->assertInstanceOf(ObjectAdapterInterface::class, $adapter);
-        $this->assertEquals('John', $adapter->call('TestUser', 'getFirstName'));
+        static::assertInstanceOf(ObjectAdapterInterface::class, $adapter);
+        static::assertEquals('John', $adapter->call('TestUser', 'getFirstName'));
     }
 }

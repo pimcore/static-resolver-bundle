@@ -15,19 +15,41 @@ use Pimcore\Bundle\StaticResolverBundle\Tests\Unit\Proxy\TestData\ProxyEventTest
 class ProxyEventTest extends Unit
 {
 
+    /**
+     * @throws \ReflectionException
+     */
     #[Group('adapter')]
     #[Group('proxy')]
     #[Group('event')]
     public function testBasics(): void
     {
         $event = new ProxyEvent(new ProxyEventTestClass(), ['method' => 'stringReturnType']);
-        $this->assertInstanceOf(ProxyEvent::class, $event);
-        $this->assertFalse($event->hasResponse());
+        static::assertInstanceOf(ProxyEvent::class, $event);
+        static::assertFalse($event->hasResponse());
         $event->setResponse('test');
-        $this->assertTrue($event->hasResponse());
-        $this->assertEquals('test', $event->getResponse());
+        static::assertTrue($event->hasResponse());
+        static::assertEquals('test', $event->getResponse());
     }
 
+    /**
+     * @throws \ReflectionException
+     */
+    #[Group('adapter')]
+    #[Group('proxy')]
+    #[Group('event')]
+    public function testLockResponse(): void
+    {
+        $event = new ProxyEvent(new ProxyEventTestClass(), ['method' => 'stringReturnType']);
+        static::assertFalse($event->isResponseLocked());
+        static::assertTrue($event->setResponse('test'));
+        $event->lockResponse();
+        static::assertTrue($event->isResponseLocked());
+        static::assertFalse($event->setResponse('test'));
+    }
+
+    /**
+     * @throws \ReflectionException
+     */
     #[Group('adapter')]
     #[Group('proxy')]
     #[Group('event')]
@@ -39,6 +61,9 @@ class ProxyEventTest extends Unit
         $event->setResponse(1);
     }
 
+    /**
+     * @throws \ReflectionException
+     */
     #[Group('adapter')]
     #[Group('proxy')]
     #[Group('event')]
@@ -50,6 +75,9 @@ class ProxyEventTest extends Unit
         $event->setResponse('test');
     }
 
+    /**
+     * @throws \ReflectionException
+     */
     #[Group('adapter')]
     #[Group('proxy')]
     #[Group('event')]
@@ -61,6 +89,9 @@ class ProxyEventTest extends Unit
         $event->setResponse('test');
     }
 
+    /**
+     * @throws \ReflectionException
+     */
     #[Group('adapter')]
     #[Group('proxy')]
     #[Group('event')]
@@ -72,6 +103,9 @@ class ProxyEventTest extends Unit
         $event->setResponse('test');
     }
 
+    /**
+     * @throws \ReflectionException
+     */
     #[Group('adapter')]
     #[Group('proxy')]
     #[Group('event')]
@@ -83,6 +117,9 @@ class ProxyEventTest extends Unit
         $event->setResponse('test');
     }
 
+    /**
+     * @throws \ReflectionException
+     */
     #[Group('adapter')]
     #[Group('proxy')]
     #[Group('event')]
@@ -96,6 +133,9 @@ class ProxyEventTest extends Unit
         $event->setResponse('test');
     }
 
+    /**
+     * @throws \ReflectionException
+     */
     #[Group('adapter')]
     #[Group('proxy')]
     #[Group('event')]
@@ -107,6 +147,9 @@ class ProxyEventTest extends Unit
         $event->setResponse('test');
     }
 
+    /**
+     * @throws \ReflectionException
+     */
     #[Group('adapter')]
     #[Group('proxy')]
     #[Group('event')]
@@ -118,6 +161,9 @@ class ProxyEventTest extends Unit
         $event->setResponse('test');
     }
 
+    /**
+     * @throws \ReflectionException
+     */
     #[Group('adapter')]
     #[Group('proxy')]
     #[Group('event')]
@@ -128,6 +174,9 @@ class ProxyEventTest extends Unit
         $event->setResponse(null);
     }
 
+    /**
+     * @throws \ReflectionException
+     */
     #[Group('adapter')]
     #[Group('proxy')]
     #[Group('event')]
@@ -138,6 +187,9 @@ class ProxyEventTest extends Unit
         $event->setResponse('test');
     }
 
+    /**
+     * @throws \ReflectionException
+     */
     #[Group('adapter')]
     #[Group('proxy')]
     #[Group('event')]
@@ -148,6 +200,9 @@ class ProxyEventTest extends Unit
         $event->setResponse(1);
     }
 
+    /**
+     * @throws \ReflectionException
+     */
     #[Group('adapter')]
     #[Group('proxy')]
     #[Group('event')]
@@ -160,6 +215,9 @@ class ProxyEventTest extends Unit
         $event->setResponse(true);
     }
 
+    /**
+     * @throws \ReflectionException
+     */
     #[Group('adapter')]
     #[Group('proxy')]
     #[Group('event')]
@@ -177,6 +235,9 @@ class ProxyEventTest extends Unit
         $event->setResponse(new FinalTestUser());
     }
 
+    /**
+     * @throws \ReflectionException
+     */
     #[Group('adapter')]
     #[Group('proxy')]
     #[Group('event')]
@@ -189,6 +250,9 @@ class ProxyEventTest extends Unit
         $event->setResponse(1);
     }
 
+    /**
+     * @throws \ReflectionException
+     */
     #[Group('adapter')]
     #[Group('proxy')]
     #[Group('event')]
