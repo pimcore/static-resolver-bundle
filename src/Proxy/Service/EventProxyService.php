@@ -48,7 +48,7 @@ class EventProxyService implements EventProxyServiceInterface
             $proxy->setMethodPrefixInterceptor(
                 $method,
                 function ($proxy, $instance, $method, $params, & $returnEarly) use ($customEventName): mixed {
-                    $event = $this->proxyEventFactory->createProxyEvent(
+                    $event = $this->proxyEventFactory->createProxyPreEvent(
                         $instance,
                         compact('method', 'params', 'returnEarly')
                     );
@@ -79,22 +79,15 @@ class EventProxyService implements EventProxyServiceInterface
                     $instance,
                     $method,
                     $params,
-                    $returnValue,
-                    & $returnEarly
+                    $returnValue
                 ) use ($customEventName): mixed {
-                    $event = $this->proxyEventFactory->createProxyEvent(
+                    $event = $this->proxyEventFactory->createProxyPostEvent(
                         $instance,
-                        compact('method', 'params', 'returnValue', 'returnEarly')
+                        compact('method', 'params', 'returnValue')
                     );
                     $this->eventDispatcher->dispatch($event, $this->getEventName($instance, $method, 'post'));
                     if ($customEventName) {
                         $this->eventDispatcher->dispatch($event, strtolower($customEventName) . '.post');
-                    }
-
-                    if ($event->hasResponse()) {
-                        $returnEarly = true;
-
-                        return $event->getResponse();
                     }
 
                     return null;

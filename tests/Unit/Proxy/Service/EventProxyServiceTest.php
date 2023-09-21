@@ -6,8 +6,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Tests\Unit\Proxy\Service;
 use Codeception\Attribute\Group;
 use Codeception\Test\Unit;
 use PHPUnit\Framework\MockObject\Exception;
-use Pimcore\Bundle\StaticResolverBundle\Proxy\Events\ProxyEvent;
-use Pimcore\Bundle\StaticResolverBundle\Proxy\Events\ProxyEventInterface;
+use Pimcore\Bundle\StaticResolverBundle\Proxy\Events\ProxyPostInterceptorInterface;
+use Pimcore\Bundle\StaticResolverBundle\Proxy\Events\ProxyPreInterceptor;
+use Pimcore\Bundle\StaticResolverBundle\Proxy\Events\ProxyPreInterceptorInterface;
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\Events\ProxyEventFactory;
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\Events\ProxyEventFactoryInterface;
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\SmartReference\SmartReferenceFactory;
@@ -101,44 +102,15 @@ class EventProxyServiceTest extends Unit
     #[Group('proxy')]
     #[Group('eventproxy')]
     #[Group('service')]
-    public function testCreateEventProxyWithPostInterceptorsAndCustomResult(): void
+    public function testFactoryCreateEventProxyWithPostInterceptors(): void
     {
         $eventDispatcher = $this->createMock(EventDispatcherInterface::class);
         $eventDispatcher->expects(self::once())->method('dispatch');
 
         $proxyEventFactoryMock = $this->createMock(ProxyEventFactoryInterface::class);
-        $proxyEventFactoryMock->expects(self::once())->method('createProxyEvent')->willReturnCallback(
+        $proxyEventFactoryMock->expects(self::once())->method('createProxyPostEvent')->willReturnCallback(
             function () {
-                $eventMock = $this->createMock(ProxyEventInterface::class);
-                $eventMock->expects(self::once())->method('hasResponse')->willReturn(true);
-                $eventMock->expects(self::once())->method('getResponse')->willReturn('Foo');
-                return $eventMock;
-            }
-        );
-        $smartFactory = new SmartReferenceFactory();
-        $service = new EventProxyService($eventDispatcher, $smartFactory, $proxyEventFactoryMock);
-        $proxy = $service->getEventDispatcherProxy((new TestUser()), [], ['getFirstName']);
-        $proxy->getFirstName();
-    }
-
-    /**
-     * @throws Exception
-     */
-    #[Group('proxy')]
-    #[Group('eventproxy')]
-    #[Group('service')]
-    public function testCreateEventProxyWithPostInterceptorsAndNoCustomResult(): void
-    {
-        $eventDispatcher = $this->createMock(EventDispatcherInterface::class);
-        $eventDispatcher->expects(self::once())->method('dispatch');
-
-        $proxyEventFactoryMock = $this->createMock(ProxyEventFactoryInterface::class);
-        $proxyEventFactoryMock->expects(self::once())->method('createProxyEvent')->willReturnCallback(
-            function () {
-                $eventMock = $this->createMock(ProxyEventInterface::class);
-                $eventMock->expects(self::once())->method('hasResponse')->willReturn(false);
-                $eventMock->expects(self::never())->method('getResponse');
-                return $eventMock;
+                return $this->createMock(ProxyPostInterceptorInterface::class);
             }
         );
         $smartFactory = new SmartReferenceFactory();
@@ -159,9 +131,9 @@ class EventProxyServiceTest extends Unit
         $eventDispatcher->expects(self::once())->method('dispatch');
 
         $proxyEventFactoryMock = $this->createMock(ProxyEventFactoryInterface::class);
-        $proxyEventFactoryMock->expects(self::once())->method('createProxyEvent')->willReturnCallback(
+        $proxyEventFactoryMock->expects(self::once())->method('createProxyPreEvent')->willReturnCallback(
             function () {
-                $eventMock = $this->createMock(ProxyEventInterface::class);
+                $eventMock = $this->createMock(ProxyPreInterceptorInterface::class);
                 $eventMock->expects(self::once())->method('hasResponse')->willReturn(false);
                 $eventMock->expects(self::never())->method('getResponse');
                 return $eventMock;
@@ -185,9 +157,9 @@ class EventProxyServiceTest extends Unit
         $eventDispatcher->expects(self::once())->method('dispatch');
 
         $proxyEventFactoryMock = $this->createMock(ProxyEventFactoryInterface::class);
-        $proxyEventFactoryMock->expects(self::once())->method('createProxyEvent')->willReturnCallback(
+        $proxyEventFactoryMock->expects(self::once())->method('createProxyPreEvent')->willReturnCallback(
             function () {
-                $eventMock = $this->createMock(ProxyEventInterface::class);
+                $eventMock = $this->createMock(ProxyPreInterceptorInterface::class);
                 $eventMock->expects(self::once())->method('hasResponse')->willReturn(true);
                 $eventMock->expects(self::once())->method('getResponse')->willReturn('Foo');
                 return $eventMock;
@@ -235,11 +207,10 @@ class EventProxyServiceTest extends Unit
         $eventDispatcher = $this->createMock(EventDispatcherInterface::class);
         $eventDispatcher->expects(self::once())->method('dispatch')->with(
             $this::logicalAnd(
-                isInstanceOf(ProxyEvent::class),
+                isInstanceOf(ProxyPostInterceptorInterface::class),
                 $this::callback(
-                    static function (ProxyEvent $event) {
-                        return $event->getSubject() instanceof TestUser &&
-                            $event->getArgument('params')['name'] === 'test' &&
+                    static function (ProxyPostInterceptorInterface $event) {
+                        return $event->getArgument('params')['name'] === 'test' &&
                             $event->getArgument('method') === 'setLastName' &&
                         $event->getArgument('returnValue') === 'test_returnValue';
                     }
@@ -265,9 +236,9 @@ class EventProxyServiceTest extends Unit
         $eventDispatcher = $this->createMock(EventDispatcherInterface::class);
         $eventDispatcher->expects(self::once())->method('dispatch')->with(
             $this::logicalAnd(
-                isInstanceOf(ProxyEvent::class),
+                isInstanceOf(ProxyPreInterceptor::class),
                 $this::callback(
-                    static function (ProxyEvent $event) {
+                    static function (ProxyPreInterceptor $event) {
                         return $event->getSubject() instanceof TestUser &&
                             $event->getArgument('method') === 'setLastName' &&
                             $event->getArgument('params')['name'] === 'test';
@@ -295,9 +266,9 @@ class EventProxyServiceTest extends Unit
         $eventDispatcher->expects(self::exactly(2))->method('dispatch')->with(
             $this::logicalOr(
                 $this::logicalAnd(
-                    isInstanceOf(ProxyEvent::class),
+                    isInstanceOf(ProxyPreInterceptor::class),
                     $this::callback(
-                        static function (ProxyEvent $event) {
+                        static function (ProxyPreInterceptor $event) {
                             return $event->getSubject() instanceof TestUser &&
                                 $event->getArgument('method') === 'setLastName' &&
                                 $event->getArgument('params')['name'] === 'test';
@@ -306,9 +277,9 @@ class EventProxyServiceTest extends Unit
                     'pimcore.bundle.staticresolverbundle.tests.unit.proxy.testdata.testuser.setlastname.pre'
                 ),
                 $this::logicalAnd(
-                    isInstanceOf(ProxyEvent::class),
+                    isInstanceOf(ProxyPreInterceptor::class),
                     $this::callback(
-                        static function (ProxyEvent $event) {
+                        static function (ProxyPreInterceptor $event) {
                             return $event->getSubject() instanceof TestUser &&
                                 $event->getArgument('method') === 'setLastName' &&
                                 $event->getArgument('params')['name'] === 'test';
@@ -337,22 +308,20 @@ class EventProxyServiceTest extends Unit
         $eventDispatcher->expects(self::exactly(2))->method('dispatch')->with(
             $this::logicalOr(
                 $this::logicalAnd(
-                    isInstanceOf(ProxyEvent::class),
+                    isInstanceOf(ProxyPostInterceptorInterface::class),
                     $this::callback(
-                        static function (ProxyEvent $event) {
-                            return $event->getSubject() instanceof TestUser &&
-                                $event->getArgument('method') === 'setLastName' &&
+                        static function (ProxyPostInterceptorInterface $event) {
+                            return $event->getArgument('method') === 'setLastName' &&
                                 $event->getArgument('params')['name'] === 'test';
                         }
                     ),
                     'pimcore.bundle.staticresolverbundle.tests.unit.proxy.testdata.testuser.setlastname.post'
                 ),
                 $this::logicalAnd(
-                    isInstanceOf(ProxyEvent::class),
+                    isInstanceOf(ProxyPostInterceptorInterface::class),
                     $this::callback(
-                        static function (ProxyEvent $event) {
-                            return $event->getSubject() instanceof TestUser &&
-                                $event->getArgument('method') === 'setLastName' &&
+                        static function (ProxyPostInterceptorInterface $event) {
+                            return $event->getArgument('method') === 'setLastName' &&
                                 $event->getArgument('params')['name'] === 'test';
                         }
                     )

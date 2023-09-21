@@ -62,25 +62,16 @@ To respond to the dispatched events when interceptors are triggered, you can set
 ```php
 namespace App\EventListener;
 
-use Symfony\Component\EventDispatcher\GenericEvent;
+use Pimcore\Bundle\StaticResolverBundle\Proxy\Events\ProxyPostInterceptor;
+use Pimcore\Bundle\StaticResolverBundle\Proxy\Events\ProxyPreInterceptor;
+use Pimcore\Bundle\StaticResolverBundle\Proxy\Exceptions\ReadOnlyException;
+use Pimcore\Model\User;
 
 class InterceptorListener
 {
-    public function onUserSavePre(GenericEvent $event)
+    public function onUserSavePre(ProxyPreInterceptor $event)
     {
         /** @var User $userInstance */
-        $userInstance = $event->getSubject();
-        
-        // Your custom logic here. For instance:
-        // Logging, modifying data before save, etc.
-    }
-    
-    public function onUserSavePost(GenericEvent $event)
-    {
-        /** 
-         * @var User $userInstance 
-         * get the original object instance.
-         */
         $userInstance = $event->getSubject();
         
         /** 
@@ -104,10 +95,7 @@ class InterceptorListener
         /**
          * set the respone that will be returned by the proxy.
          * return false if response is locked. 
-         * if used in a pre in terceptor the proxy will return the response of the pre interceptor.
-         * the original method will not be called. E.g retun cache value.
-         * 
-         * if used in a post interceptor the proxy will return the response of the post interceptor. 
+         * the original method will not be called. E.g retun cache value.         * 
          */
         $event->setResponse($userInstance);
         
@@ -122,7 +110,37 @@ class InterceptorListener
         $this->isResponseLocked();
         
         // Your custom logic here. For instance:
-        // Logging, modifying data after save, etc.
+        // Logging, caching or modifying data before save, etc.
+    }
+    
+    public function onUserSavePost(ProxyPostInterceptor $event)
+    {        
+        /** 
+         * get the called method 
+         * e.g. 'save' 
+         */
+        $calledMethod = $event->getArgument('method');
+        
+        /** 
+         * get the called class 
+         * e.g. 'App\Entity\User' 
+         */
+        $istanceClass = $event->getSubjectClass();
+        
+        /**
+         * get the return value of the original method. 
+         * E.g use it for caching. 
+         */
+        $returnValue = $event->getArgument('returnValue');
+        
+        /** 
+         * get the used parameter as associative array 
+         * E.g. ['id' => 12] use it for caching, etc.
+         */
+        $paramters = $event->getArgument('params')
+                
+        // Your custom logic here. For instance:
+        // Logging, caching data after save, etc.
     }
 }
 ```

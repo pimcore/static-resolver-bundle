@@ -24,7 +24,7 @@ use ReflectionNamedType;
 use ReflectionUnionType;
 use Symfony\Component\EventDispatcher\GenericEvent;
 
-class ProxyEvent extends GenericEvent implements ProxyEventInterface
+class ProxyPreInterceptor extends GenericEvent implements ProxyPreInterceptorInterface
 {
     private mixed $response;
 
