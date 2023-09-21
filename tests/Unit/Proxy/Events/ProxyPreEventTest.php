@@ -16,6 +16,14 @@ use ReflectionException;
 class ProxyPreEventTest extends Unit
 {
 
+    #[Group('adapter')]
+    #[Group('proxy')]
+    #[Group('event')]
+    public function testCreate(): void
+    {
+        $event = new ProxyPreInterceptor(new ProxyEventTestClass(), ['method' => 'stringReturnType']);
+        static::assertInstanceOf(ProxyPreInterceptor::class, $event);
+    }
     /**
      * @throws ReflectionException
      */
@@ -24,12 +32,29 @@ class ProxyPreEventTest extends Unit
     #[Group('event')]
     public function testBasics(): void
     {
-        $event = new ProxyPreInterceptor(new ProxyEventTestClass(), ['method' => 'stringReturnType']);
-        static::assertInstanceOf(ProxyPreInterceptor::class, $event);
+        $event = new ProxyPreInterceptor(
+            new ProxyEventTestClass(),
+            [
+                'method' => 'testBasics',
+                'params' => ['name' => 'test', 'id' => 1],
+                'returnValue' => 'test1'
+            ]
+        );
+        static::assertEquals('test1', $event->getReturnValue());
+        static::assertEquals('testBasics', $event->getMethodName());
+        static::assertEquals(['name' => 'test', 'id' => 1], $event->getMethodArguments());
+        static::assertEquals('test', $event->getMethodArgument('name'));
+        static::assertEquals(1, $event->getMethodArgument('id'));
+        static::assertTrue($event->agrumentExists('name'));
+        static::assertFalse($event->agrumentExists('fuu'));
+
         static::assertFalse($event->hasResponse());
         $event->setResponse('test');
         static::assertTrue($event->hasResponse());
         static::assertEquals('test', $event->getResponse());
+
+        $this->expectException(InvalidArgumentException::class);
+        static::assertEquals(1, $event->getMethodArgument('fuu'));
     }
 
     /**

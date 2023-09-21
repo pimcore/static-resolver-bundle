@@ -24,8 +24,11 @@ use ReflectionNamedType;
 use ReflectionUnionType;
 use Symfony\Component\EventDispatcher\GenericEvent;
 
-class ProxyPreInterceptor extends GenericEvent implements ProxyPreInterceptorInterface
+class ProxyPreInterceptor extends GenericEvent
+    implements ProxyPreInterceptorInterface, MethodeArgumentsInterceptorInterface
 {
+    use GetMethodBasics;
+
     private mixed $response;
 
     private bool $hasResponse = false;

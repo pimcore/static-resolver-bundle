@@ -20,8 +20,11 @@ namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Events;
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Exceptions\ReadOnlyException;
 use Symfony\Component\EventDispatcher\GenericEvent;
 
-class ProxyPostInterceptor extends GenericEvent implements ProxyPostInterceptorInterface
+class ProxyPostInterceptor extends GenericEvent
+    implements ProxyPostInterceptorInterface, MethodeArgumentsInterceptorInterface
 {
+    use GetMethodBasics;
+
     public function setArgument(string $key, mixed $value): static
     {
         throw new ReadOnlyException('Cannot modify event arguments after dispatch.');

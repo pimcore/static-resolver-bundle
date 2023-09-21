@@ -78,19 +78,24 @@ class InterceptorListener
          * get the called method 
          * e.g. 'save' 
          */
-        $calledMethod = $event->getArgument('method');
+        $calledMethod = $event->getMethodName();
         
         /**
          * in a post interceptor you can get the return value of the original method.
          * E.g use it for caching. 
          */
-        $returnValue = $event->getArgument('returnValue');
+        $returnValue = $event->getReturnValue();
         
         /** 
-         * get the used parameter as associative array 
+         * get the used argumetns as associative array 
          * E.g. ['id' => 12]
          */
-        $paramters = $event->getArgument('params')
+        $paramters = $event->getMethodArguments()
+        
+        /**
+         * get the used argument by name 
+         */
+        $id = $event->getMethodArgument('id');
         
         /**
          * set the respone that will be returned by the proxy.
@@ -119,7 +124,7 @@ class InterceptorListener
          * get the called method 
          * e.g. 'save' 
          */
-        $calledMethod = $event->getArgument('method');
+        $calledMethod = $event->getMethodName();
         
         /** 
          * get the called class 
@@ -131,13 +136,18 @@ class InterceptorListener
          * get the return value of the original method. 
          * E.g use it for caching. 
          */
-        $returnValue = $event->getArgument('returnValue');
+        $returnValue = $event->getReturnValue();
         
         /** 
-         * get the used parameter as associative array 
+         * get the used arguments as associative array 
          * E.g. ['id' => 12] use it for caching, etc.
          */
-        $paramters = $event->getArgument('params')
+        $paramters = $event->getMethodArguments()
+        
+        /**
+         * get the used argument by name 
+         */
+        $id = $event->getMethodArgument('id');
                 
         // Your custom logic here. For instance:
         // Logging, caching data after save, etc.
