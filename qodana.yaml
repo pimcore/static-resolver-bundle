@@ -22,6 +22,7 @@ exclude:
       - docker-compose.yml
       - README.md
       - codeception.dist.yml
+      - qodana.sarif.json
 include:
   - name: PhpTaintFunctionInspection
   - name: PhpVulnerablePathsInspection
