@@ -28,4 +28,12 @@ class ClassDefinitionResolver implements ClassDefinitionResolverInterface
     {
         return ClassDefinition::getById($id, $force);
     }
+
+    /**
+     * @throws Exception
+     */
+    public function getByName(string $name): ?ClassDefinition
+    {
+        return ClassDefinition::getByName($name);
+    }
 }
