@@ -14,10 +14,10 @@ declare(strict_types=1);
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Service;
+namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Exceptions;
 
 use Exception;
 
-class InvalidServiceException extends Exception
+final class InvalidServiceException extends Exception
 {
 }

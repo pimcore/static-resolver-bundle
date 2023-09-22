@@ -18,6 +18,6 @@ namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Exceptions;
 
 use Exception;
 
-class ReadOnlyException extends Exception
+final class ReadOnlyException extends Exception
 {
 }

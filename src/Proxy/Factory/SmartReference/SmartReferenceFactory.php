@@ -18,7 +18,7 @@ namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\SmartReference;
 
 use ProxyManager\Factory\AccessInterceptorValueHolderFactory;
 
-class SmartReferenceFactory implements SmartReferenceFactoryInterface
+final class SmartReferenceFactory implements SmartReferenceFactoryInterface
 {
     public function createProxy(object $instance): object
     {

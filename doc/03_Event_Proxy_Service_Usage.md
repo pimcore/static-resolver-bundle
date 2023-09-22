@@ -158,7 +158,7 @@ class InterceptorListener
 ### Using `EventProxyService` in a Controller
 
 ```php
-use Pimcore\Bundle\StaticResolverBundle\Proxy\Service\EventProxyService;
+use Pimcore\Bundle\StaticResolverBundle\Proxy\Exceptions\EventProxyService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Entity\User;
 

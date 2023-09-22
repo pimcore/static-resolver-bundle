@@ -20,7 +20,7 @@ use Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\Events\ProxyEventFactoryIn
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\SmartReference\SmartReferenceFactoryInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
-class EventProxyService implements EventProxyServiceInterface
+final class EventProxyService implements EventProxyServiceInterface
 {
     public function __construct(
         private readonly EventDispatcherInterface $eventDispatcher,

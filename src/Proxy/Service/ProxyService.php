@@ -16,6 +16,7 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Service;
 
+use Pimcore\Bundle\StaticResolverBundle\Proxy\Exceptions\InvalidServiceException;
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\RemoteObject\RemoteObjectFactoryInterface;
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Traits\GetProxy;
 use Throwable;

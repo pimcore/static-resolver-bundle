@@ -16,6 +16,8 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Service;
 
+use Pimcore\Bundle\StaticResolverBundle\Proxy\Exceptions\InvalidServiceException;
+
 interface ProxyServiceInterface
 {
     /** @throws InvalidServiceException */
