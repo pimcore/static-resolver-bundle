@@ -24,7 +24,8 @@ use ReflectionNamedType;
 use ReflectionUnionType;
 use Symfony\Component\EventDispatcher\GenericEvent;
 
-class ProxyPreInterceptor extends GenericEvent implements ProxyPreInterceptorInterface, MethodeArgumentsInterceptorInterface
+class ProxyPreInterceptor extends GenericEvent
+    implements ProxyPreInterceptorInterface, MethodeArgumentsInterceptorInterface
 {
     use GetMethodBasics;
 
