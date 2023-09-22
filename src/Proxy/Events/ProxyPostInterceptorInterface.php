@@ -36,4 +36,12 @@ interface ProxyPostInterceptorInterface
     public function getSubject(): mixed;
 
     public function getSubjectClass(): string;
+
+    public function getMethodArguments(): array;
+
+    public function agrumentExists(string $key): bool;
+
+    public function getMethodArgument(string $key): mixed;
+
+    public function getReturnValue(): mixed;
 }

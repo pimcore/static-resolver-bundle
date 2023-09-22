@@ -34,4 +34,12 @@ interface ProxyPreInterceptorInterface
     public function lockResponse(): void;
 
     public function isResponseLocked(): bool;
+
+    public function getMethodArguments(): array;
+
+    public function agrumentExists(string $key): bool;
+
+    public function getMethodArgument(string $key): mixed;
+
+    public function getReturnValue(): mixed;
 }
