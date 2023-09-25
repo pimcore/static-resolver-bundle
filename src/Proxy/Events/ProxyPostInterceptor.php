@@ -20,7 +20,7 @@ namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Events;
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Exceptions\ReadOnlyException;
 use Symfony\Component\EventDispatcher\GenericEvent;
 
-final class ProxyPostInterceptor extends GenericEvent implements ProxyPostInterceptorInterface
+class ProxyPostInterceptor extends GenericEvent implements ProxyPostInterceptorInterface
 {
     use GetMethodBasics;
 
