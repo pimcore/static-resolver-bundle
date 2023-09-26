@@ -20,21 +20,6 @@ use Pimcore\Bundle\StaticResolverBundle\Proxy\Exceptions\ReadOnlyException;
 
 interface ProxyPostInterceptorInterface
 {
-    /**
-     * @throws ReadOnlyException
-     */
-    public function setArgument(string $key, mixed $value): static;
-
-    /**
-     * @throws ReadOnlyException
-     */
-    public function setArguments(array $args = []): static;
-
-    /**
-     * @throws ReadOnlyException
-     */
-    public function getSubject(): mixed;
-
     public function getSubjectClass(): string;
 
     public function getMethodArguments(): array;
@@ -44,4 +29,6 @@ interface ProxyPostInterceptorInterface
     public function getMethodArgument(string $key): mixed;
 
     public function getReturnValue(): mixed;
+
+    public function getMethodName(): string;
 }

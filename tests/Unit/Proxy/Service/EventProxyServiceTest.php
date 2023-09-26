@@ -14,7 +14,7 @@ use Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\Events\ProxyEventFactoryIn
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\SmartReference\SmartReferenceFactory;
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\SmartReference\SmartReferenceFactoryInterface;
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Service\EventProxyService;
-use Pimcore\Bundle\StaticResolverBundle\Proxy\Service\InvalidServiceException;
+use Pimcore\Bundle\StaticResolverBundle\Proxy\Exceptions\InvalidServiceException;
 use Pimcore\Bundle\StaticResolverBundle\Tests\Unit\Proxy\TestData\FinalTestUser;
 use Pimcore\Bundle\StaticResolverBundle\Tests\Unit\Proxy\TestData\TestUser;
 use ProxyManager\Exception\InvalidProxiedClassException;
@@ -210,9 +210,9 @@ class EventProxyServiceTest extends Unit
                 isInstanceOf(ProxyPostInterceptorInterface::class),
                 $this::callback(
                     static function (ProxyPostInterceptorInterface $event) {
-                        return $event->getArgument('params')['name'] === 'test' &&
-                            $event->getArgument('method') === 'setLastName' &&
-                        $event->getArgument('returnValue') === 'test_returnValue';
+                        return $event->getMethodArgument('name') === 'test' &&
+                            $event->getMethodName() === 'setLastName' &&
+                        $event->getReturnValue() === 'test_returnValue';
                     }
                 )
             ),
@@ -240,8 +240,8 @@ class EventProxyServiceTest extends Unit
                 $this::callback(
                     static function (ProxyPreInterceptor $event) {
                         return $event->getSubject() instanceof TestUser &&
-                            $event->getArgument('method') === 'setLastName' &&
-                            $event->getArgument('params')['name'] === 'test';
+                            $event->getMethodName() === 'setLastName' &&
+                            $event->getMethodArgument('name') === 'test';
                     }
                 )
             ),
@@ -270,8 +270,8 @@ class EventProxyServiceTest extends Unit
                     $this::callback(
                         static function (ProxyPreInterceptor $event) {
                             return $event->getSubject() instanceof TestUser &&
-                                $event->getArgument('method') === 'setLastName' &&
-                                $event->getArgument('params')['name'] === 'test';
+                                $event->getMethodName() === 'setLastName' &&
+                                $event->getMethodArgument('name') === 'test';
                         }
                     ),
                     'pimcore.bundle.staticresolverbundle.tests.unit.proxy.testdata.testuser.setlastname.pre'
@@ -281,8 +281,8 @@ class EventProxyServiceTest extends Unit
                     $this::callback(
                         static function (ProxyPreInterceptor $event) {
                             return $event->getSubject() instanceof TestUser &&
-                                $event->getArgument('method') === 'setLastName' &&
-                                $event->getArgument('params')['name'] === 'test';
+                                $event->getMethodName() === 'setLastName' &&
+                                $event->getMethodArgument('name') === 'test';
                         }
                     )
                 ),
@@ -311,8 +311,8 @@ class EventProxyServiceTest extends Unit
                     isInstanceOf(ProxyPostInterceptorInterface::class),
                     $this::callback(
                         static function (ProxyPostInterceptorInterface $event) {
-                            return $event->getArgument('method') === 'setLastName' &&
-                                $event->getArgument('params')['name'] === 'test';
+                            return $event->getMethodName() === 'setLastName' &&
+                                $event->getMethodArgument('name') === 'test';
                         }
                     ),
                     'pimcore.bundle.staticresolverbundle.tests.unit.proxy.testdata.testuser.setlastname.post'
@@ -321,8 +321,8 @@ class EventProxyServiceTest extends Unit
                     isInstanceOf(ProxyPostInterceptorInterface::class),
                     $this::callback(
                         static function (ProxyPostInterceptorInterface $event) {
-                            return $event->getArgument('method') === 'setLastName' &&
-                                $event->getArgument('params')['name'] === 'test';
+                            return $event->getMethodName() === 'setLastName' &&
+                                $event->getMethodArgument('name') === 'test';
                         }
                     )
                 ),

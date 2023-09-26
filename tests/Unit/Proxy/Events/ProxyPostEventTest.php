@@ -48,36 +48,6 @@ class ProxyPostEventTest extends Unit
     #[Group('adapter')]
     #[Group('proxy')]
     #[Group('event')]
-    public function testForbidenSetArgument(): void
-    {
-        $event = new ProxyPostInterceptor(new ProxyEventTestClass(), ['method' => 'stringReturnType']);
-        $this->expectException(ReadOnlyException::class);
-        $event->setArgument('test', 'test');
-    }
-
-    #[Group('adapter')]
-    #[Group('proxy')]
-    #[Group('event')]
-    public function testForbidenSetArguments(): void
-    {
-        $event = new ProxyPostInterceptor(new ProxyEventTestClass(), ['method' => 'stringReturnType']);
-        $this->expectException(ReadOnlyException::class);
-        $event->setArguments(['test' => 'test']);
-    }
-
-    #[Group('adapter')]
-    #[Group('proxy')]
-    #[Group('event')]
-    public function testForbidenGetSubject(): void
-    {
-        $event = new ProxyPostInterceptor(new ProxyEventTestClass(), ['method' => 'stringReturnType']);
-        $this->expectException(ReadOnlyException::class);
-        $event->getSubject();
-    }
-
-    #[Group('adapter')]
-    #[Group('proxy')]
-    #[Group('event')]
     public function testGetSubjectClass(): void
     {
         $event = new ProxyPostInterceptor(new ProxyEventTestClass(), ['method' => 'stringReturnType']);
