@@ -16,8 +16,6 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Events;
 
-use Pimcore\Bundle\StaticResolverBundle\Proxy\Exceptions\ReadOnlyException;
-
 interface ProxyPostInterceptorInterface
 {
     public function getSubjectClass(): string;

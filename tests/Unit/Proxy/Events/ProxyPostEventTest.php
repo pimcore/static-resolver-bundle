@@ -7,7 +7,6 @@ use Codeception\Attribute\Group;
 use Codeception\Test\Unit;
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Events\ProxyPostInterceptor;
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Events\ProxyPostInterceptorInterface;
-use Pimcore\Bundle\StaticResolverBundle\Proxy\Exceptions\ReadOnlyException;
 use Pimcore\Bundle\StaticResolverBundle\Tests\Unit\Proxy\TestData\ProxyEventTestClass;
 
 class ProxyPostEventTest extends Unit

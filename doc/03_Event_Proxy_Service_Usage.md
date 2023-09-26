@@ -64,7 +64,6 @@ namespace App\EventListener;
 
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Events\ProxyPostInterceptor;
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Events\ProxyPreInterceptor;
-use Pimcore\Bundle\StaticResolverBundle\Proxy\Exceptions\ReadOnlyException;
 use Pimcore\Model\User;
 
 class InterceptorListener
