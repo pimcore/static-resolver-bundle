@@ -16,13 +16,21 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Lib;
 
+use DateInterval;
 use Pimcore\Cache;
 
 class CacheResolver
 {
-    public function save(mixed $data, string $key, array $tags = []): void
+    public function save(
+        mixed $data,
+        string $key,
+        array $tags = [],
+        DateInterval|int $lifetime = null,
+        int $priority = 0,
+        bool $force = false
+    ): void
     {
-        Cache::save($data, $key, $tags);
+        Cache::save($data, $key, $tags, $lifetime, $priority, $force);
     }
 
     public function load(string $key): mixed
