@@ -28,8 +28,7 @@ class CacheResolver
         DateInterval|int $lifetime = null,
         int $priority = 0,
         bool $force = false
-    ): void
-    {
+    ): void {
         Cache::save($data, $key, $tags, $lifetime, $priority, $force);
     }
 
