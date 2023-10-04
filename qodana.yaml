@@ -22,6 +22,7 @@ exclude:
       - docker-compose.yml
       - README.md
       - codeception.dist.yml
+  - name: PhpDeprecationInspection
 include:
   - name: PhpTaintFunctionInspection
   - name: PhpVulnerablePathsInspection
