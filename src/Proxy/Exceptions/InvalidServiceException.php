@@ -14,14 +14,10 @@ declare(strict_types=1);
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\Events;
+namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Exceptions;
 
-use Pimcore\Bundle\StaticResolverBundle\Proxy\Events\ProxyEventInterface;
+use Exception;
 
-/**
- * @deprecated
- */
-interface ProxyEventFactoryInterface
+final class InvalidServiceException extends Exception
 {
-    public function createProxyEvent(mixed $subject = null, array $arguments = []): ProxyEventInterface;
 }

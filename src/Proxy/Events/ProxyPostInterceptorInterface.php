@@ -14,14 +14,19 @@ declare(strict_types=1);
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\Events;
+namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Events;
 
-use Pimcore\Bundle\StaticResolverBundle\Proxy\Events\ProxyEventInterface;
-
-/**
- * @deprecated
- */
-interface ProxyEventFactoryInterface
+interface ProxyPostInterceptorInterface
 {
-    public function createProxyEvent(mixed $subject = null, array $arguments = []): ProxyEventInterface;
+    public function getSubjectClass(): string;
+
+    public function getMethodArguments(): array;
+
+    public function agrumentExists(string $key): bool;
+
+    public function getMethodArgument(string $key): mixed;
+
+    public function getReturnValue(): mixed;
+
+    public function getMethodName(): string;
 }

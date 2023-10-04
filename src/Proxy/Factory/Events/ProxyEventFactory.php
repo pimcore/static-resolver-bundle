@@ -19,6 +19,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\Events;
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Events\ProxyEvent;
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Events\ProxyEventInterface;
 
+/**
+ * @deprecated
+ */
 class ProxyEventFactory implements ProxyEventFactoryInterface
 {
     public function createProxyEvent(mixed $subject = null, array $arguments = []): ProxyEventInterface

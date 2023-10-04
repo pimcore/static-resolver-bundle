@@ -16,24 +16,23 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Events;
 
-use InvalidArgumentException;
-use ReflectionException;
-/**
- * @deprecated
- */
-interface ProxyEventInterface
+use Symfony\Contracts\EventDispatcher\Event;
+
+final class ProxyPostInterceptor extends Event implements ProxyPostInterceptorInterface
 {
-    public function getResponse(): mixed;
+    use GetMethodBasics;
 
-    /**
-     * @throws ReflectionException
-     * @throws InvalidArgumentException
-     */
-    public function setResponse(mixed $response): bool;
+    public function __construct(private readonly mixed $subject = null, private readonly array $arguments = [])
+    {
+    }
 
-    public function hasResponse(): bool;
+    public function getSubjectClass(): string
+    {
+        return get_class($this->subject);
+    }
 
-    public function lockResponse(): void;
-
-    public function isResponseLocked(): bool;
+    private function getArgument(string $key): mixed
+    {
+        return $this->arguments[$key] ?? null;
+    }
 }
