@@ -3,9 +3,9 @@
 
 ## Overview
 
-`EventProxyService` is a service class that provides functionality to wrap an object's instance with `pre` and `post` method interceptors. These interceptors are respectively triggered right before or after the invocation of the specified methods.
+`EventProxyService` is a service class that provides functionality to wrap an object's instance with `pre` and `post` method interceptors. These interceptors are triggered right before or after the invocation of the specified methods.
 
-When an interceptor is triggered, an event is dispatched using the `EventDispatcher`. The event name is composed of the lower case fully-qualified class name of the original object (with backslashes replaced by dots), the lower case method name, and the prefix (`.pre` or `.post`).
+When an interceptor is triggered, an event is dispatched using the `EventDispatcher`. The event name is composed of the lowercase fully-qualified class name of the original object (with backslashes replaced by dots), the lowercase method name, and the prefix (`.pre` or `.post`).
 
 For example, for a pre-interceptor on the `save` method of a class named `App\Entity\User`, the event name will be `app.entity.user.save.pre`.
 
