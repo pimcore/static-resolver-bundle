@@ -20,6 +20,10 @@ use Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\Events\InterceptorProxyEve
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\SmartReference\SmartReferenceFactoryInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
+
+/**
+ * @internal
+ */
 final class InterceptorProxyService implements InterceptorProxyServiceInterface
 {
     public function __construct(
