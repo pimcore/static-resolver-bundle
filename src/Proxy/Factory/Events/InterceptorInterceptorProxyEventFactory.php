@@ -21,6 +21,10 @@ use Pimcore\Bundle\StaticResolverBundle\Proxy\Events\ProxyPostInterceptorInterfa
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Events\ProxyPreInterceptor;
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Events\ProxyPreInterceptorInterface;
 
+
+/**
+ * @internal
+ */
 final class InterceptorInterceptorProxyEventFactory implements InterceptorProxyEventFactoryInterface
 {
     public function createInterceptorPreEvent(
