@@ -5,6 +5,13 @@ namespace Pimcore\Bundle\StaticResolverBundle\Tests\Unit\Proxy\TestData;
 
 class ProxyEventTestClass
 {
+
+    public function testBasics(string $name, int $id): string
+    {
+        return $name . $id;
+    }
+
+
     public function stringReturnType(): string
     {
         return 'test';

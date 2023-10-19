@@ -22,22 +22,34 @@ use ReflectionIntersectionType;
 use ReflectionMethod;
 use ReflectionNamedType;
 use ReflectionUnionType;
-use Symfony\Component\EventDispatcher\GenericEvent;
+use Symfony\Contracts\EventDispatcher\Event;
+
 
 /**
- * @deprecated
+ * @internal
  */
-class ProxyEvent extends GenericEvent implements ProxyEventInterface
+final class ProxyPreInterceptor extends Event implements ProxyPreInterceptorInterface
 {
+    use GetMethodBasics;
+
     private mixed $response;
 
     private bool $hasResponse = false;
 
     private bool $lockResponse = false;
 
+    public function __construct(private readonly mixed $subject = null, private readonly array $arguments = [])
+    {
+    }
+
     public function getResponse(): mixed
     {
         return $this->response;
+    }
+
+    public function getSubject(): mixed
+    {
+        return $this->subject;
     }
 
     /**
@@ -69,6 +81,11 @@ class ProxyEvent extends GenericEvent implements ProxyEventInterface
     public function isResponseLocked(): bool
     {
         return $this->lockResponse;
+    }
+
+    private function getArgument(string $key): mixed
+    {
+        return $this->arguments[$key] ?? null;
     }
 
     /**

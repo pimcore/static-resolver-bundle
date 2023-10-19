@@ -18,10 +18,8 @@ namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Events;
 
 use InvalidArgumentException;
 use ReflectionException;
-/**
- * @deprecated
- */
-interface ProxyEventInterface
+
+interface ProxyPreInterceptorInterface
 {
     public function getResponse(): mixed;
 
@@ -36,4 +34,12 @@ interface ProxyEventInterface
     public function lockResponse(): void;
 
     public function isResponseLocked(): bool;
+
+    public function getMethodArguments(): array;
+
+    public function agrumentExists(string $key): bool;
+
+    public function getMethodArgument(string $key): mixed;
+
+    public function getReturnValue(): mixed;
 }

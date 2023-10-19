@@ -16,19 +16,20 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Service;
 
-use Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\Events\ProxyEventFactoryInterface;
+use Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\Events\InterceptorProxyEventFactoryInterface;
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\SmartReference\SmartReferenceFactoryInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
+
 /**
- * @deprecated
+ * @internal
  */
-class EventProxyService implements EventProxyServiceInterface
+final class InterceptorProxyService implements InterceptorProxyServiceInterface
 {
     public function __construct(
         private readonly EventDispatcherInterface $eventDispatcher,
         private readonly SmartReferenceFactoryInterface $smartReferenceFactory,
-        private readonly ProxyEventFactoryInterface $proxyEventFactory
+        private readonly InterceptorProxyEventFactoryInterface $proxyEventFactory
     ) {
     }
 
@@ -51,7 +52,7 @@ class EventProxyService implements EventProxyServiceInterface
             $proxy->setMethodPrefixInterceptor(
                 $method,
                 function ($proxy, $instance, $method, $params, & $returnEarly) use ($customEventName): mixed {
-                    $event = $this->proxyEventFactory->createProxyEvent(
+                    $event = $this->proxyEventFactory->createInterceptorPreEvent(
                         $instance,
                         compact('method', 'params', 'returnEarly')
                     );
@@ -82,22 +83,15 @@ class EventProxyService implements EventProxyServiceInterface
                     $instance,
                     $method,
                     $params,
-                    $returnValue,
-                    & $returnEarly
+                    $returnValue
                 ) use ($customEventName): mixed {
-                    $event = $this->proxyEventFactory->createProxyEvent(
+                    $event = $this->proxyEventFactory->createInterceptorPostEvent(
                         $instance,
-                        compact('method', 'params', 'returnValue', 'returnEarly')
+                        compact('method', 'params', 'returnValue')
                     );
                     $this->eventDispatcher->dispatch($event, $this->getEventName($instance, $method, 'post'));
                     if ($customEventName) {
                         $this->eventDispatcher->dispatch($event, strtolower($customEventName) . '.post');
-                    }
-
-                    if ($event->hasResponse()) {
-                        $returnEarly = true;
-
-                        return $event->getResponse();
                     }
 
                     return null;
