@@ -18,7 +18,6 @@ namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Exceptions;
 
 use Exception;
 
-
 /**
  * @internal
  */

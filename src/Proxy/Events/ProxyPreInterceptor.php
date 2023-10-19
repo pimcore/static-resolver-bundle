@@ -24,7 +24,6 @@ use ReflectionNamedType;
 use ReflectionUnionType;
 use Symfony\Contracts\EventDispatcher\Event;
 
-
 /**
  * @internal
  */
