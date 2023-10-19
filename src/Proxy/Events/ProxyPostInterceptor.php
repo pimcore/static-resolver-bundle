@@ -18,6 +18,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Events;
 
 use Symfony\Contracts\EventDispatcher\Event;
 
+/**
+ * @internal
+ */
 final class ProxyPostInterceptor extends Event implements ProxyPostInterceptorInterface
 {
     use GetMethodBasics;
