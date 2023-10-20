@@ -22,17 +22,19 @@ use Pimcore\Bundle\StaticResolverBundle\Proxy\Events\ProxyPreInterceptor;
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Events\ProxyPreInterceptorInterface;
 
 /**
- * @deprecated
+ * @internal
  */
-final class ProxyEventFactory implements ProxyEventFactoryInterface
+final class InterceptorInterceptorProxyEventFactory implements InterceptorProxyEventFactoryInterface
 {
-    public function createProxyPreEvent(mixed $subject = null, array $arguments = []): ProxyPreInterceptorInterface
-    {
+    public function createInterceptorPreEvent(
+        mixed $subject = null, array $arguments = []
+    ): ProxyPreInterceptorInterface {
         return new ProxyPreInterceptor($subject, $arguments);
     }
 
-    public function createProxyPostEvent(mixed $subject = null, array $arguments = []): ProxyPostInterceptorInterface
-    {
+    public function createInterceptorPostEvent(
+        mixed $subject = null, array $arguments = []
+    ): ProxyPostInterceptorInterface {
         return new ProxyPostInterceptor($subject, $arguments);
     }
 }

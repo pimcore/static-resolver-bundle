@@ -24,7 +24,10 @@ use ReflectionNamedType;
 use ReflectionUnionType;
 use Symfony\Component\EventDispatcher\GenericEvent;
 
-class ProxyPreInterceptor extends GenericEvent implements ProxyPreInterceptorInterface
+/**
+ * @internal
+ */
+final class ProxyPreInterceptor extends GenericEvent implements ProxyPreInterceptorInterface
 {
     use GetMethodBasics;
 

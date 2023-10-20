@@ -21,8 +21,10 @@ exclude:
       - composer.lock
       - docker-compose.yml
       - README.md
+      - qodana.sarif.json
       - codeception.dist.yml
       - qodana.sarif.json
+  - name: PhpDeprecationInspection
 include:
   - name: PhpTaintFunctionInspection
   - name: PhpVulnerablePathsInspection

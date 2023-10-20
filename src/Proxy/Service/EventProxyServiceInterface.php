@@ -16,6 +16,9 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Service;
 
+/**
+ * @deprecated
+ */
 interface EventProxyServiceInterface
 {
     public function getEventDispatcherProxy(

@@ -16,20 +16,19 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Service;
 
-use Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\Events\ProxyEventFactoryInterface;
+use Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\Events\InterceptorProxyEventFactoryInterface;
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\SmartReference\SmartReferenceFactoryInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
-
 /**
- * @deprecated
+ * @internal
  */
-final class EventProxyService implements EventProxyServiceInterface
+final class InterceptorProxyService implements InterceptorProxyServiceInterface
 {
     public function __construct(
         private readonly EventDispatcherInterface $eventDispatcher,
         private readonly SmartReferenceFactoryInterface $smartReferenceFactory,
-        private readonly ProxyEventFactoryInterface $proxyEventFactory
+        private readonly InterceptorProxyEventFactoryInterface $proxyEventFactory
     ) {
     }
 
@@ -52,7 +51,7 @@ final class EventProxyService implements EventProxyServiceInterface
             $proxy->setMethodPrefixInterceptor(
                 $method,
                 function ($proxy, $instance, $method, $params, & $returnEarly) use ($customEventName): mixed {
-                    $event = $this->proxyEventFactory->createProxyPreEvent(
+                    $event = $this->proxyEventFactory->createInterceptorPreEvent(
                         $instance,
                         compact('method', 'params', 'returnEarly')
                     );
@@ -85,7 +84,7 @@ final class EventProxyService implements EventProxyServiceInterface
                     $params,
                     $returnValue
                 ) use ($customEventName): mixed {
-                    $event = $this->proxyEventFactory->createProxyPostEvent(
+                    $event = $this->proxyEventFactory->createInterceptorPostEvent(
                         $instance,
                         compact('method', 'params', 'returnValue')
                     );

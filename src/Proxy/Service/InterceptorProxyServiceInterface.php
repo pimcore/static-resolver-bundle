@@ -14,13 +14,14 @@ declare(strict_types=1);
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Exceptions;
+namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Service;
 
-use Exception;
-
-/**
- * @internal
- */
-final class InvalidServiceException extends Exception
+interface InterceptorProxyServiceInterface
 {
+    public function getEventDispatcherProxy(
+        object $instance,
+        array $preInterceptors = [],
+        array $postInterceptors = [],
+        ?string $customEventName = null
+    ): object;
 }

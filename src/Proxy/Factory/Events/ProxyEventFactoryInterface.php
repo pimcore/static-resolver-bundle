@@ -19,6 +19,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\Events;
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Events\ProxyPostInterceptorInterface;
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Events\ProxyPreInterceptorInterface;
 
+/**
+ * @deprecated
+ */
 interface ProxyEventFactoryInterface
 {
     public function createProxyPreEvent(mixed $subject = null, array $arguments = []): ProxyPreInterceptorInterface;
