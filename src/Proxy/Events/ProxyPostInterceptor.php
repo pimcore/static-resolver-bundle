@@ -23,21 +23,21 @@ use Symfony\Component\EventDispatcher\GenericEvent;
 /**
  * @internal
  */
-final class ProxyPostInterceptor extends GenericEvent implements ProxyPostInterceptorInterface
+class ProxyPostInterceptor extends GenericEvent implements ProxyPostInterceptorInterface
 {
     use GetMethodBasics;
 
-    public function setArgument(string $key, mixed $value): void
+    public function setArgument(string $key, mixed $value): static
     {
         throw new ReadOnlyException('Cannot modify event arguments after dispatch.');
     }
 
-    public function setArguments(array $args = []): void
+    public function setArguments(array $args = []): static
     {
         throw new ReadOnlyException('Cannot modify event arguments after dispatch.');
     }
 
-    public function getSubject(): void
+    public function getSubject(): mixed
     {
         throw new ReadOnlyException('Cannot modify or get event subject after dispatch.');
     }
