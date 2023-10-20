@@ -20,7 +20,6 @@ use Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\Events\ProxyEventFactoryIn
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\SmartReference\SmartReferenceFactoryInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
-
 /**
  * @deprecated
  */
