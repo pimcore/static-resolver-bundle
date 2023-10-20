@@ -23,17 +23,17 @@ interface ProxyPostInterceptorInterface
     /**
      * @throws ReadOnlyException
      */
-    public function setArgument(string $key, mixed $value): static;
+    public function setArgument(string $key, mixed $value): void;
 
     /**
      * @throws ReadOnlyException
      */
-    public function setArguments(array $args = []): static;
+    public function setArguments(array $args = []): void;
 
     /**
      * @throws ReadOnlyException
      */
-    public function getSubject(): mixed;
+    public function getSubject(): void;
 
     public function getSubjectClass(): string;
 

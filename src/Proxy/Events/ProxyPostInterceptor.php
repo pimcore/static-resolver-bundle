@@ -27,17 +27,17 @@ final class ProxyPostInterceptor extends GenericEvent implements ProxyPostInterc
 {
     use GetMethodBasics;
 
-    public function setArgument(string $key, mixed $value): static
+    public function setArgument(string $key, mixed $value): void
     {
         throw new ReadOnlyException('Cannot modify event arguments after dispatch.');
     }
 
-    public function setArguments(array $args = []): static
+    public function setArguments(array $args = []): void
     {
         throw new ReadOnlyException('Cannot modify event arguments after dispatch.');
     }
 
-    public function getSubject(): mixed
+    public function getSubject(): void
     {
         throw new ReadOnlyException('Cannot modify or get event subject after dispatch.');
     }
