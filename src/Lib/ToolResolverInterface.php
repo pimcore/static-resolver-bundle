@@ -21,4 +21,6 @@ interface ToolResolverInterface
     public function getValidLanguages(): array;
 
     public function getSupportedLocales(): array;
+
+    public function getDefaultLanguage(): ?string;
 }

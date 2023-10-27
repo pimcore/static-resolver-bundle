@@ -33,4 +33,9 @@ class ToolResolver implements ToolResolverInterface
     {
         return Tool::getSupportedLocales();
     }
+
+    public function getDefaultLanguage(): ?string
+    {
+        return Tool::getDefaultLanguage();
+    }
 }
