@@ -26,5 +26,5 @@ interface DataObjectServiceResolverInterface
         array $fnArgs = []
     ): mixed;
 
-    public static function createFolderByPath(string $path, array $options = []): Folder;
+    public function createFolderByPath(string $path, array $options = []): Folder;
 }
