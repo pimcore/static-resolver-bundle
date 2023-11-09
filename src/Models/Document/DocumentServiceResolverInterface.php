@@ -23,5 +23,5 @@ use Pimcore\Model\Document\Folder;
  */
 interface DocumentServiceResolverInterface
 {
-    public static function createFolderByPath(string $path, array $options = []): Folder;
+    public function createFolderByPath(string $path, array $options = []): Folder;
 }

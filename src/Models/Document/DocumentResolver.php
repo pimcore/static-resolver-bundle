@@ -26,7 +26,7 @@ use Pimcore\Model\Document\Listing;
 final class DocumentResolver implements DocumentResolverInterface
 {
 
-    public static function getById(int|string $id, array $params = []): ?Document
+    public function getById(int|string $id, array $params = []): ?Document
     {
         return Document::getById($id, $params);
     }

@@ -24,7 +24,7 @@ use Pimcore\Model\Asset\Listing;
  */
 interface AssetResolverInterface
 {
-    public static function getById(int|string $id, array $params = []): ?Asset;
+    public function getById(int|string $id, array $params = []): ?Asset;
     public function getByPath(string $path, array $params = []): ?Asset;
     public function create(int $parentId, array $data = [], bool $save = true): Asset;
     public function getList(array $config = []): Listing;

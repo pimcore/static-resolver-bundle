@@ -24,7 +24,7 @@ use Pimcore\Model\Document\Listing;
  */
 interface DocumentResolverInterface
 {
-    public static function getById(int|string $id, array $params = []): ?Document;
+    public function getById(int|string $id, array $params = []): ?Document;
     public function getByPath(string $path, array $params = []): ?Document;
     public function create(int $parentId, array $data = [], bool $save = true): Document;
     public function getList(array $config = []): Listing;

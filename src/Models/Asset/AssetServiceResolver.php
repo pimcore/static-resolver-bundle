@@ -29,7 +29,7 @@ final class AssetServiceResolver implements AssetServiceResolverInterface
     /**
      * @throws Exception
      */
-    public static function createFolderByPath(string $path, array $options = []): Folder
+    public function createFolderByPath(string $path, array $options = []): Folder
     {
         return Service::createFolderByPath($path, $options);
     }

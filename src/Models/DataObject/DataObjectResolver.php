@@ -26,7 +26,7 @@ use Pimcore\Model\DataObject\Listing;
 final class DataObjectResolver implements DataObjectResolverInterface
 {
 
-    public static function getById(int|string $id, array $params = []): ?DataObject
+    public function getById(int|string $id, array $params = []): ?DataObject
     {
         return DataObject::getById($id, $params);
     }
