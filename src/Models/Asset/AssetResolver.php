@@ -26,7 +26,7 @@ use Pimcore\Model\Asset\Listing;
 final class AssetResolver implements AssetResolverInterface
 {
 
-    public static function getById(int|string $id, array $params = []): ?Asset
+    public function getById(int|string $id, array $params = []): ?Asset
     {
         return Asset::getById($id, $params);
     }
