@@ -1,9 +1,10 @@
-version: '3.0'
 services:
-    php-static-resolver-bundle:
-        image: pimcore/pimcore:php8.2-debug-dev
+    php:
+        user: '1000:1000' # set to your uid:gid
+        image: pimcore/pimcore:php8.2-debug-latest
         environment:
+            COMPOSER_HOME: /var/www/html
             PHP_IDE_CONFIG: serverName=localhost
+            COMPOSER_AUTH: '{"http-basic": {"repo.pimcore.com": {"username": "token", "password": "bdf84feb7d75fb9f2154fc77685ad46114a1bcf39930ca092803381bd36e"}}}'
         volumes:
-            - .:/var/cli/
-            - ./.docker/30-xdebug.ini:/usr/local/etc/php/conf.d/30-xdebug.ini
+            - .:/var/www/html
