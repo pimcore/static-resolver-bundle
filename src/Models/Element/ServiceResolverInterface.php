@@ -32,9 +32,9 @@ interface ServiceResolverInterface
     ): Asset|Document|AbstractObject|null;
 
     public function getElementByPath(
-        string $path,
-        array $params = []
-    ): Asset|Document|AbstractObject|null;
+        string $type,
+        string $path
+    ): ?ElementInterface;
 
     public function getElementType(ElementInterface $element): ?string;
 
