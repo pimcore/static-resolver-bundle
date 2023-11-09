@@ -14,28 +14,17 @@ declare(strict_types=1);
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject;
+namespace Pimcore\Bundle\StaticResolverBundle\Models\Document;
 
 use Exception;
-use Pimcore\Model\DataObject\Folder;
-use Pimcore\Model\DataObject\Service;
+use Pimcore\Model\Document\Folder;
+use Pimcore\Model\Document\Service;
 
 /**
  * @internal
  */
-final class DataObjectServiceResolver implements DataObjectServiceResolverInterface
+final class DocumentServiceResolver implements DocumentServiceResolverInterface
 {
-    public function useInheritedValues(
-        bool $inheritValues,
-        callable $fn,
-        array $fnArgs = []
-    ): mixed {
-        return Service::useInheritedValues(
-            $inheritValues,
-            $fn,
-            $fnArgs
-        );
-    }
 
     /**
      * @throws Exception
