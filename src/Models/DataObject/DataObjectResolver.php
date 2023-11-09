@@ -17,31 +17,35 @@ declare(strict_types=1);
 namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject;
 
 use Exception;
-use Pimcore\Model\DataObject\Folder;
-use Pimcore\Model\DataObject\Service;
+use Pimcore\Model\DataObject;
+use Pimcore\Model\DataObject\Listing;
 
 /**
  * @internal
  */
-final class DataObjectServiceResolver implements DataObjectServiceResolverInterface
+final class DataObjectResolver implements DataObjectResolverInterface
 {
-    public function useInheritedValues(
-        bool $inheritValues,
-        callable $fn,
-        array $fnArgs = []
-    ): mixed {
-        return Service::useInheritedValues(
-            $inheritValues,
-            $fn,
-            $fnArgs
-        );
+
+    public function getById(int|string $id, array $params = []): ?DataObject
+    {
+        return DataObject::getById($id, $params);
+    }
+
+    public function getByPath(string $path, array $params = []): ?DataObject
+    {
+        return DataObject::getByPath($path, $params);
     }
 
     /**
      * @throws Exception
      */
-    public function createFolderByPath(string $path, array $options = []): Folder
+    public function getList(array $config = []): Listing
     {
-        return Service::createFolderByPath($path, $options);
+        return DataObject::getList($config);
+    }
+
+    public function getTypes(): array
+    {
+        return DataObject::getTypes();
     }
 }

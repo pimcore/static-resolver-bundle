@@ -31,6 +31,11 @@ interface ServiceResolverInterface
         array $params = []
     ): Asset|Document|AbstractObject|null;
 
+    public function getElementByPath(
+        string $type,
+        string $path
+    ): ?ElementInterface;
+
     public function getElementType(ElementInterface $element): ?string;
 
     public function findForbiddenPaths(string $type, User $user): array;
