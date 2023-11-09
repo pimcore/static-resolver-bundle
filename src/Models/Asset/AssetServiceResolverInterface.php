@@ -18,9 +18,6 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\Asset;
 
 use Pimcore\Model\Asset\Folder;
 
-/**
- * @internal
- */
 interface AssetServiceResolverInterface
 {
     public function createFolderByPath(string $path, array $options = []): Folder;

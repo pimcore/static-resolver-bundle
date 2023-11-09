@@ -19,14 +19,15 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\Document;
 use Pimcore\Model\Document;
 use Pimcore\Model\Document\Listing;
 
-/**
- * @internal
- */
 interface DocumentResolverInterface
 {
     public function getById(int|string $id, array $params = []): ?Document;
+
     public function getByPath(string $path, array $params = []): ?Document;
+
     public function create(int $parentId, array $data = [], bool $save = true): Document;
+
     public function getList(array $config = []): Listing;
+
     public function getTypes(): array;
 }

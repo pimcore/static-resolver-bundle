@@ -19,13 +19,13 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject;
 use Pimcore\Model\DataObject;
 use Pimcore\Model\DataObject\Listing;
 
-/**
- * @internal
- */
 interface DataObjectResolverInterface
 {
     public function getById(int|string $id, array $params = []): ?DataObject;
+
     public function getByPath(string $path, array $params = []): ?DataObject;
+
     public function getList(array $config = []): Listing;
+
     public function getTypes(): array;
 }
