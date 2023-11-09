@@ -25,7 +25,6 @@ use Pimcore\Model\Document\Service;
  */
 final class DocumentServiceResolver implements DocumentServiceResolverInterface
 {
-
     /**
      * @throws Exception
      */

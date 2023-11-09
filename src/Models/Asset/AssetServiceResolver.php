@@ -25,7 +25,6 @@ use Pimcore\Model\Asset\Service;
  */
 final class AssetServiceResolver implements AssetServiceResolverInterface
 {
-
     /**
      * @throws Exception
      */
