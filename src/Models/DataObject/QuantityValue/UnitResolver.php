@@ -21,7 +21,7 @@ use Pimcore\Model\DataObject\QuantityValue\Unit;
 /**
  * @internal
  */
-final class UnitResolver
+final class UnitResolver implements UnitResolverInterface
 {
     public function getById(string $id): ?Unit
     {
