@@ -24,7 +24,6 @@ use Pimcore\Model\Tool\SettingsStore;
  */
 final class SettingsStoreResolver implements SettingsStoreResolverInterface
 {
-
     /**
      * @throws Exception
      */
@@ -40,7 +39,7 @@ final class SettingsStoreResolver implements SettingsStoreResolverInterface
 
     public function get(string $id, ?string $scope = null): ?SettingsStore
     {
-       return SettingsStore::get($id, $scope);
+        return SettingsStore::get($id, $scope);
     }
 
     public function getIdsByScope(string $scope): array
