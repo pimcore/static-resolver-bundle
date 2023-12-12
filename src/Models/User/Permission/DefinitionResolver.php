@@ -19,7 +19,10 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\User\Permission;
 use Exception;
 use Pimcore\Model\User\Permission;
 
-class DefinitionResolver implements DefinitionResolverInterface
+/**
+ * @internal
+ */
+final class DefinitionResolver implements DefinitionResolverInterface
 {
     /**
      * @throws Exception
