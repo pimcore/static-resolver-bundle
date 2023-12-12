@@ -21,5 +21,6 @@ use Pimcore\Model\User\Permission\Definition;
 interface DefinitionResolverInterface
 {
     public function getByKey(string $permission): ?Definition;
+
     public function create(string $permission): Definition;
 }
