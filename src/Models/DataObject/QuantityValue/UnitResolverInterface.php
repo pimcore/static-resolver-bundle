@@ -14,17 +14,17 @@ declare(strict_types=1);
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject;
+namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject\QuantityValue;
 
-use Pimcore\Model\DataObject\Folder;
+use Pimcore\Model\DataObject\QuantityValue\Unit;
 
-interface DataObjectServiceResolverInterface
+interface UnitResolverInterface
 {
-    public function useInheritedValues(
-        bool $inheritValues,
-        callable $fn,
-        array $fnArgs = []
-    ): mixed;
+    public function getById(string $id): ?Unit;
 
-    public function createFolderByPath(string $path, array $options = []): Folder;
+    public function getByAbbreviation(string $abbreviation): ?Unit;
+
+    public function getByReference(string $reference): ?Unit;
+
+    public function create(array $values = []): Unit;
 }

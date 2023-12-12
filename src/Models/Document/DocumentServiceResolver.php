@@ -14,17 +14,22 @@ declare(strict_types=1);
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject;
+namespace Pimcore\Bundle\StaticResolverBundle\Models\Document;
 
-use Pimcore\Model\DataObject\Folder;
+use Exception;
+use Pimcore\Model\Document\Folder;
+use Pimcore\Model\Document\Service;
 
-interface DataObjectServiceResolverInterface
+/**
+ * @internal
+ */
+final class DocumentServiceResolver implements DocumentServiceResolverInterface
 {
-    public function useInheritedValues(
-        bool $inheritValues,
-        callable $fn,
-        array $fnArgs = []
-    ): mixed;
-
-    public function createFolderByPath(string $path, array $options = []): Folder;
+    /**
+     * @throws Exception
+     */
+    public function createFolderByPath(string $path, array $options = []): Folder
+    {
+        return Service::createFolderByPath($path, $options);
+    }
 }

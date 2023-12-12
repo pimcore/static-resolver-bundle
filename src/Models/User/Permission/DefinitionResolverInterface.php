@@ -14,17 +14,13 @@ declare(strict_types=1);
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject;
+namespace Pimcore\Bundle\StaticResolverBundle\Models\User\Permission;
 
-use Pimcore\Model\DataObject\Folder;
+use Pimcore\Model\User\Permission\Definition;
 
-interface DataObjectServiceResolverInterface
+interface DefinitionResolverInterface
 {
-    public function useInheritedValues(
-        bool $inheritValues,
-        callable $fn,
-        array $fnArgs = []
-    ): mixed;
+    public function getByKey(string $permission): ?Definition;
 
-    public function createFolderByPath(string $path, array $options = []): Folder;
+    public function create(string $permission): Definition;
 }

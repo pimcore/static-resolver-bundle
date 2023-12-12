@@ -30,6 +30,11 @@ final class ServiceResolver implements ServiceResolverInterface
         return Service::getElementById($type, $id, $params);
     }
 
+    public function getElementByPath(string $type, string $path): ?ElementInterface
+    {
+        return Service::getElementByPath($type, $path);
+    }
+
     public function getElementType(ElementInterface $element): ?string
     {
         return Service::getElementType($element);

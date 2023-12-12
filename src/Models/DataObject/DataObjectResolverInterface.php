@@ -16,15 +16,16 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject;
 
-use Pimcore\Model\DataObject\Folder;
+use Pimcore\Model\DataObject;
+use Pimcore\Model\DataObject\Listing;
 
-interface DataObjectServiceResolverInterface
+interface DataObjectResolverInterface
 {
-    public function useInheritedValues(
-        bool $inheritValues,
-        callable $fn,
-        array $fnArgs = []
-    ): mixed;
+    public function getById(int|string $id, array $params = []): ?DataObject;
 
-    public function createFolderByPath(string $path, array $options = []): Folder;
+    public function getByPath(string $path, array $params = []): ?DataObject;
+
+    public function getList(array $config = []): Listing;
+
+    public function getTypes(): array;
 }
