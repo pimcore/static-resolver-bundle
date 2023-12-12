@@ -16,10 +16,10 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\User\Permission;
 
-use Pimcore\Model\User\Permission;
+use Pimcore\Model\User\Permission\Definition;
 
 interface DefinitionResolverInterface
 {
-    public function getByKey(string $permission): ?Permission\Definition;
-    public function create(string $permission): Permission\Definition;
+    public function getByKey(string $permission): ?Definition;
+    public function create(string $permission): Definition;
 }
