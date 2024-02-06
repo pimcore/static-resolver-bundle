@@ -34,4 +34,9 @@ class VersionResolver implements VersionResolverInterface
     {
         return Version::isEnabled();
     }
+
+    public function getById(int $id): ?Version
+    {
+        return Version::getById($id);
+    }
 }
