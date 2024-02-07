@@ -16,6 +16,8 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\Version;
 
+use Pimcore\Model\Version;
+
 interface VersionResolverInterface
 {
     public function enable(): void;
@@ -23,4 +25,6 @@ interface VersionResolverInterface
     public function disable(): void;
 
     public function isEnabled(): bool;
+
+    public function getById(int $id): ?Version;
 }

@@ -14,29 +14,19 @@ declare(strict_types=1);
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Pimcore\Bundle\StaticResolverBundle\Models\Version;
+namespace Pimcore\Bundle\StaticResolverBundle\Models\Schedule;
 
-use Pimcore\Model\Version;
+use Pimcore\Model\Schedule\Task;
 
-class VersionResolver implements VersionResolverInterface
+class TaskResolver implements TaskResolverInterface
 {
-    public function enable(): void
+    public function getById(int $id): ?Task
     {
-        Version::enable();
+        return Task::getById($id);
     }
 
-    public function disable(): void
+    public function create(array $data): Task
     {
-        Version::disable();
-    }
-
-    public function isEnabled(): bool
-    {
-        return Version::isEnabled();
-    }
-
-    public function getById(int $id): ?Version
-    {
-        return Version::getById($id);
+        return Task::create($data);
     }
 }
