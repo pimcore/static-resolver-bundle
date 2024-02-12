@@ -19,7 +19,10 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject\FieldCollection;
 use Exception;
 use Pimcore\Model\DataObject\Fieldcollection\Definition;
 
-class DefinitionResolver implements DefinitionResolverInterface
+/**
+ * @internal
+ */
+final class DefinitionResolver implements DefinitionResolverInterface
 {
     /**
      * @throws Exception
