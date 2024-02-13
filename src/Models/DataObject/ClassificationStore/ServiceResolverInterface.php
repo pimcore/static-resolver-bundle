@@ -22,9 +22,6 @@ use Pimcore\Model\DataObject\ClassDefinition\Data;
 use Pimcore\Model\DataObject\Classificationstore\KeyConfig;
 use Pimcore\Model\DataObject\Classificationstore\KeyGroupRelation;
 
-/**
- * @internal
- */
 interface ServiceResolverInterface
 {
     public function getFieldDefinitionFromKeyConfig(
