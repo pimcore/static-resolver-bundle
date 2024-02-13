@@ -31,7 +31,9 @@ final class ServiceResolver implements ServiceResolverInterface
     /**
      * @throws Exception
      */
-    public static function getFieldDefinitionFromKeyConfig(KeyConfig|KeyGroupRelation $keyConfig): EncryptedField|Data|null
+    public static function getFieldDefinitionFromKeyConfig(
+        KeyConfig|KeyGroupRelation $keyConfig
+    ): EncryptedField|Data|null
     {
         return Service::getFieldDefinitionFromKeyConfig($keyConfig);
     }
