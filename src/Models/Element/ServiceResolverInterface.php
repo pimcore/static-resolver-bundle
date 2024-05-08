@@ -39,4 +39,6 @@ interface ServiceResolverInterface
     public function getElementType(ElementInterface $element): ?string;
 
     public function findForbiddenPaths(string $type, User $user): array;
+
+    public function isPublished(ElementInterface $element = null): bool;
 }
