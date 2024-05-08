@@ -19,7 +19,7 @@ namespace Pimcore\Bundle\StaticResolverBundle\Lib;
 use Exception;
 use Pimcore\Tool;
 
-class ToolResolver implements ToolResolverInterface
+final class ToolResolver implements ToolResolverInterface
 {
     public function getValidLanguages(): array
     {

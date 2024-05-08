@@ -19,7 +19,7 @@ namespace Pimcore\Bundle\StaticResolverBundle\Lib;
 use DateInterval;
 use Pimcore\Cache;
 
-class CacheResolver
+final class CacheResolver implements CacheResolverInterface
 {
     public function save(
         mixed $data,
