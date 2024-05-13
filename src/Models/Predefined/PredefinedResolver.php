@@ -20,7 +20,6 @@ use Pimcore\Model\Property\Predefined;
 
 final class PredefinedResolver implements PredefinedResolverInterface
 {
-
     public function getById(string $id): ?Predefined
     {
         return Predefined::getById($id);
