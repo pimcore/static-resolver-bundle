@@ -16,7 +16,6 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\Element;
 
-
 use Pimcore\Model\Element\Note;
 
 final class NoteResolver implements NoteResolverInterface
