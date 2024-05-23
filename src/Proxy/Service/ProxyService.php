@@ -37,7 +37,6 @@ final class ProxyService implements ProxyServiceInterface
         } catch (Throwable $exception) {
             throw new InvalidServiceException($exception->getMessage());
         }
-
     }
 
     public function getStrictProxyObject(
