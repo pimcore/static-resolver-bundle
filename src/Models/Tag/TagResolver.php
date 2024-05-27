@@ -10,4 +10,12 @@ class TagResolver
     {
         return Tag::getById($id);
     }
+
+    /**
+     * @return array<int, Tag>
+     */
+    public function getTagsForElement(string $cType, int $cId): array
+    {
+        return Tag::getTagsForElement($cType, $cId);
+    }
 }
