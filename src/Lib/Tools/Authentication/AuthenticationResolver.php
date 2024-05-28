@@ -20,10 +20,40 @@ use Pimcore\Model\User;
 use Pimcore\Tool\Authentication;
 use Symfony\Component\HttpFoundation\Request;
 
-class AuthenticationResolver implements AuthenticationResolverInterface
+final class AuthenticationResolver implements AuthenticationResolverInterface
 {
     public function authenticateSession(Request $request = null): ?User
     {
         return Authentication::authenticateSession($request);
+    }
+
+    public function generateTokenByUser(User $user): string
+    {
+        return Authentication::generateTokenByUser($user);
+    }
+
+    public function verifyPassword(User $user, string $password): bool
+    {
+        return Authentication::verifyPassword($user, $password);
+    }
+
+    public function generateToken(string $username): string
+    {
+        return Authentication::generateToken($username);
+    }
+
+    public function getPasswordHash(string $username, string $plainTextPassword): string
+    {
+        return Authentication::getPasswordHash($username, $plainTextPassword);
+    }
+
+    public function isValidUser(?User $user): bool
+    {
+        return Authentication::isValidUser($user);
+    }
+
+    public function authenticateToken(string $token, bool $adminRequired = false): ?User
+    {
+        return Authentication::authenticateToken($token, $adminRequired);
     }
 }

@@ -22,4 +22,17 @@ use Symfony\Component\HttpFoundation\Request;
 interface AuthenticationResolverInterface
 {
     public function authenticateSession(Request $request = null): ?User;
+
+    public function generateTokenByUser(User $user): string;
+
+    public function verifyPassword(User $user, string $password): bool;
+
+    public function generateToken(string $username): string;
+
+    public function getPasswordHash(string $username, string $plainTextPassword): string;
+
+    public function isValidUser(?User $user): bool;
+
+    public function authenticateToken(string $token, bool $adminRequired = false): ?User;
+
 }
