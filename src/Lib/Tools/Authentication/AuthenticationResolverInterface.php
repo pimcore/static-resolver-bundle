@@ -34,5 +34,4 @@ interface AuthenticationResolverInterface
     public function isValidUser(?User $user): bool;
 
     public function authenticateToken(string $token, bool $adminRequired = false): ?User;
-
 }
