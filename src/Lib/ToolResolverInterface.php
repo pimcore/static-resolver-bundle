@@ -16,6 +16,8 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Lib;
 
+use Pimcore\Mail;
+
 interface ToolResolverInterface
 {
     public function getValidLanguages(): array;
@@ -23,4 +25,6 @@ interface ToolResolverInterface
     public function getSupportedLocales(): array;
 
     public function getDefaultLanguage(): ?string;
+
+    public function getMail(array|string $recipients = null, string $subject = null): Mail;
 }
