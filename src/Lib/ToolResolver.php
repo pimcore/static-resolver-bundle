@@ -17,6 +17,7 @@ declare(strict_types=1);
 namespace Pimcore\Bundle\StaticResolverBundle\Lib;
 
 use Exception;
+use Pimcore\Mail;
 use Pimcore\Tool;
 
 final class ToolResolver implements ToolResolverInterface
@@ -37,5 +38,13 @@ final class ToolResolver implements ToolResolverInterface
     public function getDefaultLanguage(): ?string
     {
         return Tool::getDefaultLanguage();
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function getMail(array|string $recipients = null, string $subject = null): Mail
+    {
+        return Tool::getMail($recipients, $subject);
     }
 }
