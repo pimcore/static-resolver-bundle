@@ -16,10 +16,14 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\Asset\Video\Thumbnail;
 
+use Exception;
 use Pimcore\Model\Asset\Video\Thumbnail\Config;
 
 interface ConfigResolverInterface
 {
+    /**
+     * @throws Exception
+     */
     public function getByName(string $name): ?Config;
 
     public function getPreviewConfig(): Config;
