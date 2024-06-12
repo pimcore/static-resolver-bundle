@@ -11,7 +11,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    strategy:
+        matrix:
+            include:
+                - { php-version: 8.1, dependencies: lowest, pimcore_version: "", experimental: false }
+                - { php-version: 8.3, dependencies: highest, pimcore_version: "", experimental: false }
+                - { php-version: 8.3, dependencies: highest, pimcore_version: "11.x-dev as 11.99.9", experimental: true }
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -19,7 +24,7 @@ jobs:
       - name: Install PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.1
+          php-version: "${{ matrix.php-version }}"
           extensions: curl, mbstring, openssl, pdo, pdo_sqlite
           ini-values: memory_limit=-1, date.timezone='UTC'
           coverage: xdebug
@@ -28,8 +33,18 @@ jobs:
       - name: Validate composer.json and composer.lock
         run: composer validate
 
-      - name: Install dependencies
-        run: composer install --prefer-dist --no-progress --no-interaction --no-suggest
+      - name: "Update Pimcore version"
+        env:
+            PIMCORE_VERSION: "${{ matrix.pimcore_version }}"
+        run: |
+            if [ ! -z "$PIMCORE_VERSION" ]; then
+                  composer require --no-update pimcore/pimcore:"${PIMCORE_VERSION}"
+            fi  
+
+      - name: "Install dependencies with Composer"
+        uses: "ramsey/composer-install@v2"
+        with:
+          dependency-versions: "${{ matrix.dependencies }}"
 
       - name: Run tests
         run: php vendor/bin/codecept run
