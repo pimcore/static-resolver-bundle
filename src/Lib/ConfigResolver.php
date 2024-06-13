@@ -48,8 +48,7 @@ final class ConfigResolver implements ConfigResolverInterface
         string $key = null,
         mixed $default = null,
         string $language = null
-    ): mixed
-    {
+    ): mixed {
         return Config::getWebsiteConfigValue($key, $default, $language);
     }
 
