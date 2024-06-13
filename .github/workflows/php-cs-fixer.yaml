@@ -12,13 +12,14 @@ on:
             - "feature-*"
 
 permissions:
-    contents: read
+    contents: write
 
 jobs:
     php-style:
-        uses: pimcore/workflows-collection-public/.github/workflows/reusable-php-style.yaml@main
+        uses: pimcore/workflows-collection-public/.github/workflows/reusable-php-cs-fixer.yaml@main
         secrets:
             PHP_CS_FIXER_GITHUB_TOKEN: ${{ secrets.PHP_CS_FIXER_GITHUB_TOKEN }}
         with:
-            head_ref: ${{ github.ref }}
+            head_ref: ${{ github.event.pull_request.head.ref }}
+            repository: ${{ github.event.pull_request.head.repo.full_name }}
             config_file: .php-cs-fixer.dist.php
