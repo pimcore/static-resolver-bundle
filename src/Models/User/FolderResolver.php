@@ -27,4 +27,9 @@ final class FolderResolver implements FolderResolverInterface
     {
         return Folder::getById($id);
     }
+
+    public function create(array $values = []): Folder
+    {
+        return Folder::create($values);
+    }
 }

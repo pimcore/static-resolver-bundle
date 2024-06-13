@@ -21,4 +21,6 @@ use Pimcore\Model\User\Folder;
 interface FolderResolverInterface
 {
     public function getById(int $id): ?Folder;
+
+    public function create(array $values = []): Folder;
 }
