@@ -38,12 +38,12 @@ final class DocumentResolver
         Document::isAvailable();
     }
 
-    public static function isFileTypeSupported(string $filetype): bool
+    public function isFileTypeSupported(string $filetype): bool
     {
         return Document::isFileTypeSupported($filetype);
     }
 
-    public static function getDefaultAdapter(): ?Adapter
+    public function getDefaultAdapter(): ?Adapter
     {
         return Document::getDefaultAdapter();
     }

@@ -28,7 +28,7 @@ interface DocumentResolverInterface
 
     public function isAvailable(): bool;
 
-    public static function isFileTypeSupported(string $filetype): bool;
+    public function isFileTypeSupported(string $filetype): bool;
 
-    public static function getDefaultAdapter(): ?Adapter;
+    public function getDefaultAdapter(): ?Adapter;
 }
