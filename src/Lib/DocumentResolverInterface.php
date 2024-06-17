@@ -24,7 +24,7 @@ interface DocumentResolverInterface
     /**
      * @throws Exception
      */
-    public function getInstance(string $adapter = null): Adapter;
+    public function getInstance(string $adapter = null): ?Adapter;
 
     public function isAvailable(): bool;
 
