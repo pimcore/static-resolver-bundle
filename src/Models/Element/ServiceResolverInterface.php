@@ -41,4 +41,6 @@ interface ServiceResolverInterface
     public function findForbiddenPaths(string $type, User $user): array;
 
     public function isPublished(ElementInterface $element = null): bool;
+
+    public function getValidKey(string $key, string $type): string;
 }

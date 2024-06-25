@@ -49,4 +49,9 @@ final class ServiceResolver implements ServiceResolverInterface
     {
         return Service::isPublished($element);
     }
+
+    public function getValidKey(string $key, string $type): string
+    {
+        return Service::getValidKey($key, $type);
+    }
 }
