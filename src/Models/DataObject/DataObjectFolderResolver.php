@@ -21,7 +21,7 @@ use Pimcore\Model\DataObject\Folder;
 /**
  * @internal
  */
-final class DataObjectFolderResolver
+final class DataObjectFolderResolver implements DataObjectFolderResolverInterface
 {
     public function create(array $values): Folder
     {
