@@ -16,11 +16,11 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\User\Role;
 
-
 use Pimcore\Model\User\Role;
 
 interface RoleResolverInterface
 {
     public function getById(int $id): ?Role;
+
     public function create(array $values = []): Role;
 }
