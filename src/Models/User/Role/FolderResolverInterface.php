@@ -18,9 +18,6 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\User\Role;
 
 use Pimcore\Model\User\Role\Folder;
 
-/**
- * @internal
- */
 interface FolderResolverInterface
 {
     public function getById(int $id): ?Folder;
