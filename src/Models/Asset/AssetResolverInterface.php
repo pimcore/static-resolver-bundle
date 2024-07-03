@@ -30,4 +30,6 @@ interface AssetResolverInterface
     public function getList(array $config = []): Listing;
 
     public function getTypes(): array;
+
+    public function getTypeFromMimeMapping(string $mimeType, string $filename): string;
 }

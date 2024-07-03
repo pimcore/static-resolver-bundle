@@ -52,4 +52,9 @@ final class AssetResolver implements AssetResolverInterface
     {
         return Asset::getTypes();
     }
+
+    public function getTypeFromMimeMapping(string $mimeType, string $filename): string
+    {
+        return Asset::getTypeFromMimeMapping($mimeType, $filename);
+    }
 }
