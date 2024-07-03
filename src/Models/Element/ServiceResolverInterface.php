@@ -43,4 +43,6 @@ interface ServiceResolverInterface
     public function isPublished(ElementInterface $element = null): bool;
 
     public function getValidKey(string $key, string $type): string;
+
+    public function getSafeCopyName(string $sourceKey, ElementInterface $target): string;
 }

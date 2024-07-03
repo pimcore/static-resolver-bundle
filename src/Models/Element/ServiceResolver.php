@@ -54,4 +54,9 @@ final class ServiceResolver implements ServiceResolverInterface
     {
         return Service::getValidKey($key, $type);
     }
+
+    public function getSafeCopyName(string $sourceKey, ElementInterface $target): string
+    {
+        return Service::getSafeCopyName($sourceKey, $target);
+    }
 }
