@@ -32,4 +32,9 @@ final class AssetServiceResolver implements AssetServiceResolverInterface
     {
         return Service::createFolderByPath($path, $options);
     }
+
+    public function pathExists(string $path, string $type = null): bool
+    {
+        return Service::pathExists($path, $type);
+    }
 }
