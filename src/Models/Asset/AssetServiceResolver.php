@@ -17,7 +17,6 @@ declare(strict_types=1);
 namespace Pimcore\Bundle\StaticResolverBundle\Models\Asset;
 
 use Exception;
-use Pimcore\Model\Asset;
 use Pimcore\Model\Asset\Folder;
 use Pimcore\Model\Asset\Service;
 
