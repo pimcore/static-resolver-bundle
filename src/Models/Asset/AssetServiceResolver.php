@@ -17,6 +17,7 @@ declare(strict_types=1);
 namespace Pimcore\Bundle\StaticResolverBundle\Models\Asset;
 
 use Exception;
+use Pimcore\Model\Asset;
 use Pimcore\Model\Asset\Folder;
 use Pimcore\Model\Asset\Service;
 
@@ -31,5 +32,10 @@ final class AssetServiceResolver implements AssetServiceResolverInterface
     public function createFolderByPath(string $path, array $options = []): Folder
     {
         return Service::createFolderByPath($path, $options);
+    }
+
+    public function pathExists(string $path, string $type = null): bool
+    {
+        return Service::pathExists($path, $type);
     }
 }

@@ -21,4 +21,6 @@ use Pimcore\Model\Asset\Folder;
 interface AssetServiceResolverInterface
 {
     public function createFolderByPath(string $path, array $options = []): Folder;
+
+    public function pathExists(string $path, string $type = null): bool;
 }
