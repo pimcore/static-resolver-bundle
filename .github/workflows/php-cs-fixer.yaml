@@ -15,6 +15,12 @@ permissions:
     contents: write
 
 jobs:
+    debug:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Print
+              run: env | sort
     php-style:
         uses: pimcore/workflows-collection-public/.github/workflows/reusable-php-cs-fixer.yaml@main
         secrets:
