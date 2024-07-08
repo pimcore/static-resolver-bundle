@@ -1,7 +1,6 @@
 name: "PHP-CS-Fixer"
 
 on:
-    workflow_dispatch:
     pull_request:
         types: [ opened,closed,synchronize ]
     push:
@@ -16,6 +15,7 @@ permissions:
 
 jobs:
     php-style:
+        if: github.repository_owner == 'pimcore'
         uses: pimcore/workflows-collection-public/.github/workflows/reusable-php-cs-fixer.yaml@cstest
         secrets:
             PHP_CS_FIXER_GITHUB_TOKEN: ${{ secrets.PHP_CS_FIXER_GITHUB_TOKEN }}
