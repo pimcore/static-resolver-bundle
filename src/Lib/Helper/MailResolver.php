@@ -36,7 +36,7 @@ final class MailResolver implements MailResolverInterface
         return MailHelper::getDebugInformationCssStyle();
     }
 
-    public static function formatDebugReceivers(array $receivers): string
+    public function formatDebugReceivers(array $receivers): string
     {
         return MailHelper::formatDebugReceivers($receivers);
     }
@@ -52,12 +52,12 @@ final class MailResolver implements MailResolverInterface
     /**
      * @throws Exception
      */
-    public static function embedAndModifyCss(string $string, ?Document $document = null): string
+    public function embedAndModifyCss(string $string, ?Document $document = null): string
     {
         return MailHelper::embedAndModifyCss($string, $document);
     }
 
-    public static function parseEmailAddressField(?string $emailString): array
+    public function parseEmailAddressField(?string $emailString): array
     {
         return MailHelper::parseEmailAddressField($emailString);
     }
