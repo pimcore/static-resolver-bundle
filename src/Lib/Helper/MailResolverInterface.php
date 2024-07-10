@@ -16,7 +16,6 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Lib\Helper;
 
-
 use Exception;
 use Pimcore\Mail;
 use Pimcore\Model\Document;
