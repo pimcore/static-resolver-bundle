@@ -29,7 +29,7 @@ interface MailResolverInterface
 
     public function getDebugInformationCssStyle(): string;
 
-    public static function formatDebugReceivers(array $receivers): string;
+    public function formatDebugReceivers(array $receivers): string;
 
     /**
      * @throws Exception
@@ -39,7 +39,7 @@ interface MailResolverInterface
     /**
      * @throws Exception
      */
-    public static function embedAndModifyCss(string $string, ?Document $document = null): string;
+    public function embedAndModifyCss(string $string, ?Document $document = null): string;
 
-    public static function parseEmailAddressField(?string $emailString): array;
+    public function parseEmailAddressField(?string $emailString): array;
 }
