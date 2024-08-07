@@ -16,9 +16,17 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\Document;
 
+use Pimcore\Model\Document;
 use Pimcore\Model\Document\Folder;
+use Pimcore\Model\Document\PageSnippet;
 
 interface DocumentServiceResolverInterface
 {
+    public function rewriteIds(
+        Document $document,
+        array $rewriteConfig,
+        array $params = []
+    ): Document|PageSnippet;
+
     public function createFolderByPath(string $path, array $options = []): Folder;
 }

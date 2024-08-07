@@ -16,10 +16,13 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\Asset;
 
+use Pimcore\Model\Asset;
 use Pimcore\Model\Asset\Folder;
 
 interface AssetServiceResolverInterface
 {
+    public function rewriteIds(Asset $asset, array $rewriteConfig): Asset;
+
     public function createFolderByPath(string $path, array $options = []): Folder;
 
     public function pathExists(string $path, string $type = null): bool;

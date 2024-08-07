@@ -16,6 +16,7 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject;
 
+use Pimcore\Model\DataObject\AbstractObject;
 use Pimcore\Model\DataObject\Folder;
 
 interface DataObjectServiceResolverInterface
@@ -25,6 +26,8 @@ interface DataObjectServiceResolverInterface
         callable $fn,
         array $fnArgs = []
     ): mixed;
+
+    public function rewriteIds(AbstractObject $object, array $rewriteConfig, array $params = []): AbstractObject;
 
     public function createFolderByPath(string $path, array $options = []): Folder;
 }

@@ -17,6 +17,7 @@ declare(strict_types=1);
 namespace Pimcore\Bundle\StaticResolverBundle\Models\Asset;
 
 use Exception;
+use Pimcore\Model\Asset;
 use Pimcore\Model\Asset\Folder;
 use Pimcore\Model\Asset\Service;
 
@@ -25,6 +26,11 @@ use Pimcore\Model\Asset\Service;
  */
 final class AssetServiceResolver implements AssetServiceResolverInterface
 {
+    public function rewriteIds(Asset $asset, array $rewriteConfig): Asset
+    {
+        return Service::rewriteIds($asset, $rewriteConfig);
+    }
+
     /**
      * @throws Exception
      */
