@@ -14,15 +14,24 @@ declare(strict_types=1);
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Pimcore\Bundle\StaticResolverBundle\Models\Predefined;
+namespace Pimcore\Bundle\StaticResolverBundle\Models\Property\Predefined;
 
 use Pimcore\Model\Property\Predefined;
 
-interface PredefinedResolverInterface
+final class PredefinedResolver implements PredefinedResolverInterface
 {
-    public function getById(string $id): ?Predefined;
+    public function getById(string $id): ?Predefined
+    {
+        return Predefined::getById($id);
+    }
 
-    public function getByKey(string $key): ?Predefined;
+    public function getByKey(string $key): ?Predefined
+    {
+        return Predefined::getByKey($key);
+    }
 
-    public function create(): Predefined;
+    public function create(): Predefined
+    {
+        return Predefined::create();
+    }
 }

@@ -14,9 +14,10 @@ declare(strict_types=1);
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Pimcore\Bundle\StaticResolverBundle\Models\Predefined;
+namespace Pimcore\Bundle\StaticResolverBundle\Models\Metadata\Predefined;
 
-use Pimcore\Model\Property\Predefined;
+use Exception;
+use Pimcore\Model\Metadata\Predefined;
 
 final class PredefinedResolver implements PredefinedResolverInterface
 {
@@ -25,9 +26,12 @@ final class PredefinedResolver implements PredefinedResolverInterface
         return Predefined::getById($id);
     }
 
-    public function getByKey(string $key): ?Predefined
+    /**
+     * @throws Exception
+     */
+    public function getByName(string $name): ?Predefined
     {
-        return Predefined::getByKey($key);
+        return Predefined::getByName($name);
     }
 
     public function create(): Predefined
