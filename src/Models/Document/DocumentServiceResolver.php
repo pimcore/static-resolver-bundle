@@ -31,8 +31,7 @@ final class DocumentServiceResolver implements DocumentServiceResolverInterface
         Document $document,
         array $rewriteConfig,
         array $params = []
-    ): Document|PageSnippet
-    {
+    ): Document|PageSnippet {
         return Service::rewriteIds($document, $rewriteConfig, $params);
     }
 

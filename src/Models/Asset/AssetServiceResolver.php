@@ -20,7 +20,6 @@ use Exception;
 use Pimcore\Model\Asset;
 use Pimcore\Model\Asset\Folder;
 use Pimcore\Model\Asset\Service;
-use function phpamqp\re;
 
 /**
  * @internal
