@@ -29,4 +29,6 @@ interface DocumentServiceResolverInterface
     ): Document|PageSnippet;
 
     public function createFolderByPath(string $path, array $options = []): Folder;
+
+    public function pathExists(string $path, string $type = null): bool;
 }

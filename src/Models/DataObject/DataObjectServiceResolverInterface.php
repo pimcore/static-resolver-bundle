@@ -30,4 +30,6 @@ interface DataObjectServiceResolverInterface
     public function rewriteIds(AbstractObject $object, array $rewriteConfig, array $params = []): AbstractObject;
 
     public function createFolderByPath(string $path, array $options = []): Folder;
+
+    public function pathExists(string $path, string $type = null): bool;
 }
