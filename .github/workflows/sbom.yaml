@@ -21,14 +21,14 @@ jobs:
       - name: Install Composer dependencies
         run: composer install --no-progress --no-suggest --prefer-dist --no-interaction
 
-      - name: Generate CycloneDX SBOM
-        uses: CycloneDX/gh-php-composer-generate-sbom@v1
-        with:
-          output-file: 'sbom.xml'
-          format: 'xml'
+      - name: Install SPOM
+        run: composer global require cyclonedx/cyclonedx-php-composer
+
+      - name: CREATE SBOM
+        run: CycloneDX:make-sbom --output-file=sbom.json --output-format=json
 
       - name: Upload SBOM as an artifact
         uses: actions/upload-artifact@v3
         with:
           name: sbom
-          path: sbom.xml
+          path: sbom.json
