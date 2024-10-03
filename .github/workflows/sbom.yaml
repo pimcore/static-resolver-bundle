@@ -28,7 +28,7 @@ jobs:
         run: composer require cyclonedx/cyclonedx-php-composer
 
       - name: CREATE SBOM
-        run: CycloneDX:make-sbom --output-file=sbom.json --output-format=json
+        run: composer CycloneDX:make-sbom --output-file=sbom.json --output-format=json
 
       - name: Upload SBOM as an artifact
         uses: actions/upload-artifact@v3
