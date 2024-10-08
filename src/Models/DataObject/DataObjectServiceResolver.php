@@ -63,7 +63,7 @@ final class DataObjectServiceResolver implements DataObjectServiceResolverInterf
         return Service::getCustomLayoutDefinitionForGridColumnConfig($class, $objectId);
     }
 
-    public static function enrichLayoutDefinition(
+    public function enrichLayoutDefinition(
         ClassDefinition\Data|ClassDefinition\Layout|null &$layout,
         Concrete $object = null,
         array $context = []
