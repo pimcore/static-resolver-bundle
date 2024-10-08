@@ -17,6 +17,8 @@ declare(strict_types=1);
 namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject;
 
 use Pimcore\Model\DataObject\AbstractObject;
+use Pimcore\Model\DataObject\ClassDefinition;
+use Pimcore\Model\DataObject\Concrete;
 use Pimcore\Model\DataObject\Folder;
 
 interface DataObjectServiceResolverInterface
@@ -32,4 +34,12 @@ interface DataObjectServiceResolverInterface
     public function createFolderByPath(string $path, array $options = []): Folder;
 
     public function pathExists(string $path, string $type = null): bool;
+
+    public function getCustomLayoutDefinitionForGridColumnConfig(ClassDefinition $class, int $objectId): array;
+
+    public static function enrichLayoutDefinition(
+        ClassDefinition\Data|ClassDefinition\Layout|null &$layout,
+        Concrete $object = null,
+        array $context = []
+    ): void;
 }
