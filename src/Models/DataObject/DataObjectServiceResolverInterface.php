@@ -37,7 +37,7 @@ interface DataObjectServiceResolverInterface
 
     public function getCustomLayoutDefinitionForGridColumnConfig(ClassDefinition $class, int $objectId): array;
 
-    public static function enrichLayoutDefinition(
+    public function enrichLayoutDefinition(
         ClassDefinition\Data|ClassDefinition\Layout|null &$layout,
         Concrete $object = null,
         array $context = []
