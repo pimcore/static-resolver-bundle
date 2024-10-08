@@ -18,6 +18,8 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject;
 
 use Exception;
 use Pimcore\Model\DataObject\AbstractObject;
+use Pimcore\Model\DataObject\ClassDefinition;
+use Pimcore\Model\DataObject\Concrete;
 use Pimcore\Model\DataObject\Folder;
 use Pimcore\Model\DataObject\Service;
 
@@ -54,5 +56,18 @@ final class DataObjectServiceResolver implements DataObjectServiceResolverInterf
     public function pathExists(string $path, string $type = null): bool
     {
         return Service::pathExists($path, $type);
+    }
+
+    public function getCustomLayoutDefinitionForGridColumnConfig(ClassDefinition $class, int $objectId): array
+    {
+        return Service::getCustomLayoutDefinitionForGridColumnConfig($class, $objectId);
+    }
+
+    public function enrichLayoutDefinition(
+        ClassDefinition\Data|ClassDefinition\Layout|null &$layout,
+        Concrete $object = null,
+        array $context = []
+    ): void {
+        Service::enrichLayoutDefinition($layout, $object, $context);
     }
 }
