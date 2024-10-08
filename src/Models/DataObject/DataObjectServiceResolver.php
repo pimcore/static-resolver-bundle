@@ -67,8 +67,7 @@ final class DataObjectServiceResolver implements DataObjectServiceResolverInterf
         ClassDefinition\Data|ClassDefinition\Layout|null &$layout,
         Concrete $object = null,
         array $context = []
-    ): void
-    {
+    ): void {
         Service::enrichLayoutDefinition($layout, $object, $context);
     }
 }
