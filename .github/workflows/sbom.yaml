@@ -50,14 +50,6 @@ jobs:
           issue-number: ${{ github.event.pull_request.number }}
           body-path: 'osv-results.txt'
 
-      - name: Create success comment
-        uses: peter-evans/create-or-update-comment@v4
-        if: ${{ success() && steps.osvscanner.conclusion == 'success' }}
-        with:
-          issue-number: ${{ github.event.pull_request.number }}
-          edit-mode: replace
-          body: 'No vulnerabilities found in the CycloneDX SBOM'
-
       - name: Upload SBOM as an artifact
         if: ${{ failure() && steps.osvscanner.conclusion == 'failure' }}
         uses: actions/upload-artifact@v4
