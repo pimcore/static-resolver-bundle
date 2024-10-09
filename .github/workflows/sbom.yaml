@@ -45,5 +45,5 @@ jobs:
       - name: Upload SBOM as an artifact
         uses: actions/upload-artifact@v4
         with:
-          name: sbom
+          name: osv
           path: osv-results.txt
