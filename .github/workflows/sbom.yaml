@@ -43,13 +43,31 @@ jobs:
         id: osvscanner
         run: osv-scanner --sbom=sbom.json --output=osv-results.txt
 
-      - name: Create comment
+      - name: Find Comment
+        uses: peter-evans/find-comment@v3
+        id: fc
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: 'github-actions[bot]'
+          body-includes: CycloneDX SBOM
+
+      - name: Create or update fail comment
         uses: peter-evans/create-or-update-comment@v4
         if: ${{ failure() && steps.osvscanner.conclusion == 'failure' }}
         with:
+          comment-id: ${{ steps.fc.outputs.comment-id }}
           issue-number: ${{ github.event.pull_request.number }}
           edit-mode: replace
           body-path: 'osv-results.txt'
+
+      - name: Create or update success comment
+        uses: peter-evans/create-or-update-comment@v4
+        if: ${{ success() && steps.osvscanner.conclusion == 'success' }}
+        with:
+          comment-id: ${{ steps.fc.outputs.comment-id }}
+          issue-number: ${{ github.event.pull_request.number }}
+          edit-mode: replace
+          body: 'No vulnerabilities found in the CycloneDX SBOM'
 
       - name: Upload SBOM as an artifact
         if: ${{ always() }}
