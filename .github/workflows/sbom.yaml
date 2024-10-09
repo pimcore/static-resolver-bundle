@@ -18,8 +18,8 @@ jobs:
         with:
           php-version: '8.2'
 
-      - name: Install Composer dependencies
-        run: composer install --no-progress --no-suggest --prefer-dist --no-interaction
+      #- name: Install Composer dependencies
+      #  run: composer install --no-progress --no-suggest --prefer-dist --no-interaction
 
       - name: Allow SBOM Plugin
         run: composer config --no-plugins allow-plugins.cyclonedx/cyclonedx-php-composer true
@@ -31,7 +31,7 @@ jobs:
         run: composer CycloneDX:make-sbom --output-file=sbom.json --output-format=json
 
       - name: Upload SBOM as an artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: sbom
           path: sbom.json
