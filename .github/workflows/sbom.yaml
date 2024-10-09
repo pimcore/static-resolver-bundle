@@ -21,6 +21,12 @@ jobs:
       #- name: Install Composer dependencies
       #  run: composer install --no-progress --no-suggest --prefer-dist --no-interaction
 
+      - name: Install snapd
+        run: sudo apt install -y snapd
+
+      - name: Install OSV-Scanner
+        run : sudo snap install -y osv-scanner
+
       - name: Allow SBOM Plugin
         run: composer config --no-plugins allow-plugins.cyclonedx/cyclonedx-php-composer true
 
@@ -29,6 +35,9 @@ jobs:
 
       - name: CREATE SBOM
         run: composer CycloneDX:make-sbom --output-file=sbom.json --output-format=json
+
+      - name: Run OSV-Scanner
+        run: osv-scanner --sbom=sbom.json
 
       - name: Upload SBOM as an artifact
         uses: actions/upload-artifact@v4
