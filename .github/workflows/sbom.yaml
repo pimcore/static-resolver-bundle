@@ -40,7 +40,7 @@ jobs:
           path: sbom.json
 
       - name: Run OSV-Scanner
-        run: osv-scanner --sbom=sbom.json --output osv-results.txt
+        run: osv-scanner --sbom=sbom.json --output=osv-results.txt
 
       - name: Upload SBOM as an artifact
         uses: actions/upload-artifact@v4
