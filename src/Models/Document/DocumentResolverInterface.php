@@ -30,4 +30,6 @@ interface DocumentResolverInterface
     public function getList(array $config = []): Listing;
 
     public function getTypes(): array;
+
+    public function setHideUnpublished(bool $hideUnpublished): void;
 }
