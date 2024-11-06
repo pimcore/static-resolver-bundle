@@ -47,4 +47,9 @@ final class DataObjectResolver implements DataObjectResolverInterface
     {
         return DataObject::getTypes();
     }
+
+    public function setHideUnpublished(bool $hideUnpublished): void
+    {
+        DataObject::setHideUnpublished($hideUnpublished);
+    }
 }

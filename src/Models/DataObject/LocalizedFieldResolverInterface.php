@@ -16,18 +16,7 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject;
 
-use Pimcore\Model\DataObject;
-use Pimcore\Model\DataObject\Listing;
-
-interface DataObjectResolverInterface
+interface LocalizedFieldResolverInterface
 {
-    public function getById(int|string $id, array $params = []): ?DataObject;
-
-    public function getByPath(string $path, array $params = []): ?DataObject;
-
-    public function getList(array $config = []): Listing;
-
-    public function getTypes(): array;
-
-    public function setHideUnpublished(bool $hideUnpublished): void;
+    public function setGetFallbackValues(bool $getFallbackValues): void;
 }

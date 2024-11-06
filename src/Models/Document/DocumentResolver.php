@@ -52,4 +52,9 @@ final class DocumentResolver implements DocumentResolverInterface
     {
         return Document::getTypes();
     }
+
+    public function setHideUnpublished(bool $hideUnpublished): void
+    {
+        Document::setHideUnpublished($hideUnpublished);
+    }
 }
