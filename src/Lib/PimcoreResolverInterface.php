@@ -16,7 +16,6 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Lib;
 
-
 interface PimcoreResolverInterface
 {
     public function inDevMode(): bool;
