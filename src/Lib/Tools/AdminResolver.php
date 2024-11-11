@@ -31,4 +31,9 @@ final class AdminResolver implements AdminResolverInterface
     ): array|string {
         return Admin::reorderWebsiteLanguages($user, $languages, $returnLanguageArray);
     }
+
+    public function getLanguages(): array
+    {
+        return Admin::getLanguages();
+    }
 }

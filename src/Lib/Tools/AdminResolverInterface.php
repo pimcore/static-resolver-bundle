@@ -25,4 +25,6 @@ interface AdminResolverInterface
         array|string $languages,
         bool $returnLanguageArray = false
     ): array|string;
+
+    public function getLanguages(): array;
 }
