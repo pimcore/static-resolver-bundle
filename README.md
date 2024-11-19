@@ -9,9 +9,9 @@ Static Resolver Bundle is designed to encapsulate the usage of static calls with
 
 :::caution
 
-This bundle is public but will be treated like an internal bundle.
+This bundle is public but will be treated like a pimcore-internal bundle.
 It mostly wraps static calls to be able to inject static calls as services.
-This bundle is not intended to be used by third-party developers.
+Interfaces in this bundle are not intended to be implemented by third-party developers.
 
 :::
 
