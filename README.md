@@ -7,6 +7,15 @@ Static Resolver Bundle is designed to encapsulate the usage of static calls with
 - Provides a proxy factory to reduce complexity, enhance testability, simplify code maintenance, and enforce better coding standards.
 - Promotes a cleaner, more consistent and well-organized codebase.
 
+:::caution
+
+This bundle is public but will be treated like a pimcore-internal bundle.
+It mostly wraps static calls to be able to inject static calls as services.
+Interfaces in this bundle are not intended to be implemented by third-party developers.
+
+:::
+
+
 ## Documentation Overview
 - [Installation](doc/01_Installation.md)
 - [Resolver Service Usage](doc/02_Resolver_Service_Usage.md)
