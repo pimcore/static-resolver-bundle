@@ -42,9 +42,4 @@ interface DataObjectServiceResolverInterface
         Concrete $object = null,
         array $context = []
     ): void;
-
-    /**
-     * @return Concrete[]
-     */
-    public function getObjectsReferencingUser(int $userId): array;
 }

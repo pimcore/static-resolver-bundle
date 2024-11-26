@@ -70,12 +70,4 @@ final class DataObjectServiceResolver implements DataObjectServiceResolverInterf
     ): void {
         Service::enrichLayoutDefinition($layout, $object, $context);
     }
-
-    /**
-     * @return Concrete[]
-     */
-    public function getObjectsReferencingUser(int $userId): array
-    {
-        return Service::getObjectsReferencingUser($userId);
-    }
 }
