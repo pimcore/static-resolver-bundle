@@ -37,7 +37,7 @@ final class GroupConfigResolver implements GroupConfigResolverInterface
         return GroupConfig::getByName($name, $storeId, $force);
     }
 
-    public static function create(): GroupConfig
+    public function create(): GroupConfig
     {
         return GroupConfig::create();
     }

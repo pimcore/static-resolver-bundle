@@ -28,5 +28,5 @@ interface GroupConfigResolverInterface
      */
     public function getByName(string $name, int $storeId = 1, ?bool $force = false): ?GroupConfig;
 
-    public static function create(): GroupConfig;
+    public function create(): GroupConfig;
 }
