@@ -14,33 +14,17 @@ declare(strict_types=1);
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Pimcore\Bundle\StaticResolverBundle\Db;
+namespace Pimcore\Bundle\StaticResolverBundle\Db\Contracts;
 
 use Doctrine\DBAL\Connection;
-use Pimcore\Db;
 
-/*
- * @internal
- */
-final class DbResolver implements DbResolverInterface
+interface DbResolverContractInterface
 {
-    public function getConnection(): Connection
-    {
-        return Db::getConnection();
-    }
+    public function getConnection(): Connection;
 
-    public function reset(): Connection
-    {
-        return Db::reset();
-    }
+    public function reset(): Connection;
 
-    public function get(): Connection
-    {
-        return Db::get();
-    }
+    public function get(): Connection;
 
-    public function close(): void
-    {
-        Db::close();
-    }
+    public function close(): void;
 }
