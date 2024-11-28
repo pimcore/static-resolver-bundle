@@ -17,7 +17,7 @@ declare(strict_types=1);
 namespace Pimcore\Bundle\StaticResolverBundle\Lib\Cache;
 
 /**
- * @deprecated Will be marked as internal in v2.0.0
+ * @internal
  */
 interface RuntimeCacheResolverInterface
 {

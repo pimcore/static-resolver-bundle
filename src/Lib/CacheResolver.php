@@ -20,7 +20,7 @@ use DateInterval;
 use Pimcore\Cache;
 
 /**
- * @deprecated Will be marked as internal and final in v2.0.0
+ * @internal
  */
 final class CacheResolver implements CacheResolverInterface
 {

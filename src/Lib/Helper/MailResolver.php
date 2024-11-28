@@ -21,6 +21,9 @@ use Pimcore\Helper\Mail as MailHelper;
 use Pimcore\Mail;
 use Pimcore\Model\Document;
 
+/**
+ * @internal
+ */
 final class MailResolver implements MailResolverInterface
 {
     /**

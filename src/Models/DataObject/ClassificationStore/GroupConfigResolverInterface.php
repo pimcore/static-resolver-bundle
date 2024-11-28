@@ -19,6 +19,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject\ClassificationSt
 use Exception;
 use Pimcore\Model\DataObject\Classificationstore\GroupConfig;
 
+/**
+ * @internal
+ */
 interface GroupConfigResolverInterface
 {
     public function getById(int $id, ?bool $force = false): ?GroupConfig;

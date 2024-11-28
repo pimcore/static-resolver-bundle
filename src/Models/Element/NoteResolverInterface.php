@@ -18,6 +18,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\Element;
 
 use Pimcore\Model\Element\Note;
 
+/**
+ * @internal
+ */
 interface NoteResolverInterface
 {
     public function getById(int $id): ?Note;

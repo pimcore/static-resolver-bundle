@@ -18,6 +18,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\User\Role;
 
 use Pimcore\Model\User\Role;
 
+/**
+ * @internal
+ */
 interface RoleResolverInterface
 {
     public function getById(int $id): ?Role;

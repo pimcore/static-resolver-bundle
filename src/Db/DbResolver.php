@@ -20,9 +20,9 @@ use Doctrine\DBAL\Connection;
 use Pimcore\Db;
 
 /**
- * @deprecated Will be marked as internal and final in v2.0.0
+ * @internal
  */
-class DbResolver implements DbResolverInterface
+final class DbResolver implements DbResolverInterface
 {
     public function getConnection(): Connection
     {

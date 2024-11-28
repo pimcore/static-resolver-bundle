@@ -18,6 +18,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject;
 
 use Pimcore\Model\DataObject\Folder;
 
+/**
+ * @internal
+ */
 interface DataObjectFolderResolverInterface
 {
     public function create(array $values): Folder;

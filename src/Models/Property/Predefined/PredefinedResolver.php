@@ -18,6 +18,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\Property\Predefined;
 
 use Pimcore\Model\Property\Predefined;
 
+/**
+ * @internal
+ */
 final class PredefinedResolver implements PredefinedResolverInterface
 {
     public function getById(string $id): ?Predefined

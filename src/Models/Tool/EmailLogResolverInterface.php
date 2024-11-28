@@ -18,6 +18,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\Tool;
 
 use Pimcore\Model\Tool\Email\Log;
 
+/**
+ * @internal
+ */
 interface EmailLogResolverInterface
 {
     public function getById(int $id): ?Log;

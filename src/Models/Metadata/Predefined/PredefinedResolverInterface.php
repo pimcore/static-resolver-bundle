@@ -18,6 +18,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\Metadata\Predefined;
 
 use Pimcore\Model\Metadata\Predefined;
 
+/**
+ * @internal
+ */
 interface PredefinedResolverInterface
 {
     public function getById(string $id): ?Predefined;

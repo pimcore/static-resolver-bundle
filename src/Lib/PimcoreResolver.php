@@ -18,6 +18,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Lib;
 
 use Pimcore;
 
+/**
+ * @internal
+ */
 final class PimcoreResolver implements PimcoreResolverInterface
 {
     public function inDevMode(): bool

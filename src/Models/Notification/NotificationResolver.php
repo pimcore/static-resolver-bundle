@@ -18,7 +18,10 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\Notification;
 
 use Pimcore\Model\Notification;
 
-class NotificationResolver implements NotificationResolverInterface
+/**
+ * @internal
+ */
+final class NotificationResolver implements NotificationResolverInterface
 {
     public function getById(int $id): ?Notification
     {

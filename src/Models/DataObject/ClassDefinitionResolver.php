@@ -20,9 +20,9 @@ use Exception;
 use Pimcore\Model\DataObject\ClassDefinition;
 
 /**
- * @deprecated Will be marked as internal and final in v2.0.0
+ * @internal
  */
-class ClassDefinitionResolver implements ClassDefinitionResolverInterface
+final class ClassDefinitionResolver implements ClassDefinitionResolverInterface
 {
     /**
      * @throws Exception
