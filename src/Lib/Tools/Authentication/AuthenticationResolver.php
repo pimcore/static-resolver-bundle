@@ -21,7 +21,7 @@ use Pimcore\Tool\Authentication;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * @deprecated Will be marked as internal in v2.0.0
+ * @deprecated Will be marked as internal and final in v2.0.0
  */
 class AuthenticationResolver implements AuthenticationResolverInterface
 {
