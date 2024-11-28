@@ -19,6 +19,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\Document;
 use Pimcore\Model\Document;
 use Pimcore\Model\Document\Listing;
 
+/**
+ * @deprecated Will be marked as internal in v2.0.0
+ */
 interface DocumentResolverInterface
 {
     public function getById(int|string $id, array $params = []): ?Document;

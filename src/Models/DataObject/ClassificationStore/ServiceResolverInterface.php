@@ -21,6 +21,9 @@ use Pimcore\Model\DataObject\ClassDefinition\Data\EncryptedField;
 use Pimcore\Model\DataObject\Classificationstore\KeyConfig;
 use Pimcore\Model\DataObject\Classificationstore\KeyGroupRelation;
 
+/**
+ * @deprecated Will be marked as internal in v2.0.0
+ */
 interface ServiceResolverInterface
 {
     public function getFieldDefinitionFromKeyConfig(

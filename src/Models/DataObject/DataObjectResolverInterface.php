@@ -19,6 +19,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject;
 use Pimcore\Model\DataObject;
 use Pimcore\Model\DataObject\Listing;
 
+/**
+ * @deprecated Will be marked as internal in v2.0.0
+ */
 interface DataObjectResolverInterface
 {
     public function getById(int|string $id, array $params = []): ?DataObject;

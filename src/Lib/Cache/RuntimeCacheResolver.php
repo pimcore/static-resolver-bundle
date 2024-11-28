@@ -18,6 +18,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Lib\Cache;
 
 use Pimcore\Cache\RuntimeCache;
 
+/**
+ * @deprecated Will be marked as internal and final in v2.0.0
+ */
 final class RuntimeCacheResolver implements RuntimeCacheResolverInterface
 {
     public function load(string $id): mixed

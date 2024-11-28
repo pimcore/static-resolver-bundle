@@ -20,6 +20,9 @@ use Pimcore\Model\Document;
 use Pimcore\Model\Document\Folder;
 use Pimcore\Model\Document\PageSnippet;
 
+/**
+ * @deprecated Will be marked as internal in v2.0.0
+ */
 interface DocumentServiceResolverInterface
 {
     public function rewriteIds(

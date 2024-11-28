@@ -19,6 +19,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Lib;
 use DateInterval;
 use Pimcore\Cache;
 
+/**
+ * @deprecated Will be marked as internal and final in v2.0.0
+ */
 final class CacheResolver implements CacheResolverInterface
 {
     public function save(

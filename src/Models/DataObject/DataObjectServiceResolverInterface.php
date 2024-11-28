@@ -21,6 +21,9 @@ use Pimcore\Model\DataObject\ClassDefinition;
 use Pimcore\Model\DataObject\Concrete;
 use Pimcore\Model\DataObject\Folder;
 
+/**
+ * @deprecated Will be marked as internal in v2.0.0
+ */
 interface DataObjectServiceResolverInterface
 {
     public function useInheritedValues(

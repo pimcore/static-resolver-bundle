@@ -16,9 +16,13 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Lib;
 
+
 use Exception;
 use Pimcore\Mail;
 
+/**
+ * @deprecated Will be marked as internal in v2.0.0
+ */
 interface ToolResolverInterface
 {
     public function getValidLanguages(): array;

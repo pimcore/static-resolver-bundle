@@ -18,6 +18,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\User\Permission;
 
 use Pimcore\Model\User\Permission\Definition;
 
+/**
+ * @deprecated Will be marked as internal in v2.0.0
+ */
 interface DefinitionResolverInterface
 {
     public function getByKey(string $permission): ?Definition;

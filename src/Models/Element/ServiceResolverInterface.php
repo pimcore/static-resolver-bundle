@@ -23,6 +23,9 @@ use Pimcore\Model\Document;
 use Pimcore\Model\Element\ElementInterface;
 use Pimcore\Model\User;
 
+/**
+ * @deprecated Will be marked as internal in v2.0.0
+ */
 interface ServiceResolverInterface
 {
     public function getElementById(

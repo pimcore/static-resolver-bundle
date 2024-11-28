@@ -18,6 +18,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject;
 
 use Pimcore\Model\DataObject\Concrete;
 
+/**
+ * @deprecated Will be marked as internal and final in v2.0.0
+ */
 class ConcreteObjectResolver implements ConcreteObjectResolverInterface
 {
     public function getById(int $id, array $params = []): null|Concrete
