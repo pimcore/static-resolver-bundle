@@ -19,7 +19,7 @@ namespace Pimcore\Bundle\StaticResolverBundle\Lib\Cache;
 use Pimcore\Cache\RuntimeCache;
 
 /**
- * @deprecated Will be marked as internal in v2.0.0
+ * @deprecated Will be marked as internal and final in v2.0.0
  */
 class RuntimeCacheResolver implements RuntimeCacheResolverInterface
 {
