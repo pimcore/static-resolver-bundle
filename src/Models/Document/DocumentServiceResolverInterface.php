@@ -18,6 +18,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\Document;
 
 use Pimcore\Model\Document\Folder;
 
+/**
+ * @deprecated Will be marked as internal in v2.0.0
+ */
 interface DocumentServiceResolverInterface
 {
     public function createFolderByPath(string $path, array $options = []): Folder;

@@ -18,6 +18,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject\FieldCollection;
 
 use Pimcore\Model\DataObject\Fieldcollection\Definition;
 
+/**
+ * @deprecated Will be marked as internal in v2.0.0
+ */
 interface DefinitionResolverInterface
 {
     public function getByKey(string $key): ?Definition;

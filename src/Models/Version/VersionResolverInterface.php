@@ -18,6 +18,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\Version;
 
 use Pimcore\Model\Version;
 
+/**
+ * @deprecated Will be marked as internal in v2.0.0
+ */
 interface VersionResolverInterface
 {
     public function enable(): void;

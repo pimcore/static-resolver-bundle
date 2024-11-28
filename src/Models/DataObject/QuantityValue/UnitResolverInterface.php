@@ -18,6 +18,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject\QuantityValue;
 
 use Pimcore\Model\DataObject\QuantityValue\Unit;
 
+/**
+ * @deprecated Will be marked as internal in v2.0.0
+ */
 interface UnitResolverInterface
 {
     public function getById(string $id): ?Unit;
