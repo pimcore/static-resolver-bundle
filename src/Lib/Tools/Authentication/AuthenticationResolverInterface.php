@@ -19,6 +19,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Lib\Tools\Authentication;
 use Pimcore\Model\User;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * @deprecated Will be marked as internal in v2.0.0
+ */
 interface AuthenticationResolverInterface
 {
     public function authenticateSession(Request $request = null): ?User;

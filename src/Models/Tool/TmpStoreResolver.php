@@ -18,6 +18,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\Tool;
 
 use Pimcore\Model\Tool\TmpStore;
 
+/**
+ * @deprecated Will be marked as internal in v2.0.0
+ */
 final class TmpStoreResolver implements TmpStoreResolverInterface
 {
     public function add(string $id, mixed $data, ?string $tag = null, ?int $lifetime = null): bool

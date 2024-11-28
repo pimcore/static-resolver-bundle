@@ -18,6 +18,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\Schedule;
 
 use Pimcore\Model\Schedule\Task;
 
+/**
+ * @deprecated Will be marked as internal in v2.0.0
+ */
 class TaskResolver implements TaskResolverInterface
 {
     public function getById(int $id): ?Task

@@ -19,6 +19,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Lib;
 use Exception;
 use Pimcore\Tool;
 
+/**
+ * @deprecated Will be marked as internal in v2.0.0
+ */
 class ToolResolver implements ToolResolverInterface
 {
     public function getValidLanguages(): array

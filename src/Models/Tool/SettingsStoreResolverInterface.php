@@ -18,6 +18,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\Tool;
 
 use Pimcore\Model\Tool\SettingsStore;
 
+/**
+ * @deprecated Will be marked as internal in v2.0.0
+ */
 interface SettingsStoreResolverInterface
 {
     public function set(string $id, float|bool|int|string $data, string $type = 'string', ?string $scope = null): bool;

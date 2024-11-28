@@ -20,6 +20,9 @@ use Pimcore\Model\User;
 use Pimcore\Tool\Authentication;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * @deprecated Will be marked as internal in v2.0.0
+ */
 class AuthenticationResolver implements AuthenticationResolverInterface
 {
     public function authenticateSession(Request $request = null): ?User
