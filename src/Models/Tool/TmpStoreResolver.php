@@ -19,7 +19,7 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\Tool;
 use Pimcore\Model\Tool\TmpStore;
 
 /**
- * @deprecated Will be marked as internal in v2.0.0
+ * @internal
  */
 final class TmpStoreResolver implements TmpStoreResolverInterface
 {

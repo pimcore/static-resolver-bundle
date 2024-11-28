@@ -18,6 +18,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Lib\Tools;
 
 use Pimcore\Model\User;
 
+/**
+ * @internal
+ */
 interface AdminResolverInterface
 {
     public function reorderWebsiteLanguages(

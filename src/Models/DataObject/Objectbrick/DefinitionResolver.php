@@ -19,9 +19,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject\Objectbrick;
 use Pimcore\Model\DataObject\Objectbrick\Definition;
 
 /**
- * @deprecated Will be marked as internal and final in v2.0.0
+ * @internal
  */
-class DefinitionResolver implements DefinitionResolverInterface
+final class DefinitionResolver implements DefinitionResolverInterface
 {
     public function getByKey(string $key): ?Definition
     {

@@ -19,6 +19,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\Metadata\Predefined;
 use Exception;
 use Pimcore\Model\Metadata\Predefined;
 
+/**
+ * @internal
+ */
 final class PredefinedResolver implements PredefinedResolverInterface
 {
     public function getById(string $id): ?Predefined

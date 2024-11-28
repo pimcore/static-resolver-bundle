@@ -19,6 +19,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Lib;
 use Exception;
 use Pimcore\Video\Adapter;
 
+/**
+ * @internal
+ */
 interface VideoResolverInterface
 {
     /**

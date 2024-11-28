@@ -18,6 +18,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\Tool;
 
 use League\Flysystem\FilesystemOperator;
 
+/**
+ * @internal
+ */
 interface StorageResolverInterface
 {
     public function get(string $name): FilesystemOperator;

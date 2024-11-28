@@ -18,6 +18,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\Tag;
 
 use Pimcore\Model\Element\Tag;
 
+/**
+ * @internal
+ */
 interface TagResolverInterface
 {
     public function getById(int $id): ?Tag;

@@ -20,6 +20,9 @@ use Exception;
 use Pimcore\Video;
 use Pimcore\Video\Adapter;
 
+/**
+ * @internal
+ */
 final class VideoResolver implements VideoResolverInterface
 {
     /**

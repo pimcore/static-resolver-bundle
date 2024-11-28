@@ -19,9 +19,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\User;
 use Pimcore\Model\User;
 
 /**
- * @deprecated Will be marked as internal and final in v2.0.0
+ * @internal
  */
-class UserResolver implements UserResolverInterface
+final class UserResolver implements UserResolverInterface
 {
     public function getById(int $id): ?User
     {

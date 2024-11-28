@@ -24,7 +24,7 @@ use Pimcore\Model\Element\Service;
 use Pimcore\Model\User;
 
 /**
- * @deprecated Will be marked as internal in v2.0.0
+ * @internal
  */
 final class ServiceResolver implements ServiceResolverInterface
 {

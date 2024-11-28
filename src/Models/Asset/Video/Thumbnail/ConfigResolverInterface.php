@@ -19,6 +19,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\Asset\Video\Thumbnail;
 use Exception;
 use Pimcore\Model\Asset\Video\Thumbnail\Config;
 
+/**
+ * @internal
+ */
 interface ConfigResolverInterface
 {
     /**

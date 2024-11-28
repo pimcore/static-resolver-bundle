@@ -18,6 +18,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Lib;
 
 use Exception;
 
+/**
+ * @internal
+ */
 interface ConfigResolverInterface
 {
     public function locateConfigFile(string $name): string;

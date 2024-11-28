@@ -20,6 +20,9 @@ use Exception;
 use Pimcore\Mail;
 use Pimcore\Model\Document;
 
+/**
+ * @internal
+ */
 interface MailResolverInterface
 {
     /**

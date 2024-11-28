@@ -19,6 +19,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\Asset\Image\Thumbnail;
 use Exception;
 use Pimcore\Model\Asset\Image\Thumbnail\Config;
 
+/**
+ * @internal
+ */
 interface ConfigResolverInterface
 {
     /**

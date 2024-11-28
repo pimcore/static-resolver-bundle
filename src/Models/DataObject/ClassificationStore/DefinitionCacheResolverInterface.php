@@ -19,6 +19,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject\ClassificationSt
 use Pimcore\Model\DataObject\Classificationstore\GroupConfig;
 use Pimcore\Model\DataObject\Classificationstore\KeyConfig;
 
+/**
+ * @internal
+ */
 interface DefinitionCacheResolverInterface
 {
     public function get(

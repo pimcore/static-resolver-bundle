@@ -20,7 +20,7 @@ use Pimcore\Model\DataObject;
 use Pimcore\Model\DataObject\Listing;
 
 /**
- * @deprecated Will be marked as internal in v2.0.0
+ * @internal
  */
 interface DataObjectResolverInterface
 {

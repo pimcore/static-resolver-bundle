@@ -20,7 +20,7 @@ use Pimcore\Model\Document;
 use Pimcore\Model\Document\Listing;
 
 /**
- * @deprecated Will be marked as internal in v2.0.0
+ * @internal
  */
 interface DocumentResolverInterface
 {

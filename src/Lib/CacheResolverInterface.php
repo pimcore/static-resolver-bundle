@@ -18,6 +18,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Lib;
 
 use DateInterval;
 
+/**
+ * @internal
+ */
 interface CacheResolverInterface
 {
     public function save(

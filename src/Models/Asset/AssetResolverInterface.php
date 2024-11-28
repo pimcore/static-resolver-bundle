@@ -20,7 +20,7 @@ use Pimcore\Model\Asset;
 use Pimcore\Model\Asset\Listing;
 
 /**
- * @deprecated Will be marked as internal in v2.0.0
+ * @internal
  */
 interface AssetResolverInterface
 {

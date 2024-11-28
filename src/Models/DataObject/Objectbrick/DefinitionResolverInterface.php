@@ -19,7 +19,7 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject\Objectbrick;
 use Pimcore\Model\DataObject\Objectbrick\Definition;
 
 /**
- * @deprecated Will be marked as internal in v2.0.0
+ * @internal
  */
 interface DefinitionResolverInterface
 {

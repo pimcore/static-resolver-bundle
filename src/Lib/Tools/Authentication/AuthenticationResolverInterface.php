@@ -20,7 +20,7 @@ use Pimcore\Model\User;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * @deprecated Will be marked as internal in v2.0.0
+ * @internal
  */
 interface AuthenticationResolverInterface
 {
