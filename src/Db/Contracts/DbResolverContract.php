@@ -17,31 +17,27 @@ declare(strict_types=1);
 namespace Pimcore\Bundle\StaticResolverBundle\Db\Contracts;
 
 use Doctrine\DBAL\Connection;
-use Pimcore\Bundle\StaticResolverBundle\Db\DbResolverInterface;
+use Pimcore\Db;
 
 class DbResolverContract implements DbResolverContractInterface
 {
-    public function __construct(private readonly DbResolverInterface $dbResolver)
-    {
-    }
-
     public function getConnection(): Connection
     {
-        return $this->dbResolver->getConnection();
+        return Db::getConnection();
     }
 
     public function reset(): Connection
     {
-        return $this->dbResolver->reset();
+        return Db::reset();
     }
 
     public function get(): Connection
     {
-        return $this->dbResolver->get();
+        return Db::get();
     }
 
     public function close(): void
     {
-        $this->dbResolver->close();
+        Db::close();
     }
 }
