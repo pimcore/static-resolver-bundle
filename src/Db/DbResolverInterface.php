@@ -18,10 +18,8 @@ namespace Pimcore\Bundle\StaticResolverBundle\Db;
 
 use Pimcore\Bundle\StaticResolverBundle\Db\Contracts\DbResolverContractInterface;
 
-/**
- * @internal
- */
-interface DbResolverInterface
+// @internal
+interface DbResolverInterface extends DbResolverContractInterface
 {
     //Add new methods here
 }
