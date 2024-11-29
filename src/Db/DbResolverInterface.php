@@ -16,10 +16,12 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Db;
 
+use Pimcore\Bundle\StaticResolverBundle\Contract\Db\DbContractInterface;
+
 /**
  * @internal
  */
-interface DbResolverInterface extends DbResolverContractInterface
+interface DbResolverInterface extends DbContractInterface
 {
     //Add new methods here
 }
