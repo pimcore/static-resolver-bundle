@@ -20,8 +20,11 @@ use Exception;
 use Pimcore\Model\DataObject\AbstractObject;
 use Pimcore\Model\DataObject\ClassDefinition;
 use Pimcore\Model\DataObject\Concrete;
+use Pimcore\Model\DataObject\Fieldcollection\Data\AbstractData as FieldCollectionData;
 use Pimcore\Model\DataObject\Folder;
+use Pimcore\Model\DataObject\Objectbrick\Data\AbstractData as ObjectBrickData;
 use Pimcore\Model\DataObject\Service;
+use Pimcore\Model\UserInterface;
 
 /**
  * @internal
@@ -77,5 +80,13 @@ final class DataObjectServiceResolver implements DataObjectServiceResolverInterf
     public function getObjectsReferencingUser(int $userId): array
     {
         return Service::getObjectsReferencingUser($userId);
+    }
+
+    public function getLanguagePermissions(
+        FieldCollectionData|ObjectBrickData|AbstractObject $object,
+        UserInterface $user,
+        string $type
+    ): ?array {
+        return Service::getLanguagePermissions($object, $user, $type);
     }
 }
