@@ -14,7 +14,6 @@ declare(strict_types=1);
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-
 namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject\ClassDefinition\Helper;
 
 use Pimcore\Model\DataObject\ClassDefinition\Helper\OptionsProviderResolver as PimcoreOptionsProviderResolver;
@@ -22,7 +21,7 @@ use Pimcore\Model\DataObject\ClassDefinition\Helper\OptionsProviderResolver as P
 /**
  * @internal
  */
-final class OptionsProviderResolver implements OptionsProviderResolverInterface  
+final class OptionsProviderResolver implements OptionsProviderResolverInterface
 {
     public function resolveProvider(?string $providerClass, int $mode): ?object
     {
