@@ -68,8 +68,7 @@ final class ServiceResolver implements ServiceResolverInterface
         int $elementId,
         string $sessionId,
         ?string $postfix = ''
-    ): null|Asset|AbstractObject|Document
-    {
+    ): null|Asset|AbstractObject|Document {
         return Service::getElementFromSession($type, $elementId, $sessionId, $postfix);
     }
 }
