@@ -36,7 +36,7 @@ final class CustomReportResolver implements CustomReportResolverInterface
         return Config::getReportsList($user);
     }
 
-    public static function getAdapter(?stdClass $configuration, Config $fullConfig = null): CustomReportAdapterInterface
+    public static function getAdapter(?stdClass $configuration, ?Config $fullConfig = null): CustomReportAdapterInterface
     {
         return Config::getAdapter($configuration, $fullConfig);
     }
