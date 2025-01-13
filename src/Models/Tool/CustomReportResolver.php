@@ -31,7 +31,7 @@ final class CustomReportResolver implements CustomReportResolverInterface
         return Config::getByName($name);
     }
 
-    public static function getReportsList(User $user = null): array
+    public static function getReportsList(?User $user = null): array
     {
         return Config::getReportsList($user);
     }
