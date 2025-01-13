@@ -19,7 +19,7 @@ namespace Pimcore\Bundle\StaticResolverBundle\Contract\Db;
 use Doctrine\DBAL\Connection;
 use Pimcore\Db;
 
-class DbContract implements DbContractInterface
+class DbResolverContract implements DbResolverContractInterface
 {
     public function getConnection(): Connection
     {

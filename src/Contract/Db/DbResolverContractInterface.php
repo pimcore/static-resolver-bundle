@@ -18,7 +18,7 @@ namespace Pimcore\Bundle\StaticResolverBundle\Contract\Db;
 
 use Doctrine\DBAL\Connection;
 
-interface DbContractInterface
+interface DbResolverContractInterface
 {
     public function getConnection(): Connection;
 
