@@ -48,4 +48,11 @@ interface ServiceResolverInterface
     public function getValidKey(string $key, string $type): string;
 
     public function getSafeCopyName(string $sourceKey, ElementInterface $target): string;
+
+    public function getElementFromSession(
+        string $type,
+        int $elementId,
+        string $sessionId,
+        ?string $postfix = ''
+    ): null|Asset|AbstractObject|Document;
 }

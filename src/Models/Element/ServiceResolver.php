@@ -62,4 +62,13 @@ final class ServiceResolver implements ServiceResolverInterface
     {
         return Service::getSafeCopyName($sourceKey, $target);
     }
+
+    public function getElementFromSession(
+        string $type,
+        int $elementId,
+        string $sessionId,
+        ?string $postfix = ''
+    ): null|Asset|AbstractObject|Document {
+        return Service::getElementFromSession($type, $elementId, $sessionId, $postfix);
+    }
 }
