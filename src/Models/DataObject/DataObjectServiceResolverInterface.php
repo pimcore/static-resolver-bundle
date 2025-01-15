@@ -39,13 +39,13 @@ interface DataObjectServiceResolverInterface
 
     public function createFolderByPath(string $path, array $options = []): Folder;
 
-    public function pathExists(string $path, string $type = null): bool;
+    public function pathExists(string $path, ?string $type = null): bool;
 
     public function getCustomLayoutDefinitionForGridColumnConfig(ClassDefinition $class, int $objectId): array;
 
     public function enrichLayoutDefinition(
         ClassDefinition\Data|ClassDefinition\Layout|null &$layout,
-        Concrete $object = null,
+        ?Concrete $object = null,
         array $context = []
     ): void;
 

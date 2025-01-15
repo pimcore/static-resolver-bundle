@@ -25,16 +25,16 @@ interface ConfigResolverInterface
 {
     public function locateConfigFile(string $name): string;
 
-    public function getSystemConfiguration(string $offset = null): ?array;
+    public function getSystemConfiguration(?string $offset = null): ?array;
 
-    public function getWebsiteConfigRuntimeCacheKey(string $language = null): string;
+    public function getWebsiteConfigRuntimeCacheKey(?string $language = null): string;
 
-    public function getWebsiteConfig(string $language = null): array;
+    public function getWebsiteConfig(?string $language = null): array;
 
     public function getWebsiteConfigValue(
-        string $key = null,
+        ?string $key = null,
         mixed $default = null,
-        string $language = null
+        ?string $language = null
     ): mixed;
 
     /**
