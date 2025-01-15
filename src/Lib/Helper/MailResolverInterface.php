@@ -37,7 +37,7 @@ interface MailResolverInterface
     /**
      * @throws Exception
      */
-    public function setAbsolutePaths(string $string, ?Document $document = null, string $hostUrl = null): string;
+    public function setAbsolutePaths(string $string, ?Document $document = null, ?string $hostUrl = null): string;
 
     /**
      * @throws Exception

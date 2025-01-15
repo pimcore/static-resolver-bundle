@@ -24,7 +24,7 @@ use Symfony\Component\HttpFoundation\Request;
  */
 interface AuthenticationResolverInterface
 {
-    public function authenticateSession(Request $request = null): ?User;
+    public function authenticateSession(?Request $request = null): ?User;
 
     public function generateTokenByUser(User $user): string;
 

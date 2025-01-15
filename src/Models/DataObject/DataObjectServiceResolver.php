@@ -56,7 +56,7 @@ final class DataObjectServiceResolver implements DataObjectServiceResolverInterf
         return Service::createFolderByPath($path, $options);
     }
 
-    public function pathExists(string $path, string $type = null): bool
+    public function pathExists(string $path, ?string $type = null): bool
     {
         return Service::pathExists($path, $type);
     }
@@ -68,7 +68,7 @@ final class DataObjectServiceResolver implements DataObjectServiceResolverInterf
 
     public function enrichLayoutDefinition(
         ClassDefinition\Data|ClassDefinition\Layout|null &$layout,
-        Concrete $object = null,
+        ?Concrete $object = null,
         array $context = []
     ): void {
         Service::enrichLayoutDefinition($layout, $object, $context);

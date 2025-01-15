@@ -27,7 +27,7 @@ interface CacheResolverInterface
         mixed $data,
         string $key,
         array $tags = [],
-        DateInterval|int $lifetime = null,
+        DateInterval|int|null $lifetime = null,
         int $priority = 0,
         bool $force = false
     ): void;

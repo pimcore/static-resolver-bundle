@@ -48,7 +48,7 @@ final class ServiceResolver implements ServiceResolverInterface
         return Service::findForbiddenPaths($type, $user);
     }
 
-    public function isPublished(ElementInterface $element = null): bool
+    public function isPublished(?ElementInterface $element = null): bool
     {
         return Service::isPublished($element);
     }
