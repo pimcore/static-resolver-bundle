@@ -20,6 +20,8 @@
       "Pimcore\\Bundle\\StaticResolverBundle\\Tests\\": "tests"
     }
   },
+  "prefer-stable": true,
+  "minimum-stability": "dev",
   "require": {
     "php": "~8.3.0 || ~8.4.0",
     "pimcore/pimcore": "^12.0",
