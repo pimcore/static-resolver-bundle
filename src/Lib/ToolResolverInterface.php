@@ -37,4 +37,6 @@ interface ToolResolverInterface
      * @throws Exception
      */
     public function getMail(array|string|null $recipients = null, ?string $subject = null): Mail;
+
+    public function getHostname(): ?string;
 }
