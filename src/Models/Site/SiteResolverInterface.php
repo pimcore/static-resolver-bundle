@@ -18,6 +18,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\Site;
 
 use Pimcore\Model\Site;
 
+/**
+ * @internal
+ */
 interface SiteResolverInterface
 {
     public function getById(int $id): ?Site;

@@ -27,7 +27,7 @@ final readonly class SiteResolver implements SiteResolverInterface
     /**
      * @throws Exception
      */
-    public static function getById(int $id): ?Site
+    public function getById(int $id): ?Site
     {
         return Site::getById($id);
     }
