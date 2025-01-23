@@ -50,4 +50,9 @@ final class ToolResolver implements ToolResolverInterface
     {
         return Tool::getMail($recipients, $subject);
     }
+
+    public function getHostname(): ?string
+    {
+        return Tool::getHostname();
+    }
 }
