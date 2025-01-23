@@ -20,7 +20,7 @@ use Exception;
 use Pimcore\Model\Site;
 
 /**
- * @interal
+ * @internal
  */
 final readonly class SiteResolver implements SiteResolverInterface
 {

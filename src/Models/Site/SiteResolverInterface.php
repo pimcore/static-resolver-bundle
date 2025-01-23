@@ -16,6 +16,7 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\Site;
 
+use Exception;
 use Pimcore\Model\Site;
 
 /**
@@ -23,18 +24,30 @@ use Pimcore\Model\Site;
  */
 interface SiteResolverInterface
 {
+    /**
+     * @throws Exception
+     */
     public function getById(int $id): ?Site;
 
     public function getByRootId(int $id): ?Site;
 
+    /**
+     * @throws Exception
+     */
     public function getByDomain(string $domain): ?Site;
 
+    /**
+     * @throws Exception
+     */
     public function getBy(mixed $mixed): ?Site;
 
     public function create(array $data): Site;
 
     public function isSiteRequest(): bool;
 
+    /**
+     * @throws Exception
+     */
     public function getCurrentSite(): Site;
 
     public function setCurrentSite(Site $site): void;
