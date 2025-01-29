@@ -99,8 +99,8 @@ final class ClassDefinitionServiceResolver implements ClassDefinitionServiceReso
         string $colName,
         string $type,
         string $default,
-        string $null): bool
-    {
+        string $null
+    ): bool {
         return Service::skipColumn($tableDefinitions, $table, $colName, $type, $default, $null);
     }
 

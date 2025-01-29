@@ -65,7 +65,8 @@ interface ClassDefinitionServiceResolverInterface
     public static function importObjectBrickFromJson(
         OBDefinition $objectBrick,
         string $json,
-        bool $throwException = false): bool;
+        bool $throwException = false
+    ): bool;
 
     public static function updateTableDefinitions(array &$tableDefinitions, array $tableNames): void;
 
@@ -75,7 +76,8 @@ interface ClassDefinitionServiceResolverInterface
         string $colName,
         string $type,
         string $default,
-        string $null): bool;
+        string $null
+    ): bool;
 
     /**
      * @param string|null $newInterfaces A comma separated list of interfaces
