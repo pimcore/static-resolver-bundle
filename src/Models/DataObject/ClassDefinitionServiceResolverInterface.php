@@ -39,38 +39,38 @@ interface ClassDefinitionServiceResolverInterface
         bool $insideLocalizedField = false
     ): EncryptedField|bool|Data|Layout;
 
-    public static function setDoRemoveDynamicOptions(bool $doRemoveDynamicOptions): void;
+    public function setDoRemoveDynamicOptions(bool $doRemoveDynamicOptions): void;
 
-    public static function generateClassDefinitionJson(ClassDefinition $class): string;
+    public function generateClassDefinitionJson(ClassDefinition $class): string;
 
-    public static function importClassDefinitionFromJson(
+    public function importClassDefinitionFromJson(
         ClassDefinition $class,
         string $json,
         bool $throwException = false,
         bool $ignoreId = false
     ): bool;
 
-    public static function generateFieldCollectionJson(FCDefinition $fieldCollection): string;
+    public function generateFieldCollectionJson(FCDefinition $fieldCollection): string;
 
-    public static function importFieldCollectionFromJson(
+    public function importFieldCollectionFromJson(
         FCDefinition $fieldCollection,
         string $json,
         bool $throwException = false
     ): bool;
 
-    public static function generateObjectBrickJson(OBDefinition $objectBrick): string;
+    public function generateObjectBrickJson(OBDefinition $objectBrick): string;
 
-    public static function generateCustomLayoutJson(CustomLayout $customLayout): string;
+    public function generateCustomLayoutJson(CustomLayout $customLayout): string;
 
-    public static function importObjectBrickFromJson(
+    public function importObjectBrickFromJson(
         OBDefinition $objectBrick,
         string $json,
         bool $throwException = false
     ): bool;
 
-    public static function updateTableDefinitions(array &$tableDefinitions, array $tableNames): void;
+    public function updateTableDefinitions(array &$tableDefinitions, array $tableNames): void;
 
-    public static function skipColumn(
+    public function skipColumn(
         array $tableDefinitions,
         string $table,
         string $colName,
@@ -84,21 +84,21 @@ interface ClassDefinitionServiceResolverInterface
      *
      * @throws Exception
      */
-    public static function buildImplementsInterfacesCode(array $implementsParts, ?string $newInterfaces): string;
+    public function buildImplementsInterfacesCode(array $implementsParts, ?string $newInterfaces): string;
 
     /**
      * @throws Exception
      */
-    public static function buildUseTraitsCode(array $useParts, ?string $newTraits): string;
+    public function buildUseTraitsCode(array $useParts, ?string $newTraits): string;
 
     /**
      * @throws Exception
      */
-    public static function buildUseCode(array $useParts): string;
+    public function buildUseCode(array $useParts): string;
 
-    public static function buildFieldConstantsCode(Data ...$fieldDefinitions): string;
+    public function buildFieldConstantsCode(Data ...$fieldDefinitions): string;
 
-    public static function buildFieldConstantCode(Data $fieldDefinition): string;
+    public function buildFieldConstantCode(Data $fieldDefinition): string;
 
-    public static function camelCaseToUpperSnakeCase(string $camelCase): string;
+    public function camelCaseToUpperSnakeCase(string $camelCase): string;
 }

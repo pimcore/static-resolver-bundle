@@ -38,17 +38,17 @@ final class ClassDefinitionServiceResolver implements ClassDefinitionServiceReso
         return Service::generateLayoutTreeFromArray($array, $throwException, $insideLocalizedField);
     }
 
-    public static function setDoRemoveDynamicOptions(bool $doRemoveDynamicOptions): void
+    public function setDoRemoveDynamicOptions(bool $doRemoveDynamicOptions): void
     {
         Service::setDoRemoveDynamicOptions($doRemoveDynamicOptions);
     }
 
-    public static function generateClassDefinitionJson(ClassDefinition $class): string
+    public function generateClassDefinitionJson(ClassDefinition $class): string
     {
         return Service::generateClassDefinitionJson($class);
     }
 
-    public static function importClassDefinitionFromJson(
+    public function importClassDefinitionFromJson(
         ClassDefinition $class,
         string $json,
         bool $throwException = false,
@@ -57,12 +57,12 @@ final class ClassDefinitionServiceResolver implements ClassDefinitionServiceReso
         return Service::importClassDefinitionFromJson($class, $json, $throwException, $ignoreId);
     }
 
-    public static function generateFieldCollectionJson(FCDefinition $fieldCollection): string
+    public function generateFieldCollectionJson(FCDefinition $fieldCollection): string
     {
         return Service::generateFieldCollectionJson($fieldCollection);
     }
 
-    public static function importFieldCollectionFromJson(
+    public function importFieldCollectionFromJson(
         FCDefinition $fieldCollection,
         string $json,
         bool $throwException = false
@@ -70,17 +70,17 @@ final class ClassDefinitionServiceResolver implements ClassDefinitionServiceReso
         return Service::importFieldCollectionFromJson($fieldCollection, $json, $throwException);
     }
 
-    public static function generateObjectBrickJson(OBDefinition $objectBrick): string
+    public function generateObjectBrickJson(OBDefinition $objectBrick): string
     {
         return Service::generateObjectBrickJson($objectBrick);
     }
 
-    public static function generateCustomLayoutJson(CustomLayout $customLayout): string
+    public function generateCustomLayoutJson(CustomLayout $customLayout): string
     {
         return Service::generateCustomLayoutJson($customLayout);
     }
 
-    public static function importObjectBrickFromJson(
+    public function importObjectBrickFromJson(
         OBDefinition $objectBrick,
         string $json,
         bool $throwException = false
@@ -88,12 +88,12 @@ final class ClassDefinitionServiceResolver implements ClassDefinitionServiceReso
         return Service::importObjectBrickFromJson($objectBrick, $json, $throwException);
     }
 
-    public static function updateTableDefinitions(array &$tableDefinitions, array $tableNames): void
+    public function updateTableDefinitions(array &$tableDefinitions, array $tableNames): void
     {
         Service::updateTableDefinitions($tableDefinitions, $tableNames);
     }
 
-    public static function skipColumn(
+    public function skipColumn(
         array $tableDefinitions,
         string $table,
         string $colName,
@@ -104,32 +104,32 @@ final class ClassDefinitionServiceResolver implements ClassDefinitionServiceReso
         return Service::skipColumn($tableDefinitions, $table, $colName, $type, $default, $null);
     }
 
-    public static function buildImplementsInterfacesCode(array $implementsParts, ?string $newInterfaces): string
+    public function buildImplementsInterfacesCode(array $implementsParts, ?string $newInterfaces): string
     {
         return Service::buildImplementsInterfacesCode($implementsParts, $newInterfaces);
     }
 
-    public static function buildUseTraitsCode(array $useParts, ?string $newTraits): string
+    public function buildUseTraitsCode(array $useParts, ?string $newTraits): string
     {
         return Service::buildUseTraitsCode($useParts, $newTraits);
     }
 
-    public static function buildUseCode(array $useParts): string
+    public function buildUseCode(array $useParts): string
     {
         return Service::buildUseCode($useParts);
     }
 
-    public static function buildFieldConstantsCode(Data ...$fieldDefinitions): string
+    public function buildFieldConstantsCode(Data ...$fieldDefinitions): string
     {
         return Service::buildFieldConstantsCode(...$fieldDefinitions);
     }
 
-    public static function buildFieldConstantCode(Data $fieldDefinition): string
+    public function buildFieldConstantCode(Data $fieldDefinition): string
     {
         return Service::buildFieldConstantCode($fieldDefinition);
     }
 
-    public static function camelCaseToUpperSnakeCase(string $camelCase): string
+    public function camelCaseToUpperSnakeCase(string $camelCase): string
     {
         return Service::camelCaseToUpperSnakeCase($camelCase);
     }
