@@ -80,7 +80,11 @@ final class ClassDefinitionServiceResolver implements ClassDefinitionServiceReso
         return Service::generateCustomLayoutJson($customLayout);
     }
 
-    public static function importObjectBrickFromJson(OBDefinition $objectBrick, string $json, bool $throwException = false): bool
+    public static function importObjectBrickFromJson(
+        OBDefinition $objectBrick,
+        string $json,
+        bool $throwException = false
+    ): bool
     {
         return Service::importObjectBrickFromJson($objectBrick, $json, $throwException);
     }
