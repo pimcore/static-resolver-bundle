@@ -84,8 +84,7 @@ final class ClassDefinitionServiceResolver implements ClassDefinitionServiceReso
         OBDefinition $objectBrick,
         string $json,
         bool $throwException = false
-    ): bool
-    {
+    ): bool {
         return Service::importObjectBrickFromJson($objectBrick, $json, $throwException);
     }
 
