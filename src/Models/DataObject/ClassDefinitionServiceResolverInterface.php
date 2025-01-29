@@ -35,8 +35,8 @@ interface ClassDefinitionServiceResolverInterface
      */
     public function generateLayoutTreeFromArray(
         array $array,
-        bool  $throwException = false,
-        bool  $insideLocalizedField = false
+        bool $throwException = false,
+        bool $insideLocalizedField = false
     ): EncryptedField|bool|Data|Layout;
 
     public static function setDoRemoveDynamicOptions(bool $doRemoveDynamicOptions): void;
@@ -45,17 +45,17 @@ interface ClassDefinitionServiceResolverInterface
 
     public static function importClassDefinitionFromJson(
         ClassDefinition $class,
-        string          $json,
-        bool            $throwException = false,
-        bool            $ignoreId = false
+        string $json,
+        bool $throwException = false,
+        bool $ignoreId = false
     ): bool;
 
     public static function generateFieldCollectionJson(FCDefinition $fieldCollection): string;
 
     public static function importFieldCollectionFromJson(
         FCDefinition $fieldCollection,
-        string       $json,
-        bool         $throwException = false
+        string $json,
+        bool $throwException = false
     ): bool;
 
     public static function generateObjectBrickJson(OBDefinition $objectBrick): string;
@@ -64,13 +64,13 @@ interface ClassDefinitionServiceResolverInterface
 
     public static function importObjectBrickFromJson(
         OBDefinition $objectBrick,
-        string       $json,
-        bool         $throwException = false): bool;
+        string $json,
+        bool $throwException = false): bool;
 
     public static function updateTableDefinitions(array &$tableDefinitions, array $tableNames): void;
 
     public static function skipColumn(
-        array  $tableDefinitions,
+        array $tableDefinitions,
         string $table,
         string $colName,
         string $type,

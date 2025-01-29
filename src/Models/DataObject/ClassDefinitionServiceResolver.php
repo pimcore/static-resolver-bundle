@@ -16,13 +16,12 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject;
 
-use Exception;
+use Pimcore\Model\DataObject\ClassDefinition;
 use Pimcore\Model\DataObject\ClassDefinition\CustomLayout;
 use Pimcore\Model\DataObject\ClassDefinition\Data;
 use Pimcore\Model\DataObject\ClassDefinition\Data\EncryptedField;
 use Pimcore\Model\DataObject\ClassDefinition\Layout;
 use Pimcore\Model\DataObject\ClassDefinition\Service;
-use Pimcore\Model\DataObject\ClassDefinition;
 use Pimcore\Model\DataObject\Fieldcollection\Definition as FCDefinition;
 use Pimcore\Model\DataObject\ObjectBrick\Definition as OBDefinition;
 
@@ -54,9 +53,8 @@ final class ClassDefinitionServiceResolver implements ClassDefinitionServiceReso
         string $json,
         bool $throwException = false,
         bool $ignoreId = false
-    ): bool
-    {
-       return Service::importClassDefinitionFromJson($class, $json, $throwException, $ignoreId);
+    ): bool {
+        return Service::importClassDefinitionFromJson($class, $json, $throwException, $ignoreId);
     }
 
     public static function generateFieldCollectionJson(FCDefinition $fieldCollection): string
@@ -68,8 +66,7 @@ final class ClassDefinitionServiceResolver implements ClassDefinitionServiceReso
         FCDefinition $fieldCollection,
         string $json,
         bool $throwException = false
-    ): bool
-    {
+    ): bool {
         return Service::importFieldCollectionFromJson($fieldCollection, $json, $throwException);
     }
 
