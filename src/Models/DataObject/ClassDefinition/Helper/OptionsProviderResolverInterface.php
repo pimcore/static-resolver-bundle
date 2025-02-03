@@ -14,19 +14,12 @@ declare(strict_types=1);
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Pimcore\Bundle\StaticResolverBundle\Models\Asset;
-
-use Pimcore\Model\Asset;
-use Pimcore\Model\Asset\Folder;
+namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject\ClassDefinition\Helper;
 
 /**
  * @internal
  */
-interface AssetServiceResolverInterface
+interface OptionsProviderResolverInterface
 {
-    public function rewriteIds(Asset $asset, array $rewriteConfig): Asset;
-
-    public function createFolderByPath(string $path, array $options = []): Folder;
-
-    public function pathExists(string $path, ?string $type = null): bool;
+    public function resolveProvider(?string $providerClass, int $mode): ?object;
 }

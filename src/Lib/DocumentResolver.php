@@ -28,7 +28,7 @@ final class DocumentResolver implements DocumentResolverInterface
     /**
      * @throws Exception
      */
-    public function getInstance(string $adapter = null): ?Adapter
+    public function getInstance(?string $adapter = null): ?Adapter
     {
         Document::getInstance($adapter);
     }

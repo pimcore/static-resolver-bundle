@@ -29,25 +29,25 @@ final class ConfigResolver implements ConfigResolverInterface
         return Config::locateConfigFile($name);
     }
 
-    public function getSystemConfiguration(string $offset = null): ?array
+    public function getSystemConfiguration(?string $offset = null): ?array
     {
         return Config::getSystemConfiguration($offset);
     }
 
-    public function getWebsiteConfigRuntimeCacheKey(string $language = null): string
+    public function getWebsiteConfigRuntimeCacheKey(?string $language = null): string
     {
         return Config::getWebsiteConfigRuntimeCacheKey($language);
     }
 
-    public function getWebsiteConfig(string $language = null): array
+    public function getWebsiteConfig(?string $language = null): array
     {
         return Config::getWebsiteConfig($language);
     }
 
     public function getWebsiteConfigValue(
-        string $key = null,
+        ?string $key = null,
         mixed $default = null,
-        string $language = null
+        ?string $language = null
     ): mixed {
         return Config::getWebsiteConfigValue($key, $default, $language);
     }

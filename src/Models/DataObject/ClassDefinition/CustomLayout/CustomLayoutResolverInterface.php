@@ -14,35 +14,33 @@ declare(strict_types=1);
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Pimcore\Bundle\StaticResolverBundle\Lib\Helper;
+namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject\ClassDefinition\CustomLayout;
 
 use Exception;
-use Pimcore\Mail;
-use Pimcore\Model\Document;
+use Pimcore\Model\DataObject\ClassDefinition\CustomLayout;
+use Symfony\Component\Uid\UuidV4;
 
 /**
  * @internal
  */
-interface MailResolverInterface
+interface CustomLayoutResolverInterface
 {
     /**
      * @throws Exception
      */
-    public function getDebugInformation(string $type, Mail $mail): string;
-
-    public function getDebugInformationCssStyle(): string;
-
-    public function formatDebugReceivers(array $receivers): string;
+    public function getById(string $customLayoutId): ?CustomLayout;
 
     /**
      * @throws Exception
      */
-    public function setAbsolutePaths(string $string, ?Document $document = null, ?string $hostUrl = null): string;
+    public function getByName(string $customLayoutName): ?CustomLayout;
 
     /**
      * @throws Exception
      */
-    public function embedAndModifyCss(string $string, ?Document $document = null): string;
+    public function getByNameAndClassId(string $customLayoutName, string $classId): ?CustomLayout;
 
-    public function parseEmailAddressField(?string $emailString): array;
+    public function getIdentifier(string $classId): ?UuidV4;
+
+    public function create(array $values): CustomLayout;
 }

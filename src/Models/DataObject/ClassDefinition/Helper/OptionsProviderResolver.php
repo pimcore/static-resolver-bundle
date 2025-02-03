@@ -14,19 +14,17 @@ declare(strict_types=1);
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Pimcore\Bundle\StaticResolverBundle\Models\Asset;
+namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject\ClassDefinition\Helper;
 
-use Pimcore\Model\Asset;
-use Pimcore\Model\Asset\Folder;
+use Pimcore\Model\DataObject\ClassDefinition\Helper\OptionsProviderResolver as PimcoreOptionsProviderResolver;
 
 /**
  * @internal
  */
-interface AssetServiceResolverInterface
+final class OptionsProviderResolver implements OptionsProviderResolverInterface
 {
-    public function rewriteIds(Asset $asset, array $rewriteConfig): Asset;
-
-    public function createFolderByPath(string $path, array $options = []): Folder;
-
-    public function pathExists(string $path, ?string $type = null): bool;
+    public function resolveProvider(?string $providerClass, int $mode): ?object
+    {
+        return PimcoreOptionsProviderResolver::resolveProvider($providerClass, $mode);
+    }
 }

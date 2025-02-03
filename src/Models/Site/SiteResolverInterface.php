@@ -14,35 +14,41 @@ declare(strict_types=1);
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Pimcore\Bundle\StaticResolverBundle\Lib\Helper;
+namespace Pimcore\Bundle\StaticResolverBundle\Models\Site;
 
 use Exception;
-use Pimcore\Mail;
-use Pimcore\Model\Document;
+use Pimcore\Model\Site;
 
 /**
  * @internal
  */
-interface MailResolverInterface
+interface SiteResolverInterface
 {
     /**
      * @throws Exception
      */
-    public function getDebugInformation(string $type, Mail $mail): string;
+    public function getById(int $id): ?Site;
 
-    public function getDebugInformationCssStyle(): string;
-
-    public function formatDebugReceivers(array $receivers): string;
+    public function getByRootId(int $id): ?Site;
 
     /**
      * @throws Exception
      */
-    public function setAbsolutePaths(string $string, ?Document $document = null, ?string $hostUrl = null): string;
+    public function getByDomain(string $domain): ?Site;
 
     /**
      * @throws Exception
      */
-    public function embedAndModifyCss(string $string, ?Document $document = null): string;
+    public function getBy(mixed $mixed): ?Site;
 
-    public function parseEmailAddressField(?string $emailString): array;
+    public function create(array $data): Site;
+
+    public function isSiteRequest(): bool;
+
+    /**
+     * @throws Exception
+     */
+    public function getCurrentSite(): Site;
+
+    public function setCurrentSite(Site $site): void;
 }

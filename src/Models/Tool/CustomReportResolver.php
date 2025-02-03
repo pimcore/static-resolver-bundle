@@ -14,19 +14,17 @@ declare(strict_types=1);
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Pimcore\Bundle\StaticResolverBundle\Models\Asset;
+namespace Pimcore\Bundle\StaticResolverBundle\Models\Tool;
 
-use Pimcore\Model\Asset;
-use Pimcore\Model\Asset\Folder;
+use Pimcore\Bundle\CustomReportsBundle\Tool\Config;
 
 /**
  * @internal
  */
-interface AssetServiceResolverInterface
+final class CustomReportResolver implements CustomReportResolverInterface
 {
-    public function rewriteIds(Asset $asset, array $rewriteConfig): Asset;
-
-    public function createFolderByPath(string $path, array $options = []): Folder;
-
-    public function pathExists(string $path, ?string $type = null): bool;
+    public function getByName(string $name): ?Config
+    {
+        return Config::getByName($name);
+    }
 }

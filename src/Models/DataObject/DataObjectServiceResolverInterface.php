@@ -19,7 +19,10 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject;
 use Pimcore\Model\DataObject\AbstractObject;
 use Pimcore\Model\DataObject\ClassDefinition;
 use Pimcore\Model\DataObject\Concrete;
+use Pimcore\Model\DataObject\Fieldcollection\Data\AbstractData as FieldCollectionData;
 use Pimcore\Model\DataObject\Folder;
+use Pimcore\Model\DataObject\Objectbrick\Data\AbstractData as ObjectBrickData;
+use Pimcore\Model\UserInterface;
 
 /**
  * @internal
@@ -36,13 +39,13 @@ interface DataObjectServiceResolverInterface
 
     public function createFolderByPath(string $path, array $options = []): Folder;
 
-    public function pathExists(string $path, string $type = null): bool;
+    public function pathExists(string $path, ?string $type = null): bool;
 
     public function getCustomLayoutDefinitionForGridColumnConfig(ClassDefinition $class, int $objectId): array;
 
     public function enrichLayoutDefinition(
         ClassDefinition\Data|ClassDefinition\Layout|null &$layout,
-        Concrete $object = null,
+        ?Concrete $object = null,
         array $context = []
     ): void;
 
@@ -50,4 +53,10 @@ interface DataObjectServiceResolverInterface
      * @return Concrete[]
      */
     public function getObjectsReferencingUser(int $userId): array;
+
+    public function getLanguagePermissions(
+        FieldCollectionData|ObjectBrickData|AbstractObject $object,
+        UserInterface $user,
+        string $type
+    ): ?array;
 }

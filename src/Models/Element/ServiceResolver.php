@@ -48,7 +48,7 @@ final class ServiceResolver implements ServiceResolverInterface
         return Service::findForbiddenPaths($type, $user);
     }
 
-    public function isPublished(ElementInterface $element = null): bool
+    public function isPublished(?ElementInterface $element = null): bool
     {
         return Service::isPublished($element);
     }
@@ -61,5 +61,14 @@ final class ServiceResolver implements ServiceResolverInterface
     public function getSafeCopyName(string $sourceKey, ElementInterface $target): string
     {
         return Service::getSafeCopyName($sourceKey, $target);
+    }
+
+    public function getElementFromSession(
+        string $type,
+        int $elementId,
+        string $sessionId,
+        ?string $postfix = ''
+    ): null|Asset|AbstractObject|Document {
+        return Service::getElementFromSession($type, $elementId, $sessionId, $postfix);
     }
 }

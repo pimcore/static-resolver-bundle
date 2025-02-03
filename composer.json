@@ -20,9 +20,11 @@
       "Pimcore\\Bundle\\StaticResolverBundle\\Tests\\": "tests"
     }
   },
+  "prefer-stable": true,
+  "minimum-stability": "dev",
   "require": {
-    "php": "~8.1.0 || ~8.2.0 || ~8.3.0",
-    "pimcore/pimcore": "^11.0",
+    "php": "~8.3.0 || ~8.4.0",
+    "pimcore/pimcore": "^12.0",
     "friendsofphp/proxy-manager-lts": "^1"
   },
   "require-dev": {
