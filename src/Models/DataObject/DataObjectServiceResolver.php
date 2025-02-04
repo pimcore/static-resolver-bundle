@@ -19,6 +19,8 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject;
 use Exception;
 use Pimcore\Model\DataObject\AbstractObject;
 use Pimcore\Model\DataObject\ClassDefinition;
+use Pimcore\Model\DataObject\ClassDefinition\Data;
+use Pimcore\Model\DataObject\ClassDefinition\Layout;
 use Pimcore\Model\DataObject\Concrete;
 use Pimcore\Model\DataObject\Fieldcollection\Data\AbstractData as FieldCollectionData;
 use Pimcore\Model\DataObject\Folder;
@@ -61,6 +63,30 @@ final class DataObjectServiceResolver implements DataObjectServiceResolverInterf
         return Service::pathExists($path, $type);
     }
 
+    /**
+     * @param Data[] $targetList
+     */
+    public function extractFieldDefinitions(
+        Data|Layout $layout,
+        string $targetClass,
+        array $targetList,
+        bool $insideDataType
+    ): array {
+
+        return Service::extractFieldDefinitions($layout, $targetClass, $targetList, $insideDataType);
+    }
+
+    public function getSuperLayoutDefinition(Concrete $object): mixed
+    {
+
+        return Service::getSuperLayoutDefinition($object);
+    }
+
+    public function createSuperLayout(Data|Layout $layout): void
+    {
+        Service::createSuperLayout($layout);
+    }
+
     public function getCustomLayoutDefinitionForGridColumnConfig(ClassDefinition $class, int $objectId): array
     {
         return Service::getCustomLayoutDefinitionForGridColumnConfig($class, $objectId);
@@ -72,6 +98,11 @@ final class DataObjectServiceResolver implements DataObjectServiceResolverInterf
         array $context = []
     ): void {
         Service::enrichLayoutDefinition($layout, $object, $context);
+    }
+
+    public function enrichLayoutPermissions(Data &$layout, ?array $allowedView, ?array $allowedEdit): void
+    {
+        Service::enrichLayoutPermissions($layout, $allowedView, $allowedEdit);
     }
 
     /**
