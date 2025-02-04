@@ -16,6 +16,7 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Lib\Tools\Authentication;
 
+use Pimcore\Bundle\StaticResolverBundle\Contract\Lib\Tools\Authentication\AuthenticationResolverContract;
 use Pimcore\Model\User;
 use Pimcore\Tool\Authentication;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,21 +24,12 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * @internal
  */
-final class AuthenticationResolver implements AuthenticationResolverInterface
+final class AuthenticationResolver extends AuthenticationResolverContract implements AuthenticationResolverInterface
 {
-    public function authenticateSession(?Request $request = null): ?User
-    {
-        return Authentication::authenticateSession($request);
-    }
 
     public function generateTokenByUser(User $user): string
     {
         return Authentication::generateTokenByUser($user);
-    }
-
-    public function verifyPassword(User $user, string $password): bool
-    {
-        return Authentication::verifyPassword($user, $password);
     }
 
     public function generateToken(string $username): string
@@ -48,15 +40,5 @@ final class AuthenticationResolver implements AuthenticationResolverInterface
     public function getPasswordHash(string $username, string $plainTextPassword): string
     {
         return Authentication::getPasswordHash($username, $plainTextPassword);
-    }
-
-    public function isValidUser(?User $user): bool
-    {
-        return Authentication::isValidUser($user);
-    }
-
-    public function authenticateToken(string $token, bool $adminRequired = false): ?User
-    {
-        return Authentication::authenticateToken($token, $adminRequired);
     }
 }

@@ -14,20 +14,16 @@ declare(strict_types=1);
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Pimcore\Bundle\StaticResolverBundle\Lib;
+namespace Pimcore\Bundle\StaticResolverBundle\Contract\Lib\Cache;
 
-use Exception;
-use Pimcore\Bundle\StaticResolverBundle\Contract\Lib\ToolResolverContract;
-use Pimcore\Mail;
-use Pimcore\Tool;
 
-/**
- * @internal
- */
-final class ToolResolver extends ToolResolverContract implements ToolResolverInterface
+interface RuntimeCacheResolverContractInterface
 {
-    public function getHostname(): ?string
-    {
-        return Tool::getHostname();
-    }
+    public function load(string $id): mixed;
+
+    public function save(mixed $data, string $id): void;
+
+    public function isRegistered(string $index): bool;
+
+    public function clear(array $keepItems = []): void;
 }

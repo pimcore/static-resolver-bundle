@@ -17,21 +17,13 @@ declare(strict_types=1);
 namespace Pimcore\Bundle\StaticResolverBundle\Lib;
 
 use Pimcore;
+use Pimcore\Bundle\StaticResolverBundle\Contract\Lib\PimcoreResolverContract;
 
 /**
  * @internal
  */
-final class PimcoreResolver implements PimcoreResolverInterface
+final class PimcoreResolver extends PimcoreResolverContract implements PimcoreResolverInterface
 {
-    public function inDevMode(): bool
-    {
-        return Pimcore::inDevMode();
-    }
-
-    public function inAdmin(): bool
-    {
-        return Pimcore::inAdmin();
-    }
 
     public function setAdminMode(): void
     {
@@ -43,8 +35,4 @@ final class PimcoreResolver implements PimcoreResolverInterface
         Pimcore::unsetAdminMode();
     }
 
-    public function isInstalled(): bool
-    {
-        return Pimcore::isInstalled();
-    }
 }

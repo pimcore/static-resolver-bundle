@@ -17,12 +17,13 @@ declare(strict_types=1);
 namespace Pimcore\Bundle\StaticResolverBundle\Lib;
 
 use Exception;
+use Pimcore\Bundle\StaticResolverBundle\Contract\Lib\ConfigResolverContract;
 use Pimcore\Config;
 
 /**
  * @internal
  */
-final class ConfigResolver implements ConfigResolverInterface
+final class ConfigResolver extends ConfigResolverContract implements ConfigResolverInterface
 {
     public function locateConfigFile(string $name): string
     {
@@ -39,19 +40,6 @@ final class ConfigResolver implements ConfigResolverInterface
         return Config::getWebsiteConfigRuntimeCacheKey($language);
     }
 
-    public function getWebsiteConfig(?string $language = null): array
-    {
-        return Config::getWebsiteConfig($language);
-    }
-
-    public function getWebsiteConfigValue(
-        ?string $key = null,
-        mixed $default = null,
-        ?string $language = null
-    ): mixed {
-        return Config::getWebsiteConfigValue($key, $default, $language);
-    }
-
     /**
      * @throws Exception
      */
@@ -63,11 +51,6 @@ final class ConfigResolver implements ConfigResolverInterface
     public function inPerspective(array $runtimeConfig, string $key): bool
     {
         return Config::inPerspective($runtimeConfig, $key);
-    }
-
-    public function getEnvironment(): string
-    {
-        return Config::getEnvironment();
     }
 
     /**

@@ -17,11 +17,12 @@ declare(strict_types=1);
 namespace Pimcore\Bundle\StaticResolverBundle\Lib;
 
 use Exception;
+use Pimcore\Bundle\StaticResolverBundle\Contract\Lib\ConfigResolverContractInterface;
 
 /**
  * @internal
  */
-interface ConfigResolverInterface
+interface ConfigResolverInterface extends ConfigResolverContractInterface
 {
     public function locateConfigFile(string $name): string;
 
@@ -29,22 +30,12 @@ interface ConfigResolverInterface
 
     public function getWebsiteConfigRuntimeCacheKey(?string $language = null): string;
 
-    public function getWebsiteConfig(?string $language = null): array;
-
-    public function getWebsiteConfigValue(
-        ?string $key = null,
-        mixed $default = null,
-        ?string $language = null
-    ): mixed;
-
     /**
      * @throws Exception
      */
     public function getReportConfig(): array;
 
     public function inPerspective(array $runtimeConfig, string $key): bool;
-
-    public function getEnvironment(): string;
 
     /**
      * @throws Exception

@@ -16,18 +16,15 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Lib;
 
+use Pimcore\Bundle\StaticResolverBundle\Contract\Lib\PimcoreResolverContractInterface;
+
 /**
  * @internal
  */
-interface PimcoreResolverInterface
+interface PimcoreResolverInterface extends PimcoreResolverContractInterface
 {
-    public function inDevMode(): bool;
-
-    public function inAdmin(): bool;
-
     public function setAdminMode(): void;
 
     public function unsetAdminMode(): void;
 
-    public function isInstalled(): bool;
 }

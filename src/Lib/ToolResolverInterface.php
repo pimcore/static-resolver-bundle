@@ -17,26 +17,13 @@ declare(strict_types=1);
 namespace Pimcore\Bundle\StaticResolverBundle\Lib;
 
 use Exception;
+use Pimcore\Bundle\StaticResolverBundle\Contract\Lib\ToolResolverContractInterface;
 use Pimcore\Mail;
 
 /**
  * @internal
  */
-interface ToolResolverInterface
+interface ToolResolverInterface extends ToolResolverContractInterface
 {
-    public function getValidLanguages(): array;
-
-    /**
-     * @throws Exception
-     */
-    public function getSupportedLocales(): array;
-
-    public function getDefaultLanguage(): ?string;
-
-    /**
-     * @throws Exception
-     */
-    public function getMail(array|string|null $recipients = null, ?string $subject = null): Mail;
-
     public function getHostname(): ?string;
 }
