@@ -19,14 +19,12 @@ namespace Pimcore\Bundle\StaticResolverBundle\Lib\Tools\Authentication;
 use Pimcore\Bundle\StaticResolverBundle\Contract\Lib\Tools\Authentication\AuthenticationResolverContract;
 use Pimcore\Model\User;
 use Pimcore\Tool\Authentication;
-use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @internal
  */
 final class AuthenticationResolver extends AuthenticationResolverContract implements AuthenticationResolverInterface
 {
-
     public function generateTokenByUser(User $user): string
     {
         return Authentication::generateTokenByUser($user);

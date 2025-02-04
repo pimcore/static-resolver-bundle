@@ -16,9 +16,7 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Lib;
 
-use Exception;
 use Pimcore\Bundle\StaticResolverBundle\Contract\Lib\ToolResolverContractInterface;
-use Pimcore\Mail;
 
 /**
  * @internal

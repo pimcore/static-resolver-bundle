@@ -18,7 +18,6 @@ namespace Pimcore\Bundle\StaticResolverBundle\Lib\Tools\Authentication;
 
 use Pimcore\Bundle\StaticResolverBundle\Contract\Lib\Tools\Authentication\AuthenticationResolverContractInterface;
 use Pimcore\Model\User;
-use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @internal

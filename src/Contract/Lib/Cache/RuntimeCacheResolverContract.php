@@ -18,7 +18,6 @@ namespace Pimcore\Bundle\StaticResolverBundle\Contract\Lib\Cache;
 
 use Pimcore\Cache\RuntimeCache;
 
-
 class RuntimeCacheResolverContract implements RuntimeCacheResolverContractInterface
 {
     public function load(string $id): mixed

@@ -24,7 +24,6 @@ use Pimcore\Bundle\StaticResolverBundle\Contract\Lib\PimcoreResolverContract;
  */
 final class PimcoreResolver extends PimcoreResolverContract implements PimcoreResolverInterface
 {
-
     public function setAdminMode(): void
     {
         Pimcore::setAdminMode();
@@ -34,5 +33,4 @@ final class PimcoreResolver extends PimcoreResolverContract implements PimcoreRe
     {
         Pimcore::unsetAdminMode();
     }
-
 }

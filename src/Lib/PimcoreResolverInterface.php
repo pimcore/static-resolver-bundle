@@ -26,5 +26,4 @@ interface PimcoreResolverInterface extends PimcoreResolverContractInterface
     public function setAdminMode(): void;
 
     public function unsetAdminMode(): void;
-
 }

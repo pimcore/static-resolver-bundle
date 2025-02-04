@@ -1,6 +1,19 @@
 <?php
 declare(strict_types=1);
 
+/**
+ * Pimcore
+ *
+ * This source file is available under two different licenses:
+ * - GNU General Public License version 3 (GPLv3)
+ * - Pimcore Commercial License (PCL)
+ * Full copyright and license information is available in
+ * LICENSE.md which is distributed with this source code.
+ *
+ *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
+ *  @license    http://www.pimcore.org/license     GPLv3 and PCL
+ */
+
 namespace Pimcore\Bundle\StaticResolverBundle\Contract\Lib;
 
 use DateInterval;
@@ -8,7 +21,6 @@ use Pimcore\Cache;
 
 class CacheResolverContract implements CacheResolverContractInterface
 {
-
     public function load(string $key): mixed
     {
         return Cache::load($key);
@@ -41,8 +53,7 @@ class CacheResolverContract implements CacheResolverContractInterface
         DateInterval|int|null $lifetime = null,
         int $priority = 0,
         bool $force = false
-    ): void
-    {
+    ): void {
         Cache::save($data, $key, $tags, $lifetime, $priority, $force);
     }
 
