@@ -71,7 +71,7 @@ class CacheResolverContract implements CacheResolverContractInterface
     {
         return Cache::clearTags($tag);
     }
-    
+
     public function addClearTagOnShutdown(string $tag): void
     {
         Cache::addClearTagOnShutdown($tag);

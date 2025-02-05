@@ -90,8 +90,7 @@ class ToolResolverContract implements ToolResolverContractInterface
         array $paramsGet = [],
         array $paramsPost = [],
         array $options = []
-    ): false|string
-    {
+    ): false|string {
         return Tool::getHttpData($url, $paramsGet, $paramsPost, $options);
     }
 }

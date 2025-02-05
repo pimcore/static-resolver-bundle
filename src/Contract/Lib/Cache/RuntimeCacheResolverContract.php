@@ -72,5 +72,4 @@ class RuntimeCacheResolverContract implements RuntimeCacheResolverContractInterf
     {
         return RuntimeCache::getInstance();
     }
-
 }
