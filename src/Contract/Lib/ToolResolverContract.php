@@ -18,7 +18,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Contract\Lib;
 
 use Exception;
 use Pimcore\Mail;
+use Pimcore\Model\Element\ElementInterface;
 use Pimcore\Tool;
+use Symfony\Component\HttpFoundation\Request;
 
 class ToolResolverContract implements ToolResolverContractInterface
 {
@@ -46,5 +48,50 @@ class ToolResolverContract implements ToolResolverContractInterface
     public function getDefaultLanguage(): ?string
     {
         return Tool::getDefaultLanguage();
+    }
+
+    public function isValidLanguage(string $language): bool
+    {
+        return Tool::isValidLanguage($language);
+    }
+
+    public function getRequiredLanguages(): array
+    {
+        return Tool::getRequiredLanguages();
+    }
+
+    public function getSupportedJSLocales(): array
+    {
+        return Tool::getSupportedJSLocales();
+    }
+
+    public function isFrontend(): bool
+    {
+        return Tool::isFrontend();
+    }
+
+    public function isFrontendRequestByAdmin(): bool
+    {
+        return Tool::isFrontendRequestByAdmin();
+    }
+
+    public function isElementRequestByAdmin(Request $request, ElementInterface $element): bool
+    {
+        return Tool::isElementRequestByAdmin($request, $element);
+    }
+
+    public function getHostUrl(): string
+    {
+        return Tool::getHostUrl();
+    }
+
+    public function getHttpData(
+        string $url,
+        array $paramsGet = [],
+        array $paramsPost = [],
+        array $options = []
+    ): false|string
+    {
+        return Tool::getHttpData($url, $paramsGet, $paramsPost, $options);
     }
 }

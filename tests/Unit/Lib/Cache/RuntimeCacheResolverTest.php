@@ -6,17 +6,19 @@ namespace Pimcore\Bundle\StaticResolverBundle\Tests\Unit\Lib\Cache;
 use Codeception\Attribute\Group;
 use Codeception\Test\Unit;
 use Pimcore\Bundle\StaticResolverBundle\Lib\Cache\RuntimeCacheResolver;
+use Pimcore\Bundle\StaticResolverBundle\Tests\Unit\TestTools\ContractAbstractTest;
+use Pimcore\Cache\RuntimeCache;
 
-class RuntimeCacheResolverTest extends Unit
+#[Group('contract')]
+class RuntimeCacheResolverTest extends ContractAbstractTest
 {
-    #[Group('contract')]
-    public function testAllMethodsExistTest()
+    protected function getClassToTest(): string
     {
-        $resolver = new RuntimeCacheResolver();
+        return RuntimeCache::class;
+    }
 
-        self::assertTrue(method_exists($resolver, 'load'));
-        self::assertTrue(method_exists($resolver, 'save'));
-        self::assertTrue(method_exists($resolver, 'isRegistered'));
-        self::assertTrue(method_exists($resolver, 'clear'));
+    protected function getContractToTest(): string
+    {
+        return RuntimeCacheResolver::class;
     }
 }

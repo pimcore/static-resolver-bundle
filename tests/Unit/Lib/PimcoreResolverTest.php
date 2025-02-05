@@ -5,20 +5,19 @@ namespace Pimcore\Bundle\StaticResolverBundle\Tests\Unit\Lib;
 
 
 use Codeception\Attribute\Group;
-use Codeception\Test\Unit;
 use Pimcore\Bundle\StaticResolverBundle\Lib\PimcoreResolver;
+use Pimcore\Bundle\StaticResolverBundle\Tests\Unit\TestTools\ContractAbstractTest;
 
-class PimcoreResolverTest extends Unit
+#[Group('contract')]
+class PimcoreResolverTest extends ContractAbstractTest
 {
-    #[Group('contract')]
-    public function testAllMethodsExist()
+    protected function getClassToTest(): string
     {
-        $resolver = new PimcoreResolver();
+        return \Pimcore::class;
+    }
 
-        self::assertTrue(method_exists($resolver, 'inDevMode'));
-        self::assertTrue(method_exists($resolver, 'inAdmin'));
-        self::assertTrue(method_exists($resolver, 'setAdminMode'));
-        self::assertTrue(method_exists($resolver, 'unsetAdminMode'));
-        self::assertTrue(method_exists($resolver, 'isInstalled'));
+    protected function getContractToTest(): string
+    {
+        return PimcoreResolver::class;
     }
 }

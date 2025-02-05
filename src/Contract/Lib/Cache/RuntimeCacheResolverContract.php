@@ -39,4 +39,38 @@ class RuntimeCacheResolverContract implements RuntimeCacheResolverContractInterf
     {
         RuntimeCache::clear($keepItems);
     }
+
+    /**
+     * @throws \Exception
+     */
+    public function get(string $index): mixed
+    {
+        return RuntimeCache::get($index);
+    }
+
+    public function set(string $index, mixed $value): void
+    {
+        RuntimeCache::set($index, $value);
+    }
+
+    public function enable(): void
+    {
+        RuntimeCache::enable();
+    }
+
+    public function disable(): void
+    {
+        RuntimeCache::disable();
+    }
+
+    public function isEnabled(): bool
+    {
+        return RuntimeCache::isEnabled();
+    }
+
+    public function getInstance(): RuntimeCache
+    {
+        return RuntimeCache::getInstance();
+    }
+
 }

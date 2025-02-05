@@ -5,20 +5,20 @@ namespace Pimcore\Bundle\StaticResolverBundle\Tests\Unit\Lib;
 
 
 use Codeception\Attribute\Group;
-use Codeception\Test\Unit;
 use Pimcore\Bundle\StaticResolverBundle\Lib\ToolResolver;
+use Pimcore\Bundle\StaticResolverBundle\Tests\Unit\TestTools\ContractAbstractTest;
+use Pimcore\Tool;
 
-class ToolResolverTest extends Unit
+#[Group('contract')]
+class ToolResolverTest extends  ContractAbstractTest
 {
-    #[Group('contract')]
-    public function testAllMethodsExist()
+    protected function getClassToTest(): string
     {
-        $resolver = new ToolResolver();
+        return Tool::class;
+    }
 
-        self::assertTrue(method_exists($resolver, 'getValidLanguages'));
-        self::assertTrue(method_exists($resolver, 'getSupportedLocales'));
-        self::assertTrue(method_exists($resolver, 'getDefaultLanguage'));
-        self::assertTrue(method_exists($resolver, 'getMail'));
-        self::assertTrue(method_exists($resolver, 'getHostname'));
+    protected function getContractToTest(): string
+    {
+        return ToolResolver::class;
     }
 }

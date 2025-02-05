@@ -34,4 +34,19 @@ class PimcoreResolverContract implements PimcoreResolverContractInterface
     {
         return Pimcore::inDevMode();
     }
+
+    public function inDebugMode(): bool
+    {
+        return Pimcore::inDebugMode();
+    }
+
+    public function collectGarbage(): void
+    {
+        Pimcore::collectGarbage();
+    }
+
+    public function deleteTemporaryFiles(): void
+    {
+        Pimcore::deleteTemporaryFiles();
+    }
 }

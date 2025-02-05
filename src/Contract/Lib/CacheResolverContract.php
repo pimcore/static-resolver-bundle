@@ -71,4 +71,39 @@ class CacheResolverContract implements CacheResolverContractInterface
     {
         return Cache::clearTags($tag);
     }
+    
+    public function addClearTagOnShutdown(string $tag): void
+    {
+        Cache::addClearTagOnShutdown($tag);
+    }
+
+    public function addIgnoredTagOnSave(string $tag): void
+    {
+        Cache::addIgnoredTagOnSave($tag);
+    }
+
+    public function removeIgnoredTagOnSave(string $tag): void
+    {
+        Cache::removeIgnoredTagOnSave($tag);
+    }
+
+    public function addIgnoredTagOnClear(string $tag): void
+    {
+        Cache::addIgnoredTagOnClear($tag);
+    }
+
+    public function removeIgnoredTagOnClear(string $tag): void
+    {
+        Cache::removeIgnoredTagOnClear($tag);
+    }
+
+    public function setForceImmediateWrite(bool $force): void
+    {
+        Cache::setForceImmediateWrite($force);
+    }
+
+    public function getForceImmediateWrite(): bool
+    {
+        return Cache::getForceImmediateWrite();
+    }
 }

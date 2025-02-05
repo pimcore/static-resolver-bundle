@@ -6,23 +6,20 @@ namespace Pimcore\Bundle\StaticResolverBundle\Tests\Unit\Lib;
 use Codeception\Attribute\Group;
 use Codeception\Test\Unit;
 use Pimcore\Bundle\StaticResolverBundle\Lib\ConfigResolver;
+use Pimcore\Bundle\StaticResolverBundle\Tests\Unit\TestTools\ContractAbstractTest;
+use Pimcore\Config;
 
-class ConfigResoverTest extends Unit
+#[Group('contract')]
+class ConfigResoverTest extends ContractAbstractTest
 {
-    #[Group('contract')]
-    public function testAllMethodsExist()
+    protected function getClassToTest(): string
     {
-        $resolver = new ConfigResolver();
+        return Config::class;
+    }
 
-        static::assertTrue(method_exists($resolver, 'locateConfigFile'));
-        static::assertTrue(method_exists($resolver, 'getSystemConfiguration'));
-        static::assertTrue(method_exists($resolver, 'getWebsiteConfigRuntimeCacheKey'));
-        static::assertTrue(method_exists($resolver, 'getWebsiteConfig'));
-        static::assertTrue(method_exists($resolver, 'getWebsiteConfigValue'));
-        static::assertTrue(method_exists($resolver, 'getReportConfig'));
-        static::assertTrue(method_exists($resolver, 'inPerspective'));
-        static::assertTrue(method_exists($resolver, 'getEnvironment'));
-        static::assertTrue(method_exists($resolver, 'getConfigInstance'));
+    protected function getContractToTest(): string
+    {
+        return ConfigResolver::class;
     }
 
 }
