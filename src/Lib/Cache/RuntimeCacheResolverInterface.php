@@ -16,16 +16,11 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Lib\Cache;
 
+use Pimcore\Bundle\StaticResolverBundle\Contract\Lib\Cache\RuntimeCacheResolverContractInterface;
+
 /**
  * @internal
  */
-interface RuntimeCacheResolverInterface
+interface RuntimeCacheResolverInterface extends RuntimeCacheResolverContractInterface
 {
-    public function load(string $id): mixed;
-
-    public function save(mixed $data, string $id): void;
-
-    public function isRegistered(string $index): bool;
-
-    public function clear(array $keepItems = []): void;
 }

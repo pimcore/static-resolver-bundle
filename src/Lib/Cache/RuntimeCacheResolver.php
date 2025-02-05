@@ -16,30 +16,11 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Lib\Cache;
 
-use Pimcore\Cache\RuntimeCache;
+use Pimcore\Bundle\StaticResolverBundle\Contract\Lib\Cache\RuntimeCacheResolverContract;
 
 /**
  * @internal
  */
-final class RuntimeCacheResolver implements RuntimeCacheResolverInterface
+final class RuntimeCacheResolver extends RuntimeCacheResolverContract implements RuntimeCacheResolverInterface
 {
-    public function load(string $id): mixed
-    {
-        return RuntimeCache::load($id);
-    }
-
-    public function save(mixed $data, string $id): void
-    {
-        RuntimeCache::save($data, $id);
-    }
-
-    public function isRegistered(string $index): bool
-    {
-        return RuntimeCache::isRegistered($index);
-    }
-
-    public function clear(array $keepItems = []): void
-    {
-        RuntimeCache::clear($keepItems);
-    }
 }

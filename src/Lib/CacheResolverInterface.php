@@ -16,35 +16,11 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Lib;
 
-use DateInterval;
+use Pimcore\Bundle\StaticResolverBundle\Contract\Lib\CacheResolverContractInterface;
 
 /**
  * @internal
  */
-interface CacheResolverInterface
+interface CacheResolverInterface extends CacheResolverContractInterface
 {
-    public function save(
-        mixed $data,
-        string $key,
-        array $tags = [],
-        DateInterval|int|null $lifetime = null,
-        int $priority = 0,
-        bool $force = false
-    ): void;
-
-    public function load(string $key): mixed;
-
-    public function remove(string $key): bool;
-
-    public function clearAll(): bool;
-
-    public function clearTag(string $tag): bool;
-
-    public function clearTags(array $tag = []): bool;
-
-    public function enable(): void;
-
-    public function isEnabled(): bool;
-
-    public function disable(): void;
 }

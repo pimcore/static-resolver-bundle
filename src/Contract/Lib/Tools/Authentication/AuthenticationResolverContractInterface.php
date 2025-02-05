@@ -14,19 +14,21 @@ declare(strict_types=1);
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Pimcore\Bundle\StaticResolverBundle\Lib\Tools\Authentication;
+namespace Pimcore\Bundle\StaticResolverBundle\Contract\Lib\Tools\Authentication;
 
-use Pimcore\Bundle\StaticResolverBundle\Contract\Lib\Tools\Authentication\AuthenticationResolverContractInterface;
 use Pimcore\Model\User;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @internal
  */
-interface AuthenticationResolverInterface extends AuthenticationResolverContractInterface
+interface AuthenticationResolverContractInterface
 {
-    public function generateTokenByUser(User $user): string;
+    public function authenticateSession(?Request $request = null): ?User;
 
-    public function generateToken(string $username): string;
+    public function verifyPassword(User $user, string $password): bool;
 
-    public function getPasswordHash(string $username, string $plainTextPassword): string;
+    public function isValidUser(?User $user): bool;
+
+    public function authenticateToken(string $token, bool $adminRequired = false): ?User;
 }

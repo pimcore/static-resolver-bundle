@@ -14,18 +14,13 @@ declare(strict_types=1);
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Pimcore\Bundle\StaticResolverBundle\Lib;
+namespace Pimcore\Bundle\StaticResolverBundle\Contract\Lib;
 
-use Pimcore\Bundle\StaticResolverBundle\Contract\Lib\ToolResolverContract;
-use Pimcore\Tool;
-
-/**
- * @internal
- */
-final class ToolResolver extends ToolResolverContract implements ToolResolverInterface
+interface ConfigResolverContractInterface
 {
-    public function getHostname(): ?string
-    {
-        return Tool::getHostname();
-    }
+    public function getEnvironment(): string;
+
+    public function getWebsiteConfigValue(?string $key = null, mixed $default = null, ?string $language = null): mixed;
+
+    public function getWebsiteConfig(?string $language = null): array;
 }

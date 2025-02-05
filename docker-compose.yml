@@ -1,6 +1,6 @@
 services:
     php-static-resolver-bundle:
-        image: pimcore/pimcore:php8.2-debug-dev
+        image: pimcore/pimcore:php8.4-debug-v4-dev
         environment:
             PHP_IDE_CONFIG: serverName=localhost
         volumes:
