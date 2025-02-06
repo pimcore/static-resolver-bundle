@@ -16,31 +16,18 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\Asset;
 
-use Exception;
+use Pimcore\Bundle\StaticResolverBundle\Contract\Models\Asset\AssetServiceResolverContract;
 use Pimcore\Model\Asset;
-use Pimcore\Model\Asset\Folder;
 use Pimcore\Model\Asset\Service;
 
 /**
  * @internal
  */
-final class AssetServiceResolver implements AssetServiceResolverInterface
+final class AssetServiceResolver extends AssetServiceResolverContract implements AssetServiceResolverInterface
 {
     public function rewriteIds(Asset $asset, array $rewriteConfig): Asset
     {
         return Service::rewriteIds($asset, $rewriteConfig);
     }
 
-    /**
-     * @throws Exception
-     */
-    public function createFolderByPath(string $path, array $options = []): Folder
-    {
-        return Service::createFolderByPath($path, $options);
-    }
-
-    public function pathExists(string $path, ?string $type = null): bool
-    {
-        return Service::pathExists($path, $type);
-    }
 }

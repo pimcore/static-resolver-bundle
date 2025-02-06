@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace Pimcore\Bundle\StaticResolverBundle\Tests\Unit\Lib;
 
 use Codeception\Attribute\Group;
-use Codeception\Test\Unit;
 use Pimcore\Bundle\StaticResolverBundle\Lib\ConfigResolver;
 use Pimcore\Bundle\StaticResolverBundle\Tests\Unit\TestTools\ContractAbstractTest;
 use Pimcore\Config;

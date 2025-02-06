@@ -16,31 +16,14 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject\ClassDefinition\CustomLayout;
 
-use Exception;
-use Pimcore\Model\DataObject\ClassDefinition\CustomLayout;
+use Pimcore\Bundle\StaticResolverBundle\{
+    Contract\Models\DataObject\ClassDefinition\CustomLayout\CustomLayoutResolverContractInterface};
 use Symfony\Component\Uid\UuidV4;
 
 /**
  * @internal
  */
-interface CustomLayoutResolverInterface
+interface CustomLayoutResolverInterface extends CustomLayoutResolverContractInterface
 {
-    /**
-     * @throws Exception
-     */
-    public function getById(string $customLayoutId): ?CustomLayout;
-
-    /**
-     * @throws Exception
-     */
-    public function getByName(string $customLayoutName): ?CustomLayout;
-
-    /**
-     * @throws Exception
-     */
-    public function getByNameAndClassId(string $customLayoutName, string $classId): ?CustomLayout;
-
     public function getIdentifier(string $classId): ?UuidV4;
-
-    public function create(array $values): CustomLayout;
 }

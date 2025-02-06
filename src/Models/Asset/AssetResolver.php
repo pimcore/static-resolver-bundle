@@ -16,43 +16,14 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\Asset;
 
-use Exception;
+use Pimcore\Bundle\StaticResolverBundle\Contract\Models\Asset\AssetResolverContract;
 use Pimcore\Model\Asset;
-use Pimcore\Model\Asset\Listing;
 
 /**
  * @internal
  */
-final class AssetResolver implements AssetResolverInterface
+final class AssetResolver extends AssetResolverContract implements AssetResolverInterface
 {
-    public function getById(int|string $id, array $params = []): ?Asset
-    {
-        return Asset::getById($id, $params);
-    }
-
-    public function getByPath(string $path, array $params = []): ?Asset
-    {
-        return Asset::getByPath($path, $params);
-    }
-
-    public function create(int $parentId, array $data = [], bool $save = true): Asset
-    {
-        return Asset::create($parentId, $data, $save);
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function getList(array $config = []): Listing
-    {
-        return Asset::getList($config);
-    }
-
-    public function getTypes(): array
-    {
-        return Asset::getTypes();
-    }
-
     public function getTypeFromMimeMapping(string $mimeType, string $filename): string
     {
         return Asset::getTypeFromMimeMapping($mimeType, $filename);

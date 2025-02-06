@@ -16,15 +16,11 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject\Objectbrick;
 
-use Pimcore\Model\DataObject\Objectbrick\Definition;
+use Pimcore\Bundle\StaticResolverBundle\Contract\Models\DataObject\Objectbrick\DefinitionResolverContract;
 
 /**
  * @internal
  */
-final class DefinitionResolver implements DefinitionResolverInterface
+final class DefinitionResolver extends DefinitionResolverContract implements DefinitionResolverInterface
 {
-    public function getByKey(string $key): ?Definition
-    {
-        return Definition::getByKey($key);
-    }
 }
