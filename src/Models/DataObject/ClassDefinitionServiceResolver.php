@@ -16,19 +16,16 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject;
 
-use Pimcore\Model\DataObject\ClassDefinition;
-use Pimcore\Model\DataObject\ClassDefinition\CustomLayout;
+use Pimcore\Bundle\StaticResolverBundle\Contract\Models\DataObject\ClassDefinitionServiceResolverContract;
 use Pimcore\Model\DataObject\ClassDefinition\Data;
 use Pimcore\Model\DataObject\ClassDefinition\Data\EncryptedField;
 use Pimcore\Model\DataObject\ClassDefinition\Layout;
 use Pimcore\Model\DataObject\ClassDefinition\Service;
-use Pimcore\Model\DataObject\Fieldcollection\Definition as FCDefinition;
-use Pimcore\Model\DataObject\ObjectBrick\Definition as OBDefinition;
 
 /**
  * @internal
  */
-final class ClassDefinitionServiceResolver implements ClassDefinitionServiceResolverInterface
+final class ClassDefinitionServiceResolver extends ClassDefinitionServiceResolverContract implements ClassDefinitionServiceResolverInterface
 {
     public function generateLayoutTreeFromArray(
         array $array,
@@ -41,51 +38,6 @@ final class ClassDefinitionServiceResolver implements ClassDefinitionServiceReso
     public function setDoRemoveDynamicOptions(bool $doRemoveDynamicOptions): void
     {
         Service::setDoRemoveDynamicOptions($doRemoveDynamicOptions);
-    }
-
-    public function generateClassDefinitionJson(ClassDefinition $class): string
-    {
-        return Service::generateClassDefinitionJson($class);
-    }
-
-    public function importClassDefinitionFromJson(
-        ClassDefinition $class,
-        string $json,
-        bool $throwException = false,
-        bool $ignoreId = false
-    ): bool {
-        return Service::importClassDefinitionFromJson($class, $json, $throwException, $ignoreId);
-    }
-
-    public function generateFieldCollectionJson(FCDefinition $fieldCollection): string
-    {
-        return Service::generateFieldCollectionJson($fieldCollection);
-    }
-
-    public function importFieldCollectionFromJson(
-        FCDefinition $fieldCollection,
-        string $json,
-        bool $throwException = false
-    ): bool {
-        return Service::importFieldCollectionFromJson($fieldCollection, $json, $throwException);
-    }
-
-    public function generateObjectBrickJson(OBDefinition $objectBrick): string
-    {
-        return Service::generateObjectBrickJson($objectBrick);
-    }
-
-    public function generateCustomLayoutJson(CustomLayout $customLayout): string
-    {
-        return Service::generateCustomLayoutJson($customLayout);
-    }
-
-    public function importObjectBrickFromJson(
-        OBDefinition $objectBrick,
-        string $json,
-        bool $throwException = false
-    ): bool {
-        return Service::importObjectBrickFromJson($objectBrick, $json, $throwException);
     }
 
     public function updateTableDefinitions(array &$tableDefinitions, array $tableNames): void

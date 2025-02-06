@@ -16,15 +16,11 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject;
 
-use Pimcore\Model\DataObject\Concrete;
+use Pimcore\Bundle\StaticResolverBundle\Contract\Models\DataObject\ConcreteObjectResolverContract;
 
 /**
  * @internal
  */
-final class ConcreteObjectResolver implements ConcreteObjectResolverInterface
+final class ConcreteObjectResolver extends ConcreteObjectResolverContract implements ConcreteObjectResolverInterface
 {
-    public function getById(int $id, array $params = []): null|Concrete
-    {
-        return Concrete::getById($id, $params);
-    }
 }

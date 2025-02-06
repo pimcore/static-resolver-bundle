@@ -16,12 +16,12 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject;
 
+use Pimcore\Bundle\StaticResolverBundle\Contract\Models\DataObject\DataObjectFolderResolverContractInterface;
 use Pimcore\Model\DataObject\Folder;
 
 /**
  * @internal
  */
-interface DataObjectFolderResolverInterface
+interface DataObjectFolderResolverInterface extends DataObjectFolderResolverContractInterface
 {
-    public function create(array $values): Folder;
 }
