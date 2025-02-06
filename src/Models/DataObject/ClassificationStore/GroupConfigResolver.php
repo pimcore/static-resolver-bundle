@@ -23,5 +23,4 @@ use Pimcore\Bundle\StaticResolverBundle\Contract\Models\DataObject\Classificatio
  */
 final class GroupConfigResolver extends GroupConfigResolverContract implements GroupConfigResolverInterface
 {
-
 }

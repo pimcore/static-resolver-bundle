@@ -1,22 +1,34 @@
 <?php
 declare(strict_types=1);
 
+/**
+ * Pimcore
+ *
+ * This source file is available under two different licenses:
+ * - GNU General Public License version 3 (GPLv3)
+ * - Pimcore Commercial License (PCL)
+ * Full copyright and license information is available in
+ * LICENSE.md which is distributed with this source code.
+ *
+ *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
+ *  @license    http://www.pimcore.org/license     GPLv3 and PCL
+ */
+
 namespace Pimcore\Bundle\StaticResolverBundle\Contract\Models\Asset;
 
 use Exception;
 use League\Flysystem\FilesystemException;
+use Pimcore\Model\Asset;
 use Pimcore\Model\Asset\Folder;
 use Pimcore\Model\Asset\Image\ThumbnailInterface;
 use Pimcore\Model\Asset\Service;
 use Pimcore\Model\DataObject\AbstractObject;
 use Pimcore\Model\Document;
 use Pimcore\Model\Element\ElementInterface;
-use Pimcore\Model\Asset;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class AssetServiceResolverContract implements AssetServiceResolverContractInterface
 {
-
     public function pathExists(string $path, ?string $type = null): bool
     {
         return Service::pathExists($path, $type);
@@ -38,17 +50,14 @@ class AssetServiceResolverContract implements AssetServiceResolverContractInterf
         return Service::getUniqueKey($element, $nr);
     }
 
-
     /**
      * @throws Exception
      */
     public function getImageThumbnailByArrayConfig(
         array $config
-    ): null|ThumbnailInterface|Asset\Video\ImageThumbnailInterface|Asset\Document\ImageThumbnailInterface|array
-    {
+    ): null|ThumbnailInterface|Asset\Video\ImageThumbnailInterface|Asset\Document\ImageThumbnailInterface|array {
         return Service::getImageThumbnailByArrayConfig($config);
     }
-
 
     /**
      * @throws FilesystemException
@@ -56,8 +65,7 @@ class AssetServiceResolverContract implements AssetServiceResolverContractInterf
     public function getStreamedResponseFromImageThumbnail(
         ThumbnailInterface|Asset\Video\ImageThumbnailInterface|Asset\Document\ImageThumbnailInterface|array $thumbnail,
         array $options = []
-    ): StreamedResponse
-    {
+    ): StreamedResponse {
         return Service::getStreamedResponseFromImageThumbnail($thumbnail, $options);
     }
 
@@ -132,8 +140,7 @@ class AssetServiceResolverContract implements AssetServiceResolverContractInterf
         int $elementId,
         string $sessionId,
         ?string $postfix = ''
-    ): Asset|Document|AbstractObject|null
-    {
+    ): Asset|Document|AbstractObject|null {
         return Service::getElementFromSession($type, $elementId, $sessionId, $postfix);
     }
 

@@ -16,13 +16,11 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject\ClassificationStore;
 
-use Pimcore\Bundle\StaticResolverBundle\Contract\{
-    Models\DataObject\ClassificationStore\GroupConfigResolverContractInterface};
+use Pimcore\Bundle\StaticResolverBundle\Contract\Models\DataObject\ClassificationStore\GroupConfigResolverContractInterface;
 
 /**
  * @internal
  */
 interface GroupConfigResolverInterface extends GroupConfigResolverContractInterface
 {
-
 }

@@ -29,5 +29,4 @@ final class AssetServiceResolver extends AssetServiceResolverContract implements
     {
         return Service::rewriteIds($asset, $rewriteConfig);
     }
-
 }

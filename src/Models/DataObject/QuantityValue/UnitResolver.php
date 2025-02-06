@@ -23,5 +23,4 @@ use Pimcore\Bundle\StaticResolverBundle\Contract\Models\DataObject\QuantityValue
  */
 final class UnitResolver extends UnitResolverContract implements UnitResolverInterface
 {
-
 }

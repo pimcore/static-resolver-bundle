@@ -16,8 +16,7 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject\ClassDefinition\CustomLayout;
 
-use Pimcore\Bundle\StaticResolverBundle\{
-    Contract\Models\DataObject\ClassDefinition\CustomLayout\CustomLayoutResolverContractInterface};
+use Pimcore\Bundle\StaticResolverBundle\Contract\Models\DataObject\ClassDefinition\CustomLayout\CustomLayoutResolverContractInterface;
 use Symfony\Component\Uid\UuidV4;
 
 /**

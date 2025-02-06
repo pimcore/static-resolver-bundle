@@ -16,8 +16,7 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject\ClassDefinition\CustomLayout;
 
-use Pimcore\Bundle\StaticResolverBundle\Contract\Models\DataObject\ClassDefinition\{
-    CustomLayout\CustomLayoutResolverContract};
+use Pimcore\Bundle\StaticResolverBundle\Contract\Models\DataObject\ClassDefinition\CustomLayout\CustomLayoutResolverContract;
 use Pimcore\Model\DataObject\ClassDefinition\CustomLayout;
 use Symfony\Component\Uid\UuidV4;
 
@@ -26,10 +25,8 @@ use Symfony\Component\Uid\UuidV4;
  */
 final class CustomLayoutResolver extends CustomLayoutResolverContract implements CustomLayoutResolverInterface
 {
-
     public function getIdentifier(string $classId): ?UuidV4
     {
         return CustomLayout::getIdentifier($classId);
     }
-
 }

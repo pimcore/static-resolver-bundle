@@ -24,7 +24,6 @@ use Pimcore\Model\Asset\Video\Thumbnail\Config;
  */
 final class ConfigResolver extends ConfigResolverContract implements ConfigResolverInterface
 {
-
     public function getPreviewConfig(): Config
     {
         return Config::getPreviewConfig();
