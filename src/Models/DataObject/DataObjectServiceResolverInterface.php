@@ -26,7 +26,6 @@ use Pimcore\Model\DataObject\Concrete;
  */
 interface DataObjectServiceResolverInterface extends DataObjectServiceResolverContractInterface
 {
-
     public function getCustomLayoutDefinitionForGridColumnConfig(ClassDefinition $class, int $objectId): array;
 
     public function enrichLayoutDefinition(

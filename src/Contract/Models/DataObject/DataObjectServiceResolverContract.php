@@ -1,29 +1,41 @@
 <?php
 declare(strict_types=1);
 
+/**
+ * Pimcore
+ *
+ * This source file is available under two different licenses:
+ * - GNU General Public License version 3 (GPLv3)
+ * - Pimcore Commercial License (PCL)
+ * Full copyright and license information is available in
+ * LICENSE.md which is distributed with this source code.
+ *
+ *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
+ *  @license    http://www.pimcore.org/license     GPLv3 and PCL
+ */
+
 namespace Pimcore\Bundle\StaticResolverBundle\Contract\Models\DataObject;
 
 use Exception;
+use Pimcore\Model;
 use Pimcore\Model\Asset;
 use Pimcore\Model\DataObject\AbstractObject;
 use Pimcore\Model\DataObject\ClassDefinition;
 use Pimcore\Model\DataObject\ClassDefinition\Data;
 use Pimcore\Model\DataObject\ClassDefinition\Layout;
 use Pimcore\Model\DataObject\Concrete;
+use Pimcore\Model\DataObject\Fieldcollection;
 use Pimcore\Model\DataObject\Fieldcollection\Data\AbstractData as FieldCollectionData;
 use Pimcore\Model\DataObject\Folder;
+use Pimcore\Model\DataObject\Objectbrick;
 use Pimcore\Model\DataObject\Objectbrick\Data\AbstractData as ObjectBrickData;
 use Pimcore\Model\DataObject\Service;
 use Pimcore\Model\Document;
 use Pimcore\Model\Element\ElementInterface;
 use Pimcore\Model\UserInterface;
-use Pimcore\Model\DataObject\Fieldcollection;
-use Pimcore\Model\DataObject\Objectbrick;
-use Pimcore\Model;
 
 class DataObjectServiceResolverContract implements DataObjectServiceResolverContractInterface
 {
-
     public function useInheritedValues(bool $inheritValues, callable $fn, array $fnArgs = []): mixed
     {
         return Service::useInheritedValues($inheritValues, $fn, $fnArgs);
@@ -55,8 +67,7 @@ class DataObjectServiceResolverContract implements DataObjectServiceResolverCont
         string $targetClass,
         array $targetList,
         bool $insideDataType
-    ): array
-    {
+    ): array {
 
         return Service::extractFieldDefinitions($layout, $targetClass, $targetList, $insideDataType);
     }
@@ -84,8 +95,7 @@ class DataObjectServiceResolverContract implements DataObjectServiceResolverCont
         FieldCollectionData|ObjectBrickData|AbstractObject $object,
         UserInterface $user,
         string $type
-    ): ?array
-    {
+    ): ?array {
         return Service::getLanguagePermissions($object, $user, $type);
     }
 
@@ -94,8 +104,7 @@ class DataObjectServiceResolverContract implements DataObjectServiceResolverCont
         array $helperDefinitions,
         string $key,
         array $context = []
-    ): mixed
-    {
+    ): mixed {
         return Service::calculateCellValue($object, $helperDefinitions, $key, $context);
     }
 
@@ -122,16 +131,14 @@ class DataObjectServiceResolverContract implements DataObjectServiceResolverCont
     public function getOptionsForSelectField(
         string|Concrete $object,
         ClassDefinition\Data\Multiselect|ClassDefinition\Data\Select|string $definition
-    ): array
-    {
+    ): array {
         return Service::getOptionsForSelectField($object, $definition);
     }
 
     public function getOptionsForMultiSelectField(
         string|Concrete $object,
         ClassDefinition\Data\Multiselect|ClassDefinition\Data\Select|string $fieldname
-    ): array
-    {
+    ): array {
         return Service::getOptionsForMultiSelectField($object, $fieldname);
     }
 
@@ -158,8 +165,7 @@ class DataObjectServiceResolverContract implements DataObjectServiceResolverCont
     public function getCalculatedFieldValue(
         Fieldcollection\Data\AbstractData|Objectbrick\Data\AbstractData|Concrete $object,
         ?Data\CalculatedValue $data
-    ): mixed
-    {
+    ): mixed {
         return Service::getCalculatedFieldValue($object, $data);
     }
 
@@ -176,8 +182,7 @@ class DataObjectServiceResolverContract implements DataObjectServiceResolverCont
     public function recursiveResetDirtyMap(
         Model\AbstractModel $container,
         ClassDefinition|ClassDefinition\Data $fd
-    ): void
-    {
+    ): void {
         Service::doResetDirtyMap($container, $fd);
     }
 
@@ -241,8 +246,7 @@ class DataObjectServiceResolverContract implements DataObjectServiceResolverCont
         int $elementId,
         string $sessionId,
         ?string $postfix = ''
-    ): Asset|Document|AbstractObject|null
-    {
+    ): Asset|Document|AbstractObject|null {
         return Service::getElementFromSession($type, $elementId, $sessionId, $postfix);
     }
 

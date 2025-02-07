@@ -27,7 +27,6 @@ use Pimcore\Model\DataObject\Service;
  */
 final class DataObjectServiceResolver extends DataObjectServiceResolverContract implements DataObjectServiceResolverInterface
 {
-
     public function getCustomLayoutDefinitionForGridColumnConfig(ClassDefinition $class, int $objectId): array
     {
         return Service::getCustomLayoutDefinitionForGridColumnConfig($class, $objectId);
@@ -45,5 +44,4 @@ final class DataObjectServiceResolver extends DataObjectServiceResolverContract 
     {
         Service::enrichLayoutPermissions($layout, $allowedView, $allowedEdit);
     }
-
 }
