@@ -26,7 +26,6 @@ use Pimcore\Model\User;
  */
 final class ServiceResolver extends ServiceResolverContract implements ServiceResolverInterface
 {
-
     public function findForbiddenPaths(string $type, User $user): array
     {
         return Service::findForbiddenPaths($type, $user);

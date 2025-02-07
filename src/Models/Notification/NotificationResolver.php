@@ -17,7 +17,6 @@ declare(strict_types=1);
 namespace Pimcore\Bundle\StaticResolverBundle\Models\Notification;
 
 use Pimcore\Bundle\StaticResolverBundle\Contract\Models\Notification\NotificationResolverContract;
-use Pimcore\Model\Notification;
 
 /**
  * @internal

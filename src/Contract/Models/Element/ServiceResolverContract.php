@@ -1,18 +1,30 @@
 <?php
 declare(strict_types=1);
 
+/**
+ * Pimcore
+ *
+ * This source file is available under two different licenses:
+ * - GNU General Public License version 3 (GPLv3)
+ * - Pimcore Commercial License (PCL)
+ * Full copyright and license information is available in
+ * LICENSE.md which is distributed with this source code.
+ *
+ *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
+ *  @license    http://www.pimcore.org/license     GPLv3 and PCL
+ */
+
 namespace Pimcore\Bundle\StaticResolverBundle\Contract\Models\Element;
 
 use Pimcore\Model\Asset;
+use Pimcore\Model\DataObject;
 use Pimcore\Model\DataObject\AbstractObject;
 use Pimcore\Model\Document;
 use Pimcore\Model\Element\ElementInterface;
 use Pimcore\Model\Element\Service;
-use Pimcore\Model\DataObject;
 
 class ServiceResolverContract implements ServiceResolverContractInterface
 {
-
     public function getElementType(ElementInterface $element): ?string
     {
         return Service::getElementType($element);
@@ -38,8 +50,7 @@ class ServiceResolverContract implements ServiceResolverContractInterface
         int $elementId,
         string $sessionId,
         ?string $postfix = ''
-    ): null|Asset|AbstractObject|Document
-    {
+    ): null|Asset|AbstractObject|Document {
         return Service::getElementFromSession($type, $elementId, $sessionId, $postfix);
     }
 
@@ -64,8 +75,7 @@ class ServiceResolverContract implements ServiceResolverContractInterface
     public function createFolderByPath(
         string $path,
         array $options = []
-    ): Asset\Folder|DataObject\Folder|Document\Folder|null
-    {
+    ): Asset\Folder|DataObject\Folder|Document\Folder|null {
         return Service::createFolderByPath($path, $options);
     }
 
