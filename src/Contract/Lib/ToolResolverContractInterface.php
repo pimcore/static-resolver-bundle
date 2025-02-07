@@ -37,19 +37,19 @@ interface ToolResolverContractInterface
 
     public function getDefaultLanguage(): ?string;
 
-    public function isValidLanguage(string $language): bool;
+    public function isValidLanguage(?string $language): bool;
 
     public function getRequiredLanguages(): array;
 
     public function getSupportedJSLocales(): array;
 
-    public function isFrontend(): bool;
+    public function isFrontend(?Request $request = null): bool;
 
-    public function isFrontendRequestByAdmin(): bool;
+    public function isFrontendRequestByAdmin(?Request $request = null): bool;
 
     public function isElementRequestByAdmin(Request $request, ElementInterface $element): bool;
 
-    public function getHostUrl(): string;
+    public function getHostUrl(?string $useProtocol = null, ?Request $request = null): string;
 
     public function getHttpData(string $url, array $paramsGet = [], array $paramsPost = [], array $options = []
     ): false|string;

@@ -43,7 +43,7 @@ interface CacheResolverContractInterface
 
     public function enable(): void;
 
-    public function clearTags(array $tag = []): bool;
+    public function clearTags(array $tags = []): bool;
 
     public function addClearTagOnShutdown(string $tag): void;
 
@@ -55,7 +55,7 @@ interface CacheResolverContractInterface
 
     public function removeIgnoredTagOnClear(string $tag): void;
 
-    public function setForceImmediateWrite(bool $force): void;
+    public function setForceImmediateWrite(bool $forceImmediateWrite): void;
 
     public function getForceImmediateWrite(): bool;
 }

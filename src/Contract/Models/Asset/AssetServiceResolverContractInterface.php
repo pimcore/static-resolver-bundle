@@ -47,7 +47,7 @@ interface AssetServiceResolverContractInterface
 
     public function getStreamedResponseFromImageThumbnail(
         ThumbnailInterface|Asset\Video\ImageThumbnailInterface|Asset\Document\ImageThumbnailInterface|array $thumbnail,
-        array $options = []
+        array $config
     ): StreamedResponse;
 
     /**

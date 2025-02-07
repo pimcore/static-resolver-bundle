@@ -18,11 +18,12 @@ namespace Pimcore\Bundle\StaticResolverBundle\Contract\Models\DataObject;
 
 use Exception;
 use Pimcore\Model\DataObject;
+use Pimcore\Model\DataObject\Concrete;
 use Pimcore\Model\DataObject\Listing;
 
 class DataObjectResolverContract implements DataObjectResolverContractInterface
 {
-    public function getById(int $id, array $params = []): null|DataObject
+    public function getById(int|string $id, array $params = []): null|DataObject
     {
         return DataObject::getById($id, $params);
     }
@@ -52,7 +53,7 @@ class DataObjectResolverContract implements DataObjectResolverContractInterface
         return DataObject::getGetInheritedValues();
     }
 
-    public function doGetInheritedValues(?DataObject $object = null): bool
+    public function doGetInheritedValues(?Concrete $object = null): bool
     {
         return DataObject::doGetInheritedValues($object);
     }

@@ -17,12 +17,13 @@ declare(strict_types=1);
 namespace Pimcore\Bundle\StaticResolverBundle\Contract\Models\DataObject;
 
 use Pimcore\Model\DataObject\AbstractObject;
+use Pimcore\Model\DataObject\Concrete;
 use Pimcore\Model\DataObject\Folder;
 use Pimcore\Model\DataObject\Listing;
 
 interface DataObjectFolderResolverContractInterface
 {
-    public function getById(int $id, array $params = []): null|Folder;
+    public function getById(int|string $id, array $params = []): null|Folder;
 
     public function create(array $values): Folder;
 
@@ -36,7 +37,7 @@ interface DataObjectFolderResolverContractInterface
 
     public function getGetInheritedValues(): ?bool;
 
-    public function doGetInheritedValues(?Folder $object = null): bool;
+    public function doGetInheritedValues(?Concrete $object = null): bool;
 
     public function getTypes(): array;
 

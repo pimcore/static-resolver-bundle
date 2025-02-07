@@ -18,11 +18,12 @@ namespace Pimcore\Bundle\StaticResolverBundle\Contract\Models\DataObject;
 
 use Exception;
 use Pimcore\Model\DataObject;
+use Pimcore\Model\DataObject\Concrete;
 use Pimcore\Model\DataObject\Listing;
 
 interface DataObjectResolverContractInterface
 {
-    public function getById(int $id, array $params = []): null|DataObject;
+    public function getById(int|string $id, array $params = []): null|DataObject;
 
     public function getHideUnpublished(): bool;
 
@@ -34,7 +35,7 @@ interface DataObjectResolverContractInterface
 
     public function getGetInheritedValues(): ?bool;
 
-    public function doGetInheritedValues(?DataObject $object = null): bool;
+    public function doGetInheritedValues(?Concrete $object = null): bool;
 
     public function getTypes(): array;
 

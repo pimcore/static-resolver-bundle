@@ -20,13 +20,13 @@ use Pimcore\Model\DataObject\ClassDefinition\CustomLayout;
 
 interface CustomLayoutResolverContractInterface
 {
-    public function getByNameAndClassId(string $customLayoutName, string $classId): ?CustomLayout;
+    public function getByNameAndClassId(string $name, string $classId): ?CustomLayout;
 
     public function create(array $values): CustomLayout;
 
-    public function getById(string $customLayoutId): ?CustomLayout;
+    public function getById(string $id): ?CustomLayout;
 
-    public function getByName(string $customLayoutName): ?CustomLayout;
+    public function getByName(string $name): ?CustomLayout;
 
     public function locateDaoClass(string $modelClass): ?string;
 }

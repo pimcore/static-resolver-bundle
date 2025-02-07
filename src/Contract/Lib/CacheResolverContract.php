@@ -67,9 +67,9 @@ class CacheResolverContract implements CacheResolverContractInterface
         Cache::enable();
     }
 
-    public function clearTags(array $tag = []): bool
+    public function clearTags(array $tags = []): bool
     {
-        return Cache::clearTags($tag);
+        return Cache::clearTags($tags);
     }
 
     public function addClearTagOnShutdown(string $tag): void
@@ -97,9 +97,9 @@ class CacheResolverContract implements CacheResolverContractInterface
         Cache::removeIgnoredTagOnClear($tag);
     }
 
-    public function setForceImmediateWrite(bool $force): void
+    public function setForceImmediateWrite(bool $forceImmediateWrite): void
     {
-        Cache::setForceImmediateWrite($force);
+        Cache::setForceImmediateWrite($forceImmediateWrite);
     }
 
     public function getForceImmediateWrite(): bool

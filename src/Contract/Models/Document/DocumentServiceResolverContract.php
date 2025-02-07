@@ -1,34 +1,19 @@
 <?php
 declare(strict_types=1);
 
-/**
- * Pimcore
- *
- * This source file is available under two different licenses:
- * - GNU General Public License version 3 (GPLv3)
- * - Pimcore Commercial License (PCL)
- * Full copyright and license information is available in
- * LICENSE.md which is distributed with this source code.
- *
- *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
- *  @license    http://www.pimcore.org/license     GPLv3 and PCL
- */
-
-namespace Pimcore\Bundle\StaticResolverBundle\Contract\Models\Asset;
+namespace Pimcore\Bundle\StaticResolverBundle\Contract\Models\Document;
 
 use Exception;
-use League\Flysystem\FilesystemException;
 use Pimcore\Model\Asset;
-use Pimcore\Model\Asset\Folder;
-use Pimcore\Model\Asset\Image\ThumbnailInterface;
-use Pimcore\Model\Asset\Service;
 use Pimcore\Model\DataObject\AbstractObject;
+use Pimcore\Model\Document\Folder;
+use Pimcore\Model\Document\Service;
 use Pimcore\Model\Document;
 use Pimcore\Model\Element\ElementInterface;
-use Symfony\Component\HttpFoundation\StreamedResponse;
 
-class AssetServiceResolverContract implements AssetServiceResolverContractInterface
+class DocumentServiceResolverContract
 {
+
     public function pathExists(string $path, ?string $type = null): bool
     {
         return Service::pathExists($path, $type);
@@ -42,47 +27,25 @@ class AssetServiceResolverContract implements AssetServiceResolverContractInterf
         return Service::createFolderByPath($path, $options);
     }
 
-    /**
-     * @throws Exception
-     */
+    public function render(
+        Document\PageSnippet $document,
+        array $attributes = [],
+        bool $useLayout = false,
+        array $query = [],
+        array $options = []
+    ): string
+    {
+        return Service::render($document, $attributes, $useLayout, $query, $options);
+    }
+
+    public function isValidType(string $type): bool
+    {
+        return Service::isValidType($type);
+    }
+
     public function getUniqueKey(ElementInterface $element, int $nr = 0): string
     {
         return Service::getUniqueKey($element, $nr);
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function getImageThumbnailByArrayConfig(
-        array $config
-    ): null|ThumbnailInterface|Asset\Video\ImageThumbnailInterface|Asset\Document\ImageThumbnailInterface|array {
-        return Service::getImageThumbnailByArrayConfig($config);
-    }
-
-    /**
-     * @throws FilesystemException
-     */
-    public function getStreamedResponseFromImageThumbnail(
-        ThumbnailInterface|Asset\Video\ImageThumbnailInterface|Asset\Document\ImageThumbnailInterface|array $thumbnail,
-        array $config
-    ): StreamedResponse {
-        return Service::getStreamedResponseFromImageThumbnail($thumbnail, $config);
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function getStreamedResponseByUri(string $uri): ?StreamedResponse
-    {
-        return Service::getStreamedResponseByUri($uri);
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function extractThumbnailInfoFromUri(string $uri): array
-    {
-        return Service::extractThumbnailInfoFromUri($uri);
     }
 
     public function doHideUnpublished(?ElementInterface $element): bool
@@ -140,7 +103,8 @@ class AssetServiceResolverContract implements AssetServiceResolverContractInterf
         int $elementId,
         string $sessionId,
         ?string $postfix = ''
-    ): Asset|Document|AbstractObject|null {
+    ): Asset|Document|AbstractObject|null
+    {
         return Service::getElementFromSession($type, $elementId, $sessionId, $postfix);
     }
 

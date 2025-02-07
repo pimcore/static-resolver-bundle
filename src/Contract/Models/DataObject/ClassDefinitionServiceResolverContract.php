@@ -20,7 +20,7 @@ use Pimcore\Model\DataObject\ClassDefinition;
 use Pimcore\Model\DataObject\ClassDefinition\CustomLayout;
 use Pimcore\Model\DataObject\ClassDefinition\Service;
 use Pimcore\Model\DataObject\Fieldcollection\Definition as FCDefinition;
-use Pimcore\Model\DataObject\ObjectBrick\Definition as OBDefinition;
+use Pimcore\Model\DataObject\Objectbrick\Definition as OBDefinition;
 
 class ClassDefinitionServiceResolverContract implements ClassDefinitionServiceResolverContractInterface
 {

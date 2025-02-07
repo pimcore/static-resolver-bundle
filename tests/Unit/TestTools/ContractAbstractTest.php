@@ -57,6 +57,38 @@ abstract class ContractAbstractTest extends Unit
                     $method->getName()
                 )
             );
+
+            // Compare parameters
+            $contractMethode = $methods[array_search($method->getName(), $methods)];
+            $contractMethod = new \ReflectionMethod($this->getContractToTest(), $contractMethode);
+            $contractParams = $contractMethod->getParameters();
+            $classParams = $method->getParameters();
+
+            $this->assertCount(
+                count($contractParams),
+                $classParams,
+                sprintf('Parameter count mismatch for method "%s".', $method->getName())
+            );
+
+            foreach ($contractParams as $index => $contractParam) {
+                $classParam = $classParams[$index];
+
+                // Compare parameter names
+                $this->assertSame(
+                    $contractParam->getName(), $classParam->getName(), sprintf(
+                        'Parameter name mismatch at position %d in method "%s".', $index + 1, $method->getName()
+                    )
+                );
+
+                // Compare types (if type-hinted)
+                $this->assertSame(
+                    (string)$contractParam->getType(), (string)$classParam->getType(), sprintf(
+                        'Parameter type mismatch for "%s" at position %d in method "%s".', $contractParam->getName(),
+                        $index + 1, $method->getName()
+                    )
+                );
+
+            }
         }
     }
 }

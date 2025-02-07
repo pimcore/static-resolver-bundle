@@ -24,9 +24,9 @@ class CustomLayoutResolverContract implements CustomLayoutResolverContractInterf
     /**
      * @throws Exception
      */
-    public function getByNameAndClassId(string $customLayoutName, string $classId): ?CustomLayout
+    public function getByNameAndClassId(string $name, string $classId): ?CustomLayout
     {
-        return CustomLayout::getByNameAndClassId($customLayoutName, $classId);
+        return CustomLayout::getByNameAndClassId($name, $classId);
     }
 
     public function create(array $values): CustomLayout
@@ -34,17 +34,17 @@ class CustomLayoutResolverContract implements CustomLayoutResolverContractInterf
         return CustomLayout::create($values);
     }
 
-    public function getById(string $customLayoutId): ?CustomLayout
+    public function getById(string $id): ?CustomLayout
     {
-        return CustomLayout::getById($customLayoutId);
+        return CustomLayout::getById($id);
     }
 
     /**
      * @throws Exception
      */
-    public function getByName(string $customLayoutName): ?CustomLayout
+    public function getByName(string $name): ?CustomLayout
     {
-        return CustomLayout::getByName($customLayoutName);
+        return CustomLayout::getByName($name);
     }
 
     public function locateDaoClass(string $modelClass): ?string

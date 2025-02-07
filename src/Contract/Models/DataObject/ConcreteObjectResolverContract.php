@@ -22,7 +22,7 @@ use Pimcore\Model\DataObject\Listing;
 
 class ConcreteObjectResolverContract implements ConcreteObjectResolverContractInterface
 {
-    public function getById(int $id, array $params = []): null|Concrete
+    public function getById(int|string $id, array $params = []): null|Concrete
     {
         return Concrete::getById($id, $params);
     }

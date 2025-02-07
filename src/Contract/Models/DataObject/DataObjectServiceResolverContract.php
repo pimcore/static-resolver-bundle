@@ -24,6 +24,7 @@ use Pimcore\Model\DataObject\ClassDefinition;
 use Pimcore\Model\DataObject\ClassDefinition\Data;
 use Pimcore\Model\DataObject\ClassDefinition\Layout;
 use Pimcore\Model\DataObject\Concrete;
+use Pimcore\Model\DataObject\Data\CalculatedValue;
 use Pimcore\Model\DataObject\Fieldcollection;
 use Pimcore\Model\DataObject\Fieldcollection\Data\AbstractData as FieldCollectionData;
 use Pimcore\Model\DataObject\Folder;
@@ -32,7 +33,6 @@ use Pimcore\Model\DataObject\Objectbrick\Data\AbstractData as ObjectBrickData;
 use Pimcore\Model\DataObject\Service;
 use Pimcore\Model\Document;
 use Pimcore\Model\Element\ElementInterface;
-use Pimcore\Model\UserInterface;
 
 class DataObjectServiceResolverContract implements DataObjectServiceResolverContractInterface
 {
@@ -93,7 +93,7 @@ class DataObjectServiceResolverContract implements DataObjectServiceResolverCont
 
     public function getLanguagePermissions(
         FieldCollectionData|ObjectBrickData|AbstractObject $object,
-        UserInterface $user,
+        Model\User $user,
         string $type
     ): ?array {
         return Service::getLanguagePermissions($object, $user, $type);
@@ -164,7 +164,7 @@ class DataObjectServiceResolverContract implements DataObjectServiceResolverCont
 
     public function getCalculatedFieldValue(
         Fieldcollection\Data\AbstractData|Objectbrick\Data\AbstractData|Concrete $object,
-        ?Data\CalculatedValue $data
+        ?CalculatedValue $data
     ): mixed {
         return Service::getCalculatedFieldValue($object, $data);
     }
@@ -179,11 +179,9 @@ class DataObjectServiceResolverContract implements DataObjectServiceResolverCont
         Service::doResetDirtyMap($container, $fd);
     }
 
-    public function recursiveResetDirtyMap(
-        Model\AbstractModel $container,
-        ClassDefinition|ClassDefinition\Data $fd
-    ): void {
-        Service::doResetDirtyMap($container, $fd);
+    public function recursiveResetDirtyMap(AbstractObject $object): void
+    {
+        Service::recursiveResetDirtyMap($object);
     }
 
     public function getVersionDependentDatabaseColumnName(string $fieldName): string
