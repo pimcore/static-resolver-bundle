@@ -16,76 +16,17 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject;
 
-use Exception;
-use Pimcore\Model\DataObject\AbstractObject;
+use Pimcore\Bundle\StaticResolverBundle\Contract\Models\DataObject\DataObjectServiceResolverContract;
 use Pimcore\Model\DataObject\ClassDefinition;
 use Pimcore\Model\DataObject\ClassDefinition\Data;
-use Pimcore\Model\DataObject\ClassDefinition\Layout;
 use Pimcore\Model\DataObject\Concrete;
-use Pimcore\Model\DataObject\Fieldcollection\Data\AbstractData as FieldCollectionData;
-use Pimcore\Model\DataObject\Folder;
-use Pimcore\Model\DataObject\Objectbrick\Data\AbstractData as ObjectBrickData;
 use Pimcore\Model\DataObject\Service;
-use Pimcore\Model\UserInterface;
 
 /**
  * @internal
  */
-final class DataObjectServiceResolver implements DataObjectServiceResolverInterface
+final class DataObjectServiceResolver extends DataObjectServiceResolverContract implements DataObjectServiceResolverInterface
 {
-    public function useInheritedValues(
-        bool $inheritValues,
-        callable $fn,
-        array $fnArgs = []
-    ): mixed {
-        return Service::useInheritedValues(
-            $inheritValues,
-            $fn,
-            $fnArgs
-        );
-    }
-
-    public function rewriteIds(AbstractObject $object, array $rewriteConfig, array $params = []): AbstractObject
-    {
-        return Service::rewriteIds($object, $rewriteConfig, $params);
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function createFolderByPath(string $path, array $options = []): Folder
-    {
-        return Service::createFolderByPath($path, $options);
-    }
-
-    public function pathExists(string $path, ?string $type = null): bool
-    {
-        return Service::pathExists($path, $type);
-    }
-
-    /**
-     * @param Data[] $targetList
-     */
-    public function extractFieldDefinitions(
-        Data|Layout $layout,
-        string $targetClass,
-        array $targetList,
-        bool $insideDataType
-    ): array {
-
-        return Service::extractFieldDefinitions($layout, $targetClass, $targetList, $insideDataType);
-    }
-
-    public function getSuperLayoutDefinition(Concrete $object): mixed
-    {
-
-        return Service::getSuperLayoutDefinition($object);
-    }
-
-    public function createSuperLayout(Data|Layout $layout): void
-    {
-        Service::createSuperLayout($layout);
-    }
 
     public function getCustomLayoutDefinitionForGridColumnConfig(ClassDefinition $class, int $objectId): array
     {
@@ -105,19 +46,4 @@ final class DataObjectServiceResolver implements DataObjectServiceResolverInterf
         Service::enrichLayoutPermissions($layout, $allowedView, $allowedEdit);
     }
 
-    /**
-     * @return Concrete[]
-     */
-    public function getObjectsReferencingUser(int $userId): array
-    {
-        return Service::getObjectsReferencingUser($userId);
-    }
-
-    public function getLanguagePermissions(
-        FieldCollectionData|ObjectBrickData|AbstractObject $object,
-        UserInterface $user,
-        string $type
-    ): ?array {
-        return Service::getLanguagePermissions($object, $user, $type);
-    }
 }
