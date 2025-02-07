@@ -16,10 +16,8 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\Document;
 
-use Exception;
 use Pimcore\Bundle\StaticResolverBundle\Contract\Models\Document\DocumentServiceResolverContract;
 use Pimcore\Model\Document;
-use Pimcore\Model\Document\Folder;
 use Pimcore\Model\Document\PageSnippet;
 use Pimcore\Model\Document\Service;
 
@@ -35,5 +33,4 @@ final class DocumentServiceResolver extends DocumentServiceResolverContract impl
     ): Document|PageSnippet {
         return Service::rewriteIds($document, $rewriteConfig, $params);
     }
-
 }

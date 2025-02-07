@@ -1,19 +1,31 @@
 <?php
 declare(strict_types=1);
 
+/**
+ * Pimcore
+ *
+ * This source file is available under two different licenses:
+ * - GNU General Public License version 3 (GPLv3)
+ * - Pimcore Commercial License (PCL)
+ * Full copyright and license information is available in
+ * LICENSE.md which is distributed with this source code.
+ *
+ *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
+ *  @license    http://www.pimcore.org/license     GPLv3 and PCL
+ */
+
 namespace Pimcore\Bundle\StaticResolverBundle\Contract\Models\Document;
 
 use Exception;
 use Pimcore\Model\Asset;
 use Pimcore\Model\DataObject\AbstractObject;
+use Pimcore\Model\Document;
 use Pimcore\Model\Document\Folder;
 use Pimcore\Model\Document\Service;
-use Pimcore\Model\Document;
 use Pimcore\Model\Element\ElementInterface;
 
 class DocumentServiceResolverContract
 {
-
     public function pathExists(string $path, ?string $type = null): bool
     {
         return Service::pathExists($path, $type);
@@ -33,8 +45,7 @@ class DocumentServiceResolverContract
         bool $useLayout = false,
         array $query = [],
         array $options = []
-    ): string
-    {
+    ): string {
         return Service::render($document, $attributes, $useLayout, $query, $options);
     }
 
@@ -103,8 +114,7 @@ class DocumentServiceResolverContract
         int $elementId,
         string $sessionId,
         ?string $postfix = ''
-    ): Asset|Document|AbstractObject|null
-    {
+    ): Asset|Document|AbstractObject|null {
         return Service::getElementFromSession($type, $elementId, $sessionId, $postfix);
     }
 

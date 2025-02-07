@@ -23,5 +23,4 @@ use Pimcore\Bundle\StaticResolverBundle\Contract\Models\Document\DocumentResolve
  */
 final class DocumentResolver extends DocumentResolverContract implements DocumentResolverInterface
 {
-
 }
