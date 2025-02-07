@@ -16,15 +16,12 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject;
 
+use Pimcore\Bundle\StaticResolverBundle\Contract\Models\DataObject\LocalizedFieldResolverContract;
 use Pimcore\Model\DataObject\Localizedfield;
 
 /**
  * @internal
  */
-final class LocalizedFieldResolver implements LocalizedFieldResolverInterface
+final class LocalizedFieldResolver extends LocalizedFieldResolverContract implements LocalizedFieldResolverInterface
 {
-    public function setGetFallbackValues(bool $getFallbackValues): void
-    {
-        Localizedfield::setGetFallbackValues($getFallbackValues);
-    }
 }
