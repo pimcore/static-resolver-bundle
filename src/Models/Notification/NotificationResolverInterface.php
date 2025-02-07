@@ -16,12 +16,11 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\Notification;
 
-use Pimcore\Model\Notification;
+use Pimcore\Bundle\StaticResolverBundle\Contract\Models\Notification\NotificationResolverContractInterface;
 
 /**
  * @internal
  */
-interface NotificationResolverInterface
+interface NotificationResolverInterface extends NotificationResolverContractInterface
 {
-    public function getById(int $id): ?Notification;
 }

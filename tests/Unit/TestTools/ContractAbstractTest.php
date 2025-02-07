@@ -64,7 +64,7 @@ abstract class ContractAbstractTest extends Unit
             $contractParams = $contractMethod->getParameters();
             $classParams = $method->getParameters();
 
-            $this->assertCount(
+            self::assertCount(
                 count($contractParams),
                 $classParams,
                 sprintf('Parameter count mismatch for method "%s".', $method->getName())
@@ -74,14 +74,14 @@ abstract class ContractAbstractTest extends Unit
                 $classParam = $classParams[$index];
 
                 // Compare parameter names
-                $this->assertSame(
+                self::assertSame(
                     $contractParam->getName(), $classParam->getName(), sprintf(
                         'Parameter name mismatch at position %d in method "%s".', $index + 1, $method->getName()
                     )
                 );
 
                 // Compare types (if type-hinted)
-                $this->assertSame(
+                self::assertSame(
                     (string)$contractParam->getType(), (string)$classParam->getType(), sprintf(
                         'Parameter type mismatch for "%s" at position %d in method "%s".', $contractParam->getName(),
                         $index + 1, $method->getName()

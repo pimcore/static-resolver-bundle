@@ -24,7 +24,7 @@ use Pimcore\Model\Document\Folder;
 use Pimcore\Model\Document\Service;
 use Pimcore\Model\Element\ElementInterface;
 
-class DocumentServiceResolverContract
+class DocumentServiceResolverContract implements DocumentServiceResolverContractInterface
 {
     public function pathExists(string $path, ?string $type = null): bool
     {

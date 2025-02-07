@@ -16,12 +16,11 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\Element;
 
-use Pimcore\Model\Element\Note;
+use Pimcore\Bundle\StaticResolverBundle\Contract\Models\Element\NoteResolverContractInterface;
 
 /**
  * @internal
  */
-interface NoteResolverInterface
+interface NoteResolverInterface extends NoteResolverContractInterface
 {
-    public function getById(int $id): ?Note;
 }
