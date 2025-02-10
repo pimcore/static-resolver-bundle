@@ -19,13 +19,13 @@ namespace Pimcore\Bundle\StaticResolverBundle\Contract\Models\Asset;
 use Exception;
 use League\Flysystem\FilesystemException;
 use Pimcore\Model\Asset;
-use Pimcore\Model\Asset\Folder;
 use Pimcore\Model\Asset\Image\ThumbnailInterface;
 use Pimcore\Model\Asset\Service;
 use Pimcore\Model\DataObject\AbstractObject;
 use Pimcore\Model\Document;
 use Pimcore\Model\Element\ElementInterface;
 use Symfony\Component\HttpFoundation\StreamedResponse;
+use Pimcore\Model\DataObject;
 
 class AssetServiceResolverContract implements AssetServiceResolverContractInterface
 {
@@ -37,7 +37,10 @@ class AssetServiceResolverContract implements AssetServiceResolverContractInterf
     /**
      * @throws Exception
      */
-    public function createFolderByPath(string $path, array $options = []): Folder
+    public function createFolderByPath(
+        string $path,
+        array $options = []
+    ): Asset\Folder|DataObject\Folder|Document\Folder|null
     {
         return Service::createFolderByPath($path, $options);
     }
@@ -65,7 +68,7 @@ class AssetServiceResolverContract implements AssetServiceResolverContractInterf
     public function getStreamedResponseFromImageThumbnail(
         ThumbnailInterface|Asset\Video\ImageThumbnailInterface|Asset\Document\ImageThumbnailInterface|array $thumbnail,
         array $config
-    ): StreamedResponse {
+    ): ?StreamedResponse {
         return Service::getStreamedResponseFromImageThumbnail($thumbnail, $config);
     }
 

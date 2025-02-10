@@ -15,6 +15,8 @@ abstract class ContractAbstractTest extends Unit
      */
     public array $excludedMethods = [];
 
+    public array $exludeMethodsForReturnTypeCheck = [];
+
     abstract protected function getClassToTest(): string;
 
     abstract protected function getContractToTest(): string;
@@ -69,6 +71,18 @@ abstract class ContractAbstractTest extends Unit
                 $classParams,
                 sprintf('Parameter count mismatch for method "%s".', $method->getName())
             );
+
+            if (!in_array($method->getName(), $this->exludeMethodsForReturnTypeCheck, true)) {
+                //Compare return types **
+                $contractReturnType = $contractMethod->getReturnType();
+                $classReturnType = $method->getReturnType();
+
+                self::assertSame(
+                    $contractReturnType?->__toString(),
+                    $classReturnType ? $classReturnType->__toString() : null,
+                    sprintf('Return type mismatch for method "%s".', $method->getName())
+                );
+            }
 
             foreach ($contractParams as $index => $contractParam) {
                 $classParam = $classParams[$index];

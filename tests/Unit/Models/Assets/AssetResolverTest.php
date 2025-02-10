@@ -11,6 +11,8 @@ use Pimcore\Model\Asset;
 #[Group('contract')]
 class AssetResolverTest extends ContractAbstractTest
 {
+    public array $exludeMethodsForReturnTypeCheck = ['getByPath', 'getById'];
+
     protected function getClassToTest(): string {
         return Asset::class;
     }

@@ -16,20 +16,12 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\User\Role;
 
-use Pimcore\Model\User\Role\Folder;
+use Pimcore\Bundle\StaticResolverBundle\Contract\Models\User\Role\FolderResolverContract;
 
 /**
  * @internal
  */
-final class FolderResolver implements FolderResolverInterface
+final class FolderResolver extends FolderResolverContract implements FolderResolverInterface
 {
-    public function getById(int $id): ?Folder
-    {
-        return Folder::getById($id);
-    }
 
-    public function create(array $values = []): Folder
-    {
-        return Folder::create($values);
-    }
 }

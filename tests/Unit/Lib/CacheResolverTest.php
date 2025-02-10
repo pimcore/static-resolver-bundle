@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace Pimcore\Bundle\StaticResolverBundle\Tests\Unit\Lib;
 
 use Codeception\Attribute\Group;
-use Pimcore\Bundle\StaticResolverBundle\Lib\CacheResolver;
+use Pimcore\Bundle\StaticResolverBundle\Contract\Lib\CacheResolverContract;
 use Pimcore\Bundle\StaticResolverBundle\Tests\Unit\TestTools\ContractAbstractTest;
 use Pimcore\Cache;
 
@@ -18,6 +18,6 @@ class CacheResolverTest extends ContractAbstractTest
 
     protected function getContractToTest(): string
     {
-        return CacheResolver::class;
+        return CacheResolverContract::class;
     }
 }

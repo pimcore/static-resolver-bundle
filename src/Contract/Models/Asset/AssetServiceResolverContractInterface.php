@@ -18,7 +18,7 @@ namespace Pimcore\Bundle\StaticResolverBundle\Contract\Models\Asset;
 
 use Exception;
 use Pimcore\Model\Asset;
-use Pimcore\Model\Asset\Folder;
+use Pimcore\Model\DataObject;
 use Pimcore\Model\Asset\Image\ThumbnailInterface;
 use Pimcore\Model\DataObject\AbstractObject;
 use Pimcore\Model\Document;
@@ -32,7 +32,10 @@ interface AssetServiceResolverContractInterface
     /**
      * @throws Exception
      */
-    public function createFolderByPath(string $path, array $options = []): Folder;
+    public function createFolderByPath(
+        string $path,
+        array $options = []
+    ):Asset\Folder|DataObject\Folder|Document\Folder|null;
 
     /**
      * @throws Exception
@@ -48,7 +51,7 @@ interface AssetServiceResolverContractInterface
     public function getStreamedResponseFromImageThumbnail(
         ThumbnailInterface|Asset\Video\ImageThumbnailInterface|Asset\Document\ImageThumbnailInterface|array $thumbnail,
         array $config
-    ): StreamedResponse;
+    ): ?StreamedResponse;
 
     /**
      * @throws Exception

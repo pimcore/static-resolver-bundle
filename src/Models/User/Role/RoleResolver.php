@@ -16,20 +16,12 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\User\Role;
 
-use Pimcore\Model\User\Role;
+use Pimcore\Bundle\StaticResolverBundle\Contract\Models\User\Role\RoleResolverContract;
 
 /**
  * @internal
  */
-final class RoleResolver implements RoleResolverInterface
+final class RoleResolver extends RoleResolverContract implements RoleResolverInterface
 {
-    public function getById(int $id): ?Role
-    {
-        return Role::getById($id);
-    }
 
-    public function create(array $values = []): Role
-    {
-        return Role::create($values);
-    }
 }

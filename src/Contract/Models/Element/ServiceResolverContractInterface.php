@@ -34,7 +34,7 @@ interface ServiceResolverContractInterface
     public function getSafeCopyName(string $sourceKey, ElementInterface $target): string;
 
     public function getElementFromSession(string $type, int $elementId, string $sessionId, ?string $postfix = ''
-    ): null|Asset|AbstractObject|Document;
+    ): Asset|Document|AbstractObject|null;
 
     public function getValidKey(string $key, string $type): string;
 

@@ -16,34 +16,12 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\Tool;
 
-use Exception;
-use Pimcore\Model\Tool\SettingsStore;
+use Pimcore\Bundle\StaticResolverBundle\Contract\Models\Tool\SettingsStoreResolverContract;
 
 /**
  * @internal
  */
-final class SettingsStoreResolver implements SettingsStoreResolverInterface
+final class SettingsStoreResolver extends SettingsStoreResolverContract implements SettingsStoreResolverInterface
 {
-    /**
-     * @throws Exception
-     */
-    public function set(string $id, float|bool|int|string $data, string $type = 'string', ?string $scope = null): bool
-    {
-        return SettingsStore::set($id, $data, $type, $scope);
-    }
 
-    public function delete(string $id, ?string $scope = null): int|string
-    {
-        return SettingsStore::delete($id, $scope);
-    }
-
-    public function get(string $id, ?string $scope = null): ?SettingsStore
-    {
-        return SettingsStore::get($id, $scope);
-    }
-
-    public function getIdsByScope(string $scope): array
-    {
-        return SettingsStore::getIdsByScope($scope);
-    }
 }

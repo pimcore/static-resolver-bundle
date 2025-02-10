@@ -37,7 +37,7 @@ interface CacheResolverContractInterface
         DateInterval|int|null $lifetime = null,
         int $priority = 0,
         bool $force = false
-    ): void;
+    ): bool;
 
     public function isEnabled(): bool;
 

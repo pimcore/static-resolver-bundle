@@ -48,7 +48,7 @@ class DataObjectResolverContract implements DataObjectResolverContractInterface
         DataObject::setGetInheritedValues($getInheritedValues);
     }
 
-    public function getGetInheritedValues(): ?bool
+    public function getGetInheritedValues(): bool
     {
         return DataObject::getGetInheritedValues();
     }

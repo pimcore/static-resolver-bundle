@@ -13,6 +13,8 @@ class DataObjectResolverTest extends ContractAbstractTest
 {
     public array $excludedMethods = ['__callStatic'];
 
+    public array $exludeMethodsForReturnTypeCheck = ['getById', 'getByPath'];
+
     protected function getClassToTest(): string {
         return DataObject::class;
     }

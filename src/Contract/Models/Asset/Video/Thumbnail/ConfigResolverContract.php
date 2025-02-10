@@ -29,7 +29,7 @@ class ConfigResolverContract implements ConfigResolverContractInterface
         return Config::getByName($name);
     }
 
-    public function locateDaoClass(string $modelClass): string
+    public function locateDaoClass(string $modelClass): ?string
     {
         return Config::locateDaoClass($modelClass);
     }

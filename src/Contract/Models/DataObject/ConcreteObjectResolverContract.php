@@ -52,7 +52,7 @@ class ConcreteObjectResolverContract implements ConcreteObjectResolverContractIn
         Concrete::setGetInheritedValues($getInheritedValues);
     }
 
-    public function getGetInheritedValues(): ?bool
+    public function getGetInheritedValues(): bool
     {
         return Concrete::getGetInheritedValues();
     }

@@ -53,7 +53,7 @@ class DataObjectFolderResolverContract implements DataObjectFolderResolverContra
         Folder::setGetInheritedValues($getInheritedValues);
     }
 
-    public function getGetInheritedValues(): ?bool
+    public function getGetInheritedValues(): bool
     {
         return Folder::getGetInheritedValues();
     }

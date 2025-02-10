@@ -53,8 +53,8 @@ class CacheResolverContract implements CacheResolverContractInterface
         DateInterval|int|null $lifetime = null,
         int $priority = 0,
         bool $force = false
-    ): void {
-        Cache::save($data, $key, $tags, $lifetime, $priority, $force);
+    ): bool {
+        return Cache::save($data, $key, $tags, $lifetime, $priority, $force);
     }
 
     public function isEnabled(): bool

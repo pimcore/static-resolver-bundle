@@ -26,5 +26,5 @@ interface ConfigResolverContractInterface
      */
     public function getByName(string $name): ?Config;
 
-    public function locateDaoClass(string $modelClass): string;
+    public function locateDaoClass(string $modelClass): ?string;
 }

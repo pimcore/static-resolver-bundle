@@ -35,5 +35,5 @@ interface AssetResolverContractInterface
 
     public function getById(int|string $id, array $params = []): ?Asset;
 
-    public function locateDaoClass(string $modelClass): string;
+    public function locateDaoClass(string $modelClass): ?string;
 }

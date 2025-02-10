@@ -50,7 +50,7 @@ class AssetResolverContract implements AssetResolverContractInterface
         return Asset::getById($id, $params);
     }
 
-    public function locateDaoClass(string $modelClass): string
+    public function locateDaoClass(string $modelClass): ?string
     {
         return Asset::locateDaoClass($modelClass);
     }

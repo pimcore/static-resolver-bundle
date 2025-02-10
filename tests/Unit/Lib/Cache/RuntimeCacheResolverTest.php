@@ -11,6 +11,9 @@ use Pimcore\Cache\RuntimeCache;
 #[Group('contract')]
 class RuntimeCacheResolverTest extends ContractAbstractTest
 {
+
+    public array $exludeMethodsForReturnTypeCheck = ['getInstance'];
+
     protected function getClassToTest(): string
     {
         return RuntimeCache::class;

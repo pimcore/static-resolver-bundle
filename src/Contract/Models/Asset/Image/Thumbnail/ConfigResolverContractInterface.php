@@ -28,5 +28,5 @@ interface ConfigResolverContractInterface
 
     public function exists(string $name): bool;
 
-    public function locateDaoClass(string $modelClass): string;
+    public function locateDaoClass(string $modelClass): ?string;
 }

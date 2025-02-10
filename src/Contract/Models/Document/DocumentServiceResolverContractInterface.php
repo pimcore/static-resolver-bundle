@@ -20,7 +20,7 @@ use Exception;
 use Pimcore\Model\Asset;
 use Pimcore\Model\DataObject\AbstractObject;
 use Pimcore\Model\Document;
-use Pimcore\Model\Document\Folder;
+use Pimcore\Model\DataObject;
 use Pimcore\Model\Element\ElementInterface;
 
 interface DocumentServiceResolverContractInterface
@@ -30,7 +30,10 @@ interface DocumentServiceResolverContractInterface
     /**
      * @throws Exception
      */
-    public function createFolderByPath(string $path, array $options = []): Folder;
+    public function createFolderByPath(
+        string $path,
+        array $options = []
+    ): Asset\Folder|DataObject\Folder|Document\Folder|null;
 
     public function render(
         Document\PageSnippet $document,

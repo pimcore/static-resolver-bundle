@@ -35,7 +35,7 @@ interface DataObjectFolderResolverContractInterface
 
     public function setGetInheritedValues(bool $getInheritedValues): void;
 
-    public function getGetInheritedValues(): ?bool;
+    public function getGetInheritedValues(): bool;
 
     public function doGetInheritedValues(?Concrete $object = null): bool;
 
