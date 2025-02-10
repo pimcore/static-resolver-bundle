@@ -23,5 +23,4 @@ use Pimcore\Bundle\StaticResolverBundle\Contract\Models\User\Role\RoleResolverCo
  */
 final class RoleResolver extends RoleResolverContract implements RoleResolverInterface
 {
-
 }

@@ -23,5 +23,4 @@ use Pimcore\Bundle\StaticResolverBundle\Contract\Models\User\FolderResolverContr
  */
 interface FolderResolverInterface extends FolderResolverContractInterface
 {
-
 }

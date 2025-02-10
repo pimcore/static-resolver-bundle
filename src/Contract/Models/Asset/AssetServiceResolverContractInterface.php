@@ -18,8 +18,8 @@ namespace Pimcore\Bundle\StaticResolverBundle\Contract\Models\Asset;
 
 use Exception;
 use Pimcore\Model\Asset;
-use Pimcore\Model\DataObject;
 use Pimcore\Model\Asset\Image\ThumbnailInterface;
+use Pimcore\Model\DataObject;
 use Pimcore\Model\DataObject\AbstractObject;
 use Pimcore\Model\Document;
 use Pimcore\Model\Element\ElementInterface;
@@ -35,7 +35,7 @@ interface AssetServiceResolverContractInterface
     public function createFolderByPath(
         string $path,
         array $options = []
-    ):Asset\Folder|DataObject\Folder|Document\Folder|null;
+    ): Asset\Folder|DataObject\Folder|Document\Folder|null;
 
     /**
      * @throws Exception

@@ -23,5 +23,4 @@ use Pimcore\Bundle\StaticResolverBundle\Contract\Models\Tool\SettingsStoreResolv
  */
 final class SettingsStoreResolver extends SettingsStoreResolverContract implements SettingsStoreResolverInterface
 {
-
 }

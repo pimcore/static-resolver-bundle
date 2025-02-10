@@ -17,12 +17,10 @@ declare(strict_types=1);
 namespace Pimcore\Bundle\StaticResolverBundle\Models\Version;
 
 use Pimcore\Bundle\StaticResolverBundle\Contract\Models\Version\VersionResolverContract;
-use Pimcore\Model\Version;
 
 /**
  * @internal
  */
 final class VersionResolver extends VersionResolverContract implements VersionResolverInterface
 {
-
 }

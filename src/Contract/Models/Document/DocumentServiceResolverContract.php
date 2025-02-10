@@ -18,9 +18,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Contract\Models\Document;
 
 use Exception;
 use Pimcore\Model\Asset;
+use Pimcore\Model\DataObject;
 use Pimcore\Model\DataObject\AbstractObject;
 use Pimcore\Model\Document;
-use Pimcore\Model\DataObject;
 use Pimcore\Model\Document\Service;
 use Pimcore\Model\Element\ElementInterface;
 
@@ -37,8 +37,7 @@ class DocumentServiceResolverContract implements DocumentServiceResolverContract
     public function createFolderByPath(
         string $path,
         array $options = []
-    ): Asset\Folder|DataObject\Folder|Document\Folder|null
-    {
+    ): Asset\Folder|DataObject\Folder|Document\Folder|null {
         return Service::createFolderByPath($path, $options);
     }
 

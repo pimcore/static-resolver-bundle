@@ -23,5 +23,4 @@ use Pimcore\Bundle\StaticResolverBundle\Contract\Models\Tag\TagResolverContractI
  */
 interface TagResolverInterface extends TagResolverContractInterface
 {
-
 }

@@ -23,5 +23,4 @@ use Pimcore\Bundle\StaticResolverBundle\Contract\Models\User\Permission\Definiti
  */
 interface DefinitionResolverInterface extends DefinitionResolverContractInterface
 {
-
 }

@@ -21,11 +21,11 @@ use League\Flysystem\FilesystemException;
 use Pimcore\Model\Asset;
 use Pimcore\Model\Asset\Image\ThumbnailInterface;
 use Pimcore\Model\Asset\Service;
+use Pimcore\Model\DataObject;
 use Pimcore\Model\DataObject\AbstractObject;
 use Pimcore\Model\Document;
 use Pimcore\Model\Element\ElementInterface;
 use Symfony\Component\HttpFoundation\StreamedResponse;
-use Pimcore\Model\DataObject;
 
 class AssetServiceResolverContract implements AssetServiceResolverContractInterface
 {
@@ -40,8 +40,7 @@ class AssetServiceResolverContract implements AssetServiceResolverContractInterf
     public function createFolderByPath(
         string $path,
         array $options = []
-    ): Asset\Folder|DataObject\Folder|Document\Folder|null
-    {
+    ): Asset\Folder|DataObject\Folder|Document\Folder|null {
         return Service::createFolderByPath($path, $options);
     }
 

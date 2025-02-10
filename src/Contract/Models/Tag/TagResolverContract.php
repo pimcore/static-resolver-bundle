@@ -1,13 +1,25 @@
 <?php
 declare(strict_types=1);
 
+/**
+ * Pimcore
+ *
+ * This source file is available under two different licenses:
+ * - GNU General Public License version 3 (GPLv3)
+ * - Pimcore Commercial License (PCL)
+ * Full copyright and license information is available in
+ * LICENSE.md which is distributed with this source code.
+ *
+ *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
+ *  @license    http://www.pimcore.org/license     GPLv3 and PCL
+ */
+
 namespace Pimcore\Bundle\StaticResolverBundle\Contract\Models\Tag;
 
 use Pimcore\Model\Element\Tag;
 
 class TagResolverContract implements TagResolverContractInterface
 {
-
     public function unassignTagFromElement(string $cType, int $cId, Tag $tag): void
     {
         Tag::removeTagFromElement($cType, $cId, $tag);
@@ -75,8 +87,7 @@ class TagResolverContract implements TagResolverContractInterface
         array $subtypes = [],
         array $classNames = [],
         bool $considerChildTags = false
-    ): array
-    {
+    ): array {
         return Tag::getElementsForTag($tag, $type, $subtypes, $classNames, $considerChildTags);
     }
 

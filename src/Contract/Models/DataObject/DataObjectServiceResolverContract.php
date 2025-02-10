@@ -19,6 +19,7 @@ namespace Pimcore\Bundle\StaticResolverBundle\Contract\Models\DataObject;
 use Exception;
 use Pimcore\Model;
 use Pimcore\Model\Asset;
+use Pimcore\Model\DataObject;
 use Pimcore\Model\DataObject\AbstractObject;
 use Pimcore\Model\DataObject\ClassDefinition;
 use Pimcore\Model\DataObject\ClassDefinition\Data;
@@ -27,7 +28,6 @@ use Pimcore\Model\DataObject\Concrete;
 use Pimcore\Model\DataObject\Data\CalculatedValue;
 use Pimcore\Model\DataObject\Fieldcollection;
 use Pimcore\Model\DataObject\Fieldcollection\Data\AbstractData as FieldCollectionData;
-use Pimcore\Model\DataObject;
 use Pimcore\Model\DataObject\Objectbrick;
 use Pimcore\Model\DataObject\Objectbrick\Data\AbstractData as ObjectBrickData;
 use Pimcore\Model\DataObject\Service;
@@ -52,8 +52,7 @@ class DataObjectServiceResolverContract implements DataObjectServiceResolverCont
     public function createFolderByPath(
         string $path,
         array $options = []
-    ): Asset\Folder|DataObject\Folder|Document\Folder|null
-    {
+    ): Asset\Folder|DataObject\Folder|Document\Folder|null {
         return Service::createFolderByPath($path, $options);
     }
 

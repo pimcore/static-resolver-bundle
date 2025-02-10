@@ -23,5 +23,4 @@ use Pimcore\Bundle\StaticResolverBundle\Contract\Models\Tool\TmpStoreResolverCon
  */
 interface TmpStoreResolverInterface extends TmpStoreResolverContractInterface
 {
-
 }

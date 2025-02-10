@@ -23,5 +23,4 @@ use Pimcore\Bundle\StaticResolverBundle\Contract\Models\Site\SiteResolverContrac
  */
 final class SiteResolver extends SiteResolverContract implements SiteResolverInterface
 {
-
 }
