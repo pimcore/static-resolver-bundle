@@ -18,7 +18,7 @@ namespace Pimcore\Bundle\StaticResolverBundle\Contract\Models\Version;
 
 use Pimcore\Model\Version;
 
-class VersionResolverContract
+class VersionResolverContract implements VersionResolverContractInterface
 {
     public function disable(): void
     {
