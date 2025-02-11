@@ -20,6 +20,7 @@ use Exception;
 
 /**
  * @internal
+ *
  * @deprecated
  */
 final class InvalidServiceException extends Exception

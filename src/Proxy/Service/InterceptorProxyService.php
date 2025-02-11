@@ -22,6 +22,7 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
  * @internal
+ *
  * @deprecated
  */
 final class InterceptorProxyService implements InterceptorProxyServiceInterface
