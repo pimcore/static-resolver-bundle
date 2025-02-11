@@ -4,7 +4,6 @@ Static Resolver Bundle is designed to encapsulate the usage of static calls with
 
 ## Features in a Nutshell
 - Provides a straightforward and seamless mechanism to transform static methods into injectable services. 
-- Provides a proxy factory to reduce complexity, enhance testability, simplify code maintenance, and enforce better coding standards.
 - Promotes a cleaner, more consistent and well-organized codebase.
 
 :::caution
