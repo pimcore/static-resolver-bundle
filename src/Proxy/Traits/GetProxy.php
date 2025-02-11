@@ -19,6 +19,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Traits;
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\RemoteObject\RemoteObjectFactoryInterface;
 use ProxyManager\Proxy\RemoteObjectInterface;
 
+/**
+ * @deprecated Will be removed in 3.0
+ */
 trait GetProxy
 {
     protected readonly RemoteObjectFactoryInterface $remoteObjectFactory;

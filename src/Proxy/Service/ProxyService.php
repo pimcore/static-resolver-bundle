@@ -20,6 +20,9 @@ use Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\RemoteObject\RemoteObjectF
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Traits\GetProxy;
 use Throwable;
 
+/**
+ * @deprecated Will be removed in 3.0
+ */
 final class ProxyService implements ProxyServiceInterface
 {
     use GetProxy;

@@ -16,27 +16,27 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Contract\Models\User;
 
-use Pimcore\Model\User;
+use Pimcore\Model\User\UserRole;
 
-class UserResolverContract implements UserResolverContractInterface
+class UserRoleResolverContract implements UserRoleResolverContractInterface
 {
-    public function create(array $values = []): User
+    public function getById(int $id): ?UserRole
     {
-        return User::create($values);
+        return UserRole::getById($id);
     }
 
-    public function getById(int $id): ?User
+    public function create(array $values = []): UserRole
     {
-        return User::getById($id);
+        return UserRole::create($values);
     }
 
-    public function getByName(string $name): ?User
+    public function getByName(string $name): ?UserRole
     {
-        return User::getByName($name);
+        return UserRole::getByName($name);
     }
 
     public function locateDaoClass(string $modelClass): ?string
     {
-        return User::locateDaoClass($modelClass);
+        return UserRole::locateDaoClass($modelClass);
     }
 }

@@ -19,6 +19,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Adapter\Remote;
 use BadMethodCallException;
 use ProxyManager\Factory\RemoteObject\AdapterInterface;
 
+/**
+ * @deprecated Will be removed in 3.0
+ */
 interface ObjectAdapterInterface extends AdapterInterface
 {
     /** @throws BadMethodCallException */

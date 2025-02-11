@@ -16,6 +16,9 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Events;
 
+/**
+ * @deprecated Will be removed in 3.0
+ */
 interface ProxyPostInterceptorInterface
 {
     public function getSubjectClass(): string;

@@ -20,7 +20,7 @@ use Pimcore\Bundle\StaticResolverBundle\Proxy\Events\ProxyEvent;
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Events\ProxyEventInterface;
 
 /**
- * @deprecated
+ * @deprecated Will be removed in 3.0
  */
 class ProxyEventFactory implements ProxyEventFactoryInterface
 {

@@ -18,6 +18,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Service;
 
 use Exception;
 
+/**
+ * @deprecated Will be removed in 3.0
+ */
 class InvalidServiceException extends Exception
 {
 }

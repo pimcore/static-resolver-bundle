@@ -14,15 +14,17 @@ declare(strict_types=1);
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Exceptions;
+namespace Pimcore\Bundle\StaticResolverBundle\Contract\Models\User;
 
-use Exception;
+use Pimcore\Model\User\UserRole;
 
-/**
- * @internal
- *
- * @deprecated Will be removed in 3.0
- */
-final class InvalidServiceException extends Exception
+interface UserRoleResolverContractInterface
 {
+    public function getById(int $id): ?UserRole;
+
+    public function create(array $values = []): UserRole;
+
+    public function getByName(string $name): ?UserRole;
+
+    public function locateDaoClass(string $modelClass): ?string;
 }

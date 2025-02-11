@@ -23,6 +23,9 @@ use ProxyManager\FileLocator\FileLocator;
 use ProxyManager\GeneratorStrategy\FileWriterGeneratorStrategy;
 use ProxyManager\Proxy\RemoteObjectInterface;
 
+/**
+ * @deprecated Will be removed in 3.0
+ */
 final class RemoteObjectFactory implements RemoteObjectFactoryInterface
 {
     protected ?Configuration $config = null;

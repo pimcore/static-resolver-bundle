@@ -18,6 +18,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Events;
 
 use InvalidArgumentException;
 
+/**
+ * @deprecated Will be removed in 3.0
+ */
 trait GetMethodBasics
 {
     public function getMethodName(): string

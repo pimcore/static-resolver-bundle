@@ -25,7 +25,7 @@ use ReflectionUnionType;
 use Symfony\Component\EventDispatcher\GenericEvent;
 
 /**
- * @deprecated
+ * @deprecated Will be removed in 3.0
  */
 class ProxyEvent extends GenericEvent implements ProxyEventInterface
 {

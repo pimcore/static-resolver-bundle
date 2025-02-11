@@ -19,6 +19,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\RemoteObject;
 use InvalidArgumentException;
 use ProxyManager\Proxy\RemoteObjectInterface;
 
+/**
+ * @deprecated Will be removed in 3.0
+ */
 interface RemoteObjectFactoryInterface
 {
     /** @throws InvalidArgumentException */

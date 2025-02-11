@@ -20,6 +20,8 @@ use Symfony\Contracts\EventDispatcher\Event;
 
 /**
  * @internal
+ *
+ * @deprecated Will be removed in 3.0
  */
 final class ProxyPostInterceptor extends Event implements ProxyPostInterceptorInterface
 {

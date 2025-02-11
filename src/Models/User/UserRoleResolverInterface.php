@@ -14,15 +14,10 @@ declare(strict_types=1);
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Exceptions;
+namespace Pimcore\Bundle\StaticResolverBundle\Models\User;
 
-use Exception;
+use Pimcore\Bundle\StaticResolverBundle\Contract\Models\User\UserRoleResolverContractInterface;
 
-/**
- * @internal
- *
- * @deprecated Will be removed in 3.0
- */
-final class InvalidServiceException extends Exception
+interface UserRoleResolverInterface extends UserRoleResolverContractInterface
 {
 }
