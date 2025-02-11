@@ -16,9 +16,7 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\Element;
 
-use Pimcore\Model\Asset;
-use Pimcore\Model\DataObject\AbstractObject;
-use Pimcore\Model\Document;
+use Pimcore\Bundle\StaticResolverBundle\Contract\Models\Element\ServiceResolverContract;
 use Pimcore\Model\Element\ElementInterface;
 use Pimcore\Model\Element\Service;
 use Pimcore\Model\User;
@@ -26,23 +24,8 @@ use Pimcore\Model\User;
 /**
  * @internal
  */
-final class ServiceResolver implements ServiceResolverInterface
+final class ServiceResolver extends ServiceResolverContract implements ServiceResolverInterface
 {
-    public function getElementById(string $type, int|string $id, array $params = []): Asset|Document|AbstractObject|null
-    {
-        return Service::getElementById($type, $id, $params);
-    }
-
-    public function getElementByPath(string $type, string $path): ?ElementInterface
-    {
-        return Service::getElementByPath($type, $path);
-    }
-
-    public function getElementType(ElementInterface $element): ?string
-    {
-        return Service::getElementType($element);
-    }
-
     public function findForbiddenPaths(string $type, User $user): array
     {
         return Service::findForbiddenPaths($type, $user);
@@ -51,24 +34,5 @@ final class ServiceResolver implements ServiceResolverInterface
     public function isPublished(?ElementInterface $element = null): bool
     {
         return Service::isPublished($element);
-    }
-
-    public function getValidKey(string $key, string $type): string
-    {
-        return Service::getValidKey($key, $type);
-    }
-
-    public function getSafeCopyName(string $sourceKey, ElementInterface $target): string
-    {
-        return Service::getSafeCopyName($sourceKey, $target);
-    }
-
-    public function getElementFromSession(
-        string $type,
-        int $elementId,
-        string $sessionId,
-        ?string $postfix = ''
-    ): null|Asset|AbstractObject|Document {
-        return Service::getElementFromSession($type, $elementId, $sessionId, $postfix);
     }
 }

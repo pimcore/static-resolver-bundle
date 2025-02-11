@@ -17,12 +17,13 @@ declare(strict_types=1);
 namespace Pimcore\Bundle\StaticResolverBundle\Models\Asset\Video\Thumbnail;
 
 use Exception;
+use Pimcore\Bundle\StaticResolverBundle\Contract\Models\Asset\Video\Thumbnail\ConfigResolverContractInterface;
 use Pimcore\Model\Asset\Video\Thumbnail\Config;
 
 /**
  * @internal
  */
-interface ConfigResolverInterface
+interface ConfigResolverInterface extends ConfigResolverContractInterface
 {
     /**
      * @throws Exception

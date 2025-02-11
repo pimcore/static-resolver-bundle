@@ -50,7 +50,7 @@ class ToolResolverContract implements ToolResolverContractInterface
         return Tool::getDefaultLanguage();
     }
 
-    public function isValidLanguage(string $language): bool
+    public function isValidLanguage(?string $language): bool
     {
         return Tool::isValidLanguage($language);
     }
@@ -65,14 +65,14 @@ class ToolResolverContract implements ToolResolverContractInterface
         return Tool::getSupportedJSLocales();
     }
 
-    public function isFrontend(): bool
+    public function isFrontend(?Request $request = null): bool
     {
-        return Tool::isFrontend();
+        return Tool::isFrontend($request);
     }
 
-    public function isFrontendRequestByAdmin(): bool
+    public function isFrontendRequestByAdmin(?Request $request = null): bool
     {
-        return Tool::isFrontendRequestByAdmin();
+        return Tool::isFrontendRequestByAdmin($request);
     }
 
     public function isElementRequestByAdmin(Request $request, ElementInterface $element): bool
@@ -80,9 +80,9 @@ class ToolResolverContract implements ToolResolverContractInterface
         return Tool::isElementRequestByAdmin($request, $element);
     }
 
-    public function getHostUrl(): string
+    public function getHostUrl(?string $useProtocol = null, ?Request $request = null): string
     {
-        return Tool::getHostUrl();
+        return Tool::getHostUrl($useProtocol, $request);
     }
 
     public function getHttpData(

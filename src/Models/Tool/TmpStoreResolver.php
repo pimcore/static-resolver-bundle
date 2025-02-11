@@ -16,35 +16,11 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\Tool;
 
-use Pimcore\Model\Tool\TmpStore;
+use Pimcore\Bundle\StaticResolverBundle\Contract\Models\Tool\TmpStoreResolverContract;
 
 /**
  * @internal
  */
-final class TmpStoreResolver implements TmpStoreResolverInterface
+final class TmpStoreResolver extends TmpStoreResolverContract implements TmpStoreResolverInterface
 {
-    public function add(string $id, mixed $data, ?string $tag = null, ?int $lifetime = null): bool
-    {
-        return TmpStore::add($id, $data, $tag, $lifetime);
-    }
-
-    public function get(string $id): ?TmpStore
-    {
-        return TmpStore::get($id);
-    }
-
-    public function delete(string $id): void
-    {
-        TmpStore::delete($id);
-    }
-
-    public function getIdsByTag(string $tag): array
-    {
-        return TmpStore::getIdsByTag($tag);
-    }
-
-    public function set(string $id, mixed $data, ?string $tag = null, ?int $lifetime = null): bool
-    {
-        return TmpStore::set($id, $data, $tag, $lifetime);
-    }
 }

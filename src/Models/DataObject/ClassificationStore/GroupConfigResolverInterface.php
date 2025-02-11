@@ -16,20 +16,11 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject\ClassificationStore;
 
-use Exception;
-use Pimcore\Model\DataObject\Classificationstore\GroupConfig;
+use Pimcore\Bundle\StaticResolverBundle\Contract\Models\DataObject\ClassificationStore\GroupConfigResolverContractInterface;
 
 /**
  * @internal
  */
-interface GroupConfigResolverInterface
+interface GroupConfigResolverInterface extends GroupConfigResolverContractInterface
 {
-    public function getById(int $id, ?bool $force = false): ?GroupConfig;
-
-    /**
-     * @throws Exception
-     */
-    public function getByName(string $name, int $storeId = 1, ?bool $force = false): ?GroupConfig;
-
-    public function create(): GroupConfig;
 }

@@ -5,18 +5,20 @@ namespace Pimcore\Bundle\StaticResolverBundle\Tests\Unit\Db;
 
 
 use Codeception\Attribute\Group;
-use Pimcore\Bundle\StaticResolverBundle\Db\DbResolver;
+use Pimcore\Bundle\StaticResolverBundle\Contract\Db\DbResolverContract;
+use Pimcore\Bundle\StaticResolverBundle\Tests\Unit\TestTools\ContractAbstractTest;
+use Pimcore\Db;
 
-class DbResolverContractTest extends \Codeception\Test\Unit
+#[Group('contract')]
+class DbResolverContractTest extends ContractAbstractTest
 {
-    #[Group('contract')]
-    public function testAllMethodsExist()
+    protected function getClassToTest(): string
     {
-        $resolver = new DbResolver();
+        return Db::class;
+    }
 
-        self::assertTrue(method_exists($resolver, 'getConnection'));
-        self::assertTrue(method_exists($resolver, 'reset'));
-        self::assertTrue(method_exists($resolver, 'get'));
-        self::assertTrue(method_exists($resolver, 'close'));
+    protected function getContractToTest(): string
+    {
+        return DbResolverContract::class;
     }
 }

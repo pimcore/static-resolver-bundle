@@ -16,21 +16,11 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject;
 
-use Exception;
-use Pimcore\Model\DataObject\ClassDefinition;
+use Pimcore\Bundle\StaticResolverBundle\Contract\Models\DataObject\ClassDefinitionResolverContractInterface;
 
 /**
  * @internal
  */
-interface ClassDefinitionResolverInterface
+interface ClassDefinitionResolverInterface extends ClassDefinitionResolverContractInterface
 {
-    /**
-     * @throws Exception
-     */
-    public function getById(string $id, bool $force = false): ?ClassDefinition;
-
-    /**
-     * @throws Exception
-     */
-    public function getByName(string $name): ?ClassDefinition;
 }

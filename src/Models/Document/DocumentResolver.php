@@ -16,45 +16,11 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\Document;
 
-use Exception;
-use Pimcore\Model\Document;
-use Pimcore\Model\Document\Listing;
+use Pimcore\Bundle\StaticResolverBundle\Contract\Models\Document\DocumentResolverContract;
 
 /**
  * @internal
  */
-final class DocumentResolver implements DocumentResolverInterface
+final class DocumentResolver extends DocumentResolverContract implements DocumentResolverInterface
 {
-    public function getById(int|string $id, array $params = []): ?Document
-    {
-        return Document::getById($id, $params);
-    }
-
-    public function getByPath(string $path, array $params = []): ?Document
-    {
-        return Document::getByPath($path, $params);
-    }
-
-    public function create(int $parentId, array $data = [], bool $save = true): Document
-    {
-        return Document::create($parentId, $data, $save);
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function getList(array $config = []): Listing
-    {
-        return Document::getList($config);
-    }
-
-    public function getTypes(): array
-    {
-        return Document::getTypes();
-    }
-
-    public function setHideUnpublished(bool $hideUnpublished): void
-    {
-        Document::setHideUnpublished($hideUnpublished);
-    }
 }

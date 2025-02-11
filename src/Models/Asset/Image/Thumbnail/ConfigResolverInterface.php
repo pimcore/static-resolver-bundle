@@ -16,18 +16,13 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\Asset\Image\Thumbnail;
 
-use Exception;
+use Pimcore\Bundle\StaticResolverBundle\Contract\Models\Asset\Image\Thumbnail\ConfigResolverContractInterface;
 use Pimcore\Model\Asset\Image\Thumbnail\Config;
 
 /**
  * @internal
  */
-interface ConfigResolverInterface
+interface ConfigResolverInterface extends ConfigResolverContractInterface
 {
-    /**
-     * @throws Exception
-     */
-    public function getByName(string $name): ?Config;
-
     public function getPreviewConfig(): Config;
 }

@@ -17,42 +17,16 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\Element;
 
-use Pimcore\Model\Asset;
-use Pimcore\Model\DataObject\AbstractObject;
-use Pimcore\Model\Document;
+use Pimcore\Bundle\StaticResolverBundle\Contract\Models\Element\ServiceResolverContractInterface;
 use Pimcore\Model\Element\ElementInterface;
 use Pimcore\Model\User;
 
 /**
  * @internal
  */
-interface ServiceResolverInterface
+interface ServiceResolverInterface extends ServiceResolverContractInterface
 {
-    public function getElementById(
-        string $type,
-        int|string $id,
-        array $params = []
-    ): Asset|Document|AbstractObject|null;
-
-    public function getElementByPath(
-        string $type,
-        string $path
-    ): ?ElementInterface;
-
-    public function getElementType(ElementInterface $element): ?string;
-
     public function findForbiddenPaths(string $type, User $user): array;
 
     public function isPublished(?ElementInterface $element = null): bool;
-
-    public function getValidKey(string $key, string $type): string;
-
-    public function getSafeCopyName(string $sourceKey, ElementInterface $target): string;
-
-    public function getElementFromSession(
-        string $type,
-        int $elementId,
-        string $sessionId,
-        ?string $postfix = ''
-    ): null|Asset|AbstractObject|Document;
 }

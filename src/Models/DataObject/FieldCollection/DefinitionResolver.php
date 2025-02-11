@@ -16,19 +16,11 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject\FieldCollection;
 
-use Exception;
-use Pimcore\Model\DataObject\Fieldcollection\Definition;
+use Pimcore\Bundle\StaticResolverBundle\Contract\Models\DataObject\FieldCollection\DefinitionResolverContract;
 
 /**
  * @internal
  */
-final class DefinitionResolver implements DefinitionResolverInterface
+final class DefinitionResolver extends DefinitionResolverContract implements DefinitionResolverInterface
 {
-    /**
-     * @throws Exception
-     */
-    public function getByKey(string $key): ?Definition
-    {
-        return Definition::getByKey($key);
-    }
 }

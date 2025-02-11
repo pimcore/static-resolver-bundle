@@ -16,27 +16,11 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\User\Permission;
 
-use Exception;
-use Pimcore\Model\User\Permission\Definition;
+use Pimcore\Bundle\StaticResolverBundle\Contract\Models\User\Permission\DefinitionResolverContract;
 
 /**
  * @internal
  */
-final class DefinitionResolver implements DefinitionResolverInterface
+final class DefinitionResolver extends DefinitionResolverContract implements DefinitionResolverInterface
 {
-    /**
-     * @throws Exception
-     */
-    public function getByKey(string $permission): ?Definition
-    {
-        return Definition::getByKey($permission);
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function create(string $permission): Definition
-    {
-        return Definition::create($permission);
-    }
 }

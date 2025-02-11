@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace Pimcore\Bundle\StaticResolverBundle\Tests\Unit\Lib\Cache;
 
 use Codeception\Attribute\Group;
-use Codeception\Test\Unit;
 use Pimcore\Bundle\StaticResolverBundle\Lib\Cache\RuntimeCacheResolver;
 use Pimcore\Bundle\StaticResolverBundle\Tests\Unit\TestTools\ContractAbstractTest;
 use Pimcore\Cache\RuntimeCache;
@@ -12,6 +11,9 @@ use Pimcore\Cache\RuntimeCache;
 #[Group('contract')]
 class RuntimeCacheResolverTest extends ContractAbstractTest
 {
+
+    public array $exludeMethodsForReturnTypeCheck = ['getInstance'];
+
     protected function getClassToTest(): string
     {
         return RuntimeCache::class;

@@ -16,63 +16,11 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\Site;
 
-use Exception;
-use Pimcore\Model\Site;
+use Pimcore\Bundle\StaticResolverBundle\Contract\Models\Site\SiteResolverContract;
 
 /**
  * @internal
  */
-final readonly class SiteResolver implements SiteResolverInterface
+final class SiteResolver extends SiteResolverContract implements SiteResolverInterface
 {
-    /**
-     * @throws Exception
-     */
-    public function getById(int $id): ?Site
-    {
-        return Site::getById($id);
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function getCurrentSite(): Site
-    {
-        return Site::getCurrentSite();
-    }
-
-    public function getByRootId(int $id): ?Site
-    {
-        return Site::getByRootId($id);
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function getByDomain(string $domain): ?Site
-    {
-        return Site::getByDomain($domain);
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function getBy(mixed $mixed): ?Site
-    {
-        return Site::getBy($mixed);
-    }
-
-    public function create(array $data): Site
-    {
-        return Site::create($data);
-    }
-
-    public function isSiteRequest(): bool
-    {
-        return Site::isSiteRequest();
-    }
-
-    public function setCurrentSite(Site $site): void
-    {
-        Site::setCurrentSite($site);
-    }
 }

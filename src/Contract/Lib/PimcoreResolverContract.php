@@ -40,9 +40,9 @@ class PimcoreResolverContract implements PimcoreResolverContractInterface
         return Pimcore::inDebugMode();
     }
 
-    public function collectGarbage(): void
+    public function collectGarbage(array $keepItems = []): void
     {
-        Pimcore::collectGarbage();
+        Pimcore::collectGarbage($keepItems);
     }
 
     public function deleteTemporaryFiles(): void

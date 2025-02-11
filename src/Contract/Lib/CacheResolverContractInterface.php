@@ -37,13 +37,13 @@ interface CacheResolverContractInterface
         DateInterval|int|null $lifetime = null,
         int $priority = 0,
         bool $force = false
-    ): void;
+    ): bool;
 
     public function isEnabled(): bool;
 
     public function enable(): void;
 
-    public function clearTags(array $tag = []): bool;
+    public function clearTags(array $tags = []): bool;
 
     public function addClearTagOnShutdown(string $tag): void;
 
@@ -55,7 +55,7 @@ interface CacheResolverContractInterface
 
     public function removeIgnoredTagOnClear(string $tag): void;
 
-    public function setForceImmediateWrite(bool $force): void;
+    public function setForceImmediateWrite(bool $forceImmediateWrite): void;
 
     public function getForceImmediateWrite(): bool;
 }

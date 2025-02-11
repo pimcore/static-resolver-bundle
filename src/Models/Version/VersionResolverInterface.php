@@ -16,18 +16,11 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\Version;
 
-use Pimcore\Model\Version;
+use Pimcore\Bundle\StaticResolverBundle\Contract\Models\Version\VersionResolverContractInterface;
 
 /**
  * @internal
  */
-interface VersionResolverInterface
+interface VersionResolverInterface extends VersionResolverContractInterface
 {
-    public function enable(): void;
-
-    public function disable(): void;
-
-    public function isEnabled(): bool;
-
-    public function getById(int $id): ?Version;
 }

@@ -16,18 +16,11 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject\QuantityValue;
 
-use Pimcore\Model\DataObject\QuantityValue\Unit;
+use Pimcore\Bundle\StaticResolverBundle\Contract\Models\DataObject\QuantityValue\UnitResolverContractInterface;
 
 /**
  * @internal
  */
-interface UnitResolverInterface
+interface UnitResolverInterface extends UnitResolverContractInterface
 {
-    public function getById(string $id): ?Unit;
-
-    public function getByAbbreviation(string $abbreviation): ?Unit;
-
-    public function getByReference(string $reference): ?Unit;
-
-    public function create(array $values = []): Unit;
 }

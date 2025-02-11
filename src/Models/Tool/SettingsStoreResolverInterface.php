@@ -16,18 +16,11 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\Tool;
 
-use Pimcore\Model\Tool\SettingsStore;
+use Pimcore\Bundle\StaticResolverBundle\Contract\Models\Tool\SettingsStoreResolverContractInterface;
 
 /**
  * @internal
  */
-interface SettingsStoreResolverInterface
+interface SettingsStoreResolverInterface extends SettingsStoreResolverContractInterface
 {
-    public function set(string $id, float|bool|int|string $data, string $type = 'string', ?string $scope = null): bool;
-
-    public function delete(string $id, ?string $scope = null): int|string;
-
-    public function get(string $id, ?string $scope = null): ?SettingsStore;
-
-    public function getIdsByScope(string $scope): array;
 }

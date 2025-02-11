@@ -16,40 +16,11 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject;
 
-use Exception;
-use Pimcore\Model\DataObject;
-use Pimcore\Model\DataObject\Listing;
+use Pimcore\Bundle\StaticResolverBundle\Contract\Models\DataObject\DataObjectResolverContract;
 
 /**
  * @internal
  */
-final class DataObjectResolver implements DataObjectResolverInterface
+final class DataObjectResolver extends DataObjectResolverContract implements DataObjectResolverInterface
 {
-    public function getById(int|string $id, array $params = []): ?DataObject
-    {
-        return DataObject::getById($id, $params);
-    }
-
-    public function getByPath(string $path, array $params = []): ?DataObject
-    {
-        return DataObject::getByPath($path, $params);
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function getList(array $config = []): Listing
-    {
-        return DataObject::getList($config);
-    }
-
-    public function getTypes(): array
-    {
-        return DataObject::getTypes();
-    }
-
-    public function setHideUnpublished(bool $hideUnpublished): void
-    {
-        DataObject::setHideUnpublished($hideUnpublished);
-    }
 }

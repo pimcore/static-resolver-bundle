@@ -16,16 +16,15 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\Document;
 
-use Exception;
+use Pimcore\Bundle\StaticResolverBundle\Contract\Models\Document\DocumentServiceResolverContract;
 use Pimcore\Model\Document;
-use Pimcore\Model\Document\Folder;
 use Pimcore\Model\Document\PageSnippet;
 use Pimcore\Model\Document\Service;
 
 /**
  * @internal
  */
-final class DocumentServiceResolver implements DocumentServiceResolverInterface
+final class DocumentServiceResolver extends DocumentServiceResolverContract implements DocumentServiceResolverInterface
 {
     public function rewriteIds(
         Document $document,
@@ -33,18 +32,5 @@ final class DocumentServiceResolver implements DocumentServiceResolverInterface
         array $params = []
     ): Document|PageSnippet {
         return Service::rewriteIds($document, $rewriteConfig, $params);
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function createFolderByPath(string $path, array $options = []): Folder
-    {
-        return Service::createFolderByPath($path, $options);
-    }
-
-    public function pathExists(string $path, ?string $type = null): bool
-    {
-        return Service::pathExists($path, $type);
     }
 }
