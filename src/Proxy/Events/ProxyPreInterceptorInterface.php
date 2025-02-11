@@ -19,6 +19,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Events;
 use InvalidArgumentException;
 use ReflectionException;
 
+/**
+ * @deprecated
+ */
 interface ProxyPreInterceptorInterface
 {
     public function getResponse(): mixed;

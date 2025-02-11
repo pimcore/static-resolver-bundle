@@ -23,6 +23,7 @@ use Pimcore\Bundle\StaticResolverBundle\Proxy\Events\ProxyPreInterceptorInterfac
 
 /**
  * @internal
+ * @deprecated
  */
 final class InterceptorInterceptorProxyEventFactory implements InterceptorProxyEventFactoryInterface
 {

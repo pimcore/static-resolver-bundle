@@ -21,6 +21,9 @@ use InvalidArgumentException;
 use ReflectionException;
 use ReflectionMethod;
 
+/**
+ * @deprecated
+ */
 final class StrictObjectAdapter implements ObjectAdapterInterface
 {
     public function __construct(private readonly object $remoteClassOrInstance, private readonly string $interface)

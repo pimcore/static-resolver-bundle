@@ -16,6 +16,9 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\SmartReference;
 
+/**
+ * @deprecated
+ */
 interface SmartReferenceFactoryInterface
 {
     // @throws Throwable

@@ -18,6 +18,9 @@ namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Adapter\Remote;
 
 use BadMethodCallException;
 
+/**
+ * @deprecated
+ */
 final class ObjectAdapter implements ObjectAdapterInterface
 {
     public function __construct(private readonly object $remoteClassOrInstance)
