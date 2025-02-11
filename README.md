@@ -19,6 +19,6 @@ Interfaces in this bundle are not intended to be implemented by third-party deve
 - [Installation](doc/01_Installation.md)
 - [Resolver Service Usage](doc/02_Resolver_Service_Usage.md)
 - [Event Proxy Service Usage (deprecated)](doc/03_Event_Proxy_Service_Usage.md)
-- [Interceptor Proxy Service Usage](doc/03_Interceptor_Proxy_Service_Usage.md)
-- [Proxy Service Usage](doc/04_Proxy_Service_Usage.md)
+- [Interceptor Proxy Service Usage (deprecated)](doc/03_Interceptor_Proxy_Service_Usage.md)
+- [Proxy Service Usage (deprecated)](doc/04_Proxy_Service_Usage.md)
 - [Upgrade Notes](doc/02_Upgrade_Notes/README.md)
