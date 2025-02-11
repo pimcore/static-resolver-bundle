@@ -17,10 +17,34 @@ declare(strict_types=1);
 namespace Pimcore\Bundle\StaticResolverBundle\Models\User;
 
 use Pimcore\Bundle\StaticResolverBundle\Contract\Models\User\UserResolverContract;
+use Pimcore\Model\User;
 
 /**
  * @internal
  */
 final class UserResolver extends UserResolverContract implements UserResolverInterface
 {
+    /**
+     * @deprecated
+     */
+    public function getUserRoleById(int $id): ?User\UserRole
+    {
+        return User\UserRole::getById($id);
+    }
+
+    /**
+     * @deprecated
+     */
+    public function createUserRole(array $values = []): User\UserRole
+    {
+        return User\UserRole::create($values);
+    }
+
+    /**
+     * @deprecated
+     */
+    public function getUserRoleByName(string $name): ?User\UserRole
+    {
+        return User\UserRole::getByName($name);
+    }
 }

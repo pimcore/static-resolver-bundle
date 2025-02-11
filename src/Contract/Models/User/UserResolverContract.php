@@ -20,16 +20,6 @@ use Pimcore\Model\User;
 
 class UserResolverContract implements UserResolverContractInterface
 {
-    public function getUserRoleById(int $id): ?User\UserRole
-    {
-        return User\UserRole::getById($id);
-    }
-
-    public function createUserRole(array $values = []): User\UserRole
-    {
-        return User\UserRole::create($values);
-    }
-
     public function create(array $values = []): User
     {
         return User::create($values);
@@ -43,11 +33,6 @@ class UserResolverContract implements UserResolverContractInterface
     public function getByName(string $name): ?User
     {
         return User::getByName($name);
-    }
-
-    public function getUserRoleByName(string $name): ?User\UserRole
-    {
-        return User\UserRole::getByName($name);
     }
 
     public function locateDaoClass(string $modelClass): ?string
