@@ -30,12 +30,12 @@ final class DocumentResolver implements DocumentResolverInterface
      */
     public function getInstance(?string $adapter = null): ?Adapter
     {
-        Document::getInstance($adapter);
+        return Document::getInstance($adapter);
     }
 
     public function isAvailable(): bool
     {
-        Document::isAvailable();
+        return Document::isAvailable();
     }
 
     public function isFileTypeSupported(string $filetype): bool

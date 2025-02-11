@@ -28,7 +28,7 @@
     "friendsofphp/proxy-manager-lts": "^1"
   },
   "require-dev": {
-    "phpstan/phpstan": "1.10.5",
+    "phpstan/phpstan": "1.12.15",
     "phpstan/phpstan-symfony": "^1.2.20",
     "phpunit/phpunit": "^10.2",
     "codeception/codeception": "^5.0.10",
