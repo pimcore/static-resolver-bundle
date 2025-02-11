@@ -20,7 +20,6 @@ use Pimcore\Model\User;
 
 interface UserResolverContractInterface
 {
-
     public function create(array $values = []): User;
 
     public function getById(int $id): ?User;
