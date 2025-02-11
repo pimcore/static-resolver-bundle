@@ -20,7 +20,7 @@ use InvalidArgumentException;
 use ProxyManager\Proxy\RemoteObjectInterface;
 
 /**
- * @deprecated
+ * @deprecated Will be removed in 3.0
  */
 interface RemoteObjectFactoryInterface
 {

@@ -21,7 +21,7 @@ use Pimcore\Bundle\StaticResolverBundle\Proxy\Traits\GetProxy;
 use Throwable;
 
 /**
- * @deprecated
+ * @deprecated Will be removed in 3.0
  */
 final class ProxyService implements ProxyServiceInterface
 {

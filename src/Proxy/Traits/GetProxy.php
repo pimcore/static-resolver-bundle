@@ -20,7 +20,7 @@ use Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\RemoteObject\RemoteObjectF
 use ProxyManager\Proxy\RemoteObjectInterface;
 
 /**
- * @deprecated
+ * @deprecated Will be removed in 3.0
  */
 trait GetProxy
 {

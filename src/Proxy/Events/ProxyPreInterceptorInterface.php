@@ -20,7 +20,7 @@ use InvalidArgumentException;
 use ReflectionException;
 
 /**
- * @deprecated
+ * @deprecated Will be removed in 3.0
  */
 interface ProxyPreInterceptorInterface
 {

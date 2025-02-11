@@ -25,17 +25,17 @@ use Pimcore\Model\User;
 interface UserResolverInterface extends UserResolverContractInterface
 {
     /**
-     * @deprecated
+     * @deprecated Use UserRoleResolver instead
      */
     public function getUserRoleById(int $id): ?User\UserRole;
 
     /**
-     * @deprecated
+     * @deprecated Use UserRoleResolver instead
      */
     public function createUserRole(array $values = []): User\UserRole;
 
     /**
-     * @deprecated
+     * @deprecated Use UserRoleResolver instead
      */
     public function getUserRoleByName(string $name): ?User\UserRole;
 }

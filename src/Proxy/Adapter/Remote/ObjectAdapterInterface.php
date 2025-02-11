@@ -20,7 +20,7 @@ use BadMethodCallException;
 use ProxyManager\Factory\RemoteObject\AdapterInterface;
 
 /**
- * @deprecated
+ * @deprecated Will be removed in 3.0
  */
 interface ObjectAdapterInterface extends AdapterInterface
 {

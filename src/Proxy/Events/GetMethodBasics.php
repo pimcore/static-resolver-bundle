@@ -19,7 +19,7 @@ namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Events;
 use InvalidArgumentException;
 
 /**
- * @deprecated
+ * @deprecated Will be removed in 3.0
  */
 trait GetMethodBasics
 {

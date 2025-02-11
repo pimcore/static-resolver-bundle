@@ -21,7 +21,7 @@ use Exception;
 /**
  * @internal
  *
- * @deprecated
+ * @deprecated Will be removed in 3.0
  */
 final class InvalidServiceException extends Exception
 {

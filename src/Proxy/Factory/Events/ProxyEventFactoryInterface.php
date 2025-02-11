@@ -19,7 +19,7 @@ namespace Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\Events;
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Events\ProxyEventInterface;
 
 /**
- * @deprecated
+ * @deprecated Will be removed in 3.0
  */
 interface ProxyEventFactoryInterface
 {

@@ -21,7 +21,7 @@ use Pimcore\Bundle\StaticResolverBundle\Proxy\Factory\SmartReference\SmartRefere
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
- * @deprecated
+ * @deprecated Will be removed in 3.0
  */
 class EventProxyService implements EventProxyServiceInterface
 {

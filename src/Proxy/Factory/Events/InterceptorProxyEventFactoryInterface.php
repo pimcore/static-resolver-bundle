@@ -20,7 +20,7 @@ use Pimcore\Bundle\StaticResolverBundle\Proxy\Events\ProxyPostInterceptorInterfa
 use Pimcore\Bundle\StaticResolverBundle\Proxy\Events\ProxyPreInterceptorInterface;
 
 /**
- * @deprecated
+ * @deprecated Will be removed in 3.0
  */
 interface InterceptorProxyEventFactoryInterface
 {

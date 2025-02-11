@@ -24,7 +24,7 @@ use ProxyManager\GeneratorStrategy\FileWriterGeneratorStrategy;
 use ProxyManager\Proxy\RemoteObjectInterface;
 
 /**
- * @deprecated
+ * @deprecated Will be removed in 3.0
  */
 final class RemoteObjectFactory implements RemoteObjectFactoryInterface
 {
