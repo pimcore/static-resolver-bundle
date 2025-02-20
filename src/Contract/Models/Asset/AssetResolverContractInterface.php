@@ -33,7 +33,7 @@ interface AssetResolverContractInterface
 
     public function create(int $parentId, array $data = [], bool $save = true): Asset;
 
-    public function getById(int|string $id, array $params = []): ?Asset;
+    public function getById(int $id, array $params = []): ?Asset;
 
     public function locateDaoClass(string $modelClass): ?string;
 }

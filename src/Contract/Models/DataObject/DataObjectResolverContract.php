@@ -23,7 +23,7 @@ use Pimcore\Model\DataObject\Listing;
 
 class DataObjectResolverContract implements DataObjectResolverContractInterface
 {
-    public function getById(int|string $id, array $params = []): null|DataObject
+    public function getById(int $id, array $params = []): null|DataObject
     {
         return DataObject::getById($id, $params);
     }

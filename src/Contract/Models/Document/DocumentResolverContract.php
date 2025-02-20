@@ -50,7 +50,7 @@ class DocumentResolverContract implements DocumentResolverContractInterface
         return Document::create($parentId, $data, $save);
     }
 
-    public function getById(int|string $id, array $params = []): ?Document
+    public function getById(int $id, array $params = []): ?Document
     {
         return Document::getById($id, $params);
     }

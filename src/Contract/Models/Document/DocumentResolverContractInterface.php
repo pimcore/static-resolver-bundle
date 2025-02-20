@@ -35,7 +35,7 @@ interface DocumentResolverContractInterface
 
     public function create(int $parentId, array $data = [], bool $save = true): Document;
 
-    public function getById(int|string $id, array $params = []): ?Document;
+    public function getById(int $id, array $params = []): ?Document;
 
     public function getTypesConfiguration(): array;
 
