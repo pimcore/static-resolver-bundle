@@ -23,7 +23,7 @@ use Pimcore\Model\DataObject\Listing;
 
 class DataObjectFolderResolverContract implements DataObjectFolderResolverContractInterface
 {
-    public function getById(int|string $id, array $params = []): null|Folder
+    public function getById(int $id, array $params = []): null|Folder
     {
         return Folder::getById($id, $params);
     }

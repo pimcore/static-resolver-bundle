@@ -45,7 +45,7 @@ class AssetResolverContract implements AssetResolverContractInterface
         return Asset::create($parentId, $data, $save);
     }
 
-    public function getById(int|string $id, array $params = []): ?Asset
+    public function getById(int $id, array $params = []): ?Asset
     {
         return Asset::getById($id, $params);
     }
