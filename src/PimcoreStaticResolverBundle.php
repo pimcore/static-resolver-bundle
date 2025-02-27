@@ -17,13 +17,20 @@ declare(strict_types=1);
 namespace Pimcore\Bundle\StaticResolverBundle;
 
 use function dirname;
+use Pimcore\Bundle\StaticResolverBundle\DependencyInjection\PimcoreStaticResolverExtension;
 use Pimcore\Extension\Bundle\AbstractPimcoreBundle;
 use Pimcore\Extension\Bundle\PimcoreBundleAdminClassicInterface;
 use Pimcore\Extension\Bundle\Traits\BundleAdminClassicTrait;
+use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 
 class PimcoreStaticResolverBundle extends AbstractPimcoreBundle implements PimcoreBundleAdminClassicInterface
 {
     use BundleAdminClassicTrait;
+
+    public function getContainerExtension(): ExtensionInterface
+    {
+        return new PimcoreStaticResolverExtension();
+    }
 
     public function getPath(): string
     {
