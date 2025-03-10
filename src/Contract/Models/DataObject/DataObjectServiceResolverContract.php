@@ -186,11 +186,6 @@ class DataObjectServiceResolverContract implements DataObjectServiceResolverCont
         Service::recursiveResetDirtyMap($object);
     }
 
-    public function getVersionDependentDatabaseColumnName(string $fieldName): string
-    {
-        return Service::getVersionDependentDatabaseColumnName($fieldName);
-    }
-
     public function doHideUnpublished(?ElementInterface $element): bool
     {
         return Service::doHideUnpublished($element);

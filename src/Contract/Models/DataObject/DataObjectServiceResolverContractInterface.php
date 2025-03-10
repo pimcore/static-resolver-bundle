@@ -118,8 +118,6 @@ interface DataObjectServiceResolverContractInterface
 
     public function recursiveResetDirtyMap(AbstractObject $object): void;
 
-    public function getVersionDependentDatabaseColumnName(string $fieldName): string;
-
     public function doHideUnpublished(?ElementInterface $element): bool;
 
     public function getElementByPath(string $type, string $path): ?ElementInterface;
