@@ -28,7 +28,7 @@ final class ObjectAdapter implements ObjectAdapterInterface
     }
 
     /** @throws BadMethodCallException */
-    public function call(string $wrappedClass, string $method, array $params = [])
+    public function call(string $wrappedClass, string $method, array $params = []): mixed
     {
         return $this->remoteClassOrInstance->{$method}(...$params);
     }

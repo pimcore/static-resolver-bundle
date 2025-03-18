@@ -25,5 +25,5 @@ use ProxyManager\Factory\RemoteObject\AdapterInterface;
 interface ObjectAdapterInterface extends AdapterInterface
 {
     /** @throws BadMethodCallException */
-    public function call(string $wrappedClass, string $method, array $params = []);
+    public function call(string $wrappedClass, string $method, array $params = []): mixed;
 }
