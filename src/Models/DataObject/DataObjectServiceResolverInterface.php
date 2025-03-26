@@ -30,20 +30,20 @@ interface DataObjectServiceResolverInterface extends DataObjectServiceResolverCo
     public function getCustomLayoutDefinitionForGridColumnConfig(
         ClassDefinition $class,
         int $objectId,
-        User $user = null
+        ?User $user = null
     ): array;
 
     public function enrichLayoutDefinition(
         ClassDefinition\Data|ClassDefinition\Layout|null &$layout,
         ?Concrete $object = null,
         array $context = [],
-        User $user = null
+        ?User $user = null
     ): void;
 
     public function enrichLayoutPermissions(
         Data &$layout,
         ?array $allowedView, ?
         array $allowedEdit,
-        User $user = null
+        ?User $user = null
     ): void;
 }

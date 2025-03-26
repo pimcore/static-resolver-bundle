@@ -31,7 +31,7 @@ final class DataObjectServiceResolver extends DataObjectServiceResolverContract 
     public function getCustomLayoutDefinitionForGridColumnConfig(
         ClassDefinition $class,
         int $objectId,
-        User $user = null
+        ?User $user = null
     ): array {
         return Service::getCustomLayoutDefinitionForGridColumnConfig($class, $objectId, $user);
     }
@@ -40,7 +40,7 @@ final class DataObjectServiceResolver extends DataObjectServiceResolverContract 
         ClassDefinition\Data|ClassDefinition\Layout|null &$layout,
         ?Concrete $object = null,
         array $context = [],
-        User $user = null
+        ?User $user = null
     ): void {
         Service::enrichLayoutDefinition($layout, $object, $context, $user);
     }
@@ -49,7 +49,7 @@ final class DataObjectServiceResolver extends DataObjectServiceResolverContract 
         Data &$layout,
         ?array $allowedView,
         ?array $allowedEdit,
-        User $user = null
+        ?User $user = null
     ): void {
         Service::enrichLayoutPermissions($layout, $allowedView, $allowedEdit, $user);
     }
