@@ -20,19 +20,30 @@ use Pimcore\Bundle\StaticResolverBundle\Contract\Models\DataObject\DataObjectSer
 use Pimcore\Model\DataObject\ClassDefinition;
 use Pimcore\Model\DataObject\ClassDefinition\Data;
 use Pimcore\Model\DataObject\Concrete;
+use Pimcore\Model\User;
 
 /**
  * @internal
  */
 interface DataObjectServiceResolverInterface extends DataObjectServiceResolverContractInterface
 {
-    public function getCustomLayoutDefinitionForGridColumnConfig(ClassDefinition $class, int $objectId): array;
+    public function getCustomLayoutDefinitionForGridColumnConfig(
+        ClassDefinition $class,
+        int $objectId,
+        User $user = null
+    ): array;
 
     public function enrichLayoutDefinition(
         ClassDefinition\Data|ClassDefinition\Layout|null &$layout,
         ?Concrete $object = null,
-        array $context = []
+        array $context = [],
+        User $user = null
     ): void;
 
-    public function enrichLayoutPermissions(Data &$layout, ?array $allowedView, ?array $allowedEdit): void;
+    public function enrichLayoutPermissions(
+        Data &$layout,
+        ?array $allowedView, ?
+        array $allowedEdit,
+        User $user = null
+    ): void;
 }

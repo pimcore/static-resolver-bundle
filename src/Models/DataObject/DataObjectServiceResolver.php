@@ -21,27 +21,38 @@ use Pimcore\Model\DataObject\ClassDefinition;
 use Pimcore\Model\DataObject\ClassDefinition\Data;
 use Pimcore\Model\DataObject\Concrete;
 use Pimcore\Model\DataObject\Service;
+use Pimcore\Model\User;
 
 /**
  * @internal
  */
 final class DataObjectServiceResolver extends DataObjectServiceResolverContract implements DataObjectServiceResolverInterface
 {
-    public function getCustomLayoutDefinitionForGridColumnConfig(ClassDefinition $class, int $objectId): array
+    public function getCustomLayoutDefinitionForGridColumnConfig(
+        ClassDefinition $class,
+        int $objectId,
+        User $user = null
+    ): array
     {
-        return Service::getCustomLayoutDefinitionForGridColumnConfig($class, $objectId);
+        return Service::getCustomLayoutDefinitionForGridColumnConfig($class, $objectId, $user);
     }
 
     public function enrichLayoutDefinition(
         ClassDefinition\Data|ClassDefinition\Layout|null &$layout,
         ?Concrete $object = null,
-        array $context = []
+        array $context = [],
+        User $user = null
     ): void {
-        Service::enrichLayoutDefinition($layout, $object, $context);
+        Service::enrichLayoutDefinition($layout, $object, $context, $user);
     }
 
-    public function enrichLayoutPermissions(Data &$layout, ?array $allowedView, ?array $allowedEdit): void
+    public function enrichLayoutPermissions(
+        Data &$layout,
+        ?array $allowedView,
+        ?array $allowedEdit,
+        User $user = null
+    ): void
     {
-        Service::enrichLayoutPermissions($layout, $allowedView, $allowedEdit);
+        Service::enrichLayoutPermissions($layout, $allowedView, $allowedEdit, $user);
     }
 }
