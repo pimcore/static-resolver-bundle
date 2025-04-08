@@ -18,7 +18,6 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject;
 
 use Pimcore\Bundle\StaticResolverBundle\Contract\Models\DataObject\ClassDefinitionServiceResolverContract;
 use Pimcore\Model\DataObject\ClassDefinition\Data;
-use Pimcore\Model\DataObject\ClassDefinition\Data\EncryptedField;
 use Pimcore\Model\DataObject\ClassDefinition\Layout;
 use Pimcore\Model\DataObject\ClassDefinition\Service;
 
@@ -31,7 +30,7 @@ final class ClassDefinitionServiceResolver extends ClassDefinitionServiceResolve
         array $array,
         bool $throwException = false,
         bool $insideLocalizedField = false
-    ): EncryptedField|bool|Data|Layout {
+    ): bool|Data|Layout {
         return Service::generateLayoutTreeFromArray($array, $throwException, $insideLocalizedField);
     }
 

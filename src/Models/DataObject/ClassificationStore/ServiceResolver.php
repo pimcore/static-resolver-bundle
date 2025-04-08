@@ -18,7 +18,6 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject\ClassificationSt
 
 use Exception;
 use Pimcore\Model\DataObject\ClassDefinition\Data;
-use Pimcore\Model\DataObject\ClassDefinition\Data\EncryptedField;
 use Pimcore\Model\DataObject\Classificationstore\KeyConfig;
 use Pimcore\Model\DataObject\Classificationstore\KeyGroupRelation;
 use Pimcore\Model\DataObject\Classificationstore\Service;
@@ -38,11 +37,11 @@ final class ServiceResolver implements ServiceResolverInterface
      */
     public function getFieldDefinitionFromKeyConfig(
         KeyConfig|KeyGroupRelation $keyConfig
-    ): EncryptedField|Data|null {
+    ): Data|null {
         return Service::getFieldDefinitionFromKeyConfig($keyConfig);
     }
 
-    public function getFieldDefinitionFromJson(array $definition, string $type): EncryptedField|Data|null
+    public function getFieldDefinitionFromJson(array $definition, string $type): Data|null
     {
         return Service::getFieldDefinitionFromJson($definition, $type);
     }

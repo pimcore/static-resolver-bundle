@@ -19,7 +19,6 @@ namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject;
 use Exception;
 use Pimcore\Bundle\StaticResolverBundle\Contract\Models\DataObject\ClassDefinitionServiceResolverContractInterface;
 use Pimcore\Model\DataObject\ClassDefinition\Data;
-use Pimcore\Model\DataObject\ClassDefinition\Data\EncryptedField;
 use Pimcore\Model\DataObject\ClassDefinition\Layout;
 
 /**
@@ -34,7 +33,7 @@ interface ClassDefinitionServiceResolverInterface extends ClassDefinitionService
         array $array,
         bool $throwException = false,
         bool $insideLocalizedField = false
-    ): EncryptedField|bool|Data|Layout;
+    ): bool|Data|Layout;
 
     public function setDoRemoveDynamicOptions(bool $doRemoveDynamicOptions): void;
 
