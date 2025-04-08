@@ -28,6 +28,12 @@ use Pimcore\Model\DataObject\Classificationstore\Service;
  */
 final class ServiceResolver implements ServiceResolverInterface
 {
+
+    public function clearDefinitionsCache(): void
+    {
+        Service::clearDefinitionsCache();
+    }
+
     /**
      * @throws Exception
      */
@@ -35,5 +41,10 @@ final class ServiceResolver implements ServiceResolverInterface
         KeyConfig|KeyGroupRelation $keyConfig
     ): EncryptedField|Data|null {
         return Service::getFieldDefinitionFromKeyConfig($keyConfig);
+    }
+
+    public function getFieldDefinitionFromJson(array $definition, string $type): EncryptedField|Data|null
+    {
+        return Service::getFieldDefinitionFromJson($definition, $type);
     }
 }
