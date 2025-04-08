@@ -29,7 +29,7 @@ interface ServiceResolverInterface
 
     public function getFieldDefinitionFromKeyConfig(
         KeyConfig|KeyGroupRelation $keyConfig
-    ): Data|null;
+    ): ?Data;
 
-    public function getFieldDefinitionFromJson(array $definition, string $type): Data|null;
+    public function getFieldDefinitionFromJson(array $definition, string $type): ?Data;
 }

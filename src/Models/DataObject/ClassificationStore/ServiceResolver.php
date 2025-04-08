@@ -37,11 +37,11 @@ final class ServiceResolver implements ServiceResolverInterface
      */
     public function getFieldDefinitionFromKeyConfig(
         KeyConfig|KeyGroupRelation $keyConfig
-    ): Data|null {
+    ): ?Data {
         return Service::getFieldDefinitionFromKeyConfig($keyConfig);
     }
 
-    public function getFieldDefinitionFromJson(array $definition, string $type): Data|null
+    public function getFieldDefinitionFromJson(array $definition, string $type): ?Data
     {
         return Service::getFieldDefinitionFromJson($definition, $type);
     }
