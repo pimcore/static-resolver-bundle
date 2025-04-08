@@ -27,6 +27,7 @@ use Pimcore\Model\DataObject\Classificationstore\KeyGroupRelation;
 interface ServiceResolverInterface
 {
     public function clearDefinitionsCache(): void;
+
     public function getFieldDefinitionFromKeyConfig(
         KeyConfig|KeyGroupRelation $keyConfig
     ): EncryptedField|Data|null;

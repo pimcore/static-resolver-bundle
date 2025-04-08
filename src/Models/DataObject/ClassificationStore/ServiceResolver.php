@@ -28,7 +28,6 @@ use Pimcore\Model\DataObject\Classificationstore\Service;
  */
 final class ServiceResolver implements ServiceResolverInterface
 {
-
     public function clearDefinitionsCache(): void
     {
         Service::clearDefinitionsCache();
