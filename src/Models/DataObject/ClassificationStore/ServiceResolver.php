@@ -32,9 +32,6 @@ final class ServiceResolver implements ServiceResolverInterface
         Service::clearDefinitionsCache();
     }
 
-    /**
-     * @throws Exception
-     */
     public function getFieldDefinitionFromKeyConfig(
         KeyConfig|KeyGroupRelation $keyConfig
     ): ?Data {
