@@ -16,9 +16,7 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject\ClassificationStore;
 
-use Exception;
 use Pimcore\Model\DataObject\ClassDefinition\Data;
-use Pimcore\Model\DataObject\ClassDefinition\Data\EncryptedField;
 use Pimcore\Model\DataObject\Classificationstore\KeyConfig;
 use Pimcore\Model\DataObject\Classificationstore\KeyGroupRelation;
 use Pimcore\Model\DataObject\Classificationstore\Service;
@@ -33,16 +31,13 @@ final class ServiceResolver implements ServiceResolverInterface
         Service::clearDefinitionsCache();
     }
 
-    /**
-     * @throws Exception
-     */
     public function getFieldDefinitionFromKeyConfig(
         KeyConfig|KeyGroupRelation $keyConfig
-    ): EncryptedField|Data|null {
+    ): ?Data {
         return Service::getFieldDefinitionFromKeyConfig($keyConfig);
     }
 
-    public function getFieldDefinitionFromJson(array $definition, string $type): EncryptedField|Data|null
+    public function getFieldDefinitionFromJson(array $definition, string $type): ?Data
     {
         return Service::getFieldDefinitionFromJson($definition, $type);
     }

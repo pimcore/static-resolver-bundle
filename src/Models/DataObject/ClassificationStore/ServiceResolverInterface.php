@@ -17,7 +17,6 @@ declare(strict_types=1);
 namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject\ClassificationStore;
 
 use Pimcore\Model\DataObject\ClassDefinition\Data;
-use Pimcore\Model\DataObject\ClassDefinition\Data\EncryptedField;
 use Pimcore\Model\DataObject\Classificationstore\KeyConfig;
 use Pimcore\Model\DataObject\Classificationstore\KeyGroupRelation;
 
@@ -30,7 +29,7 @@ interface ServiceResolverInterface
 
     public function getFieldDefinitionFromKeyConfig(
         KeyConfig|KeyGroupRelation $keyConfig
-    ): EncryptedField|Data|null;
+    ): ?Data;
 
-    public function getFieldDefinitionFromJson(array $definition, string $type): EncryptedField|Data|null;
+    public function getFieldDefinitionFromJson(array $definition, string $type): ?Data;
 }
