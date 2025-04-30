@@ -1,6 +1,6 @@
 {
   "name": "pimcore/static-resolver-bundle",
-  "license": "GPL-3.0+",
+  "license": "Pimcore Open Core License (POCL)",
   "type": "pimcore-bundle",
   "description": "Pimcore Static Resolver Bundle",
   "config": {

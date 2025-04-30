@@ -2,14 +2,14 @@
 declare(strict_types=1);
 
 /**
- * Pimcore
- *
- * This source file is available under following license:
- * - Pimcore Commercial License (PCL)
- *
- *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
- *  @license    http://www.pimcore.org/license     PCL
- */
+* This source file is available under the terms of the
+* Pimcore Open Core License (POCL)
+* Full copyright and license information is available in
+* LICENSE.md which is distributed with this source code.
+*
+*  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.com)
+*  @license    Pimcore Open Core License (POCL)
+*/
 
 use Pimcore\Bootstrap;
 
