@@ -14,11 +14,28 @@ declare(strict_types=1);
 namespace Pimcore\Bundle\StaticResolverBundle\Lib;
 
 use Pimcore\Bundle\StaticResolverBundle\Contract\Lib\ToolResolverContractInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @internal
  */
 interface ToolResolverInterface extends ToolResolverContractInterface
 {
+    public function hasCurrentRequest(): bool;
+
+    public function useFrontendOutputFilters(?Request $request = null): bool;
+
     public function getHostname(): ?string;
+
+    public function getRequestScheme(?Request $request = null): string;
+
+    public function getClientIp(?Request $request = null): ?string;
+
+    public function getAnonymizedClientIp(?Request $request = null): ?string;
+
+    public function classExists(string $class): bool;
+
+    public function interfaceExists(string $class): bool;
+
+    public function traitExists(string $class): bool;
 }
