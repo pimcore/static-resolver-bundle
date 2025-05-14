@@ -26,7 +26,7 @@ final class ToolResolver extends ToolResolverContract implements ToolResolverInt
     {
         return Tool::hasCurrentRequest();
     }
-    
+
     public function useFrontendOutputFilters(?Request $request = null): bool
     {
         return Tool::useFrontendOutputFilters($request);
