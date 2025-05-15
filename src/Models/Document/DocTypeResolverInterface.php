@@ -13,13 +13,11 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Models\Document;
 
-use Pimcore\Bundle\StaticResolverBundle\Contract\Models\Document\DocumentResolverContractInterface;
-use Pimcore\Model\Document;
+use Pimcore\Bundle\StaticResolverBundle\Contract\Models\Document\DocTypeResolverContractInterface;
 
 /**
  * @internal
  */
-interface DocumentResolverInterface extends DocumentResolverContractInterface
+interface DocTypeResolverInterface extends DocTypeResolverContractInterface
 {
-    public function createByClassName(string $className, int $parentId, array $data = [], bool $save = true): Document;
 }
