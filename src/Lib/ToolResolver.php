@@ -15,14 +15,55 @@ namespace Pimcore\Bundle\StaticResolverBundle\Lib;
 
 use Pimcore\Bundle\StaticResolverBundle\Contract\Lib\ToolResolverContract;
 use Pimcore\Tool;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @internal
  */
 final class ToolResolver extends ToolResolverContract implements ToolResolverInterface
 {
+    public function hasCurrentRequest(): bool
+    {
+        return Tool::hasCurrentRequest();
+    }
+
+    public function useFrontendOutputFilters(?Request $request = null): bool
+    {
+        return Tool::useFrontendOutputFilters($request);
+    }
+
     public function getHostname(): ?string
     {
         return Tool::getHostname();
+    }
+
+    public function getRequestScheme(?Request $request = null): string
+    {
+        return Tool::getRequestScheme($request);
+    }
+
+    public function getClientIp(?Request $request = null): ?string
+    {
+        return Tool::getClientIp($request);
+    }
+
+    public function getAnonymizedClientIp(?Request $request = null): ?string
+    {
+        return Tool::getAnonymizedClientIp($request);
+    }
+
+    public function classExists(string $class): bool
+    {
+        return Tool::classExists($class);
+    }
+
+    public function interfaceExists(string $class): bool
+    {
+        return Tool::interfaceExists($class);
+    }
+
+    public function traitExists(string $class): bool
+    {
+        return Tool::traitExists($class);
     }
 }
