@@ -31,8 +31,7 @@ class WebsiteSettingResolverContract implements WebsiteSettingResolverContractIn
         ?int $siteId = null,
         ?string $language = null,
         ?string $fallbackLanguage = null
-    ): ?WebsiteSetting
-    {
+    ): ?WebsiteSetting {
         return WebsiteSetting::getByName($name, $siteId, $language, $fallbackLanguage);
     }
 }
