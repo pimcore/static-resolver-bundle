@@ -22,7 +22,7 @@ use Pimcore\Model\User;
  */
 final class ItemResolver implements ItemResolverInterface
 {
-    public function create(ElementInterface $element, User $user = null): void
+    public function create(ElementInterface $element, ?User $user = null): void
     {
         Item::create($element, $user);
     }

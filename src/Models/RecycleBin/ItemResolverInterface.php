@@ -22,7 +22,7 @@ use Pimcore\Model\User;
  */
 interface ItemResolverInterface
 {
-    public function create(ElementInterface $element, User $user = null): void;
+    public function create(ElementInterface $element, ?User $user = null): void;
 
     public function getById(int $id): ?Item;
 }
