@@ -34,4 +34,9 @@ class WebsiteSettingResolverContract implements WebsiteSettingResolverContractIn
     ): ?WebsiteSetting {
         return WebsiteSetting::getByName($name, $siteId, $language, $fallbackLanguage);
     }
+
+    public function locateDaoClass(string $modelClass): ?string
+    {
+        return WebsiteSetting::locateDaoClass($modelClass);
+    }
 }
