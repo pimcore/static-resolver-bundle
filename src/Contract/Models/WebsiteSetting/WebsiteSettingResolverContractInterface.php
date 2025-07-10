@@ -29,4 +29,6 @@ interface WebsiteSettingResolverContractInterface
         ?string $language = null,
         ?string $fallbackLanguage = null
     ): ?WebsiteSetting;
+
+    public function locateDaoClass(string $modelClass): ?string;
 }
