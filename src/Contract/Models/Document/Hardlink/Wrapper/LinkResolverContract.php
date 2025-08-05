@@ -67,13 +67,4 @@ class LinkResolverContract implements LinkResolverContractInterface
         return Link::locateDaoClass($modelClass);
     }
 
-    public function setGetInheritedValues(bool $getInheritedValues): void
-    {
-        Link::setGetInheritedValues($getInheritedValues);
-    }
-
-    public function getGetInheritedValues(): bool
-    {
-        return Link::getGetInheritedValues();
-    }
 }

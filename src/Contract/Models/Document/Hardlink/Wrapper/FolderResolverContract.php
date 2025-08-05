@@ -67,13 +67,4 @@ class FolderResolverContract implements FolderResolverContractInterface
         return Folder::locateDaoClass($modelClass);
     }
 
-    public function setGetInheritedValues(bool $getInheritedValues): void
-    {
-        Folder::setGetInheritedValues($getInheritedValues);
-    }
-
-    public function getGetInheritedValues(): bool
-    {
-        return Folder::getGetInheritedValues();
-    }
 }

@@ -67,13 +67,4 @@ class HardlinkResolverContract implements HardlinkResolverContractInterface
         return Hardlink::locateDaoClass($modelClass);
     }
 
-    public function setGetInheritedValues(bool $getInheritedValues): void
-    {
-        Hardlink::setGetInheritedValues($getInheritedValues);
-    }
-
-    public function getGetInheritedValues(): bool
-    {
-        return Hardlink::getGetInheritedValues();
-    }
 }

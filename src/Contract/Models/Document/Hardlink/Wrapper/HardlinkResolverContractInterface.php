@@ -40,7 +40,4 @@ interface HardlinkResolverContractInterface
 
     public function locateDaoClass(string $modelClass): ?string;
 
-    public function setGetInheritedValues(bool $getInheritedValues): void;
-
-    public function getGetInheritedValues(): bool;
 }
