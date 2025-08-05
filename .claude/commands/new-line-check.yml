@@ -1,0 +1,8 @@
+Please check local changes for new line:
+
+Follow these steps:
+
+  1. Use `git diff` to check the current state of the repository
+  3. Ignore changes in the `vendor` directory.
+  2. Check if every php file ends with a new line and ad if not
+

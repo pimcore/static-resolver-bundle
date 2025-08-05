@@ -1,0 +1,25 @@
+Please create new Contract for $ARGUMENTS.
+
+Follow these steps:
+
+ 1. Create new Contract Interfaces (`src/Contract/*/`): Public API interfaces for $ARGUMENTS
+ 2. Create new Contract Implementations (`src/Contract/*/`): Wrap static calls for $ARGUMENTS
+ 3. Create new Bundle Interfaces (`src/*/`): Internal interfaces extending contracts for $ARGUMENTS
+ 4. Create new Bundle Implementations (`src/*/`): Final implementations marked `@internal` for $ARGUMENTS
+
+Remember to use the `src/Contract` directory for public API interfaces and the `src` directory for internal bundle implementations.
+Remember to create tests for the new contract and bundle implementations.
+Remember to use the same naming conventions as existing contracts and bundles.
+Remember to use the same namespace structure as in the wrapped class.
+ - E.g Class to wrap: Pimcore\Model\Document\Hardlink\Service.php
+    - Contract Interface: `src/Contract/Models/Document/Hardlink/ServiceResolverContractInterface.php`
+    - Contract Implementation: `src/Contract/Models/Document/Hardlink/ServiceResolverContract.php`
+    - Bundle Interface: `src/Models/Document/Hardlink/ServiceResolverInterface.php`
+    - Bundle Implementation: `src/Models/Document/Hardlink/ServiceResolver.php`
+    - Unit Test: `tests/Unit/Models/Document/Hardlink/ServiceResolverTest.php`
+ - E.g Class to wrap: Pimcore\Model\Document\Hardlink\Wrapper\Email.php
+    - Contract Interface: `src/Contract/Models/Document/Hardlink/Wrapper/EmailResolverContractInterface.php`
+    - Contract Implementation: `src/Contract/Models/Document/Hardlink/Wrapper/EmailResolverContract.php`
+    - Bundle Interface: `src/Models/Document/Hardlink/Wrapper/EmailResolverInterface.php`
+    - Bundle Implementation: `src/Models/Document/Hardlink/Wrapper/EmailResolver.php`
+    - Unit Test: `tests/Unit/Models/Document/Hardlink/Wrapper/EmailResolverTest.php`
