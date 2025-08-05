@@ -1,0 +1,19 @@
+Please run test local in docker container:
+
+Follow these steps:
+
+  1. Start docker container if applicable
+  2. Executel all unit tests
+  3. Review the test results and ensure all tests pass
+  4. If any tests fail, investigate the issues and suggest how to fix them
+  
+  Remember to document any issues or unexpected behavior you encounter during testing.
+  Remember to use docker commands (`docker`) for any container-related tasks if applicable.
+  Remember to run test in the docker container.
+
+Testing:
+
+Run all tests**: `vendor/bin/codecept run`
+
+
+

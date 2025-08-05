@@ -1,0 +1,19 @@
+name: Upsream Merge
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_branch:
+        description: 'Source branch to merge from (e.g. 3.1)'
+        required: true
+      target_branch:
+        description: 'Target branch to merge into (e.g. 3.x)'
+        required: true
+
+jobs:
+  call-merge:
+    uses: pimcore/workflows-collection-public/.github/workflows/reusable-upstream-merge.yaml
+    with:
+      source_branch: ${{ github.event.inputs.source_branch }}
+      target_branch: ${{ github.event.inputs.target_branch }}
+    secrets: inherit
