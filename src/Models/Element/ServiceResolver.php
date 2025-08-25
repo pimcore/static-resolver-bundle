@@ -32,4 +32,14 @@ final class ServiceResolver extends ServiceResolverContract implements ServiceRe
     {
         return Service::isPublished($element);
     }
+
+    public function escapeCsvRecord(array $rowData): array
+    {
+        return Service::escapeCsvRecord($rowData);
+    }
+
+    public function unEscapeCsvRecord(array $rowData): array
+    {
+        return Service::unEscapeCsvRecord($rowData);
+    }
 }

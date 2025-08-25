@@ -26,4 +26,8 @@ interface ServiceResolverInterface extends ServiceResolverContractInterface
     public function findForbiddenPaths(string $type, User $user): array;
 
     public function isPublished(?ElementInterface $element = null): bool;
+
+    public function escapeCsvRecord(array $rowData): array;
+
+    public function unEscapeCsvRecord(array $rowData): array;
 }
