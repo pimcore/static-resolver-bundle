@@ -11,7 +11,7 @@ declare(strict_types=1);
  *  @license    Pimcore Open Core License (POCL)
  */
 
-namespace Pimcore\Bundle\StaticResolverBundle\Contract\Lib;
+namespace Pimcore\Bundle\StaticResolverBundle\Contract\Lib\Tools;
 
 use Pimcore\Model\Document;
 use Pimcore\Model\Site;

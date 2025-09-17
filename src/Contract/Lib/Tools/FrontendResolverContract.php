@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Contract\Lib\Tools;
 
-use Pimcore\Bundle\StaticResolverBundle\Contract\Lib\FrontendResolverContractInterface;
 use Pimcore\Model\Document;
 use Pimcore\Model\Site;
 use Pimcore\Tool\Frontend;

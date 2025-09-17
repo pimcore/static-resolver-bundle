@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Lib\Tools;
 
-use Pimcore\Bundle\StaticResolverBundle\Contract\Lib\FrontendResolverContractInterface;
+use Pimcore\Bundle\StaticResolverBundle\Contract\Lib\Tools\FrontendResolverContractInterface;
 
 /**
  * @internal
