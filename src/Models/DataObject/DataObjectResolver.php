@@ -21,13 +21,4 @@ use Pimcore\Model\DataObject;
  */
 final class DataObjectResolver extends DataObjectResolverContract implements DataObjectResolverInterface
 {
-    public function setGetInheritedProperties(bool $getInheritedProperties): void
-    {
-        DataObject::setGetInheritedProperties($getInheritedProperties);
-    }
-
-    public function getGetInheritedProperties(): bool
-    {
-        return DataObject::getGetInheritedProperties();
-    }
 }

@@ -21,13 +21,4 @@ use Pimcore\Model\DataObject\Concrete;
  */
 final class ConcreteObjectResolver extends ConcreteObjectResolverContract implements ConcreteObjectResolverInterface
 {
-    public function setGetInheritedProperties(bool $getInheritedProperties): void
-    {
-        Concrete::setGetInheritedProperties($getInheritedProperties);
-    }
-
-    public function getGetInheritedProperties(): bool
-    {
-        return Concrete::getGetInheritedProperties();
-    }
 }

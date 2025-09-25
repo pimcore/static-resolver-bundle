@@ -21,13 +21,4 @@ use Pimcore\Model\DataObject\Folder;
  */
 final class DataObjectFolderResolver extends DataObjectFolderResolverContract implements DataObjectFolderResolverInterface
 {
-    public function setGetInheritedProperties(bool $getInheritedProperties): void
-    {
-        Folder::setGetInheritedProperties($getInheritedProperties);
-    }
-
-    public function getGetInheritedProperties(): bool
-    {
-        return Folder::getGetInheritedProperties();
-    }
 }
