@@ -22,8 +22,4 @@ use Pimcore\Model\Document;
 interface DocumentResolverInterface extends DocumentResolverContractInterface
 {
     public function createByClassName(string $className, int $parentId, array $data = [], bool $save = true): Document;
-
-    public function setGetInheritedProperties(bool $getInheritedProperties): void;
-
-    public function getGetInheritedProperties(): bool;
 }

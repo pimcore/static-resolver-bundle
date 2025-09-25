@@ -29,14 +29,4 @@ final class DocumentResolver extends DocumentResolverContract implements Documen
 
         return $className::create($parentId, $data, $save);
     }
-
-    public function setGetInheritedProperties(bool $getInheritedProperties): void
-    {
-        Document::setGetInheritedProperties($getInheritedProperties);
-    }
-
-    public function getGetInheritedProperties(): bool
-    {
-        return Document::getGetInheritedProperties();
-    }
 }
