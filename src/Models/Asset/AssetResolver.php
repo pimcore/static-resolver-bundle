@@ -25,4 +25,13 @@ final class AssetResolver extends AssetResolverContract implements AssetResolver
     {
         return Asset::getTypeFromMimeMapping($mimeType, $filename);
     }
+    public function setGetInheritedProperties(bool $getInheritedProperties): void
+    {
+        Asset::setGetInheritedProperties($getInheritedProperties);
+    }
+
+    public function getGetInheritedProperties(): bool
+    {
+        return Asset::getGetInheritedProperties();
+    }
 }

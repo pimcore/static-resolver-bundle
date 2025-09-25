@@ -20,4 +20,7 @@ use Pimcore\Bundle\StaticResolverBundle\Contract\Models\DataObject\DataObjectRes
  */
 interface DataObjectResolverInterface extends DataObjectResolverContractInterface
 {
+    public function setGetInheritedProperties(bool $getInheritedProperties): void;
+
+    public function getGetInheritedProperties(): bool;
 }

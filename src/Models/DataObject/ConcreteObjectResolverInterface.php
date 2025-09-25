@@ -20,4 +20,7 @@ use Pimcore\Bundle\StaticResolverBundle\Contract\Models\DataObject\ConcreteObjec
  */
 interface ConcreteObjectResolverInterface extends ConcreteObjectResolverContractInterface
 {
+    public function setGetInheritedProperties(bool $getInheritedProperties): void;
+
+    public function getGetInheritedProperties(): bool;
 }

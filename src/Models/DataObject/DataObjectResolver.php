@@ -14,10 +14,20 @@ declare(strict_types=1);
 namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject;
 
 use Pimcore\Bundle\StaticResolverBundle\Contract\Models\DataObject\DataObjectResolverContract;
+use Pimcore\Model\DataObject;
 
 /**
  * @internal
  */
 final class DataObjectResolver extends DataObjectResolverContract implements DataObjectResolverInterface
 {
+    public function setGetInheritedProperties(bool $getInheritedProperties): void
+    {
+        DataObject::setGetInheritedProperties($getInheritedProperties);
+    }
+
+    public function getGetInheritedProperties(): bool
+    {
+        return DataObject::getGetInheritedProperties();
+    }
 }

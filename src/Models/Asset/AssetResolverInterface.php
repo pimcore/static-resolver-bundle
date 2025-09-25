@@ -21,4 +21,8 @@ use Pimcore\Bundle\StaticResolverBundle\Contract\Models\Asset\AssetResolverContr
 interface AssetResolverInterface extends AssetResolverContractInterface
 {
     public function getTypeFromMimeMapping(string $mimeType, string $filename): string;
+
+    public function setGetInheritedProperties(bool $getInheritedProperties): void;
+
+    public function getGetInheritedProperties(): bool;
 }
