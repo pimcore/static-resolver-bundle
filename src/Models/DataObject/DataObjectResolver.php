@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject;
 
 use Pimcore\Bundle\StaticResolverBundle\Contract\Models\DataObject\DataObjectResolverContract;
-use Pimcore\Model\DataObject;
 
 /**
  * @internal
