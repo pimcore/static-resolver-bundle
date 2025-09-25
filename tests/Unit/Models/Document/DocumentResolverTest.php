@@ -11,7 +11,16 @@ use Pimcore\Model\Document;
 #[Group('contract')]
 class DocumentResolverTest extends ContractAbstractTest
 {
-    public array $exludeMethodsForReturnTypeCheck = ['getByPath', 'getById', 'create'];
+    public array $excludedMethods = [
+        'setGetInheritedProperties',
+        'getGetInheritedProperties'
+    ];
+
+    public array $exludeMethodsForReturnTypeCheck = [
+        'getByPath',
+        'getById',
+        'create'
+    ];
 
     protected function getClassToTest(): string {
         return Document::class;

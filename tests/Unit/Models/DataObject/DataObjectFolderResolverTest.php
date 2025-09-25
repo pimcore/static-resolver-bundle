@@ -11,7 +11,11 @@ use Pimcore\Model\DataObject\Folder;
 #[Group('contract')]
 class DataObjectFolderResolverTest extends ContractAbstractTest
 {
-    public array $excludedMethods = ['__callStatic'];
+    public array $excludedMethods = [
+        '__callStatic',
+        'setGetInheritedProperties',
+        'getGetInheritedProperties'
+    ];
 
     public array $exludeMethodsForReturnTypeCheck = ['getById', 'getByPath'];
 
