@@ -40,7 +40,7 @@
   "extra": {
     "branch-alias": {
       "dev-3.x": "3.3.x-dev"
-    }
+    },
     "pimcore": {
       "bundles": [
         "Pimcore\\Bundle\\StaticResolverBundle\\PimcoreStaticResolverBundle"
