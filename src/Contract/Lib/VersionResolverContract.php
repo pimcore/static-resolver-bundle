@@ -22,17 +22,17 @@ class VersionResolverContract implements VersionResolverContractInterface
         return Version::getMajorVersion();
     }
 
-    public static function getVersion(): string
+    public function getVersion(): string
     {
         return Version::getVersion();
     }
 
-    public static function getRevision(): string
+    public function getRevision(): string
     {
         return Version::getRevision();
     }
 
-    public static function getPlatformVersion(): ?string
+    public function getPlatformVersion(): ?string
     {
        return Version::getPlatformVersion();
     }
