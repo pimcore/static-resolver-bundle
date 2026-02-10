@@ -51,4 +51,14 @@ class AssetResolverContract implements AssetResolverContractInterface
     {
         return Asset::locateDaoClass($modelClass);
     }
+
+    public function getGetInheritedProperties(): bool
+    {
+        return Asset::getGetInheritedProperties();
+    }
+
+    public function setGetInheritedProperties(bool $getInheritedProperties): void
+    {
+        Asset::setGetInheritedProperties($getInheritedProperties);
+    }
 }

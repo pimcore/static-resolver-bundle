@@ -39,4 +39,8 @@ interface DocumentResolverContractInterface
     public function doHideUnpublished(): bool;
 
     public function locateDaoClass(string $modelClass): ?string;
+
+    public function getGetInheritedProperties(): bool;
+
+    public function setGetInheritedProperties(bool $getInheritedProperties): void;
 }
