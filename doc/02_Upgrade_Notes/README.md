@@ -1,5 +1,8 @@
 # Upgrade notes
 
+## 3.5.0
+- Added commented methods in interfaces for upcoming introduction of getter/setter of `GetInheritedProperties` in AssetResolverContractInterface, ConcreteObjectResolverContractInterface, DataObjectFolderResolverContractInterface, DocumentResolverContractInterface.
+
 ## 2.0.0
 All Resolver classes and interfaces will be marked as `@internal`
 
