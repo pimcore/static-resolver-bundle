@@ -40,8 +40,10 @@ interface DocumentResolverContractInterface
 
     public function locateDaoClass(string $modelClass): ?string;
 
+//  BC-Break: This method will be introduced in v4.0.0
 //  public function getGetInheritedProperties(): bool;
 
+//  BC-Break: This method will be introduced in v4.0.0
 //  public function setGetInheritedProperties(bool $getInheritedProperties): void;
 
 }
