@@ -33,4 +33,8 @@ interface AssetResolverContractInterface
     public function getById(int $id, array $params = []): ?Asset;
 
     public function locateDaoClass(string $modelClass): ?string;
+
+    public function getGetInheritedProperties(): bool;
+
+    public function setGetInheritedProperties(bool $getInheritedProperties): void;
 }

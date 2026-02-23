@@ -40,6 +40,16 @@ class DataObjectResolverContract implements DataObjectResolverContractInterface
         return DataObject::doHideUnpublished();
     }
 
+    public function getGetInheritedProperties(): bool
+    {
+        return DataObject::getGetInheritedProperties();
+    }
+
+    public function setGetInheritedProperties(bool $getInheritedProperties): void
+    {
+        DataObject::setGetInheritedProperties($getInheritedProperties);
+    }
+
     public function setGetInheritedValues(bool $getInheritedValues): void
     {
         DataObject::setGetInheritedValues($getInheritedValues);

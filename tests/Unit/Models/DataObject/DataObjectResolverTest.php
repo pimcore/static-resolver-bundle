@@ -13,8 +13,6 @@ class DataObjectResolverTest extends ContractAbstractTest
 {
     public array $excludedMethods = [
         '__callStatic',
-        'setGetInheritedProperties',
-        'getGetInheritedProperties'
     ];
 
     public array $exludeMethodsForReturnTypeCheck = ['getById', 'getByPath'];

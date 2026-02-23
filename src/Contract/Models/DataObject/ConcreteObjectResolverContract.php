@@ -44,6 +44,16 @@ class ConcreteObjectResolverContract implements ConcreteObjectResolverContractIn
         return Concrete::doHideUnpublished();
     }
 
+    public function getGetInheritedProperties(): bool
+    {
+        return Concrete::getGetInheritedProperties();
+    }
+
+    public function setGetInheritedProperties(bool $getInheritedProperties): void
+    {
+        Concrete::setGetInheritedProperties($getInheritedProperties);
+    }
+
     public function setGetInheritedValues(bool $getInheritedValues): void
     {
         Concrete::setGetInheritedValues($getInheritedValues);

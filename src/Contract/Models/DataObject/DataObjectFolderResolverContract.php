@@ -45,6 +45,16 @@ class DataObjectFolderResolverContract implements DataObjectFolderResolverContra
         return Folder::doHideUnpublished();
     }
 
+    public function getGetInheritedProperties(): bool
+    {
+        return Folder::getGetInheritedProperties();
+    }
+
+    public function setGetInheritedProperties(bool $getInheritedProperties): void
+    {
+        Folder::setGetInheritedProperties($getInheritedProperties);
+    }
+
     public function setGetInheritedValues(bool $getInheritedValues): void
     {
         Folder::setGetInheritedValues($getInheritedValues);

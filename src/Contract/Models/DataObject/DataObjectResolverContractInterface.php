@@ -28,6 +28,10 @@ interface DataObjectResolverContractInterface
 
     public function doHideUnpublished(): bool;
 
+    public function getGetInheritedProperties(): bool;
+
+    public function setGetInheritedProperties(bool $getInheritedProperties): void;
+
     public function setGetInheritedValues(bool $getInheritedValues): void;
 
     public function getGetInheritedValues(): bool;

@@ -66,4 +66,15 @@ class DocumentResolverContract implements DocumentResolverContractInterface
     {
         return Document::locateDaoClass($modelClass);
     }
+
+    public function getGetInheritedProperties(): bool
+    {
+        return Document::getGetInheritedProperties();
+    }
+
+    public function setGetInheritedProperties(bool $getInheritedProperties): void
+    {
+        Document::setGetInheritedProperties($getInheritedProperties);
+    }
+
 }
