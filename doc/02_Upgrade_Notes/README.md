@@ -1,5 +1,9 @@
 # Upgrade notes
 
+## Upgrade to 2026.1.0
+- Added support to `PHP` `8.5`.
+- Removed support to `PHP` `8.3` and Symfony `v6`.
+
 ## 4.0.0
 - Added getter/setter of GetInheritedProperties in element contract interfaces 
 
