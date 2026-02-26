@@ -24,7 +24,7 @@
   "minimum-stability": "dev",
   "require": {
     "php": "~8.4.0 || ~8.5.0",
-    "pimcore/pimcore": "dev-support-php-8.5",
+    "pimcore/pimcore": "^2026.1",
     "friendsofphp/proxy-manager-lts": "^1"
   },
   "require-dev": {
@@ -39,7 +39,7 @@
   },
   "extra": {
     "branch-alias": {
-      "dev-2026.x": "3.3.x-dev"
+      "dev-2026.x": "2026.1.x-dev"
     },
     "pimcore": {
       "bundles": [
