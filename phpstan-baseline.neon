@@ -29,3 +29,11 @@ parameters:
 			message: "#^Unable to resolve the template type RealObjectType in call to method ProxyManager\\\\Factory\\\\RemoteObjectFactory\\:\\:createProxy\\(\\)$#"
 			count: 2
 			path: src/Proxy/Factory/RemoteObject/RemoteObjectFactory.php
+
+		-
+			message: "#^Method Pimcore\\\\Bundle\\\\StaticResolverBundle\\\\.* has parameter .* with no value type specified in iterable type array\\.$#"
+			path: Contract/*
+
+		-
+			message: "#^Method Pimcore\\\\Bundle\\\\StaticResolverBundle\\\\.* return type has no value type specified in iterable type array\\.$#"
+			path: Contract/*
