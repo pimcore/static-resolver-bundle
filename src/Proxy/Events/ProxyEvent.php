@@ -81,7 +81,7 @@ class ProxyEvent extends GenericEvent implements ProxyEventInterface
 
         $returnType = $method->getReturnType();
 
-        if ($response === null && $returnType?->allowsNull()) {
+        if ($response === null && $returnType->allowsNull()) {
             return;
         }
 
@@ -137,7 +137,7 @@ class ProxyEvent extends GenericEvent implements ProxyEventInterface
      * @return array
      */
     private function getTypeArray(
-        ReflectionIntersectionType|ReflectionNamedType|ReflectionUnionType|null $returnType
+        \ReflectionType|null $returnType
     ): array {
         $returnTypeArray = [];
         if ($returnType instanceof ReflectionUnionType || $returnType instanceof ReflectionIntersectionType) {
