@@ -6,7 +6,7 @@ parameters:
 			path: src/Proxy/Events/ProxyEvent.php
 
 		-
-			message: "#^Parameter \\#1 \\$returnType of method Pimcore\\\\Bundle\\\\StaticResolverBundle\\\\Proxy\\\\Events\\\\ProxyEvent\\:\\:getTypeArray\\(\\) expects ReflectionIntersectionType\\|ReflectionNamedType\\|ReflectionUnionType\\|null, ReflectionType\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$returnType of method Pimcore\\\\Bundle\\\\StaticResolverBundle\\\\Proxy\\\\Events\\\\ProxyEvent\\:\\:getTypeArray\\(\\) expects ReflectionIntersectionType\\|ReflectionNamedType\\|ReflectionUnionType\\|null, ReflectionType(\\|null)? given\\.$#"
 			count: 1
 			path: src/Proxy/Events/ProxyEvent.php
 
@@ -16,7 +16,7 @@ parameters:
 			path: src/Proxy/Events/ProxyPreInterceptor.php
 
 		-
-			message: "#^Parameter \\#1 \\$returnType of method Pimcore\\\\Bundle\\\\StaticResolverBundle\\\\Proxy\\\\Events\\\\ProxyPreInterceptor\\:\\:getTypeArray\\(\\) expects ReflectionIntersectionType\\|ReflectionNamedType\\|ReflectionUnionType\\|null, ReflectionType\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$returnType of method Pimcore\\\\Bundle\\\\StaticResolverBundle\\\\Proxy\\\\Events\\\\ProxyPreInterceptor\\:\\:getTypeArray\\(\\) expects ReflectionIntersectionType\\|ReflectionNamedType\\|ReflectionUnionType\\|null, ReflectionType(\\|null)? given\\.$#"
 			count: 1
 			path: src/Proxy/Events/ProxyPreInterceptor.php
 
