@@ -99,7 +99,7 @@ final class ProxyPreInterceptor extends Event implements ProxyPreInterceptorInte
 
         $returnType = $method->getReturnType();
 
-        if ($response === null && $returnType?->allowsNull()) {
+        if ($response === null && $returnType->allowsNull()) {
             return;
         }
 
@@ -155,7 +155,7 @@ final class ProxyPreInterceptor extends Event implements ProxyPreInterceptorInte
      * @return array
      */
     private function getTypeArray(
-        ReflectionIntersectionType|ReflectionNamedType|ReflectionUnionType|null $returnType
+        \ReflectionType|null $returnType
     ): array {
         $returnTypeArray = [];
         if ($returnType instanceof ReflectionUnionType || $returnType instanceof ReflectionIntersectionType) {

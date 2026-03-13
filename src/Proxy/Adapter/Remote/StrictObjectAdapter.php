@@ -64,6 +64,6 @@ final class StrictObjectAdapter implements ObjectAdapterInterface
             // @codeCoverageIgnoreEnd
         }
 
-        return !(!is_object($reflection) || !$reflection->isPublic());
+        return $reflection->isPublic();
     }
 }
