@@ -32,6 +32,7 @@ parameters:
 
 		-
 			message: "#^Method Pimcore\\\\Bundle\\\\StaticResolverBundle\\\\DependencyInjection\\\\Configuration\\:\\:getConfigTreeBuilder\\(\\) return type with generic class Symfony\\\\Component\\\\Config\\\\Definition\\\\Builder\\\\TreeBuilder does not specify its types\\: T$#"
+			count: 1
 			path: DependencyInjection/Configuration.php
 
 		-
