@@ -31,6 +31,10 @@ parameters:
 			path: src/Proxy/Factory/RemoteObject/RemoteObjectFactory.php
 
 		-
+			message: "#^Method Pimcore\\\\Bundle\\\\StaticResolverBundle\\\\DependencyInjection\\\\Configuration\\:\\:getConfigTreeBuilder\\(\\) return type with generic class Symfony\\\\Component\\\\Config\\\\Definition\\\\Builder\\\\TreeBuilder does not specify its types\\: T$#"
+			path: DependencyInjection/Configuration.php
+
+		-
 			message: "#^Method Pimcore\\\\Bundle\\\\StaticResolverBundle\\\\.* has parameter .* with no value type specified in iterable type array\\.$#"
 			path: **
 
