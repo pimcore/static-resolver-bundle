@@ -32,8 +32,8 @@ parameters:
 
 		-
 			message: "#^Method Pimcore\\\\Bundle\\\\StaticResolverBundle\\\\.* has parameter .* with no value type specified in iterable type array\\.$#"
-			path: Contract/*
+			path: **
 
 		-
 			message: "#^Method Pimcore\\\\Bundle\\\\StaticResolverBundle\\\\.* return type has no value type specified in iterable type array\\.$#"
-			path: Contract/*
+			path: **
