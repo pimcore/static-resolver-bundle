@@ -26,7 +26,7 @@ class Configuration implements ConfigurationInterface
     /**
      * {@inheritdoc}
      *
-     * @return TreeBuilder<mixed>
+     * @return TreeBuilder<string>
      */
     public function getConfigTreeBuilder(): TreeBuilder
     {
