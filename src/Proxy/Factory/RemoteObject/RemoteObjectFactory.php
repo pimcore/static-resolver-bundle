@@ -28,7 +28,7 @@ final class RemoteObjectFactory implements RemoteObjectFactoryInterface
     protected ?Configuration $config = null;
 
     public function __construct(
-        readonly protected ?string $proxyPath = null
+        protected readonly ?string $proxyPath = null
     ) {
     }
 
