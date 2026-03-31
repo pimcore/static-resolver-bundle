@@ -1,8 +1,23 @@
 # Upgrade notes
 
 ## Upgrade to 2026.1.0
-- Added support to `PHP` `8.5`.
-- Removed support to `PHP` `8.3` and Symfony `v6`.
+
+### PHP / Symfony Requirements
+
+- Added support for PHP 8.5
+- Dropped PHP 8.3 and Symfony 6 support — upgrade to PHP 8.4+ and Symfony 7 before updating to this version
+
+### Removed Admin Classic UI (ExtJS) Support
+
+The bundle no longer supports the Pimcore Admin Classic UI (ExtJS):
+
+- `PimcoreStaticResolverBundle` no longer implements `PimcoreBundleAdminClassicInterface` and no longer uses `BundleAdminClassicTrait`
+
+### Interface / Type Hint Changes
+
+- `ProxyEvent::getTypeArray()` parameter type changed from `ReflectionIntersectionType|ReflectionNamedType|ReflectionUnionType|null` to `\ReflectionType|null`
+- `ProxyPreInterceptor::getTypeArray()` parameter type changed from `ReflectionIntersectionType|ReflectionNamedType|ReflectionUnionType|null` to `\ReflectionType|null`
+- In `ProxyEvent` and `ProxyPreInterceptor` the null-safe call `$returnType?->allowsNull()` has been replaced with `$returnType->allowsNull()` — callers must ensure `$returnType` is never `null` before invoking `allowsNull()`
 
 ## 4.0.0
 - Added getter/setter of GetInheritedProperties in element contract interfaces 
