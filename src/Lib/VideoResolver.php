@@ -15,7 +15,7 @@ namespace Pimcore\Bundle\StaticResolverBundle\Lib;
 
 use Exception;
 use Pimcore\Video;
-use Pimcore\Video\Adapter;
+use Pimcore\Video\AdapterInterface;
 
 /**
  * @internal
@@ -25,7 +25,7 @@ final class VideoResolver implements VideoResolverInterface
     /**
      * @throws Exception
      */
-    public function getInstance(): ?Adapter
+    public function getInstance(): ?AdapterInterface
     {
         return Video::getInstance();
     }
