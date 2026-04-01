@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Pimcore\Bundle\StaticResolverBundle\Lib;
 
 use Exception;
-use Pimcore\Document\Adapter;
+use Pimcore\Document\AdapterInterface;
 
 /**
  * @internal
@@ -24,11 +24,11 @@ interface DocumentResolverInterface
     /**
      * @throws Exception
      */
-    public function getInstance(?string $adapter = null): ?Adapter;
+    public function getInstance(?string $adapter = null): ?AdapterInterface;
 
     public function isAvailable(): bool;
 
     public function isFileTypeSupported(string $filetype): bool;
 
-    public function getDefaultAdapter(): ?Adapter;
+    public function getDefaultAdapter(): ?AdapterInterface;
 }

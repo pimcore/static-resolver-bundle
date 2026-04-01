@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Pimcore\Bundle\StaticResolverBundle\Lib;
 
 use Exception;
-use Pimcore\Video\Adapter;
+use Pimcore\Video\AdapterInterface;
 
 /**
  * @internal
@@ -24,7 +24,7 @@ interface VideoResolverInterface
     /**
      * @throws Exception
      */
-    public function getInstance(): ?Adapter;
+    public function getInstance(): ?AdapterInterface;
 
     public function isAvailable(): bool;
 }

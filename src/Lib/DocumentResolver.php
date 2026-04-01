@@ -15,7 +15,7 @@ namespace Pimcore\Bundle\StaticResolverBundle\Lib;
 
 use Exception;
 use Pimcore\Document;
-use Pimcore\Document\Adapter;
+use Pimcore\Document\AdapterInterface;
 
 /**
  * @internal
@@ -25,7 +25,7 @@ final class DocumentResolver implements DocumentResolverInterface
     /**
      * @throws Exception
      */
-    public function getInstance(?string $adapter = null): ?Adapter
+    public function getInstance(?string $adapter = null): ?AdapterInterface
     {
         return Document::getInstance($adapter);
     }
@@ -40,7 +40,7 @@ final class DocumentResolver implements DocumentResolverInterface
         return Document::isFileTypeSupported($filetype);
     }
 
-    public function getDefaultAdapter(): ?Adapter
+    public function getDefaultAdapter(): ?AdapterInterface
     {
         return Document::getDefaultAdapter();
     }
