@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Pimcore\Bundle\StaticResolverBundle\Lib\Helper;
 
-use Pimcore\Helper\SystemConfig;
 use Pimcore\Config\LocationAwareConfigRepository;
+use Pimcore\Helper\SystemConfig;
 
 /**
  * @internal
