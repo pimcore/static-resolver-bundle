@@ -71,13 +71,6 @@ interface DataObjectServiceResolverContractInterface
         string $type
     ): ?array;
 
-    public function calculateCellValue(
-        AbstractObject $object,
-        array $helperDefinitions,
-        string $key,
-        array $context = []
-    ): mixed;
-
     public function getLayoutPermissions(string $classId, ?array $permissionSet = null): ?array;
 
     public function getFieldForBrickType(ClassDefinition $class, string $bricktype): int|string|null;
