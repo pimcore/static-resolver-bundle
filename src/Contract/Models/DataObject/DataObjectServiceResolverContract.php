@@ -98,15 +98,6 @@ class DataObjectServiceResolverContract implements DataObjectServiceResolverCont
         return Service::getLanguagePermissions($object, $user, $type);
     }
 
-    public function calculateCellValue(
-        AbstractObject $object,
-        array $helperDefinitions,
-        string $key,
-        array $context = []
-    ): mixed {
-        return Service::calculateCellValue($object, $helperDefinitions, $key, $context);
-    }
-
     public function getLayoutPermissions(string $classId, ?array $permissionSet = null): ?array
     {
         return Service::getLayoutPermissions($classId, $permissionSet);
