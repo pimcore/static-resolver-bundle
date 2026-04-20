@@ -1,50 +1,49 @@
 {
-  "name": "pimcore/static-resolver-bundle",
-  "license": "proprietary",
-  "type": "pimcore-bundle",
-  "description": "Pimcore Static Resolver Bundle",
-  "config": {
-    "sort-packages": true,
-    "preferred-install": {
-      "pimcore/pimcore": "source",
-      "*": "dist"
-    }
-  },
-  "autoload": {
-    "psr-4": {
-      "Pimcore\\Bundle\\StaticResolverBundle\\": "src/"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "Pimcore\\Bundle\\StaticResolverBundle\\Tests\\": "tests"
-    }
-  },
-  "prefer-stable": true,
-  "minimum-stability": "dev",
-  "require": {
-    "php": "~8.3.0 || ~8.4.0",
-    "pimcore/pimcore": "^12.0",
-    "friendsofphp/proxy-manager-lts": "^1"
-  },
-  "require-dev": {
-    "phpstan/phpstan": "1.12.15",
-    "phpstan/phpstan-symfony": "^1.2.20",
-    "phpunit/phpunit": "^10.2",
-    "codeception/codeception": "^5.0.10",
-    "codeception/module-symfony":"^3.1.1",
-    "codeception/phpunit-wrapper": "^9",
-    "codeception/module-asserts": "^2",
-    "fakerphp/faker": "^1.23"
-  },
-  "extra": {
-    "branch-alias": {
-      "dev-3.x": "3.3.x-dev"
+    "name": "pimcore/static-resolver-bundle",
+    "license": "proprietary",
+    "type": "pimcore-bundle",
+    "description": "Pimcore Static Resolver Bundle",
+    "config": {
+        "sort-packages": true,
+        "preferred-install": {
+            "pimcore/pimcore": "source",
+            "*": "dist"
+        }
     },
-    "pimcore": {
-      "bundles": [
-        "Pimcore\\Bundle\\StaticResolverBundle\\PimcoreStaticResolverBundle"
-      ]
+    "autoload": {
+        "psr-4": {
+            "Pimcore\\Bundle\\StaticResolverBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Pimcore\\Bundle\\StaticResolverBundle\\Tests\\": "tests"
+        }
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev",
+    "require": {
+        "php": "~8.3.0 || ~8.4.0",
+        "pimcore/pimcore": "^12.0",
+        "friendsofphp/proxy-manager-lts": "^1"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "1.12.15",
+        "phpstan/phpstan-symfony": "^1.2.20",
+        "phpunit/phpunit": "^12.5.23 || ^13.1.7",
+        "codeception/codeception": "^5.3.5",
+        "codeception/module-symfony": "^3.1.1",
+        "codeception/module-asserts": "^2",
+        "fakerphp/faker": "^1.23"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-3.x": "3.3.x-dev"
+        },
+        "pimcore": {
+            "bundles": [
+                "Pimcore\\Bundle\\StaticResolverBundle\\PimcoreStaticResolverBundle"
+            ]
+        }
     }
-  }
 }
