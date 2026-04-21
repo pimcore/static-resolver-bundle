@@ -17,7 +17,11 @@ use Pimcore\Bundle\StaticResolverBundle\Contract\Models\DataObject\DataObjectSer
 use Pimcore\Model\DataObject\ClassDefinition;
 use Pimcore\Model\DataObject\ClassDefinition\Data;
 use Pimcore\Model\DataObject\Concrete;
+use Pimcore\Model\DataObject\Data\CalculatedValue;
+use Pimcore\Model\DataObject\Fieldcollection\Data\AbstractData as FieldCollectionData;
+use Pimcore\Model\DataObject\Objectbrick\Data\AbstractData as ObjectbrickData;
 use Pimcore\Model\DataObject\Service;
+use Pimcore\Model\DataObject\Service as PimcoreDataObjectService;
 use Pimcore\Model\User;
 
 /**
@@ -49,5 +53,20 @@ final class DataObjectServiceResolver extends DataObjectServiceResolverContract 
         ?User $user = null
     ): void {
         Service::enrichLayoutPermissions($layout, $allowedView, $allowedEdit, $user);
+    }
+
+    public function getCalculatedFieldValue(
+        FieldCollectionData|ObjectbrickData|Concrete $object,
+        ?CalculatedValue $data,
+    ): mixed {
+        return PimcoreDataObjectService::getCalculatedFieldValue($object, $data);
+    }
+
+    public function getCalculatedFieldValueForEditMode(
+        Concrete $object,
+        array $params,
+        ?CalculatedValue $data,
+    ): ?string {
+        return PimcoreDataObjectService::getCalculatedFieldValueForEditMode($object, $params, $data);
     }
 }

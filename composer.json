@@ -28,12 +28,11 @@
     "friendsofphp/proxy-manager-lts": "^1"
   },
   "require-dev": {
-    "phpstan/phpstan": "2.1.40",
-    "phpstan/phpstan-symfony": "^2.0",
-    "phpunit/phpunit": "^10.2",
-    "codeception/codeception": "^5.3.1",
-    "codeception/module-symfony":"^3.7.1",
-    "codeception/phpunit-wrapper": "^10",
+    "phpstan/phpstan": "1.12.15",
+    "phpstan/phpstan-symfony": "^1.2.20",
+    "phpunit/phpunit": "^12.5.23 || ^13.1.7",
+    "codeception/codeception": "^5.3.5",
+    "codeception/module-symfony": "^3.1.1",
     "codeception/module-asserts": "^2",
     "fakerphp/faker": "^1.23"
   },
