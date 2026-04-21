@@ -47,7 +47,6 @@ interface DataObjectServiceResolverInterface extends DataObjectServiceResolverCo
         ?User $user = null
     ): void;
 
-
     public function getCalculatedFieldValue(
         FieldCollectionData|ObjectbrickData|Concrete $object,
         ?CalculatedValue $data,
