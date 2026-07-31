@@ -34,6 +34,6 @@ class VersionResolverContract implements VersionResolverContractInterface
 
     public function getPlatformVersion(): ?string
     {
-       return Version::getPlatformVersion();
+        return Version::getPlatformVersion();
     }
 }

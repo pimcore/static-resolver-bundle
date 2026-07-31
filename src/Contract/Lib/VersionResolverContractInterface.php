@@ -16,7 +16,10 @@ namespace Pimcore\Bundle\StaticResolverBundle\Contract\Lib;
 interface VersionResolverContractInterface
 {
     public function getMajorVersion(): int;
+
     public function getVersion(): string;
+
     public function getRevision(): string;
+
     public function getPlatformVersion(): ?string;
 }

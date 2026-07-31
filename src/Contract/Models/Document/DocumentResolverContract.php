@@ -76,5 +76,4 @@ class DocumentResolverContract implements DocumentResolverContractInterface
     {
         Document::setGetInheritedProperties($getInheritedProperties);
     }
-
 }
