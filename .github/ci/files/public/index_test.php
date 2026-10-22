@@ -12,7 +12,7 @@
 use Pimcore\Tool;
 use Symfony\Component\HttpFoundation\Request;
 
-include __DIR__ . "/../vendor/autoload.php";
+include_once __DIR__ . "/../vendor/autoload.php";
 
 define('PIMCORE_PROJECT_ROOT', __DIR__ . '/..');
 define('APP_ENV', 'test');
@@ -20,19 +20,21 @@ define('APP_ENV', 'test');
 \Pimcore\Bootstrap::setProjectRoot();
 \Pimcore\Bootstrap::bootstrap();
 
-$request = Request::createFromGlobals();
+(static function (): void {
+    $request = Request::createFromGlobals();
 
-// set current request as property on tool as there's no
-// request stack available yet
-Tool::setCurrentRequest($request);
+    // set current request as property on tool as there's no
+    // request stack available yet
+    Tool::setCurrentRequest($request);
 
-/** @var \Pimcore\Kernel $kernel */
-$kernel = \Pimcore\Bootstrap::kernel();
+    /** @var \Pimcore\Kernel $kernel */
+    $kernel = \Pimcore\Bootstrap::kernel();
 
-// reset current request - will be read from request stack from now on
-Tool::setCurrentRequest(null);
+    // reset current request - will be read from request stack from now on
+    Tool::setCurrentRequest(null);
 
-$response = $kernel->handle($request);
-$response->send();
+    $response = $kernel->handle($request);
+    $response->send();
 
-$kernel->terminate($request, $response);
+    $kernel->terminate($request, $response);
+})();
