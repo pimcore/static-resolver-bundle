@@ -1,5 +1,9 @@
 # Upgrade notes
 
+## Upgrade to 2026.4.0
+- Requires Pimcore 2026.4 (`pimcore/pimcore: ^2026.4`).
+- Added `useInheritedProperties()` to the element, asset, document and data object service resolver contracts, it calls `Pimcore\Model\Element\Service::useInheritedProperties()`. The method is not part of the `*ServiceResolverContractInterface` interfaces yet, as adding it there would break other implementations of them.
+
 ## Upgrade to 2026.1.0
 - Added support to `PHP` `8.5`.
 - Removed support to `PHP` `8.3` and Symfony `v6`.

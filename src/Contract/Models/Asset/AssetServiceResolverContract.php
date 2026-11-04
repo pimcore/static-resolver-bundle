@@ -147,4 +147,12 @@ class AssetServiceResolverContract implements AssetServiceResolverContractInterf
     {
         return Service::locateDaoClass($modelClass);
     }
+
+    /**
+     * @param array<int|string, mixed> $fnArgs
+     */
+    public function useInheritedProperties(bool $inheritProperties, callable $fn, array $fnArgs = []): mixed
+    {
+        return Service::useInheritedProperties($inheritProperties, $fn, $fnArgs);
+    }
 }
