@@ -17,7 +17,6 @@ use Pimcore\Model\Asset;
 use Pimcore\Model\DataObject;
 use Pimcore\Model\DataObject\AbstractObject;
 use Pimcore\Model\Document;
-use Pimcore\Model\Element\AbstractElement;
 use Pimcore\Model\Element\ElementInterface;
 use Pimcore\Model\Element\Service;
 
@@ -112,14 +111,6 @@ class ServiceResolverContract implements ServiceResolverContractInterface
      */
     public function useInheritedProperties(bool $inheritProperties, callable $fn, array $fnArgs = []): mixed
     {
-        // Same as Service::useInheritedProperties(), which only exists from Pimcore 2026.4 on
-        $backup = AbstractElement::getGetInheritedProperties();
-        AbstractElement::setGetInheritedProperties($inheritProperties);
-
-        try {
-            return $fn(...$fnArgs);
-        } finally {
-            AbstractElement::setGetInheritedProperties($backup);
-        }
+        return Service::useInheritedProperties($inheritProperties, $fn, $fnArgs);
     }
 }
