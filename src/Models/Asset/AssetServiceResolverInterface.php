@@ -22,4 +22,9 @@ use Pimcore\Model\Asset;
 interface AssetServiceResolverInterface extends AssetServiceResolverContractInterface
 {
     public function rewriteIds(Asset $asset, array $rewriteConfig): Asset;
+
+    /**
+     * @param array<int|string, mixed> $fnArgs
+     */
+    public function useInheritedProperties(bool $inheritProperties, callable $fn, array $fnArgs = []): mixed;
 }

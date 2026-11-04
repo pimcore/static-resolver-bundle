@@ -30,4 +30,9 @@ interface ServiceResolverInterface extends ServiceResolverContractInterface
     public function escapeCsvRecord(array $rowData): array;
 
     public function unEscapeCsvRecord(array $rowData): array;
+
+    /**
+     * @param array<int|string, mixed> $fnArgs
+     */
+    public function useInheritedProperties(bool $inheritProperties, callable $fn, array $fnArgs = []): mixed;
 }
