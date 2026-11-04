@@ -29,6 +29,7 @@ use Pimcore\Model\DataObject\Objectbrick;
 use Pimcore\Model\DataObject\Objectbrick\Data\AbstractData as ObjectBrickData;
 use Pimcore\Model\DataObject\Service;
 use Pimcore\Model\Document;
+use Pimcore\Model\Element\AbstractElement;
 use Pimcore\Model\Element\ElementInterface;
 
 class DataObjectServiceResolverContract implements DataObjectServiceResolverContractInterface
@@ -236,5 +237,21 @@ class DataObjectServiceResolverContract implements DataObjectServiceResolverCont
     public function locateDaoClass(string $modelClass): ?string
     {
         return Service::locateDaoClass($modelClass);
+    }
+
+    /**
+     * @param array<int|string, mixed> $fnArgs
+     */
+    public function useInheritedProperties(bool $inheritProperties, callable $fn, array $fnArgs = []): mixed
+    {
+        // Same as Service::useInheritedProperties(), which only exists from Pimcore 2026.4 on
+        $backup = AbstractElement::getGetInheritedProperties();
+        AbstractElement::setGetInheritedProperties($inheritProperties);
+
+        try {
+            return $fn(...$fnArgs);
+        } finally {
+            AbstractElement::setGetInheritedProperties($backup);
+        }
     }
 }

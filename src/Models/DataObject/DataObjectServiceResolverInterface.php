@@ -57,4 +57,9 @@ interface DataObjectServiceResolverInterface extends DataObjectServiceResolverCo
         array $params,
         ?CalculatedValue $data,
     ): ?string;
+
+    /**
+     * @param array<int|string, mixed> $fnArgs
+     */
+    public function useInheritedProperties(bool $inheritProperties, callable $fn, array $fnArgs = []): mixed;
 }
