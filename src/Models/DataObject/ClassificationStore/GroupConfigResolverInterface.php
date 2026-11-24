@@ -14,10 +14,12 @@ declare(strict_types=1);
 namespace Pimcore\Bundle\StaticResolverBundle\Models\DataObject\ClassificationStore;
 
 use Pimcore\Bundle\StaticResolverBundle\Contract\Models\DataObject\ClassificationStore\GroupConfigResolverContractInterface;
+use Pimcore\Model\DataObject\Classificationstore\GroupConfig;
 
 /**
  * @internal
  */
 interface GroupConfigResolverInterface extends GroupConfigResolverContractInterface
 {
+    public function getByIdentifier(string $identifier, int $storeId = 1): ?GroupConfig;
 }
