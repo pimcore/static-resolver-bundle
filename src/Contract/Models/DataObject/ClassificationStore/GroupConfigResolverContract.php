@@ -40,4 +40,9 @@ class GroupConfigResolverContract implements GroupConfigResolverContractInterfac
     {
         return GroupConfig::locateDaoClass($modelClass);
     }
+
+    public function getByIdentifier(string $identifier, int $storeId = 1): ?GroupConfig
+    {
+        return GroupConfig::getByIdentifier($identifier, $storeId);
+    }
 }
